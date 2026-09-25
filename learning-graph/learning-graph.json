@@ -1,0 +1,4372 @@
+{
+  "metadata": {
+    "title": "The Eight-Hour Entrepreneur",
+    "description": "An interactive intelligent textbook for an intensive, virtual \"learning lab\" designed to take early-stage entrepreneurs from an unrefined concept to a validated, launch-ready venture in 8 total hours (four 2-hour virtual sessions).",
+    "creator": "Dan McCreary",
+    "date": "2026-09-25",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "FOUND": {
+      "classifierName": "Entrepreneurship Foundations & Philosophy",
+      "color": "SteelBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "CANV": {
+      "classifierName": "CO.STARTERS Canvas Framework",
+      "color": "DarkSlateBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "CUST": {
+      "classifierName": "Customer Discovery & Segmentation",
+      "color": "DarkGreen",
+      "font": {
+        "color": "white"
+      }
+    },
+    "PROB": {
+      "classifierName": "Problem Definition & Pain Points",
+      "color": "LimeGreen",
+      "font": {
+        "color": "black"
+      }
+    },
+    "SOL": {
+      "classifierName": "Solution Design & Offer Development",
+      "color": "Gold",
+      "font": {
+        "color": "black"
+      }
+    },
+    "ALT": {
+      "classifierName": "Alternatives & Competitive Analysis",
+      "color": "DarkGoldenrod",
+      "font": {
+        "color": "white"
+      }
+    },
+    "VALU": {
+      "classifierName": "Value Proposition: Benefit & Advantage",
+      "color": "Khaki",
+      "font": {
+        "color": "black"
+      }
+    },
+    "INTV": {
+      "classifierName": "Discovery Interviews & Research Methods",
+      "color": "Teal",
+      "font": {
+        "color": "white"
+      }
+    },
+    "VALID": {
+      "classifierName": "Lean Validation & Testing",
+      "color": "DodgerBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "MSG": {
+      "classifierName": "Messaging & Communication",
+      "color": "LightSkyBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "DIST": {
+      "classifierName": "Distribution & Go-to-Market",
+      "color": "Crimson",
+      "font": {
+        "color": "white"
+      }
+    },
+    "REV": {
+      "classifierName": "Revenue Models & Pricing",
+      "color": "DarkRed",
+      "font": {
+        "color": "white"
+      }
+    },
+    "FIN": {
+      "classifierName": "Startup Needs & Cost Planning",
+      "color": "MediumPurple",
+      "font": {
+        "color": "white"
+      }
+    },
+    "LAUNCH": {
+      "classifierName": "Launch Planning, Pitching & Accountability",
+      "color": "Indigo",
+      "font": {
+        "color": "white"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Entrepreneurship",
+      "group": "FOUND",
+      "shape": "box",
+      "cis": 49006
+    },
+    {
+      "id": 2,
+      "label": "Early-Stage Venture",
+      "group": "FOUND",
+      "shape": "box",
+      "cis": 50261
+    },
+    {
+      "id": 3,
+      "label": "Unrefined Concept",
+      "group": "FOUND",
+      "shape": "box",
+      "cis": 625
+    },
+    {
+      "id": 4,
+      "label": "Business Idea",
+      "group": "FOUND",
+      "shape": "box",
+      "cis": 202470
+    },
+    {
+      "id": 5,
+      "label": "Idea Trap",
+      "group": "FOUND",
+      "cis": 50154
+    },
+    {
+      "id": 6,
+      "label": "Clarity",
+      "group": "FOUND",
+      "cis": 785
+    },
+    {
+      "id": 7,
+      "label": "Validation",
+      "group": "FOUND",
+      "cis": 50260
+    },
+    {
+      "id": 8,
+      "label": "Action",
+      "group": "FOUND",
+      "cis": 624
+    },
+    {
+      "id": 9,
+      "label": "Launch",
+      "group": "FOUND",
+      "cis": 751
+    },
+    {
+      "id": 10,
+      "label": "Lean Startup Philosophy",
+      "group": "FOUND",
+      "cis": 49529
+    },
+    {
+      "id": 11,
+      "label": "Evidence-Based Decision Making",
+      "group": "FOUND",
+      "cis": 33
+    },
+    {
+      "id": 12,
+      "label": "Assumption",
+      "group": "FOUND",
+      "cis": 730
+    },
+    {
+      "id": 13,
+      "label": "Validated Learning",
+      "group": "FOUND",
+      "cis": 590
+    },
+    {
+      "id": 14,
+      "label": "Founder Mindset",
+      "group": "FOUND",
+      "cis": 20
+    },
+    {
+      "id": 15,
+      "label": "Psychological Safety",
+      "group": "FOUND",
+      "cis": 718
+    },
+    {
+      "id": 16,
+      "label": "Founder Story",
+      "group": "FOUND",
+      "cis": 12
+    },
+    {
+      "id": 17,
+      "label": "Messy Idea Normalization",
+      "group": "FOUND",
+      "cis": 11
+    },
+    {
+      "id": 18,
+      "label": "Field Discovery Window",
+      "group": "FOUND",
+      "cis": 6
+    },
+    {
+      "id": 19,
+      "label": "Real-World Customer Friction",
+      "group": "FOUND",
+      "cis": 8
+    },
+    {
+      "id": 20,
+      "label": "Cohort-Based Learning",
+      "group": "FOUND",
+      "cis": 4
+    },
+    {
+      "id": 21,
+      "label": "Virtual Learning Lab",
+      "group": "FOUND",
+      "cis": 3
+    },
+    {
+      "id": 22,
+      "label": "Peer Learning Community",
+      "group": "FOUND",
+      "cis": 6
+    },
+    {
+      "id": 23,
+      "label": "Founder Resilience",
+      "group": "FOUND",
+      "cis": 2
+    },
+    {
+      "id": 24,
+      "label": "Customer Empathy",
+      "group": "FOUND",
+      "cis": 1
+    },
+    {
+      "id": 25,
+      "label": "Business Viability",
+      "group": "FOUND",
+      "cis": 1
+    },
+    {
+      "id": 26,
+      "label": "Growth Mindset",
+      "group": "FOUND",
+      "cis": 1
+    },
+    {
+      "id": 27,
+      "label": "CO.STARTERS Canvas",
+      "group": "CANV",
+      "cis": 48220
+    },
+    {
+      "id": 28,
+      "label": "Business Model Canvas",
+      "group": "CANV",
+      "cis": 10263
+    },
+    {
+      "id": 29,
+      "label": "Canvas Block",
+      "group": "CANV",
+      "cis": 4624
+    },
+    {
+      "id": 30,
+      "label": "Canvas Sprint",
+      "group": "CANV",
+      "cis": 4239
+    },
+    {
+      "id": 31,
+      "label": "Customer Block",
+      "group": "CANV",
+      "cis": 6023
+    },
+    {
+      "id": 32,
+      "label": "Problem Block",
+      "group": "CANV",
+      "cis": 4623
+    },
+    {
+      "id": 33,
+      "label": "Solution Block",
+      "group": "CANV",
+      "cis": 4238
+    },
+    {
+      "id": 34,
+      "label": "Alternatives Block",
+      "group": "CANV",
+      "cis": 1624
+    },
+    {
+      "id": 35,
+      "label": "Benefit Block",
+      "group": "CANV",
+      "cis": 1562
+    },
+    {
+      "id": 36,
+      "label": "Advantage Block",
+      "group": "CANV",
+      "cis": 1961
+    },
+    {
+      "id": 37,
+      "label": "Message Block",
+      "group": "CANV",
+      "cis": 966
+    },
+    {
+      "id": 38,
+      "label": "Distribution Block",
+      "group": "CANV",
+      "cis": 967
+    },
+    {
+      "id": 39,
+      "label": "Revenue Block",
+      "group": "CANV",
+      "cis": 1366
+    },
+    {
+      "id": 40,
+      "label": "Startup Needs Block",
+      "group": "CANV",
+      "cis": 481
+    },
+    {
+      "id": 41,
+      "label": "Costs Block",
+      "group": "CANV",
+      "cis": 481
+    },
+    {
+      "id": 42,
+      "label": "Canvas Synthesis",
+      "group": "CANV",
+      "cis": 403
+    },
+    {
+      "id": 43,
+      "label": "Target Customer",
+      "group": "CUST",
+      "cis": 4398
+    },
+    {
+      "id": 44,
+      "label": "Customer Segment",
+      "group": "CUST",
+      "cis": 15
+    },
+    {
+      "id": 45,
+      "label": "Customer Definition",
+      "group": "CUST",
+      "cis": 8
+    },
+    {
+      "id": 46,
+      "label": "Ideal Customer Profile",
+      "group": "CUST",
+      "cis": 7
+    },
+    {
+      "id": 47,
+      "label": "Customer Persona",
+      "group": "CUST",
+      "cis": 7
+    },
+    {
+      "id": 48,
+      "label": "Who You Serve",
+      "group": "CUST",
+      "cis": 7
+    },
+    {
+      "id": 49,
+      "label": "Customer Identification",
+      "group": "CUST",
+      "cis": 6
+    },
+    {
+      "id": 50,
+      "label": "Niche Market",
+      "group": "CUST",
+      "cis": 6
+    },
+    {
+      "id": 51,
+      "label": "Broad Market",
+      "group": "CUST",
+      "cis": 6
+    },
+    {
+      "id": 52,
+      "label": "Customer Avatar",
+      "group": "CUST",
+      "cis": 5
+    },
+    {
+      "id": 53,
+      "label": "Early Adopter",
+      "group": "CUST",
+      "cis": 5
+    },
+    {
+      "id": 54,
+      "label": "Mainstream Customer",
+      "group": "CUST",
+      "cis": 5
+    },
+    {
+      "id": 55,
+      "label": "Customer Needs",
+      "group": "CUST",
+      "cis": 4
+    },
+    {
+      "id": 56,
+      "label": "Customer Behavior",
+      "group": "CUST",
+      "cis": 4
+    },
+    {
+      "id": 57,
+      "label": "Customer Motivation",
+      "group": "CUST",
+      "cis": 4
+    },
+    {
+      "id": 58,
+      "label": "Customer Journey",
+      "group": "CUST",
+      "cis": 3
+    },
+    {
+      "id": 59,
+      "label": "Market Segment",
+      "group": "CUST",
+      "cis": 3
+    },
+    {
+      "id": 60,
+      "label": "B2B Customer",
+      "group": "CUST",
+      "cis": 3
+    },
+    {
+      "id": 61,
+      "label": "B2C Customer",
+      "group": "CUST",
+      "cis": 2
+    },
+    {
+      "id": 62,
+      "label": "Customer Fit",
+      "group": "CUST",
+      "cis": 2
+    },
+    {
+      "id": 63,
+      "label": "Target Market Definition",
+      "group": "CUST",
+      "cis": 2
+    },
+    {
+      "id": 64,
+      "label": "Customer Prioritization",
+      "group": "CUST",
+      "cis": 1
+    },
+    {
+      "id": 65,
+      "label": "Serviceable Market",
+      "group": "CUST",
+      "cis": 1
+    },
+    {
+      "id": 66,
+      "label": "Customer Assumption",
+      "group": "CUST",
+      "cis": 1
+    },
+    {
+      "id": 67,
+      "label": "Problem Definition",
+      "group": "PROB",
+      "cis": 3060
+    },
+    {
+      "id": 68,
+      "label": "Pain Point",
+      "group": "PROB",
+      "cis": 13
+    },
+    {
+      "id": 69,
+      "label": "Customer Pain",
+      "group": "PROB",
+      "cis": 6
+    },
+    {
+      "id": 70,
+      "label": "Root Cause",
+      "group": "PROB",
+      "cis": 6
+    },
+    {
+      "id": 71,
+      "label": "Problem Statement",
+      "group": "PROB",
+      "cis": 6
+    },
+    {
+      "id": 72,
+      "label": "Problem Severity",
+      "group": "PROB",
+      "cis": 5
+    },
+    {
+      "id": 73,
+      "label": "Problem Frequency",
+      "group": "PROB",
+      "cis": 5
+    },
+    {
+      "id": 74,
+      "label": "Problem Prioritization",
+      "group": "PROB",
+      "cis": 5
+    },
+    {
+      "id": 75,
+      "label": "Real Problem",
+      "group": "PROB",
+      "cis": 4
+    },
+    {
+      "id": 76,
+      "label": "Perceived Problem",
+      "group": "PROB",
+      "cis": 4
+    },
+    {
+      "id": 77,
+      "label": "Problem Validation",
+      "group": "PROB",
+      "cis": 4
+    },
+    {
+      "id": 78,
+      "label": "Problem-Solution Fit",
+      "group": "PROB",
+      "cis": 3
+    },
+    {
+      "id": 79,
+      "label": "Symptom Vs Root Cause",
+      "group": "PROB",
+      "cis": 3
+    },
+    {
+      "id": 80,
+      "label": "Unmet Need",
+      "group": "PROB",
+      "cis": 3
+    },
+    {
+      "id": 81,
+      "label": "Job To Be Done",
+      "group": "PROB",
+      "cis": 2
+    },
+    {
+      "id": 82,
+      "label": "Problem Framing",
+      "group": "PROB",
+      "cis": 2
+    },
+    {
+      "id": 83,
+      "label": "Problem Urgency",
+      "group": "PROB",
+      "cis": 2
+    },
+    {
+      "id": 84,
+      "label": "Willingness To Solve",
+      "group": "PROB",
+      "cis": 1
+    },
+    {
+      "id": 85,
+      "label": "Essential Bills Priority",
+      "group": "PROB",
+      "cis": 1
+    },
+    {
+      "id": 86,
+      "label": "Problem Discovery",
+      "group": "PROB",
+      "cis": 1
+    },
+    {
+      "id": 87,
+      "label": "Solution Definition",
+      "group": "SOL",
+      "cis": 2276
+    },
+    {
+      "id": 88,
+      "label": "Initial Offer",
+      "group": "SOL",
+      "cis": 13
+    },
+    {
+      "id": 89,
+      "label": "Minimum Viable Offer",
+      "group": "SOL",
+      "cis": 6
+    },
+    {
+      "id": 90,
+      "label": "Product Offering",
+      "group": "SOL",
+      "cis": 6
+    },
+    {
+      "id": 91,
+      "label": "Service Offering",
+      "group": "SOL",
+      "cis": 6
+    },
+    {
+      "id": 92,
+      "label": "What You Offer",
+      "group": "SOL",
+      "cis": 5
+    },
+    {
+      "id": 93,
+      "label": "Solution Fit",
+      "group": "SOL",
+      "cis": 5
+    },
+    {
+      "id": 94,
+      "label": "Feature Vs Benefit",
+      "group": "SOL",
+      "cis": 5
+    },
+    {
+      "id": 95,
+      "label": "Offer Design",
+      "group": "SOL",
+      "cis": 4
+    },
+    {
+      "id": 96,
+      "label": "Solution Iteration",
+      "group": "SOL",
+      "cis": 4
+    },
+    {
+      "id": 97,
+      "label": "Solution Scope",
+      "group": "SOL",
+      "cis": 4
+    },
+    {
+      "id": 98,
+      "label": "Draft Business Idea",
+      "group": "SOL",
+      "cis": 3
+    },
+    {
+      "id": 99,
+      "label": "Solution Refinement",
+      "group": "SOL",
+      "cis": 3
+    },
+    {
+      "id": 100,
+      "label": "Core Offering",
+      "group": "SOL",
+      "cis": 3
+    },
+    {
+      "id": 101,
+      "label": "Value Delivery",
+      "group": "SOL",
+      "cis": 2
+    },
+    {
+      "id": 102,
+      "label": "Solution Simplicity",
+      "group": "SOL",
+      "cis": 2
+    },
+    {
+      "id": 103,
+      "label": "Solution Assumption",
+      "group": "SOL",
+      "cis": 2
+    },
+    {
+      "id": 104,
+      "label": "Offer Clarity",
+      "group": "SOL",
+      "cis": 1
+    },
+    {
+      "id": 105,
+      "label": "Solution Testing",
+      "group": "SOL",
+      "cis": 1
+    },
+    {
+      "id": 106,
+      "label": "Solution Pivot",
+      "group": "SOL",
+      "cis": 1
+    },
+    {
+      "id": 107,
+      "label": "Alternative Solution",
+      "group": "ALT",
+      "cis": 657
+    },
+    {
+      "id": 108,
+      "label": "Competitor",
+      "group": "ALT",
+      "cis": 11
+    },
+    {
+      "id": 109,
+      "label": "Competitive Landscape",
+      "group": "ALT",
+      "cis": 6
+    },
+    {
+      "id": 110,
+      "label": "Current Workaround",
+      "group": "ALT",
+      "cis": 5
+    },
+    {
+      "id": 111,
+      "label": "Substitute Solution",
+      "group": "ALT",
+      "cis": 5
+    },
+    {
+      "id": 112,
+      "label": "Direct Competitor",
+      "group": "ALT",
+      "cis": 5
+    },
+    {
+      "id": 113,
+      "label": "Indirect Competitor",
+      "group": "ALT",
+      "cis": 4
+    },
+    {
+      "id": 114,
+      "label": "Do-Nothing Alternative",
+      "group": "ALT",
+      "cis": 4
+    },
+    {
+      "id": 115,
+      "label": "Competitive Analysis",
+      "group": "ALT",
+      "cis": 4
+    },
+    {
+      "id": 116,
+      "label": "Market Gap",
+      "group": "ALT",
+      "cis": 3
+    },
+    {
+      "id": 117,
+      "label": "Competitive Positioning",
+      "group": "ALT",
+      "cis": 3
+    },
+    {
+      "id": 118,
+      "label": "Differentiation",
+      "group": "ALT",
+      "cis": 3
+    },
+    {
+      "id": 119,
+      "label": "Competitive Research",
+      "group": "ALT",
+      "cis": 2
+    },
+    {
+      "id": 120,
+      "label": "Existing Solution",
+      "group": "ALT",
+      "cis": 2
+    },
+    {
+      "id": 121,
+      "label": "Status Quo",
+      "group": "ALT",
+      "cis": 2
+    },
+    {
+      "id": 122,
+      "label": "Competitive Landscape Mapping",
+      "group": "ALT",
+      "cis": 1
+    },
+    {
+      "id": 123,
+      "label": "Alternative Assessment",
+      "group": "ALT",
+      "cis": 1
+    },
+    {
+      "id": 124,
+      "label": "Competitive Intelligence",
+      "group": "ALT",
+      "cis": 1
+    },
+    {
+      "id": 125,
+      "label": "Value Proposition",
+      "group": "VALU",
+      "cis": 594
+    },
+    {
+      "id": 126,
+      "label": "Customer Benefit",
+      "group": "VALU",
+      "cis": 14
+    },
+    {
+      "id": 127,
+      "label": "Founder Advantage",
+      "group": "VALU",
+      "cis": 7
+    },
+    {
+      "id": 128,
+      "label": "Unique Value",
+      "group": "VALU",
+      "cis": 7
+    },
+    {
+      "id": 129,
+      "label": "Competitive Advantage",
+      "group": "VALU",
+      "cis": 6
+    },
+    {
+      "id": 130,
+      "label": "Unfair Advantage",
+      "group": "VALU",
+      "cis": 6
+    },
+    {
+      "id": 131,
+      "label": "Why You Solve The Problem",
+      "group": "VALU",
+      "cis": 6
+    },
+    {
+      "id": 132,
+      "label": "Why Customer Wants It",
+      "group": "VALU",
+      "cis": 5
+    },
+    {
+      "id": 133,
+      "label": "Unique Selling Point",
+      "group": "VALU",
+      "cis": 5
+    },
+    {
+      "id": 134,
+      "label": "Value Statement",
+      "group": "VALU",
+      "cis": 5
+    },
+    {
+      "id": 135,
+      "label": "Benefit Articulation",
+      "group": "VALU",
+      "cis": 4
+    },
+    {
+      "id": 136,
+      "label": "Advantage Articulation",
+      "group": "VALU",
+      "cis": 4
+    },
+    {
+      "id": 137,
+      "label": "Founder Credibility",
+      "group": "VALU",
+      "cis": 4
+    },
+    {
+      "id": 138,
+      "label": "Domain Expertise",
+      "group": "VALU",
+      "cis": 3
+    },
+    {
+      "id": 139,
+      "label": "Best Person To Solve It",
+      "group": "VALU",
+      "cis": 3
+    },
+    {
+      "id": 140,
+      "label": "Value Clarity",
+      "group": "VALU",
+      "cis": 3
+    },
+    {
+      "id": 141,
+      "label": "Core Benefit",
+      "group": "VALU",
+      "cis": 2
+    },
+    {
+      "id": 142,
+      "label": "Emotional Benefit",
+      "group": "VALU",
+      "cis": 2
+    },
+    {
+      "id": 143,
+      "label": "Functional Benefit",
+      "group": "VALU",
+      "cis": 2
+    },
+    {
+      "id": 144,
+      "label": "Value Differentiation",
+      "group": "VALU",
+      "cis": 1
+    },
+    {
+      "id": 145,
+      "label": "Advantage Sustainability",
+      "group": "VALU",
+      "cis": 1
+    },
+    {
+      "id": 146,
+      "label": "Value Proposition Refinement",
+      "group": "VALU",
+      "cis": 1
+    },
+    {
+      "id": 147,
+      "label": "Discovery Interview",
+      "group": "INTV",
+      "cis": 699
+    },
+    {
+      "id": 148,
+      "label": "Customer Interview",
+      "group": "INTV",
+      "cis": 19
+    },
+    {
+      "id": 149,
+      "label": "Interview Question",
+      "group": "INTV",
+      "cis": 8
+    },
+    {
+      "id": 150,
+      "label": "Open-Ended Question",
+      "group": "INTV",
+      "cis": 7
+    },
+    {
+      "id": 151,
+      "label": "Leading Question",
+      "group": "INTV",
+      "cis": 11
+    },
+    {
+      "id": 152,
+      "label": "Interview Bias",
+      "group": "INTV",
+      "cis": 7
+    },
+    {
+      "id": 153,
+      "label": "Asking Not Selling",
+      "group": "INTV",
+      "cis": 6
+    },
+    {
+      "id": 154,
+      "label": "Interview Script",
+      "group": "INTV",
+      "cis": 10
+    },
+    {
+      "id": 155,
+      "label": "Interview Debrief",
+      "group": "INTV",
+      "cis": 6
+    },
+    {
+      "id": 156,
+      "label": "Interview Finding",
+      "group": "INTV",
+      "cis": 5
+    },
+    {
+      "id": 157,
+      "label": "Interview Surprise",
+      "group": "INTV",
+      "cis": 9
+    },
+    {
+      "id": 158,
+      "label": "Interview Scheduling",
+      "group": "INTV",
+      "cis": 5
+    },
+    {
+      "id": 159,
+      "label": "Interview Recruitment",
+      "group": "INTV",
+      "cis": 4
+    },
+    {
+      "id": 160,
+      "label": "Reality Check Exercise",
+      "group": "INTV",
+      "cis": 8
+    },
+    {
+      "id": 161,
+      "label": "Pressure Test",
+      "group": "INTV",
+      "cis": 4
+    },
+    {
+      "id": 162,
+      "label": "Assumption Testing",
+      "group": "INTV",
+      "cis": 3
+    },
+    {
+      "id": 163,
+      "label": "Customer Conversation",
+      "group": "INTV",
+      "cis": 3
+    },
+    {
+      "id": 164,
+      "label": "Field Research",
+      "group": "INTV",
+      "cis": 3
+    },
+    {
+      "id": 165,
+      "label": "Qualitative Research",
+      "group": "INTV",
+      "cis": 2
+    },
+    {
+      "id": 166,
+      "label": "Pattern Recognition",
+      "group": "INTV",
+      "cis": 2
+    },
+    {
+      "id": 167,
+      "label": "Interview Synthesis",
+      "group": "INTV",
+      "cis": 2
+    },
+    {
+      "id": 168,
+      "label": "Assumption Dismantling",
+      "group": "INTV",
+      "cis": 1
+    },
+    {
+      "id": 169,
+      "label": "Weak Assumption",
+      "group": "INTV",
+      "cis": 1
+    },
+    {
+      "id": 170,
+      "label": "Interview Sample Size",
+      "group": "INTV",
+      "cis": 1
+    },
+    {
+      "id": 171,
+      "label": "Lean Validation",
+      "group": "VALID",
+      "cis": 571
+    },
+    {
+      "id": 172,
+      "label": "Lean Test",
+      "group": "VALID",
+      "cis": 33
+    },
+    {
+      "id": 173,
+      "label": "Minimum Testable Iteration",
+      "group": "VALID",
+      "cis": 8
+    },
+    {
+      "id": 174,
+      "label": "Service Before Product",
+      "group": "VALID",
+      "cis": 8
+    },
+    {
+      "id": 175,
+      "label": "Manual Before Automated",
+      "group": "VALID",
+      "cis": 17
+    },
+    {
+      "id": 176,
+      "label": "Pre-Selling Before Building",
+      "group": "VALID",
+      "cis": 7
+    },
+    {
+      "id": 177,
+      "label": "Pre-Sale Offer",
+      "group": "VALID",
+      "cis": 7
+    },
+    {
+      "id": 178,
+      "label": "Manual Service Delivery",
+      "group": "VALID",
+      "cis": 16
+    },
+    {
+      "id": 179,
+      "label": "Direct Post Test",
+      "group": "VALID",
+      "cis": 6
+    },
+    {
+      "id": 180,
+      "label": "Validation Test Design",
+      "group": "VALID",
+      "cis": 6
+    },
+    {
+      "id": 181,
+      "label": "Test Result",
+      "group": "VALID",
+      "cis": 15
+    },
+    {
+      "id": 182,
+      "label": "Test Result Debrief",
+      "group": "VALID",
+      "cis": 5
+    },
+    {
+      "id": 183,
+      "label": "Kill Decision",
+      "group": "VALID",
+      "cis": 5
+    },
+    {
+      "id": 184,
+      "label": "Pivot Decision",
+      "group": "VALID",
+      "cis": 5
+    },
+    {
+      "id": 185,
+      "label": "Persevere Decision",
+      "group": "VALID",
+      "cis": 4
+    },
+    {
+      "id": 186,
+      "label": "Concept Validation",
+      "group": "VALID",
+      "cis": 4
+    },
+    {
+      "id": 187,
+      "label": "Evidence Of Demand",
+      "group": "VALID",
+      "cis": 4
+    },
+    {
+      "id": 188,
+      "label": "Customer Payment Signal",
+      "group": "VALID",
+      "cis": 3
+    },
+    {
+      "id": 189,
+      "label": "Build-Measure-Learn",
+      "group": "VALID",
+      "cis": 3
+    },
+    {
+      "id": 190,
+      "label": "Smallest Testable Version",
+      "group": "VALID",
+      "cis": 3
+    },
+    {
+      "id": 191,
+      "label": "Validated Concept",
+      "group": "VALID",
+      "cis": 2
+    },
+    {
+      "id": 192,
+      "label": "Invalid Concept",
+      "group": "VALID",
+      "cis": 2
+    },
+    {
+      "id": 193,
+      "label": "Low-Capital Testing",
+      "group": "VALID",
+      "cis": 2
+    },
+    {
+      "id": 194,
+      "label": "Rapid Experimentation",
+      "group": "VALID",
+      "cis": 1
+    },
+    {
+      "id": 195,
+      "label": "Test Hypothesis",
+      "group": "VALID",
+      "cis": 1
+    },
+    {
+      "id": 196,
+      "label": "Validation Milestone",
+      "group": "VALID",
+      "cis": 1
+    },
+    {
+      "id": 197,
+      "label": "Messaging Framework",
+      "group": "MSG",
+      "cis": 484
+    },
+    {
+      "id": 198,
+      "label": "One-Sentence Value Proposition",
+      "group": "MSG",
+      "cis": 18
+    },
+    {
+      "id": 199,
+      "label": "Messaging Workshop",
+      "group": "MSG",
+      "cis": 6
+    },
+    {
+      "id": 200,
+      "label": "Sales Copy",
+      "group": "MSG",
+      "cis": 6
+    },
+    {
+      "id": 201,
+      "label": "High-Conversion Copy",
+      "group": "MSG",
+      "cis": 6
+    },
+    {
+      "id": 202,
+      "label": "Founder Narrative",
+      "group": "MSG",
+      "cis": 5
+    },
+    {
+      "id": 203,
+      "label": "Elevator Pitch",
+      "group": "MSG",
+      "cis": 5
+    },
+    {
+      "id": 204,
+      "label": "Message Clarity",
+      "group": "MSG",
+      "cis": 5
+    },
+    {
+      "id": 205,
+      "label": "Outsider Comprehension Test",
+      "group": "MSG",
+      "cis": 4
+    },
+    {
+      "id": 206,
+      "label": "Five-Second Test",
+      "group": "MSG",
+      "cis": 4
+    },
+    {
+      "id": 207,
+      "label": "Social Media Copy",
+      "group": "MSG",
+      "cis": 4
+    },
+    {
+      "id": 208,
+      "label": "Brand Voice",
+      "group": "MSG",
+      "cis": 3
+    },
+    {
+      "id": 209,
+      "label": "Customer-Facing Message",
+      "group": "MSG",
+      "cis": 3
+    },
+    {
+      "id": 210,
+      "label": "Message Testing",
+      "group": "MSG",
+      "cis": 3
+    },
+    {
+      "id": 211,
+      "label": "Story-Based Messaging",
+      "group": "MSG",
+      "cis": 2
+    },
+    {
+      "id": 212,
+      "label": "Message Simplicity",
+      "group": "MSG",
+      "cis": 2
+    },
+    {
+      "id": 213,
+      "label": "Call To Action",
+      "group": "MSG",
+      "cis": 2
+    },
+    {
+      "id": 214,
+      "label": "Headline Writing",
+      "group": "MSG",
+      "cis": 1
+    },
+    {
+      "id": 215,
+      "label": "Persuasive Writing",
+      "group": "MSG",
+      "cis": 1
+    },
+    {
+      "id": 216,
+      "label": "Messaging Iteration",
+      "group": "MSG",
+      "cis": 1
+    },
+    {
+      "id": 217,
+      "label": "Distribution Channel",
+      "group": "DIST",
+      "cis": 485
+    },
+    {
+      "id": 218,
+      "label": "Go-To-Market Approach",
+      "group": "DIST",
+      "cis": 11
+    },
+    {
+      "id": 219,
+      "label": "Direct Sales Channel",
+      "group": "DIST",
+      "cis": 5
+    },
+    {
+      "id": 220,
+      "label": "Online Distribution",
+      "group": "DIST",
+      "cis": 5
+    },
+    {
+      "id": 221,
+      "label": "In-Person Distribution",
+      "group": "DIST",
+      "cis": 5
+    },
+    {
+      "id": 222,
+      "label": "Channel Selection",
+      "group": "DIST",
+      "cis": 4
+    },
+    {
+      "id": 223,
+      "label": "Customer Acquisition Path",
+      "group": "DIST",
+      "cis": 4
+    },
+    {
+      "id": 224,
+      "label": "Word Of Mouth",
+      "group": "DIST",
+      "cis": 4
+    },
+    {
+      "id": 225,
+      "label": "Referral Channel",
+      "group": "DIST",
+      "cis": 3
+    },
+    {
+      "id": 226,
+      "label": "Partnership Channel",
+      "group": "DIST",
+      "cis": 3
+    },
+    {
+      "id": 227,
+      "label": "Marketplace Channel",
+      "group": "DIST",
+      "cis": 3
+    },
+    {
+      "id": 228,
+      "label": "Social Media Channel",
+      "group": "DIST",
+      "cis": 2
+    },
+    {
+      "id": 229,
+      "label": "Channel Testing",
+      "group": "DIST",
+      "cis": 2
+    },
+    {
+      "id": 230,
+      "label": "Channel Cost",
+      "group": "DIST",
+      "cis": 2
+    },
+    {
+      "id": 231,
+      "label": "Channel Reach",
+      "group": "DIST",
+      "cis": 1
+    },
+    {
+      "id": 232,
+      "label": "Multi-Channel Strategy",
+      "group": "DIST",
+      "cis": 1
+    },
+    {
+      "id": 233,
+      "label": "Channel Fit",
+      "group": "DIST",
+      "cis": 1
+    },
+    {
+      "id": 234,
+      "label": "Revenue Model",
+      "group": "REV",
+      "cis": 962
+    },
+    {
+      "id": 235,
+      "label": "Pricing Model",
+      "group": "REV",
+      "cis": 16
+    },
+    {
+      "id": 236,
+      "label": "Pricing Strategy",
+      "group": "REV",
+      "cis": 6
+    },
+    {
+      "id": 237,
+      "label": "Subscription Pricing",
+      "group": "REV",
+      "cis": 6
+    },
+    {
+      "id": 238,
+      "label": "One-Time Pricing",
+      "group": "REV",
+      "cis": 6
+    },
+    {
+      "id": 239,
+      "label": "Tiered Pricing",
+      "group": "REV",
+      "cis": 5
+    },
+    {
+      "id": 240,
+      "label": "Value-Based Pricing",
+      "group": "REV",
+      "cis": 5
+    },
+    {
+      "id": 241,
+      "label": "Cost-Plus Pricing",
+      "group": "REV",
+      "cis": 5
+    },
+    {
+      "id": 242,
+      "label": "Revenue Stream",
+      "group": "REV",
+      "cis": 4
+    },
+    {
+      "id": 243,
+      "label": "Recurring Revenue",
+      "group": "REV",
+      "cis": 4
+    },
+    {
+      "id": 244,
+      "label": "Transaction Revenue",
+      "group": "REV",
+      "cis": 4
+    },
+    {
+      "id": 245,
+      "label": "Pricing Validation",
+      "group": "REV",
+      "cis": 3
+    },
+    {
+      "id": 246,
+      "label": "Willingness To Pay",
+      "group": "REV",
+      "cis": 3
+    },
+    {
+      "id": 247,
+      "label": "Price Point Testing",
+      "group": "REV",
+      "cis": 3
+    },
+    {
+      "id": 248,
+      "label": "Revenue Projection",
+      "group": "REV",
+      "cis": 2
+    },
+    {
+      "id": 249,
+      "label": "Sales Conversion",
+      "group": "REV",
+      "cis": 2
+    },
+    {
+      "id": 250,
+      "label": "Revenue Assumption",
+      "group": "REV",
+      "cis": 2
+    },
+    {
+      "id": 251,
+      "label": "Pricing Communication",
+      "group": "REV",
+      "cis": 1
+    },
+    {
+      "id": 252,
+      "label": "Freemium Model",
+      "group": "REV",
+      "cis": 1
+    },
+    {
+      "id": 253,
+      "label": "Break-Even Thinking",
+      "group": "REV",
+      "cis": 1
+    },
+    {
+      "id": 254,
+      "label": "Startup Needs",
+      "group": "FIN",
+      "cis": 480
+    },
+    {
+      "id": 255,
+      "label": "One-Time Needs",
+      "group": "FIN",
+      "cis": 16
+    },
+    {
+      "id": 256,
+      "label": "Ongoing Costs",
+      "group": "FIN",
+      "cis": 6
+    },
+    {
+      "id": 257,
+      "label": "Fixed Costs",
+      "group": "FIN",
+      "cis": 8
+    },
+    {
+      "id": 258,
+      "label": "Variable Costs",
+      "group": "FIN",
+      "cis": 7
+    },
+    {
+      "id": 259,
+      "label": "Bootstrapped Funding",
+      "group": "FIN",
+      "cis": 5
+    },
+    {
+      "id": 260,
+      "label": "Startup Budget",
+      "group": "FIN",
+      "cis": 5
+    },
+    {
+      "id": 261,
+      "label": "Resource Needs",
+      "group": "FIN",
+      "cis": 4
+    },
+    {
+      "id": 262,
+      "label": "People Resource Needs",
+      "group": "FIN",
+      "cis": 4
+    },
+    {
+      "id": 263,
+      "label": "Technology Resource Needs",
+      "group": "FIN",
+      "cis": 4
+    },
+    {
+      "id": 264,
+      "label": "Activity Resource Needs",
+      "group": "FIN",
+      "cis": 3
+    },
+    {
+      "id": 265,
+      "label": "Cost Structure",
+      "group": "FIN",
+      "cis": 3
+    },
+    {
+      "id": 266,
+      "label": "Cost Estimation",
+      "group": "FIN",
+      "cis": 3
+    },
+    {
+      "id": 267,
+      "label": "Financial Baseline",
+      "group": "FIN",
+      "cis": 2
+    },
+    {
+      "id": 268,
+      "label": "Minimal Viable Budget",
+      "group": "FIN",
+      "cis": 2
+    },
+    {
+      "id": 269,
+      "label": "Cash Flow Awareness",
+      "group": "FIN",
+      "cis": 2
+    },
+    {
+      "id": 270,
+      "label": "Startup Capital",
+      "group": "FIN",
+      "cis": 1
+    },
+    {
+      "id": 271,
+      "label": "Cost Tracking",
+      "group": "FIN",
+      "cis": 1
+    },
+    {
+      "id": 272,
+      "label": "Needs Vs Wants Assessment",
+      "group": "FIN",
+      "cis": 1
+    },
+    {
+      "id": 273,
+      "label": "Thirty-Day Launch Plan",
+      "group": "LAUNCH",
+      "cis": 402
+    },
+    {
+      "id": 274,
+      "label": "Launch Roadmap",
+      "group": "LAUNCH",
+      "cis": 49
+    },
+    {
+      "id": 275,
+      "label": "Weekly Milestone",
+      "group": "LAUNCH",
+      "cis": 27
+    },
+    {
+      "id": 276,
+      "label": "What To Sell",
+      "group": "LAUNCH",
+      "cis": 9
+    },
+    {
+      "id": 277,
+      "label": "Who To Sell To",
+      "group": "LAUNCH",
+      "cis": 39
+    },
+    {
+      "id": 278,
+      "label": "How To Reach Them",
+      "group": "LAUNCH",
+      "cis": 26
+    },
+    {
+      "id": 279,
+      "label": "Weekly Target",
+      "group": "LAUNCH",
+      "cis": 8
+    },
+    {
+      "id": 280,
+      "label": "Launch Readiness",
+      "group": "LAUNCH",
+      "cis": 38
+    },
+    {
+      "id": 281,
+      "label": "Momentum Building",
+      "group": "LAUNCH",
+      "cis": 25
+    },
+    {
+      "id": 282,
+      "label": "Wins And Lessons Review",
+      "group": "LAUNCH",
+      "cis": 7
+    },
+    {
+      "id": 283,
+      "label": "Setback Normalization",
+      "group": "LAUNCH",
+      "cis": 37
+    },
+    {
+      "id": 284,
+      "label": "Time-Saving Pivot",
+      "group": "LAUNCH",
+      "cis": 24
+    },
+    {
+      "id": 285,
+      "label": "Money-Saving Pivot",
+      "group": "LAUNCH",
+      "cis": 6
+    },
+    {
+      "id": 286,
+      "label": "Mini Pitch",
+      "group": "LAUNCH",
+      "cis": 36
+    },
+    {
+      "id": 287,
+      "label": "Two-Minute Pitch",
+      "group": "LAUNCH",
+      "cis": 23
+    },
+    {
+      "id": 288,
+      "label": "Peer Feedback",
+      "group": "LAUNCH",
+      "cis": 5
+    },
+    {
+      "id": 289,
+      "label": "Public Commitment",
+      "group": "LAUNCH",
+      "cis": 12
+    },
+    {
+      "id": 290,
+      "label": "Accountability Network",
+      "group": "LAUNCH",
+      "cis": 8
+    },
+    {
+      "id": 291,
+      "label": "Peer Accountability",
+      "group": "LAUNCH",
+      "cis": 4
+    },
+    {
+      "id": 292,
+      "label": "Coaching Handoff",
+      "group": "LAUNCH",
+      "cis": 3
+    },
+    {
+      "id": 293,
+      "label": "Community Hub",
+      "group": "LAUNCH",
+      "cis": 3
+    },
+    {
+      "id": 294,
+      "label": "Slack Community",
+      "group": "LAUNCH",
+      "cis": 3
+    },
+    {
+      "id": 295,
+      "label": "Continuing Platform Ecosystem",
+      "group": "LAUNCH",
+      "cis": 2
+    },
+    {
+      "id": 296,
+      "label": "Capstone Presentation",
+      "group": "LAUNCH",
+      "cis": 2
+    },
+    {
+      "id": 297,
+      "label": "Operational Roadmap",
+      "group": "LAUNCH",
+      "cis": 2
+    },
+    {
+      "id": 298,
+      "label": "Milestone-Driven Plan",
+      "group": "LAUNCH",
+      "cis": 1
+    },
+    {
+      "id": 299,
+      "label": "Launch Confidence",
+      "group": "LAUNCH",
+      "cis": 1
+    },
+    {
+      "id": 300,
+      "label": "Post-Course Support",
+      "group": "LAUNCH",
+      "cis": 1
+    }
+  ],
+  "edges": [
+    {
+      "from": 5,
+      "to": 4
+    },
+    {
+      "from": 6,
+      "to": 1
+    },
+    {
+      "from": 6,
+      "to": 4
+    },
+    {
+      "from": 7,
+      "to": 2
+    },
+    {
+      "from": 7,
+      "to": 4
+    },
+    {
+      "from": 8,
+      "to": 3
+    },
+    {
+      "from": 8,
+      "to": 4
+    },
+    {
+      "from": 8,
+      "to": 5
+    },
+    {
+      "from": 9,
+      "to": 4
+    },
+    {
+      "from": 9,
+      "to": 6
+    },
+    {
+      "from": 10,
+      "to": 4
+    },
+    {
+      "from": 10,
+      "to": 5
+    },
+    {
+      "from": 10,
+      "to": 7
+    },
+    {
+      "from": 11,
+      "to": 4
+    },
+    {
+      "from": 11,
+      "to": 6
+    },
+    {
+      "from": 11,
+      "to": 8
+    },
+    {
+      "from": 12,
+      "to": 4
+    },
+    {
+      "from": 12,
+      "to": 7
+    },
+    {
+      "from": 12,
+      "to": 9
+    },
+    {
+      "from": 13,
+      "to": 4
+    },
+    {
+      "from": 13,
+      "to": 8
+    },
+    {
+      "from": 13,
+      "to": 10
+    },
+    {
+      "from": 14,
+      "to": 4
+    },
+    {
+      "from": 14,
+      "to": 9
+    },
+    {
+      "from": 14,
+      "to": 11
+    },
+    {
+      "from": 15,
+      "to": 4
+    },
+    {
+      "from": 15,
+      "to": 10
+    },
+    {
+      "from": 15,
+      "to": 12
+    },
+    {
+      "from": 16,
+      "to": 4
+    },
+    {
+      "from": 16,
+      "to": 11
+    },
+    {
+      "from": 16,
+      "to": 13
+    },
+    {
+      "from": 17,
+      "to": 4
+    },
+    {
+      "from": 17,
+      "to": 12
+    },
+    {
+      "from": 17,
+      "to": 14
+    },
+    {
+      "from": 18,
+      "to": 4
+    },
+    {
+      "from": 18,
+      "to": 13
+    },
+    {
+      "from": 18,
+      "to": 15
+    },
+    {
+      "from": 19,
+      "to": 4
+    },
+    {
+      "from": 19,
+      "to": 14
+    },
+    {
+      "from": 19,
+      "to": 16
+    },
+    {
+      "from": 20,
+      "to": 4
+    },
+    {
+      "from": 20,
+      "to": 15
+    },
+    {
+      "from": 20,
+      "to": 17
+    },
+    {
+      "from": 21,
+      "to": 4
+    },
+    {
+      "from": 21,
+      "to": 16
+    },
+    {
+      "from": 21,
+      "to": 18
+    },
+    {
+      "from": 22,
+      "to": 4
+    },
+    {
+      "from": 22,
+      "to": 17
+    },
+    {
+      "from": 22,
+      "to": 19
+    },
+    {
+      "from": 23,
+      "to": 4
+    },
+    {
+      "from": 23,
+      "to": 18
+    },
+    {
+      "from": 23,
+      "to": 20
+    },
+    {
+      "from": 24,
+      "to": 4
+    },
+    {
+      "from": 24,
+      "to": 19
+    },
+    {
+      "from": 24,
+      "to": 21
+    },
+    {
+      "from": 25,
+      "to": 4
+    },
+    {
+      "from": 25,
+      "to": 20
+    },
+    {
+      "from": 25,
+      "to": 22
+    },
+    {
+      "from": 26,
+      "to": 4
+    },
+    {
+      "from": 26,
+      "to": 21
+    },
+    {
+      "from": 26,
+      "to": 23
+    },
+    {
+      "from": 27,
+      "to": 1
+    },
+    {
+      "from": 27,
+      "to": 4
+    },
+    {
+      "from": 27,
+      "to": 10
+    },
+    {
+      "from": 28,
+      "to": 27
+    },
+    {
+      "from": 29,
+      "to": 27
+    },
+    {
+      "from": 30,
+      "to": 27
+    },
+    {
+      "from": 30,
+      "to": 28
+    },
+    {
+      "from": 31,
+      "to": 27
+    },
+    {
+      "from": 31,
+      "to": 28
+    },
+    {
+      "from": 32,
+      "to": 27
+    },
+    {
+      "from": 32,
+      "to": 29
+    },
+    {
+      "from": 33,
+      "to": 27
+    },
+    {
+      "from": 33,
+      "to": 30
+    },
+    {
+      "from": 34,
+      "to": 27
+    },
+    {
+      "from": 34,
+      "to": 31
+    },
+    {
+      "from": 35,
+      "to": 27
+    },
+    {
+      "from": 35,
+      "to": 32
+    },
+    {
+      "from": 36,
+      "to": 27
+    },
+    {
+      "from": 36,
+      "to": 33
+    },
+    {
+      "from": 37,
+      "to": 27
+    },
+    {
+      "from": 37,
+      "to": 34
+    },
+    {
+      "from": 38,
+      "to": 27
+    },
+    {
+      "from": 38,
+      "to": 35
+    },
+    {
+      "from": 39,
+      "to": 27
+    },
+    {
+      "from": 39,
+      "to": 36
+    },
+    {
+      "from": 40,
+      "to": 27
+    },
+    {
+      "from": 40,
+      "to": 37
+    },
+    {
+      "from": 41,
+      "to": 27
+    },
+    {
+      "from": 41,
+      "to": 38
+    },
+    {
+      "from": 42,
+      "to": 27
+    },
+    {
+      "from": 42,
+      "to": 39
+    },
+    {
+      "from": 43,
+      "to": 27
+    },
+    {
+      "from": 43,
+      "to": 31
+    },
+    {
+      "from": 44,
+      "to": 43
+    },
+    {
+      "from": 45,
+      "to": 43
+    },
+    {
+      "from": 46,
+      "to": 43
+    },
+    {
+      "from": 46,
+      "to": 44
+    },
+    {
+      "from": 47,
+      "to": 43
+    },
+    {
+      "from": 47,
+      "to": 44
+    },
+    {
+      "from": 48,
+      "to": 43
+    },
+    {
+      "from": 48,
+      "to": 45
+    },
+    {
+      "from": 49,
+      "to": 43
+    },
+    {
+      "from": 49,
+      "to": 46
+    },
+    {
+      "from": 50,
+      "to": 43
+    },
+    {
+      "from": 50,
+      "to": 47
+    },
+    {
+      "from": 51,
+      "to": 43
+    },
+    {
+      "from": 51,
+      "to": 48
+    },
+    {
+      "from": 52,
+      "to": 43
+    },
+    {
+      "from": 52,
+      "to": 49
+    },
+    {
+      "from": 53,
+      "to": 43
+    },
+    {
+      "from": 53,
+      "to": 50
+    },
+    {
+      "from": 54,
+      "to": 43
+    },
+    {
+      "from": 54,
+      "to": 51
+    },
+    {
+      "from": 55,
+      "to": 43
+    },
+    {
+      "from": 55,
+      "to": 52
+    },
+    {
+      "from": 56,
+      "to": 43
+    },
+    {
+      "from": 56,
+      "to": 53
+    },
+    {
+      "from": 57,
+      "to": 43
+    },
+    {
+      "from": 57,
+      "to": 54
+    },
+    {
+      "from": 58,
+      "to": 43
+    },
+    {
+      "from": 58,
+      "to": 55
+    },
+    {
+      "from": 59,
+      "to": 43
+    },
+    {
+      "from": 59,
+      "to": 56
+    },
+    {
+      "from": 60,
+      "to": 43
+    },
+    {
+      "from": 60,
+      "to": 57
+    },
+    {
+      "from": 61,
+      "to": 43
+    },
+    {
+      "from": 61,
+      "to": 58
+    },
+    {
+      "from": 62,
+      "to": 43
+    },
+    {
+      "from": 62,
+      "to": 59
+    },
+    {
+      "from": 63,
+      "to": 43
+    },
+    {
+      "from": 63,
+      "to": 60
+    },
+    {
+      "from": 64,
+      "to": 43
+    },
+    {
+      "from": 64,
+      "to": 61
+    },
+    {
+      "from": 65,
+      "to": 43
+    },
+    {
+      "from": 65,
+      "to": 62
+    },
+    {
+      "from": 66,
+      "to": 43
+    },
+    {
+      "from": 66,
+      "to": 63
+    },
+    {
+      "from": 67,
+      "to": 32
+    },
+    {
+      "from": 67,
+      "to": 43
+    },
+    {
+      "from": 68,
+      "to": 67
+    },
+    {
+      "from": 69,
+      "to": 67
+    },
+    {
+      "from": 70,
+      "to": 67
+    },
+    {
+      "from": 70,
+      "to": 68
+    },
+    {
+      "from": 71,
+      "to": 67
+    },
+    {
+      "from": 71,
+      "to": 68
+    },
+    {
+      "from": 72,
+      "to": 67
+    },
+    {
+      "from": 72,
+      "to": 69
+    },
+    {
+      "from": 73,
+      "to": 67
+    },
+    {
+      "from": 73,
+      "to": 70
+    },
+    {
+      "from": 74,
+      "to": 67
+    },
+    {
+      "from": 74,
+      "to": 71
+    },
+    {
+      "from": 75,
+      "to": 67
+    },
+    {
+      "from": 75,
+      "to": 72
+    },
+    {
+      "from": 76,
+      "to": 67
+    },
+    {
+      "from": 76,
+      "to": 73
+    },
+    {
+      "from": 77,
+      "to": 67
+    },
+    {
+      "from": 77,
+      "to": 74
+    },
+    {
+      "from": 78,
+      "to": 67
+    },
+    {
+      "from": 78,
+      "to": 75
+    },
+    {
+      "from": 79,
+      "to": 67
+    },
+    {
+      "from": 79,
+      "to": 76
+    },
+    {
+      "from": 80,
+      "to": 67
+    },
+    {
+      "from": 80,
+      "to": 77
+    },
+    {
+      "from": 81,
+      "to": 67
+    },
+    {
+      "from": 81,
+      "to": 78
+    },
+    {
+      "from": 82,
+      "to": 67
+    },
+    {
+      "from": 82,
+      "to": 79
+    },
+    {
+      "from": 83,
+      "to": 67
+    },
+    {
+      "from": 83,
+      "to": 80
+    },
+    {
+      "from": 84,
+      "to": 67
+    },
+    {
+      "from": 84,
+      "to": 81
+    },
+    {
+      "from": 85,
+      "to": 67
+    },
+    {
+      "from": 85,
+      "to": 82
+    },
+    {
+      "from": 86,
+      "to": 67
+    },
+    {
+      "from": 86,
+      "to": 83
+    },
+    {
+      "from": 87,
+      "to": 33
+    },
+    {
+      "from": 87,
+      "to": 67
+    },
+    {
+      "from": 88,
+      "to": 87
+    },
+    {
+      "from": 89,
+      "to": 87
+    },
+    {
+      "from": 90,
+      "to": 87
+    },
+    {
+      "from": 90,
+      "to": 88
+    },
+    {
+      "from": 91,
+      "to": 87
+    },
+    {
+      "from": 91,
+      "to": 88
+    },
+    {
+      "from": 92,
+      "to": 87
+    },
+    {
+      "from": 92,
+      "to": 89
+    },
+    {
+      "from": 93,
+      "to": 87
+    },
+    {
+      "from": 93,
+      "to": 90
+    },
+    {
+      "from": 94,
+      "to": 87
+    },
+    {
+      "from": 94,
+      "to": 91
+    },
+    {
+      "from": 95,
+      "to": 87
+    },
+    {
+      "from": 95,
+      "to": 92
+    },
+    {
+      "from": 96,
+      "to": 87
+    },
+    {
+      "from": 96,
+      "to": 93
+    },
+    {
+      "from": 97,
+      "to": 87
+    },
+    {
+      "from": 97,
+      "to": 94
+    },
+    {
+      "from": 98,
+      "to": 87
+    },
+    {
+      "from": 98,
+      "to": 95
+    },
+    {
+      "from": 99,
+      "to": 87
+    },
+    {
+      "from": 99,
+      "to": 96
+    },
+    {
+      "from": 100,
+      "to": 87
+    },
+    {
+      "from": 100,
+      "to": 97
+    },
+    {
+      "from": 101,
+      "to": 87
+    },
+    {
+      "from": 101,
+      "to": 98
+    },
+    {
+      "from": 102,
+      "to": 87
+    },
+    {
+      "from": 102,
+      "to": 99
+    },
+    {
+      "from": 103,
+      "to": 87
+    },
+    {
+      "from": 103,
+      "to": 100
+    },
+    {
+      "from": 104,
+      "to": 87
+    },
+    {
+      "from": 104,
+      "to": 101
+    },
+    {
+      "from": 105,
+      "to": 87
+    },
+    {
+      "from": 105,
+      "to": 102
+    },
+    {
+      "from": 106,
+      "to": 87
+    },
+    {
+      "from": 106,
+      "to": 103
+    },
+    {
+      "from": 107,
+      "to": 34
+    },
+    {
+      "from": 107,
+      "to": 87
+    },
+    {
+      "from": 108,
+      "to": 107
+    },
+    {
+      "from": 109,
+      "to": 107
+    },
+    {
+      "from": 110,
+      "to": 107
+    },
+    {
+      "from": 110,
+      "to": 108
+    },
+    {
+      "from": 111,
+      "to": 107
+    },
+    {
+      "from": 111,
+      "to": 108
+    },
+    {
+      "from": 112,
+      "to": 107
+    },
+    {
+      "from": 112,
+      "to": 109
+    },
+    {
+      "from": 113,
+      "to": 107
+    },
+    {
+      "from": 113,
+      "to": 110
+    },
+    {
+      "from": 114,
+      "to": 107
+    },
+    {
+      "from": 114,
+      "to": 111
+    },
+    {
+      "from": 115,
+      "to": 107
+    },
+    {
+      "from": 115,
+      "to": 112
+    },
+    {
+      "from": 116,
+      "to": 107
+    },
+    {
+      "from": 116,
+      "to": 113
+    },
+    {
+      "from": 117,
+      "to": 107
+    },
+    {
+      "from": 117,
+      "to": 114
+    },
+    {
+      "from": 118,
+      "to": 107
+    },
+    {
+      "from": 118,
+      "to": 115
+    },
+    {
+      "from": 119,
+      "to": 107
+    },
+    {
+      "from": 119,
+      "to": 116
+    },
+    {
+      "from": 120,
+      "to": 107
+    },
+    {
+      "from": 120,
+      "to": 117
+    },
+    {
+      "from": 121,
+      "to": 107
+    },
+    {
+      "from": 121,
+      "to": 118
+    },
+    {
+      "from": 122,
+      "to": 107
+    },
+    {
+      "from": 122,
+      "to": 119
+    },
+    {
+      "from": 123,
+      "to": 107
+    },
+    {
+      "from": 123,
+      "to": 120
+    },
+    {
+      "from": 124,
+      "to": 107
+    },
+    {
+      "from": 124,
+      "to": 121
+    },
+    {
+      "from": 125,
+      "to": 35
+    },
+    {
+      "from": 125,
+      "to": 36
+    },
+    {
+      "from": 125,
+      "to": 107
+    },
+    {
+      "from": 126,
+      "to": 125
+    },
+    {
+      "from": 127,
+      "to": 125
+    },
+    {
+      "from": 128,
+      "to": 125
+    },
+    {
+      "from": 128,
+      "to": 126
+    },
+    {
+      "from": 129,
+      "to": 125
+    },
+    {
+      "from": 129,
+      "to": 126
+    },
+    {
+      "from": 130,
+      "to": 125
+    },
+    {
+      "from": 130,
+      "to": 127
+    },
+    {
+      "from": 131,
+      "to": 125
+    },
+    {
+      "from": 131,
+      "to": 128
+    },
+    {
+      "from": 132,
+      "to": 125
+    },
+    {
+      "from": 132,
+      "to": 129
+    },
+    {
+      "from": 133,
+      "to": 125
+    },
+    {
+      "from": 133,
+      "to": 130
+    },
+    {
+      "from": 134,
+      "to": 125
+    },
+    {
+      "from": 134,
+      "to": 131
+    },
+    {
+      "from": 135,
+      "to": 125
+    },
+    {
+      "from": 135,
+      "to": 132
+    },
+    {
+      "from": 136,
+      "to": 125
+    },
+    {
+      "from": 136,
+      "to": 133
+    },
+    {
+      "from": 137,
+      "to": 125
+    },
+    {
+      "from": 137,
+      "to": 134
+    },
+    {
+      "from": 138,
+      "to": 125
+    },
+    {
+      "from": 138,
+      "to": 135
+    },
+    {
+      "from": 139,
+      "to": 125
+    },
+    {
+      "from": 139,
+      "to": 136
+    },
+    {
+      "from": 140,
+      "to": 125
+    },
+    {
+      "from": 140,
+      "to": 137
+    },
+    {
+      "from": 141,
+      "to": 125
+    },
+    {
+      "from": 141,
+      "to": 138
+    },
+    {
+      "from": 142,
+      "to": 125
+    },
+    {
+      "from": 142,
+      "to": 139
+    },
+    {
+      "from": 143,
+      "to": 125
+    },
+    {
+      "from": 143,
+      "to": 140
+    },
+    {
+      "from": 144,
+      "to": 125
+    },
+    {
+      "from": 144,
+      "to": 141
+    },
+    {
+      "from": 145,
+      "to": 125
+    },
+    {
+      "from": 145,
+      "to": 142
+    },
+    {
+      "from": 146,
+      "to": 125
+    },
+    {
+      "from": 146,
+      "to": 143
+    },
+    {
+      "from": 147,
+      "to": 15
+    },
+    {
+      "from": 147,
+      "to": 43
+    },
+    {
+      "from": 147,
+      "to": 67
+    },
+    {
+      "from": 148,
+      "to": 147
+    },
+    {
+      "from": 149,
+      "to": 147
+    },
+    {
+      "from": 150,
+      "to": 147
+    },
+    {
+      "from": 150,
+      "to": 148
+    },
+    {
+      "from": 151,
+      "to": 147
+    },
+    {
+      "from": 151,
+      "to": 148
+    },
+    {
+      "from": 152,
+      "to": 147
+    },
+    {
+      "from": 152,
+      "to": 149
+    },
+    {
+      "from": 153,
+      "to": 147
+    },
+    {
+      "from": 153,
+      "to": 150
+    },
+    {
+      "from": 154,
+      "to": 147
+    },
+    {
+      "from": 154,
+      "to": 151
+    },
+    {
+      "from": 155,
+      "to": 147
+    },
+    {
+      "from": 155,
+      "to": 152
+    },
+    {
+      "from": 156,
+      "to": 147
+    },
+    {
+      "from": 156,
+      "to": 153
+    },
+    {
+      "from": 157,
+      "to": 147
+    },
+    {
+      "from": 157,
+      "to": 154
+    },
+    {
+      "from": 158,
+      "to": 147
+    },
+    {
+      "from": 158,
+      "to": 155
+    },
+    {
+      "from": 159,
+      "to": 147
+    },
+    {
+      "from": 159,
+      "to": 156
+    },
+    {
+      "from": 160,
+      "to": 15
+    },
+    {
+      "from": 160,
+      "to": 67
+    },
+    {
+      "from": 160,
+      "to": 147
+    },
+    {
+      "from": 160,
+      "to": 157
+    },
+    {
+      "from": 161,
+      "to": 147
+    },
+    {
+      "from": 161,
+      "to": 158
+    },
+    {
+      "from": 161,
+      "to": 160
+    },
+    {
+      "from": 162,
+      "to": 147
+    },
+    {
+      "from": 162,
+      "to": 159
+    },
+    {
+      "from": 163,
+      "to": 147
+    },
+    {
+      "from": 163,
+      "to": 160
+    },
+    {
+      "from": 164,
+      "to": 147
+    },
+    {
+      "from": 164,
+      "to": 161
+    },
+    {
+      "from": 165,
+      "to": 147
+    },
+    {
+      "from": 165,
+      "to": 162
+    },
+    {
+      "from": 166,
+      "to": 147
+    },
+    {
+      "from": 166,
+      "to": 163
+    },
+    {
+      "from": 167,
+      "to": 147
+    },
+    {
+      "from": 167,
+      "to": 164
+    },
+    {
+      "from": 168,
+      "to": 147
+    },
+    {
+      "from": 168,
+      "to": 165
+    },
+    {
+      "from": 169,
+      "to": 147
+    },
+    {
+      "from": 169,
+      "to": 166
+    },
+    {
+      "from": 170,
+      "to": 147
+    },
+    {
+      "from": 170,
+      "to": 167
+    },
+    {
+      "from": 171,
+      "to": 13
+    },
+    {
+      "from": 171,
+      "to": 87
+    },
+    {
+      "from": 171,
+      "to": 147
+    },
+    {
+      "from": 172,
+      "to": 171
+    },
+    {
+      "from": 173,
+      "to": 171
+    },
+    {
+      "from": 174,
+      "to": 171
+    },
+    {
+      "from": 174,
+      "to": 172
+    },
+    {
+      "from": 175,
+      "to": 171
+    },
+    {
+      "from": 175,
+      "to": 172
+    },
+    {
+      "from": 176,
+      "to": 171
+    },
+    {
+      "from": 176,
+      "to": 173
+    },
+    {
+      "from": 177,
+      "to": 43
+    },
+    {
+      "from": 177,
+      "to": 171
+    },
+    {
+      "from": 177,
+      "to": 172
+    },
+    {
+      "from": 177,
+      "to": 174
+    },
+    {
+      "from": 178,
+      "to": 171
+    },
+    {
+      "from": 178,
+      "to": 175
+    },
+    {
+      "from": 179,
+      "to": 171
+    },
+    {
+      "from": 179,
+      "to": 176
+    },
+    {
+      "from": 180,
+      "to": 171
+    },
+    {
+      "from": 180,
+      "to": 177
+    },
+    {
+      "from": 181,
+      "to": 171
+    },
+    {
+      "from": 181,
+      "to": 178
+    },
+    {
+      "from": 182,
+      "to": 171
+    },
+    {
+      "from": 182,
+      "to": 179
+    },
+    {
+      "from": 183,
+      "to": 171
+    },
+    {
+      "from": 183,
+      "to": 180
+    },
+    {
+      "from": 183,
+      "to": 181
+    },
+    {
+      "from": 184,
+      "to": 171
+    },
+    {
+      "from": 184,
+      "to": 181
+    },
+    {
+      "from": 185,
+      "to": 171
+    },
+    {
+      "from": 185,
+      "to": 181
+    },
+    {
+      "from": 185,
+      "to": 182
+    },
+    {
+      "from": 186,
+      "to": 171
+    },
+    {
+      "from": 186,
+      "to": 183
+    },
+    {
+      "from": 187,
+      "to": 171
+    },
+    {
+      "from": 187,
+      "to": 184
+    },
+    {
+      "from": 188,
+      "to": 171
+    },
+    {
+      "from": 188,
+      "to": 185
+    },
+    {
+      "from": 189,
+      "to": 171
+    },
+    {
+      "from": 189,
+      "to": 186
+    },
+    {
+      "from": 190,
+      "to": 171
+    },
+    {
+      "from": 190,
+      "to": 187
+    },
+    {
+      "from": 191,
+      "to": 171
+    },
+    {
+      "from": 191,
+      "to": 188
+    },
+    {
+      "from": 192,
+      "to": 171
+    },
+    {
+      "from": 192,
+      "to": 189
+    },
+    {
+      "from": 193,
+      "to": 171
+    },
+    {
+      "from": 193,
+      "to": 190
+    },
+    {
+      "from": 194,
+      "to": 171
+    },
+    {
+      "from": 194,
+      "to": 191
+    },
+    {
+      "from": 195,
+      "to": 171
+    },
+    {
+      "from": 195,
+      "to": 192
+    },
+    {
+      "from": 196,
+      "to": 171
+    },
+    {
+      "from": 196,
+      "to": 193
+    },
+    {
+      "from": 197,
+      "to": 37
+    },
+    {
+      "from": 197,
+      "to": 125
+    },
+    {
+      "from": 198,
+      "to": 125
+    },
+    {
+      "from": 198,
+      "to": 197
+    },
+    {
+      "from": 199,
+      "to": 197
+    },
+    {
+      "from": 200,
+      "to": 197
+    },
+    {
+      "from": 200,
+      "to": 198
+    },
+    {
+      "from": 201,
+      "to": 197
+    },
+    {
+      "from": 201,
+      "to": 198
+    },
+    {
+      "from": 202,
+      "to": 197
+    },
+    {
+      "from": 202,
+      "to": 199
+    },
+    {
+      "from": 203,
+      "to": 197
+    },
+    {
+      "from": 203,
+      "to": 198
+    },
+    {
+      "from": 203,
+      "to": 200
+    },
+    {
+      "from": 204,
+      "to": 197
+    },
+    {
+      "from": 204,
+      "to": 201
+    },
+    {
+      "from": 205,
+      "to": 197
+    },
+    {
+      "from": 205,
+      "to": 202
+    },
+    {
+      "from": 206,
+      "to": 197
+    },
+    {
+      "from": 206,
+      "to": 203
+    },
+    {
+      "from": 207,
+      "to": 197
+    },
+    {
+      "from": 207,
+      "to": 204
+    },
+    {
+      "from": 208,
+      "to": 197
+    },
+    {
+      "from": 208,
+      "to": 205
+    },
+    {
+      "from": 209,
+      "to": 197
+    },
+    {
+      "from": 209,
+      "to": 206
+    },
+    {
+      "from": 210,
+      "to": 197
+    },
+    {
+      "from": 210,
+      "to": 207
+    },
+    {
+      "from": 211,
+      "to": 197
+    },
+    {
+      "from": 211,
+      "to": 208
+    },
+    {
+      "from": 212,
+      "to": 197
+    },
+    {
+      "from": 212,
+      "to": 209
+    },
+    {
+      "from": 213,
+      "to": 197
+    },
+    {
+      "from": 213,
+      "to": 210
+    },
+    {
+      "from": 214,
+      "to": 197
+    },
+    {
+      "from": 214,
+      "to": 211
+    },
+    {
+      "from": 215,
+      "to": 197
+    },
+    {
+      "from": 215,
+      "to": 212
+    },
+    {
+      "from": 216,
+      "to": 197
+    },
+    {
+      "from": 216,
+      "to": 213
+    },
+    {
+      "from": 217,
+      "to": 38
+    },
+    {
+      "from": 217,
+      "to": 43
+    },
+    {
+      "from": 218,
+      "to": 217
+    },
+    {
+      "from": 219,
+      "to": 217
+    },
+    {
+      "from": 220,
+      "to": 217
+    },
+    {
+      "from": 220,
+      "to": 218
+    },
+    {
+      "from": 221,
+      "to": 217
+    },
+    {
+      "from": 221,
+      "to": 218
+    },
+    {
+      "from": 222,
+      "to": 217
+    },
+    {
+      "from": 222,
+      "to": 219
+    },
+    {
+      "from": 223,
+      "to": 217
+    },
+    {
+      "from": 223,
+      "to": 220
+    },
+    {
+      "from": 224,
+      "to": 217
+    },
+    {
+      "from": 224,
+      "to": 221
+    },
+    {
+      "from": 225,
+      "to": 217
+    },
+    {
+      "from": 225,
+      "to": 222
+    },
+    {
+      "from": 226,
+      "to": 217
+    },
+    {
+      "from": 226,
+      "to": 223
+    },
+    {
+      "from": 227,
+      "to": 217
+    },
+    {
+      "from": 227,
+      "to": 224
+    },
+    {
+      "from": 228,
+      "to": 217
+    },
+    {
+      "from": 228,
+      "to": 225
+    },
+    {
+      "from": 229,
+      "to": 217
+    },
+    {
+      "from": 229,
+      "to": 226
+    },
+    {
+      "from": 230,
+      "to": 217
+    },
+    {
+      "from": 230,
+      "to": 227
+    },
+    {
+      "from": 231,
+      "to": 217
+    },
+    {
+      "from": 231,
+      "to": 228
+    },
+    {
+      "from": 232,
+      "to": 217
+    },
+    {
+      "from": 232,
+      "to": 229
+    },
+    {
+      "from": 233,
+      "to": 217
+    },
+    {
+      "from": 233,
+      "to": 230
+    },
+    {
+      "from": 234,
+      "to": 39
+    },
+    {
+      "from": 234,
+      "to": 87
+    },
+    {
+      "from": 235,
+      "to": 234
+    },
+    {
+      "from": 236,
+      "to": 234
+    },
+    {
+      "from": 237,
+      "to": 234
+    },
+    {
+      "from": 237,
+      "to": 235
+    },
+    {
+      "from": 238,
+      "to": 234
+    },
+    {
+      "from": 238,
+      "to": 235
+    },
+    {
+      "from": 239,
+      "to": 234
+    },
+    {
+      "from": 239,
+      "to": 236
+    },
+    {
+      "from": 240,
+      "to": 234
+    },
+    {
+      "from": 240,
+      "to": 237
+    },
+    {
+      "from": 241,
+      "to": 234
+    },
+    {
+      "from": 241,
+      "to": 238
+    },
+    {
+      "from": 242,
+      "to": 234
+    },
+    {
+      "from": 242,
+      "to": 239
+    },
+    {
+      "from": 243,
+      "to": 234
+    },
+    {
+      "from": 243,
+      "to": 240
+    },
+    {
+      "from": 244,
+      "to": 234
+    },
+    {
+      "from": 244,
+      "to": 241
+    },
+    {
+      "from": 245,
+      "to": 234
+    },
+    {
+      "from": 245,
+      "to": 235
+    },
+    {
+      "from": 245,
+      "to": 242
+    },
+    {
+      "from": 246,
+      "to": 234
+    },
+    {
+      "from": 246,
+      "to": 243
+    },
+    {
+      "from": 247,
+      "to": 234
+    },
+    {
+      "from": 247,
+      "to": 244
+    },
+    {
+      "from": 248,
+      "to": 234
+    },
+    {
+      "from": 248,
+      "to": 245
+    },
+    {
+      "from": 249,
+      "to": 234
+    },
+    {
+      "from": 249,
+      "to": 246
+    },
+    {
+      "from": 250,
+      "to": 234
+    },
+    {
+      "from": 250,
+      "to": 247
+    },
+    {
+      "from": 251,
+      "to": 234
+    },
+    {
+      "from": 251,
+      "to": 248
+    },
+    {
+      "from": 252,
+      "to": 234
+    },
+    {
+      "from": 252,
+      "to": 249
+    },
+    {
+      "from": 253,
+      "to": 234
+    },
+    {
+      "from": 253,
+      "to": 250
+    },
+    {
+      "from": 254,
+      "to": 40
+    },
+    {
+      "from": 254,
+      "to": 41
+    },
+    {
+      "from": 254,
+      "to": 234
+    },
+    {
+      "from": 255,
+      "to": 254
+    },
+    {
+      "from": 256,
+      "to": 254
+    },
+    {
+      "from": 257,
+      "to": 254
+    },
+    {
+      "from": 257,
+      "to": 255
+    },
+    {
+      "from": 258,
+      "to": 254
+    },
+    {
+      "from": 258,
+      "to": 255
+    },
+    {
+      "from": 259,
+      "to": 254
+    },
+    {
+      "from": 259,
+      "to": 256
+    },
+    {
+      "from": 260,
+      "to": 254
+    },
+    {
+      "from": 260,
+      "to": 257
+    },
+    {
+      "from": 261,
+      "to": 254
+    },
+    {
+      "from": 261,
+      "to": 258
+    },
+    {
+      "from": 262,
+      "to": 254
+    },
+    {
+      "from": 262,
+      "to": 259
+    },
+    {
+      "from": 263,
+      "to": 254
+    },
+    {
+      "from": 263,
+      "to": 260
+    },
+    {
+      "from": 264,
+      "to": 254
+    },
+    {
+      "from": 264,
+      "to": 261
+    },
+    {
+      "from": 265,
+      "to": 254
+    },
+    {
+      "from": 265,
+      "to": 262
+    },
+    {
+      "from": 266,
+      "to": 254
+    },
+    {
+      "from": 266,
+      "to": 263
+    },
+    {
+      "from": 267,
+      "to": 254
+    },
+    {
+      "from": 267,
+      "to": 257
+    },
+    {
+      "from": 267,
+      "to": 258
+    },
+    {
+      "from": 267,
+      "to": 264
+    },
+    {
+      "from": 268,
+      "to": 254
+    },
+    {
+      "from": 268,
+      "to": 265
+    },
+    {
+      "from": 269,
+      "to": 254
+    },
+    {
+      "from": 269,
+      "to": 266
+    },
+    {
+      "from": 270,
+      "to": 254
+    },
+    {
+      "from": 270,
+      "to": 267
+    },
+    {
+      "from": 271,
+      "to": 254
+    },
+    {
+      "from": 271,
+      "to": 268
+    },
+    {
+      "from": 272,
+      "to": 254
+    },
+    {
+      "from": 272,
+      "to": 269
+    },
+    {
+      "from": 273,
+      "to": 42
+    },
+    {
+      "from": 273,
+      "to": 171
+    },
+    {
+      "from": 273,
+      "to": 197
+    },
+    {
+      "from": 273,
+      "to": 217
+    },
+    {
+      "from": 273,
+      "to": 234
+    },
+    {
+      "from": 273,
+      "to": 254
+    },
+    {
+      "from": 274,
+      "to": 273
+    },
+    {
+      "from": 275,
+      "to": 273
+    },
+    {
+      "from": 276,
+      "to": 87
+    },
+    {
+      "from": 276,
+      "to": 273
+    },
+    {
+      "from": 276,
+      "to": 274
+    },
+    {
+      "from": 277,
+      "to": 43
+    },
+    {
+      "from": 277,
+      "to": 273
+    },
+    {
+      "from": 277,
+      "to": 274
+    },
+    {
+      "from": 278,
+      "to": 217
+    },
+    {
+      "from": 278,
+      "to": 273
+    },
+    {
+      "from": 278,
+      "to": 275
+    },
+    {
+      "from": 279,
+      "to": 273
+    },
+    {
+      "from": 279,
+      "to": 276
+    },
+    {
+      "from": 280,
+      "to": 273
+    },
+    {
+      "from": 280,
+      "to": 277
+    },
+    {
+      "from": 281,
+      "to": 273
+    },
+    {
+      "from": 281,
+      "to": 278
+    },
+    {
+      "from": 282,
+      "to": 273
+    },
+    {
+      "from": 282,
+      "to": 279
+    },
+    {
+      "from": 283,
+      "to": 273
+    },
+    {
+      "from": 283,
+      "to": 280
+    },
+    {
+      "from": 284,
+      "to": 273
+    },
+    {
+      "from": 284,
+      "to": 281
+    },
+    {
+      "from": 285,
+      "to": 273
+    },
+    {
+      "from": 285,
+      "to": 282
+    },
+    {
+      "from": 286,
+      "to": 273
+    },
+    {
+      "from": 286,
+      "to": 283
+    },
+    {
+      "from": 287,
+      "to": 273
+    },
+    {
+      "from": 287,
+      "to": 284
+    },
+    {
+      "from": 287,
+      "to": 286
+    },
+    {
+      "from": 288,
+      "to": 273
+    },
+    {
+      "from": 288,
+      "to": 285
+    },
+    {
+      "from": 289,
+      "to": 273
+    },
+    {
+      "from": 289,
+      "to": 286
+    },
+    {
+      "from": 289,
+      "to": 287
+    },
+    {
+      "from": 290,
+      "to": 273
+    },
+    {
+      "from": 290,
+      "to": 287
+    },
+    {
+      "from": 290,
+      "to": 289
+    },
+    {
+      "from": 291,
+      "to": 22
+    },
+    {
+      "from": 291,
+      "to": 273
+    },
+    {
+      "from": 291,
+      "to": 288
+    },
+    {
+      "from": 291,
+      "to": 290
+    },
+    {
+      "from": 292,
+      "to": 273
+    },
+    {
+      "from": 292,
+      "to": 289
+    },
+    {
+      "from": 293,
+      "to": 273
+    },
+    {
+      "from": 293,
+      "to": 290
+    },
+    {
+      "from": 294,
+      "to": 273
+    },
+    {
+      "from": 294,
+      "to": 291
+    },
+    {
+      "from": 295,
+      "to": 273
+    },
+    {
+      "from": 295,
+      "to": 292
+    },
+    {
+      "from": 296,
+      "to": 273
+    },
+    {
+      "from": 296,
+      "to": 287
+    },
+    {
+      "from": 296,
+      "to": 293
+    },
+    {
+      "from": 297,
+      "to": 273
+    },
+    {
+      "from": 297,
+      "to": 294
+    },
+    {
+      "from": 298,
+      "to": 273
+    },
+    {
+      "from": 298,
+      "to": 295
+    },
+    {
+      "from": 299,
+      "to": 273
+    },
+    {
+      "from": 299,
+      "to": 296
+    },
+    {
+      "from": 300,
+      "to": 273
+    },
+    {
+      "from": 300,
+      "to": 297
+    }
+  ]
+}

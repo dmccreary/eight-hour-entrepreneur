@@ -1,0 +1,80 @@
+{
+  "title": "The Idea Trap Cycle",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "An interactive diagram contrasting the closed 'refine the plan' loop with the open 'real-world test' path. Buttons send the founder around the loop or down the path while counters compare hours invested with real customer answers.",
+  "date": "2026-09-25",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/idea-trap-cycle/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "10 minutes",
+    "prerequisites": [
+      "Chapter 1: Entrepreneurship, Lean Thinking & the Idea Trap"
+    ],
+    "standards": [],
+    "topic": "The idea trap",
+    "learningObjectives": [
+      "Differentiate productive early-stage activity (real-world testing) from unproductive activity (endless refinement)",
+      "Recognize when a founder is personally in the idea trap"
+    ],
+    "bloomsTaxonomy": "Analyze"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 610
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Refine the Plan",
+        "purpose": "Send Jordan around the trap loop: hours go up, customer answers do not"
+      },
+      {
+        "type": "button",
+        "label": "Test with Customers",
+        "purpose": "Send Jordan down the forward path: hours and real customer answers both go up"
+      },
+      {
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Clear the counters and selection"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive node-and-arrow explorer with comparative counters",
+    "keyQuestions": [
+      "Why does refining the plan never change the number of real customer answers?",
+      "Which of your last three activities belong on the loop, and which on the forward path?"
+    ],
+    "commonMisconceptions": [
+      "Planning and polishing feel like progress, so they must reduce risk",
+      "A 'no' from a customer is a failure rather than validated learning"
+    ],
+    "assessmentOpportunities": [
+      "Sort your own recent activities onto the loop or the forward path",
+      "Name one forward-path action to take before the next session"
+    ]
+  },
+  "chapter": "01-entrepreneurship-lean-thinking"
+}
