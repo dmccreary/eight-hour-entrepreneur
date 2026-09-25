@@ -1,23 +1,83 @@
 {
   "title": "30-Day Launch Roadmap Timeline",
-  "description": "Learners can explain what each week of a 30-day launch roadmap accomplishes and how weekly milestones build toward launch readiness, using Jordan's plan as a concrete worked example.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A step-through vis-timeline of Jordan's 30-day launch plan with four equal week blocks, each showing its weekly target, and a detail panel giving each week's plan, weekly milestone, weekly target, and the piece of launch readiness it adds.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "thirty-day-launch-roadmap-timeline",
-  "library": "vis-timeline",
-  "bloomLevel": "Understand (L2)",
-  "bloomVerb": "explain",
-  "completion_status": "scaffold",
-  "chapter_number": 16,
-  "chapter_title": "Building the 30-Day Launch Plan",
-  "chapter_dir": "16-thirty-day-launch-plan",
-  "chapter_rel_dir": "chapters/16-thirty-day-launch-plan"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/thirty-day-launch-roadmap-timeline/",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "10 minutes",
+    "prerequisites": [
+      "Chapter 13: Distribution & Go-to-Market Channels",
+      "Chapter 14: Revenue Models & Pricing",
+      "Chapter 15: Startup Needs & Cost Planning"
+    ],
+    "standards": [],
+    "topic": "Weekly milestones and targets in a 30-day launch plan",
+    "learningObjectives": [
+      "Explain what each week of a 30-day launch roadmap accomplishes",
+      "Explain how weekly milestones and weekly targets build toward launch readiness, using Jordan's plan as a worked example"
+    ],
+    "bloomsTaxonomy": "Understand"
+  },
+  "technical": {
+    "framework": "vis-timeline",
+    "version": "7.7.3",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-timeline 7.7.3 standalone build (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Previous",
+        "purpose": "Step back one week (also the left arrow key)"
+      },
+      {
+        "type": "button",
+        "label": "Next",
+        "purpose": "Step forward one week (also the right arrow key)"
+      },
+      {
+        "type": "timeline-item",
+        "label": "Week blocks",
+        "purpose": "Click to jump to a week; hover for a one-line preview of its milestone"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Step-through timeline with concrete detail for each week, no animation",
+    "keyQuestions": [
+      "What does each week of the plan add that the week before it did not?",
+      "How do the first three weeks supply what the Week 4 launch readiness check looks at?"
+    ],
+    "commonMisconceptions": [
+      "A 30-day plan is a rigid script rather than a set of checkpoints to evaluate against",
+      "A weekly milestone and a weekly target are the same thing"
+    ],
+    "assessmentOpportunities": [
+      "State what each of the four weeks accomplishes without looking",
+      "Explain the difference between a weekly milestone and a weekly target using one of Jordan's weeks"
+    ]
+  },
+  "chapter": "16-thirty-day-launch-plan"
 }

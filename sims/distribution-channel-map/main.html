@@ -3,131 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- microsim-scaffold-stub -->
-    <title>Distribution Channel Map</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Distribution Channel Map using Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
+        :root {
+            --indigo: #3F51B5;
+            --dark-indigo: #1A237E;
+            --fox-orange: #E8791A;
+            --dark-orange: #B25A10;
+            --amber: #FFB300;
+            --amber-text: #8A5A00;
+            --green: #2E7D32;
         }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
+
+        /* The whole sim is a fixed-height block (CANVAS_HEIGHT in the .js file) */
+        #sim {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            box-sizing: border-box;
+            height: 600px;
         }
-        .placeholder .badge {
+
+        /* Drawing region: aliceblue with a silver border, matching the other sims in this book */
+        #draw {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            background: aliceblue;
+            border: 1px solid silver;
+            padding: 8px 10px 10px 10px;
+        }
+        #title {
+            margin: 0 0 6px 0;
+            text-align: center;
+            font-size: clamp(16px, 4.6vw, 24px);
+            font-weight: normal;
+            color: black;
+        }
+
+        /* Narrow screens: chart on top, detail panel below */
+        #body {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        /* Chart.js needs a relative, chart-only container with a definite height */
+        #chart-box {
+            flex: none;
+            position: relative;
+            height: 270px;
+            min-width: 0;
+            background: white;
+            border: 1px solid silver;
+            border-radius: 6px;
+        }
+
+        /* ---------- Detail panel ---------- */
+        #detail {
+            flex: 1;
+            min-height: 0;
+            min-width: 0;
+            overflow: hidden;
+            padding: 0.5em 0.85em;
+            background: white;
+            border: 1px solid silver;
+            border-left: 8px solid var(--fox-orange);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            line-height: 1.35;
+            color: black;
+        }
+        #detail .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
+        #detail h2 { margin: 0; font-size: 1.2em; color: var(--dark-orange); }
+        #detail .pill {
             display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
+            padding: 0.15em 0.6em;
+            border-radius: 1em;
+            font-size: 0.7em;
+            font-weight: bold;
+            letter-spacing: 0.04em;
+            color: white;
+            white-space: nowrap;
         }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
+        #detail .pill.in { background: var(--green); }
+        #detail .pill.out { background: #616161; }
+        #detail .row { display: flex; align-items: baseline; gap: 0.45em; margin-top: 0.3em; }
+        #detail .tag {
+            flex: none;
+            display: inline-block;
+            min-width: 4.4em;
+            padding: 0 0.35em;
+            border-radius: 4px;
+            background: #E8EAF6;
+            color: var(--dark-indigo);
+            font-weight: bold;
+            font-size: 0.9em;
+            text-align: center;
         }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
+        #detail p { margin: 0.3em 0 0 0; }
+        #detail .label { font-weight: bold; color: var(--dark-orange); }
+        #detail .note { color: #555; font-size: 0.9em; }
+        /* Compare view: selected channel in dark orange, compared channel in amber text */
+        #detail .a { color: var(--dark-orange); }
+        #detail .b { color: var(--amber-text); }
+        #detail table { border-collapse: collapse; margin-top: 0.3em; }
+        #detail th, #detail td { text-align: left; padding: 0.05em 0.9em 0.05em 0; }
+        #detail thead th { border-bottom: 1px solid #DDD; }
+        #detail tbody th { color: #444; }
+
+        /* Wide screens: chart on the left, detail panel on the right */
+        @media (min-width: 700px) {
+            #body { flex-direction: row; }
+            #chart-box { flex: 1 1 0; height: auto; }
+            #detail { flex: 0 0 37%; }
         }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
+
+        /* Control region: white, below the drawing region */
+        #controls {
+            flex: none;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 10px;
+            background: white;
+            border: 1px solid silver;
+            border-top: none;
+            box-sizing: border-box;
         }
-        .meta strong { color: #495057; }
+        #controls button { flex: none; white-space: nowrap; font-size: 16px; padding: 4px 12px; }
+        #compare-label { flex: none; margin-left: 6px; font-size: 16px; white-space: nowrap; }
+        #compare-select { flex: 0 1 250px; min-width: 0; font-size: 15px; padding: 3px 2px; }
+        #hint { flex: 1 1 auto; min-width: 0; text-align: right; font-size: 14px; color: dimgray; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .narrow { display: none; }
+        @media (max-width: 519px) {
+            .wide { display: none; }
+            .narrow { display: inline; }
+            #controls button { padding: 4px 10px; }
+            #compare-label { margin-left: 2px; font-size: 15px; }
+            #compare-select { flex: 1 1 auto; }
+        }
+        @media (max-width: 759px) { #hint { display: none; } }
     </style>
+    <script src="distribution-channel-map.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Distribution Channel Map</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
+    <main>
+        <div id="sim">
+            <div id="draw">
+                <h1 id="title">Distribution Channels: Cost vs. Reach</h1>
+                <div id="body">
+                    <div id="chart-box">
+                        <canvas id="chart" role="img" aria-label="Scatter plot of eight distribution channels by channel cost (x axis, 1 to 10) and channel reach (y axis, 1 to 10), with a shaded best-fit zone for early-stage, low-capital ventures in the lower left"></canvas>
+                    </div>
+                    <div id="detail" aria-live="polite"></div>
+                </div>
+            </div>
+            <div id="controls">
+                <button id="prev-button" aria-label="Previous channel">&#9664;<span class="wide"> Previous</span></button>
+                <button id="next-button" aria-label="Next channel"><span class="wide">Next </span>&#9654;</button>
+                <label id="compare-label" for="compare-select"><span class="wide">Compare with:</span><span class="narrow">Compare:</span></label>
+                <select id="compare-select"></select>
+                <span id="hint">Click any point</span>
+            </div>
         </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> distribution-channel-map</p>
-            <p><strong>Library:</strong> Chart.js</p>
-            <p><strong>Bloom Level:</strong> Analyze (L4)</p>
-            <p><strong>Learning Objective:</strong> Learners compare distribution channels by plotting channel cost against channel reach, analyzing the tradeoff to judge which channels best fit an early-stage venture with limited resources.</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: chart
-    **sim-id:** distribution-channel-map<br/>
-    **Library:** Chart.js<br/>
-    **Status:** Specified
-    
-    Bloom Level: Analyze (L4)
-    Bloom Verb: compare
-    
-    Learning objective: Learners compare distribution channels by plotting channel cost against channel reach, analyzing the tradeoff to judge which channels best fit an early-stage venture with limited resources.
-    
-    Chart type: Scatter plot
-    
-    Purpose: Show the cost-versus-reach tradeoff across the 7 distribution channels introduced in this chapter, so learners can visually compare options rather than just reading a list.
-    
-    X-axis: Channel Cost (relative scale, 1 = very low cost, 10 = high cost)
-    Y-axis: Channel Reach (relative scale, 1 = very narrow reach, 10 = very wide reach)
-    
-    Data points (channel: cost, reach):
-    
-    - Word of Mouth: (1, 3)
-    - Referral Channel: (2, 4)
-    - Direct Sales Channel: (3, 2)
-    - In-Person Distribution: (3, 2)
-    - Partnership Channel: (3, 5)
-    - Social Media Channel: (2, 6)
-    - Online Distribution: (5, 7)
-    - Marketplace Channel: (6, 8)
-    
-    Title: "Distribution Channels: Cost vs. Reach"
-    Legend: none needed (single series, labeled points)
-    
-    Interactivity (REQUIRED — minimum bar):
-    
-    - Hovering any point shows a tooltip with the channel name, its one-sentence definition from this chapter, and its (cost, reach) values
-    - Clicking a point highlights it and displays a short "best for" note beneath the chart (e.g., Word of Mouth: "Best for an early-stage venture with a small, tight-knit target customer group")
-    
-    Annotations: A shaded lower-left quadrant labeled "Best fit for early-stage, low-capital ventures" (low cost, moderate reach)
-    
-    Color scheme: Indigo (#3F51B5) points, fox-orange (#E8791A) highlight on click, cream background consistent with the book's palette.
-    
-    Implementation notes: Use Chart.js scatter chart type with a custom tooltip callback pulling from a data array of `{channel, cost, reach, definition, bestFor}` objects. Must remain fully readable and interactive on narrow (mobile) viewports — enable pinch/scroll or provide a "tap for details" fallback since hover doesn't exist on touch.
-    -->
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

@@ -1,23 +1,99 @@
 {
   "title": "Persevere vs Pivot Signal Checker",
-  "description": "Given a set of validation evidence signals for a venture scenario, learners evaluate the pattern and justify whether it supports a persevere decision, a pivot decision, or a kill decision (from Chapter 10).",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "Learners switch three validation evidence signals (problem validated, payment signals, customer confirmed) and see whether the pattern supports persevere, a specific pivot, or kill, with a justification and keep or change tags. A worked example uses Priya's evidence, and four practice ventures ask learners to judge each line of evidence, with green or amber feedback on every signal.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "persevere-vs-pivot-signal-checker",
-  "library": "p5.js",
-  "bloomLevel": "Evaluate (L5)",
-  "bloomVerb": "justify",
-  "completion_status": "scaffold",
-  "chapter_number": 11,
-  "chapter_title": "Interpreting Validation Evidence",
-  "chapter_dir": "11-interpreting-validation-evidence",
-  "chapter_rel_dir": "chapters/11-interpreting-validation-evidence"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/persevere-vs-pivot-signal-checker/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Chapter 10: Lean Testing Fundamentals",
+      "Chapter 11: Interpreting Validation Evidence"
+    ],
+    "standards": [],
+    "topic": "Persevere, pivot, and kill decisions from validation evidence",
+    "learningObjectives": [
+      "Given a set of validation evidence signals for a venture scenario, evaluate the pattern and justify whether it supports a persevere decision, a pivot decision, or a kill decision"
+    ],
+    "bloomsTaxonomy": "Evaluate"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "checkbox",
+        "label": "Problem Validated?",
+        "purpose": "Mark that target customers raised the pain unprompted and ranked it a priority"
+      },
+      {
+        "type": "checkbox",
+        "label": "Solution Got Payment Signals?",
+        "purpose": "Mark that money changed hands for the offer, not just interest"
+      },
+      {
+        "type": "checkbox",
+        "label": "Customer Definition Confirmed?",
+        "purpose": "Mark that the people who felt the pain or paid match the defined target customer"
+      },
+      {
+        "type": "button",
+        "label": "Load Priya's Evidence",
+        "purpose": "Show Priya's evidence as a worked example: signals set, each line annotated, verdict justified"
+      },
+      {
+        "type": "button",
+        "label": "Try a Scenario / Check My Reading / Next Scenario / Try Again",
+        "purpose": "Start the practice scenarios, check the learner's reading of the evidence, advance, or reshuffle"
+      },
+      {
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Return to Explore mode with every signal off"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Worked example followed by scenario-based judgment with per-signal corrective feedback",
+    "keyQuestions": [
+      "Does this line of evidence clear its bar, or is it only interest?",
+      "Which element of the concept does the evidence support keeping, and which one should change?",
+      "Is there anything left with evidence behind it, or is this a kill?"
+    ],
+    "commonMisconceptions": [
+      "Likes, comments, and 'I'd buy that' count as payment signals",
+      "A pain that only surfaces after a leading question is a validated problem",
+      "Any paying customer confirms the customer definition, even if they are not the defined target",
+      "A pivot means starting over rather than changing one element"
+    ],
+    "assessmentOpportunities": [
+      "Read at least 3 of 4 practice scenarios honestly on the first try",
+      "Write a one-sentence justification for each verdict before checking",
+      "Set the three signals for one's own latest lean test and justify the verdict"
+    ]
+  },
+  "chapter": "11-interpreting-validation-evidence"
 }

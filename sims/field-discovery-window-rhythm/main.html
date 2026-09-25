@@ -70,13 +70,17 @@
             background: white;
             border: 1px solid silver;
             border-radius: 6px;
-            scrollbar-width: thin;
-            scrollbar-color: #9FA8DA #EEF0F8;
         }
         #timeline-scroll.scrolls { padding-bottom: 12px; }
+        /* Chrome and Safari: a styled scrollbar that stays visible even where the
+           system hides scrollbars until you scroll. (Setting the standard
+           scrollbar-width in Chrome would switch these styles off.) */
         #timeline-scroll::-webkit-scrollbar { height: 10px; }
         #timeline-scroll::-webkit-scrollbar-track { background: #EEF0F8; }
         #timeline-scroll::-webkit-scrollbar-thumb { background: #9FA8DA; border-radius: 5px; }
+        @supports not selector(::-webkit-scrollbar) {
+            #timeline-scroll { scrollbar-width: thin; scrollbar-color: #9FA8DA #EEF0F8; }
+        }
         #timeline { min-width: 660px; }
 
         /* ---------- vis-timeline overrides ---------- */

@@ -3,125 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- microsim-scaffold-stub -->
-    <title>Benefit vs Advantage Sorter</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Benefit vs Advantage Sorter using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="benefit-vs-advantage-sorter.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Benefit vs Advantage Sorter</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> benefit-vs-advantage-sorter</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> Apply (L3)</p>
-            <p><strong>Learning Objective:</strong> Given short value-proposition statements, learners classify each as a customer benefit statement (why the customer wants it) or a founder advantage statement (why this founder can deliver it), applying the chapter's definitions.</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** benefit-vs-advantage-sorter<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Bloom Level: Apply (L3)
-    Bloom Verb: classify
-    
-    Learning objective: Given short value-proposition statements, learners classify each as a customer benefit statement (why the customer wants it) or a founder advantage statement (why this founder can deliver it), applying the chapter's definitions.
-    
-    Canvas layout:
-    
-    - Left side (70%): a stack of 6 statement cards, one at a time, each with two buttons below it: "Benefit" and "Advantage"
-    - Right side (30%): a running tally showing "Correct: N / 6" and a small feedback area
-    
-    Statement cards (in order):
-    
-    1. "No more forty-minute drives to a booked-solid groomer." (Correct answer: Benefit — describes what the customer gains)
-    2. "Three years as a veterinary tech means I already know how to handle anxious dogs safely." (Correct answer: Advantage — describes why this founder specifically)
-    3. "You'll feel like a more attentive pet owner without rearranging your whole week." (Correct answer: Benefit — an emotional and functional outcome for the customer)
-    4. "I already have the trust of a dozen neighbors after three successful driveway sessions." (Correct answer: Advantage — founder credibility, not customer outcome)
-    5. "Affordable, convenient grooming that comes to you." (Correct answer: Benefit — despite sounding like a pitch, it describes customer-side value)
-    6. "I live in the neighborhood, so I can respond same-day when regular groomers are booked out for weeks." (Correct answer: Advantage — a founder-specific circumstance)
-    
-    Interactive controls:
-    
-    - Click "Benefit" or "Advantage" under the current card
-    - Immediate feedback: correct answers flash green with a one-sentence explanation; incorrect answers flash amber with the correct classification and explanation
-    - "Next Card" button advances; after card 6, show final tally and a "Try Again" button that reshuffles card order
-    
-    Default parameters: Card order as listed above on first load; shuffled on retry.
-    
-    Behavior: No time pressure. Score persists only for the current session (no data saved). Progress bar across the top shows card 1 of 6 through 6 of 6.
-    
-    Implementation notes: Use p5.js. Store the six statements as an array of objects `{text, correctAnswer, explanation}`. Must remain fully readable and clickable on narrow (mobile) viewports — stack the tally below the card stack rather than beside it below 600px width.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

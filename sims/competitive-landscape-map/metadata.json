@@ -1,23 +1,85 @@
 {
   "title": "Competitive Landscape Map",
-  "description": "Learners differentiate existing alternatives to a venture as the do-nothing alternative, a current workaround, an indirect competitor or substitute, or a direct competitor, by their directness in solving the same problem.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A clickable spectrum of the five kinds of alternative to Jordan's mobile dog-grooming idea, ordered by how directly each solves the same problem: do-nothing alternative, current workaround, substitute solution, indirect competitor, and direct competitor. Each step along the line adds one thing (a fix, a dedicated offer, the same problem, the same approach). Selecting a node shows its definition, Jordan's example, why it sits there, and where it falls short. The spectrum turns vertical on narrow screens.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "competitive-landscape-map",
-  "library": "p5.js",
-  "bloomLevel": "Analyze (L4)",
-  "bloomVerb": "differentiate",
-  "completion_status": "scaffold",
-  "chapter_number": 7,
-  "chapter_title": "Alternatives & the Competitive Landscape",
-  "chapter_dir": "07-alternatives-competitive-landscape",
-  "chapter_rel_dir": "chapters/07-alternatives-competitive-landscape"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/competitive-landscape-map/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Chapter 5: Defining the Real Problem",
+      "Chapter 7 reading through Direct, Indirect, and Substitute Competitors"
+    ],
+    "standards": [],
+    "topic": "Alternatives and the competitive landscape: ordering a venture's alternatives by how directly each solves the same problem",
+    "learningObjectives": [
+      "Differentiate existing alternatives to a venture as the do-nothing alternative, a current workaround, an indirect competitor or substitute, or a direct competitor, by their directness in solving the same problem",
+      "Name the single difference that separates two neighboring alternatives on the spectrum",
+      "Identify where each alternative falls short for the target customer as raw material for a market gap"
+    ],
+    "bloomsTaxonomy": "Analyze"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 498
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "← Less direct",
+        "purpose": "Select the neighboring node one step toward the do-nothing end (also the left arrow key); with nothing selected, starts at the direct competitor"
+      },
+      {
+        "type": "button",
+        "label": "More direct →",
+        "purpose": "Select the neighboring node one step toward the direct-competitor end (also the right arrow key); with nothing selected, starts at the do-nothing alternative"
+      },
+      {
+        "type": "button",
+        "label": "Clear",
+        "purpose": "Deselect the node and return the panel to the opening prompt (also the Escape key)"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Exploration of a worked example: a clickable ordered spectrum with a detail panel for comparing neighboring categories",
+    "keyQuestions": [
+      "How directly does this alternative solve the same problem as Jordan's offer?",
+      "What single difference separates two neighboring alternatives on the spectrum?",
+      "Where does each alternative fall short for Jordan's customer?"
+    ],
+    "commonMisconceptions": [
+      "Only businesses selling something similar count as competitors",
+      "Having no visible competitors means the idea has no competition",
+      "A substitute and an indirect competitor are the same thing because both are dedicated businesses"
+    ],
+    "assessmentOpportunities": [
+      "Place an alternative that is not on the map and name the step it has not taken",
+      "Explain why the do-nothing alternative is often the toughest competitor",
+      "Map one alternative of each kind for one's own venture and name a shortfall they all share"
+    ]
+  },
+  "chapter": "07-alternatives-competitive-landscape"
 }

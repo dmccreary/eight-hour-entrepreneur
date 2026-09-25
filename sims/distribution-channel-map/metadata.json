@@ -1,23 +1,90 @@
 {
   "title": "Distribution Channel Map",
-  "description": "Learners compare distribution channels by plotting channel cost against channel reach, analyzing the tradeoff to judge which channels best fit an early-stage venture with limited resources.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "An interactive Chart.js scatter plot that places eight distribution channels by relative cost and reach, shades a best-fit zone for early-stage, low-capital ventures, and lets learners inspect each channel and compare any two side by side with a tradeoff verdict.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "distribution-channel-map",
-  "library": "Chart.js",
-  "bloomLevel": "Analyze (L4)",
-  "bloomVerb": "compare",
-  "completion_status": "scaffold",
-  "chapter_number": 13,
-  "chapter_title": "Distribution & Go-to-Market Channels",
-  "chapter_dir": "13-distribution-go-to-market",
-  "chapter_rel_dir": "chapters/13-distribution-go-to-market"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/distribution-channel-map/",
+  "canvasHeight": 600,
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Chapter 13: Distribution & Go-to-Market Channels",
+      "Chapter 4: Customer Discovery & Segmentation"
+    ],
+    "standards": [],
+    "topic": "Distribution channel selection by cost, reach, and fit",
+    "learningObjectives": [
+      "Compare distribution channels by plotting channel cost against channel reach",
+      "Analyze the cost-versus-reach tradeoff to judge which channels best fit an early-stage venture with limited resources"
+    ],
+    "bloomsTaxonomy": "Analyze"
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "4.4.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "Chart.js 4.4.0 UMD build (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "chart-point",
+        "label": "Channel points",
+        "purpose": "Hover for the definition and cost/reach values; click or tap to select a channel and fill the detail panel"
+      },
+      {
+        "type": "button",
+        "label": "Previous",
+        "purpose": "Select the next cheaper channel (also the left arrow key)"
+      },
+      {
+        "type": "button",
+        "label": "Next",
+        "purpose": "Select the next more expensive channel (also the right arrow key)"
+      },
+      {
+        "type": "select",
+        "label": "Compare with",
+        "purpose": "Mark a second channel and show a side-by-side cost, reach, and zone comparison with a tradeoff verdict"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Comparison and exploration tool: inspect each channel's position, then compare pairs on cost and reach",
+    "keyQuestions": [
+      "Which channels give the widest reach for the least cost, and which are beaten on both axes by another channel?",
+      "Why do the widest-reaching channels sit outside the best-fit zone for a low-capital venture?",
+      "When should channel fit overrule the cost-versus-reach picture?"
+    ],
+    "commonMisconceptions": [
+      "The channel with the widest reach is always the best choice",
+      "The cheapest channel is always the best choice, regardless of where the customer pays attention",
+      "A new venture should launch on every channel at once"
+    ],
+    "assessmentOpportunities": [
+      "Explain why Marketplace sits outside the best-fit zone despite having the widest reach",
+      "State the cost and reach difference between any two channels and say which suits a low budget",
+      "Name a case where channel fit overrules the chart"
+    ]
+  },
+  "chapter": "13-distribution-go-to-market"
 }

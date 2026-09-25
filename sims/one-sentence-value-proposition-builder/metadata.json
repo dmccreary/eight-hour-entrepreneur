@@ -1,23 +1,116 @@
 {
   "title": "One-Sentence Value Proposition Builder",
-  "description": "Learners compose a one-sentence value proposition by selecting from component options for target customer, core benefit, founder advantage, and main alternative, and observe the assembled sentence update live.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "Four dropdowns (Target Customer, Core Benefit, Founder Advantage, Main Alternative) each offer Jordan's wording, Priya's wording, or Write your own, which opens a text box. A preview card assembles '[Target Customer] gets [Core Benefit], from [Founder Advantage], unlike [Main Alternative].' live, wrapped to the screen, with each part in its own color. Formative feedback counts the parts filled in, estimates the read time against a ten-second goal, and flags missing parts, parts mixed from two founders, generic words, and sentences that run too long. Buttons load either founder's complete version or clear every choice.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "one-sentence-value-proposition-builder",
-  "library": "p5.js",
-  "bloomLevel": "Create (L6)",
-  "bloomVerb": "compose",
-  "completion_status": "scaffold",
-  "chapter_number": 12,
-  "chapter_title": "\"Messaging & the Value Proposition Statement\"",
-  "chapter_dir": "12-messaging-value-proposition",
-  "chapter_rel_dir": "chapters/12-messaging-value-proposition"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/one-sentence-value-proposition-builder/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Chapter 8: Value Proposition: Benefit & Advantage",
+      "Chapter 12 reading through The One-Sentence Value Proposition"
+    ],
+    "standards": [],
+    "topic": "One-sentence value proposition: composing target customer, core benefit, founder advantage, and main alternative into a single sentence a stranger can read in under ten seconds",
+    "learningObjectives": [
+      "Compose a one-sentence value proposition by selecting or writing a target customer, core benefit, founder advantage, and main alternative",
+      "Revise the sentence until every part is specific and it reads in under ten seconds",
+      "Explain why every part of a value proposition must describe the same customer and offer"
+    ],
+    "bloomsTaxonomy": "Create"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "select",
+        "label": "Target Customer",
+        "options": "Jordan's wording, Priya's wording, Write your own; unset on load",
+        "purpose": "Choose who the value proposition is for"
+      },
+      {
+        "type": "select",
+        "label": "Core Benefit",
+        "options": "Jordan's wording, Priya's wording, Write your own; unset on load",
+        "purpose": "Choose what the customer gets"
+      },
+      {
+        "type": "select",
+        "label": "Founder Advantage",
+        "options": "Jordan's wording, Priya's wording, Write your own; unset on load",
+        "purpose": "Choose why this founder is the one to deliver it"
+      },
+      {
+        "type": "select",
+        "label": "Main Alternative",
+        "options": "Jordan's wording, Priya's wording, Write your own; unset on load",
+        "purpose": "Choose what the customer would do instead"
+      },
+      {
+        "type": "input",
+        "label": "Write your own (one per part)",
+        "range": "text, up to 70 characters",
+        "purpose": "Appears beside a dropdown set to Write your own; the sentence updates as the learner types"
+      },
+      {
+        "type": "button",
+        "label": "Load Jordan's Version",
+        "purpose": "Set all four dropdowns to Jordan's mobile dog-grooming value proposition"
+      },
+      {
+        "type": "button",
+        "label": "Load Priya's Version",
+        "purpose": "Set all four dropdowns to Priya's meal-prep value proposition"
+      },
+      {
+        "type": "button",
+        "label": "Clear",
+        "purpose": "Return every dropdown to unset and empty every text box"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided construction: deconstruct two worked examples, then build an original artifact from the same template with live formative feedback",
+    "keyQuestions": [
+      "Which question does each part of the sentence answer for a stranger?",
+      "Why does a sentence that mixes Jordan's and Priya's parts stop describing a real business?",
+      "Which words in your sentence could any competitor also claim?",
+      "Can someone read your sentence in under ten seconds and repeat back what you offer?"
+    ],
+    "commonMisconceptions": [
+      "A value proposition should describe everyone who might buy, not one specific customer",
+      "Words like affordable or high quality make a value proposition stronger",
+      "A longer sentence with more detail is clearer to a stranger"
+    ],
+    "assessmentOpportunities": [
+      "Compose a complete sentence for one's own venture with no generic-word warning",
+      "Keep the sentence to 32 words or fewer (about 8 seconds to read)",
+      "Run the five-second test with a partner and revise from the result"
+    ]
+  },
+  "chapter": "12-messaging-value-proposition"
 }

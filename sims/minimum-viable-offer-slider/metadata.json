@@ -1,23 +1,81 @@
 {
   "title": "Minimum Viable Offer Slider",
-  "description": "Learners adjust an offer's scope using a slider and observe which features of a draft business idea are essential to the core offering versus removable, applying the concept of a minimum viable offer to a concrete example.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "An Offer Scope slider from 0 (bare minimum) to 100 (full imagined business) shrinks or grows Jordan's eight-feature mobile dog-grooming offer. Features are checked when the scope reaches their threshold and fade to gray below it; the wash and brush-out and the at-home visit never leave because they are the essential core. A panel names the tier (Minimum Viable Offer, Initial Offer, or Established Offering), marks the scope on a three-zone meter, and states Jordan's offer in one sentence with a word count.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "minimum-viable-offer-slider",
-  "library": "p5.js",
-  "bloomLevel": "Apply (L3)",
-  "bloomVerb": "apply",
-  "completion_status": "scaffold",
-  "chapter_number": 6,
-  "chapter_title": "Designing the Solution & Initial Offer",
-  "chapter_dir": "06-designing-solution-offer",
-  "chapter_rel_dir": "chapters/06-designing-solution-offer"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/minimum-viable-offer-slider/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Chapter 5: Defining the Real Problem",
+      "Chapter 6 reading through Keeping the First Offer Small"
+    ],
+    "standards": [],
+    "topic": "Minimum viable offer: separating a draft business idea's essential core from removable add-ons by adjusting solution scope",
+    "learningObjectives": [
+      "Apply the concept of a minimum viable offer to Jordan's draft business idea by adjusting the offer's scope",
+      "Identify which features are essential to the core offering and which are removable add-ons",
+      "Classify a scope value as a Minimum Viable Offer, an Initial Offer, or an Established Offering"
+    ],
+    "bloomsTaxonomy": "Apply"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 498
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "slider",
+        "label": "Offer Scope",
+        "range": "0-100, step 1, default 15",
+        "purpose": "Set how much of Jordan's full imagined offer is included; each feature joins the offer when the scope reaches its threshold (also the left and right arrow keys once the slider has focus)"
+      },
+      {
+        "type": "button",
+        "label": "Reset to 0",
+        "purpose": "Strip the offer back to its essential core: the wash and brush-out at the customer's home"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Parameter exploration with immediate visual feedback on a concrete worked example",
+    "keyQuestions": [
+      "Which features are still in the offer at scope 0, and why can neither be cut?",
+      "Would the first customer miss this add-on if it were cut?",
+      "How much longer and less clear does the one-sentence offer get as the scope grows?"
+    ],
+    "commonMisconceptions": [
+      "A minimum viable offer is a lesser version of the real business rather than a tool for getting a fast, honest answer",
+      "More features make a first offer more likely to get a yes",
+      "Features such as an online calendar or a branded van are needed before the first customer can be served"
+    ],
+    "assessmentOpportunities": [
+      "Name the two core features and explain why each is essential",
+      "Predict which features are in the offer, and which tier it falls in, at a given scope value before moving the slider",
+      "Write a minimum viable offer for one's own draft business idea in one sentence of 15 words or fewer"
+    ]
+  },
+  "chapter": "06-designing-solution-offer"
 }
