@@ -1,0 +1,23 @@
+{
+  "title": "Minimum Viable Offer Slider",
+  "description": "Learners adjust an offer's scope using a slider and observe which features of a draft business idea are essential to the core offering versus removable, applying the concept of a minimum viable offer to a concrete example.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "minimum-viable-offer-slider",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "apply",
+  "completion_status": "scaffold",
+  "chapter_number": 6,
+  "chapter_title": "Designing the Solution & Initial Offer",
+  "chapter_dir": "06-designing-solution-offer",
+  "chapter_rel_dir": "chapters/06-designing-solution-offer"
+}

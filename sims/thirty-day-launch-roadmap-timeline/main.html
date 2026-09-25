@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- microsim-scaffold-stub -->
+    <title>30-Day Launch Roadmap Timeline</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>30-Day Launch Roadmap Timeline</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> thirty-day-launch-roadmap-timeline</p>
+            <p><strong>Library:</strong> vis-timeline</p>
+            <p><strong>Bloom Level:</strong> Understand (L2)</p>
+            <p><strong>Learning Objective:</strong> Learners can explain what each week of a 30-day launch roadmap accomplishes and how weekly milestones build toward launch readiness, using Jordan's plan as a concrete worked example.</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: timeline
+    **sim-id:** thirty-day-launch-roadmap-timeline<br/>
+    **Library:** vis-timeline<br/>
+    **Status:** Specified
+    
+    Bloom Level: Understand (L2)
+    Bloom Verb: explain
+    
+    Learning objective: Learners can explain what each week of a 30-day launch roadmap accomplishes and how weekly milestones build toward launch readiness, using Jordan's plan as a concrete worked example.
+    
+    Instructional Rationale: Understand-level objective, so the timeline uses click-to-reveal concrete detail panels rather than animation — the learner needs to see exactly what each week's milestone and target are, not watch time pass abstractly.
+    
+    Time period covered: 30 days (4 weeks) immediately following course completion
+    
+    Orientation: Horizontal timeline with 4 week-blocks
+    
+    Data Visibility Requirements (shown in a detail panel when a week is clicked):
+    
+      Week 1: "What to sell: single wash-and-brush driveway session ($40). Who to sell to: 10 households within 5 miles. How to reach them: neighborhood app post plus word-of-mouth from 3 existing customers. Weekly Milestone: first 5 bookings confirmed. Weekly Target: 5 sessions completed."
+      Week 2: "Add nail-trim add-on based on Chapter 6 offer design. Launch referral channel from Chapter 13. Weekly Milestone: first referred customer booked. Weekly Target: 8 sessions completed."
+      Week 3: "Run price point test from Chapter 14 ($40 vs $45 groups). Weekly Milestone: price test evidence collected. Weekly Target: 10 sessions completed."
+      Week 4: "Review cash flow awareness from Chapter 15 against startup budget. Weekly Milestone: launch readiness check passed. Weekly Target: 12 sessions completed."
+    
+    Interactive controls: Click any week block to open its detail panel below the timeline. Hovering a week shows a one-line tooltip preview before clicking.
+    
+    Visual style: Horizontal timeline with 4 equal-width week blocks in indigo (#3F51B5), each showing its weekly target number directly on the block; selected block outlined in fox-orange (#E8791A).
+    
+    Color coding: Indigo blocks for all weeks; fox-orange outline for the currently selected week.
+    
+    Implementation notes: Use the vis-timeline library with 4 equal-duration range items. Must remain readable on narrow (mobile) viewports — allow horizontal scroll with a visible scrollbar rather than compressing week labels to illegibility.
+    -->
+</body>
+</html>

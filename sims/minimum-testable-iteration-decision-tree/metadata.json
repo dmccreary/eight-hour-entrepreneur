@@ -1,0 +1,23 @@
+{
+  "title": "Minimum Testable Iteration Decision Tree",
+  "description": "Given a venture scenario, learners evaluate which lean-test principles (service before product, manual before automated, pre-selling before building) apply, and justify a resulting minimum testable iteration design.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "minimum-testable-iteration-decision-tree",
+  "library": "p5.js",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "justify",
+  "completion_status": "scaffold",
+  "chapter_number": 10,
+  "chapter_title": "Lean Testing Fundamentals",
+  "chapter_dir": "10-lean-testing-fundamentals",
+  "chapter_rel_dir": "chapters/10-lean-testing-fundamentals"
+}

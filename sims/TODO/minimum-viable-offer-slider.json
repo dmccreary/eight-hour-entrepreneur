@@ -1,0 +1,15 @@
+{
+  "sim_id": "minimum-viable-offer-slider",
+  "diagram_name": "Minimum Viable Offer Slider",
+  "chapter_number": 6,
+  "chapter_title": "Designing the Solution & Initial Offer",
+  "chapter_dir": "06-designing-solution-offer",
+  "chapter_rel_dir": "chapters/06-designing-solution-offer",
+  "library": "p5.js",
+  "bloom_level": "Apply (L3)",
+  "bloom_verb": "apply",
+  "learning_objective": "Learners adjust an offer's scope using a slider and observe which features of a draft business idea are essential to the core offering versus removable, applying the concept of a minimum viable offer to a concrete example.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-25",
+  "specification": "Type: microsim\n**sim-id:** minimum-viable-offer-slider<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Apply (L3)\nBloom Verb: apply\n\nLearning objective: Learners adjust an offer's scope using a slider and observe which features of a draft business idea are essential to the core offering versus removable, applying the concept of a minimum viable offer to a concrete example.\n\nCanvas layout:\n\n- Top: a slider labeled \"Offer Scope\" ranging from 0 (bare minimum) to 100 (full imagined business)\n- Below: a card showing Jordan's full imagined offer as a checklist of 8 features, each with a threshold value at which it appears/disappears as the slider moves\n- Side panel: a running label reading \"Minimum Viable Offer\" (0-25), \"Initial Offer\" (26-50), \"Established Offering\" (51-100)\n\nFeature list with scope thresholds (features become visible above their threshold):\n\n- \"Basic wash and brush-out\" — threshold 0 (always visible, the essential core)\n- \"At the customer's home\" — threshold 0 (always visible, the essential core)\n- \"Text-message booking\" — threshold 10\n- \"Nail trim add-on\" — threshold 30\n- \"Multiple dog breeds/sizes supported\" — threshold 40\n- \"Online booking calendar\" — threshold 55\n- \"Flea/tick treatment option\" — threshold 65\n- \"Branded van and uniform\" — threshold 85\n\nInteractive controls:\n\n- Drag the slider; features above the current threshold appear checked, features below fade to gray\n- At scope values 0-25, panel displays: \"This is a Minimum Viable Offer — just enough to test the core problem\"\n- Reset button returns slider to 0\n\nDefault parameters: Slider starts at 15 (showing \"Basic wash and brush-out,\" \"At the customer's home,\" and \"Text-message booking\" — Jordan's actual initial offer).\n\nImplementation notes: Use p5.js. Store features as an array of objects `{label, threshold}`; render checklist by comparing each threshold to the current slider value. Must remain fully readable on narrow (mobile) viewports — stack the checklist below the slider."
+}

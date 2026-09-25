@@ -1,0 +1,23 @@
+{
+  "title": "30-Day Launch Roadmap Timeline",
+  "description": "Learners can explain what each week of a 30-day launch roadmap accomplishes and how weekly milestones build toward launch readiness, using Jordan's plan as a concrete worked example.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "thirty-day-launch-roadmap-timeline",
+  "library": "vis-timeline",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain",
+  "completion_status": "scaffold",
+  "chapter_number": 16,
+  "chapter_title": "Building the 30-Day Launch Plan",
+  "chapter_dir": "16-thirty-day-launch-plan",
+  "chapter_rel_dir": "chapters/16-thirty-day-launch-plan"
+}

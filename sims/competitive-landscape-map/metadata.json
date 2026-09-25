@@ -1,0 +1,23 @@
+{
+  "title": "Competitive Landscape Map",
+  "description": "Learners differentiate existing alternatives to a venture as the do-nothing alternative, a current workaround, an indirect competitor or substitute, or a direct competitor, by their directness in solving the same problem.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "competitive-landscape-map",
+  "library": "p5.js",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate",
+  "completion_status": "scaffold",
+  "chapter_number": 7,
+  "chapter_title": "Alternatives & the Competitive Landscape",
+  "chapter_dir": "07-alternatives-competitive-landscape",
+  "chapter_rel_dir": "chapters/07-alternatives-competitive-landscape"
+}

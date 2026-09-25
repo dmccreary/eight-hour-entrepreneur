@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- microsim-scaffold-stub -->
+    <title>Break-Even Calculator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Break-Even Calculator</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> break-even-calculator</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> Apply (L3)</p>
+            <p><strong>Learning Objective:</strong> Learners adjust price, per-sale cost, and fixed monthly cost sliders and calculate how many sales are needed to reach break-even for a lean venture.</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** break-even-calculator<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Bloom Level: Apply (L3)
+    Bloom Verb: calculate
+    
+    Learning objective: Learners adjust price, per-sale cost, and fixed monthly cost sliders and calculate how many sales are needed to reach break-even for a lean venture.
+    
+    Canvas layout:
+    
+    - Three sliders, top to bottom: "Price per Sale" ($10-$100), "Cost per Sale" ($0-$50), "Fixed Monthly Costs" ($0-$500)
+    - Below: a live-updating result reading "Sales Needed to Break Even This Month: N"
+    - A simple bar showing current monthly sales (a 4th slider, "Sales This Month," 0-30) against the break-even line
+    
+    Behavior: Break-even sales = Fixed Monthly Costs / (Price per Sale − Cost per Sale). Recalculate and redraw on every slider change. If Price per Sale ≤ Cost per Sale, display a warning message: "At this price, you can never break even — raise the price or lower the cost." The bar chart shows a red bar if "Sales This Month" is below the break-even number, green if at or above it.
+    
+    Interactive controls:
+    
+    - Drag any of the 4 sliders; all outputs update live
+    - "Load Jordan's Numbers" button sets Price=$40, Cost per Sale=$8, Fixed Monthly Costs=$120, Sales This Month=5
+    
+    Default parameters: Price=$40, Cost per Sale=$8, Fixed Monthly Costs=$120, Sales This Month=0 (so the bar starts red, prompting exploration).
+    
+    Implementation notes: Use p5.js. Recompute break-even on every `draw()` call from current slider values; guard the division against Price equal to Cost per Sale. Must remain fully usable on narrow (mobile) viewports — stack sliders vertically with the result and bar chart below.
+    -->
+</body>
+</html>

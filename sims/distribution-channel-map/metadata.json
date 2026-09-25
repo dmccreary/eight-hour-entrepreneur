@@ -1,0 +1,23 @@
+{
+  "title": "Distribution Channel Map",
+  "description": "Learners compare distribution channels by plotting channel cost against channel reach, analyzing the tradeoff to judge which channels best fit an early-stage venture with limited resources.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "distribution-channel-map",
+  "library": "Chart.js",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "compare",
+  "completion_status": "scaffold",
+  "chapter_number": 13,
+  "chapter_title": "Distribution & Go-to-Market Channels",
+  "chapter_dir": "13-distribution-go-to-market",
+  "chapter_rel_dir": "chapters/13-distribution-go-to-market"
+}

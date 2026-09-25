@@ -1,0 +1,15 @@
+{
+  "sim_id": "customer-definition-funnel",
+  "diagram_name": "Customer Definition Funnel",
+  "chapter_number": 4,
+  "chapter_title": "Customer Discovery & Segmentation",
+  "chapter_dir": "04-customer-discovery-segmentation",
+  "chapter_rel_dir": "chapters/04-customer-discovery-segmentation",
+  "library": "p5.js",
+  "bloom_level": "Understand (L2)",
+  "bloom_verb": "explain",
+  "learning_objective": "Learners can explain how a broad market narrows step by step into a target customer, ideal customer profile, and persona, and can locate a concrete example at each stage.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-25",
+  "specification": "Type: diagram\n**sim-id:** customer-definition-funnel<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Understand (L2)\nBloom Verb: explain\n\nLearning objective: Learners can explain how a broad market narrows step by step into a target customer, ideal customer profile, and persona, and can locate a concrete example at each stage.\n\nInstructional Rationale: Understand-level objective, so the sim uses a step-through funnel with concrete worked data (Priya's narrowing) rather than continuous animation, letting the learner pause at each stage and read real values before advancing.\n\nCanvas layout:\n\n- A vertical funnel shape narrowing top to bottom, with 5 horizontal bands: \"Broad Market\" (widest, top), \"Market Segment,\" \"Niche Market,\" \"Target Customer,\" \"Ideal Customer Profile / Persona\" (narrowest, bottom)\n- A detail panel to the right (or below, on narrow viewports) showing the selected band's definition and Priya's example\n\nData Visibility Requirements:\n\n  Broad Market selected: \"Families who eat dinner.\"\n  Market Segment selected: \"Dual-income households with children under 10.\"\n  Niche Market selected: \"Dual-income households with children under 10 and unpredictable evening schedules.\"\n  Target Customer selected: \"Dual-income parents of children under 10, on rotating or unpredictable shift schedules, within Priya's metro delivery area.\"\n  Ideal Customer Profile / Persona selected: \"Dana, 34, ER nurse working rotating 12-hour shifts, two kids under 8, values 10 minutes saved more than variety.\"\n\nInteractive controls:\n\n- Click any band to select it and update the detail panel (default: \"Broad Market\" selected)\n- \"Narrow Next\" and \"Widen Back\" buttons step through the funnel in order\n- Selected band highlighted in fox-orange (#E8791A); other bands in indigo (#3F51B5)\n\nVisual style: Clean funnel/trapezoid shape built from 5 stacked horizontal trapezoids, each narrower than the one above it, labeled inside each band.\n\nDefault parameters: \"Broad Market\" selected on load.\n\nImplementation notes: Use p5.js. Store the 5 stages as an array of objects `{label, definition, example}`; render by index. Must reflow to a vertical stack of labeled stages with the detail panel below (not beside) on narrow (mobile) viewports."
+}

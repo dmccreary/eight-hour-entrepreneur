@@ -1,0 +1,84 @@
+{
+  "title": "Symptom vs Root Cause Drill-Down",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A three-layer why drill-down on Priya's first interview complaint, \"I don't have time to cook.\" At each layer learners choose which of two answers explains the layer above; correct choices extend a clickable why trail, and dead ends (restating the symptom, a cause the interviews didn't support, or jumping to a solution) loop back with amber feedback. The root cause, rotating shifts that make any pre-planned dinner routine unreliable, is stamped Root Cause Found beneath the original symptom.",
+  "date": "2026-09-25",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/symptom-root-cause-drilldown/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "10 minutes",
+    "prerequisites": [
+      "Chapter 4: Customer Discovery & Segmentation",
+      "Chapter 5 reading through Finding the Root Cause"
+    ],
+    "standards": [],
+    "topic": "Symptom vs root cause: tracing a customer complaint to its root cause with repeated why questions",
+    "learningObjectives": [
+      "Given a customer's first-stated complaint, apply a repeated why technique, choosing at each step which underlying cause to pursue, to trace the symptom down to its root cause"
+    ],
+    "bloomsTaxonomy": "Apply"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 498
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Candidate answer (two per layer)",
+        "purpose": "Choose the answer to Priya's why question; a correct choice moves one layer deeper and a dead end loops back with feedback"
+      },
+      {
+        "type": "canvas-click",
+        "label": "Why trail layers",
+        "purpose": "Jump back to any earlier layer; the layers below it are cleared"
+      },
+      {
+        "type": "button",
+        "label": "Restart",
+        "purpose": "Return to the original symptom and reset the dead-end count"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided practice with immediate corrective feedback on each step of a why chain",
+    "keyQuestions": [
+      "Does this answer explain the layer above, or only restate it?",
+      "Is this what the customer actually said, or what the founder assumes?",
+      "Is this a cause, or a solution in disguise?"
+    ],
+    "commonMisconceptions": [
+      "The first complaint a customer voices is the problem to solve",
+      "A true statement such as there aren't enough hours in the day is a useful explanation",
+      "A plausible cause the founder imagines is as good as one heard in interviews",
+      "Naming a solution, such as a better planning app, counts as finding the cause"
+    ],
+    "assessmentOpportunities": [
+      "Explain why a restated symptom is a dead end",
+      "Write a three-layer why chain for a new complaint, such as Jordan's customers saying grooming is a hassle",
+      "Explain why a meal kit that requires advance planning would miss Priya's root cause"
+    ]
+  },
+  "chapter": "05-defining-the-real-problem"
+}

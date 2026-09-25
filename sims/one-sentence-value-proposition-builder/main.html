@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- microsim-scaffold-stub -->
+    <title>One-Sentence Value Proposition Builder</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>One-Sentence Value Proposition Builder</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> one-sentence-value-proposition-builder</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> Create (L6)</p>
+            <p><strong>Learning Objective:</strong> Learners compose a one-sentence value proposition by selecting from component options for target customer, core benefit, founder advantage, and main alternative, and observe the assembled sentence update live.</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** one-sentence-value-proposition-builder<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Bloom Level: Create (L6)
+    Bloom Verb: compose
+    
+    Learning objective: Learners compose a one-sentence value proposition by selecting from component options for target customer, core benefit, founder advantage, and main alternative, and observe the assembled sentence update live.
+    
+    Canvas layout:
+    
+    - Four dropdown selectors, top to bottom, each labeled with its sentence role: "Target Customer," "Core Benefit," "Founder Advantage," "Main Alternative"
+    - A large live-updating sentence preview below the dropdowns, using the template: "[Target Customer] gets [Core Benefit], from [Founder Advantage], unlike [Main Alternative]."
+    
+    Dropdown options (3 each, drawn from Jordan's and Priya's canvases plus one blank "Write your own" option that reveals a text input):
+    
+    - Target Customer: "busy dog owners without easy groomer access" / "dual-income parents on rotating shifts" / "Write your own"
+    - Core Benefit: "grooming without losing an afternoon" / "a real dinner without any advance planning" / "Write your own"
+    - Founder Advantage: "someone they already trust in the neighborhood" / "someone who understands unpredictable schedules firsthand" / "Write your own"
+    - Main Alternative: "the booked-solid groomer across town" / "another night of takeout" / "Write your own"
+    
+    Interactive controls:
+    
+    - Selecting any dropdown option instantly updates the live sentence preview
+    - Selecting "Write your own" in any dropdown reveals a text input for that component, which also updates the preview live as the learner types
+    - "Load Jordan's Version" and "Load Priya's Version" buttons set all four dropdowns to that founder's actual value proposition at once
+    
+    Default parameters: All four dropdowns unset on load; preview shows placeholder text "[Target Customer] gets [Core Benefit], from [Founder Advantage], unlike [Main Alternative]."
+    
+    Implementation notes: Use p5.js with HTML `select` and `input` DOM elements positioned over the canvas, or p5.dom. Must remain fully usable on narrow (mobile) viewports — stack dropdowns vertically with the preview sentence below, using text wrapping rather than a fixed-width single line.
+    -->
+</body>
+</html>

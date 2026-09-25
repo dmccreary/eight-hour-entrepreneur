@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>The Field Discovery Window Rhythm using vis-timeline</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/styles/vis-timeline-graph2d.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/standalone/umd/vis-timeline-graph2d.min.js"></script>
+    <style>
+        :root {
+            --indigo: #3F51B5;
+            --dark-indigo: #1A237E;
+            --fox-orange: #E8791A;
+            --dark-orange: #B25A10;
+            --live-tint: rgba(63, 81, 181, 0.07);    /* see-through, so the day lines show */
+            --field-tint: rgba(232, 121, 26, 0.08);
+        }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
+
+        /* The whole sim is a fixed-height block (CANVAS_HEIGHT in the .js file) */
+        #sim {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            height: 560px;
+        }
+
+        /* Drawing region: aliceblue with a silver border, matching the other sims in this book */
+        #draw {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            background: aliceblue;
+            border: 1px solid silver;
+            padding: 8px 10px 10px 10px;
+        }
+        #title {
+            margin: 0 0 6px 0;
+            text-align: center;
+            font-size: clamp(17px, 4.8vw, 24px);
+            font-weight: normal;
+            color: black;
+        }
+
+        /* Legend with the totals that make the point: 8 hours live, 21 days in the field */
+        #legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4px 18px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #222;
+        }
+        .key { display: inline-flex; align-items: center; gap: 6px; }
+        .swatch { display: inline-block; flex: none; height: 14px; border-radius: 3px; }
+        .swatch.live { width: 6px; background: var(--indigo); }
+        .swatch.field { width: 34px; background: #FDEBDC; border: 2px dashed var(--fox-orange); box-sizing: border-box; }
+        .key.live b { color: var(--indigo); }
+        .key.field b { color: var(--dark-orange); }
+
+        /* Horizontal scroll box: on narrow screens the timeline keeps a readable
+           minimum width and scrolls sideways with a visible scrollbar */
+        #timeline-scroll {
+            flex: none;
+            overflow-x: auto;
+            overflow-y: hidden;
+            background: white;
+            border: 1px solid silver;
+            border-radius: 6px;
+            scrollbar-width: thin;
+            scrollbar-color: #9FA8DA #EEF0F8;
+        }
+        #timeline-scroll.scrolls { padding-bottom: 12px; }
+        #timeline-scroll::-webkit-scrollbar { height: 10px; }
+        #timeline-scroll::-webkit-scrollbar-track { background: #EEF0F8; }
+        #timeline-scroll::-webkit-scrollbar-thumb { background: #9FA8DA; border-radius: 5px; }
+        #timeline { min-width: 660px; }
+
+        /* ---------- vis-timeline overrides ---------- */
+        .vis-timeline { border: none; font-family: Arial, Helvetica, sans-serif; }
+        /* The timeline is a fixed diagram: let the page and the scroll box handle touch panning */
+        .vis-timeline, .vis-timeline * { touch-action: auto !important; }
+        .vis-time-axis .vis-text { font-size: 12px; font-weight: bold; color: #555; }
+        /* vis sizes each minor label to one day; let "Week N" run past that */
+        .vis-time-axis .vis-text.vis-minor { width: auto !important; overflow: visible; }
+        .vis-time-axis .vis-grid.vis-minor { border-color: #E3E6EE; }
+        /* Week boundaries (the illustrative calendar starts on a Monday) */
+        .vis-time-axis .vis-grid.vis-minor.vis-monday { border-color: #9E9E9E; }
+        .vis-labelset .vis-label { font-size: 12px; font-weight: bold; }
+        .vis-labelset .vis-label .vis-inner { padding: 6px 8px; line-height: 1.25; }
+        .vis-label.live-row { color: var(--indigo); background: var(--live-tint); }
+        .vis-label.field-row { color: var(--dark-orange); background: var(--field-tint); }
+        .vis-background .vis-group.live-row { background: var(--live-tint); }
+        .vis-background .vis-group.field-row { background: var(--field-tint); }
+        .vis-panel.vis-center, .vis-item .vis-item-overflow { overflow: visible !important; }
+        .vis-item { cursor: pointer; }
+        .vis-item .vis-item-content { white-space: nowrap; line-height: 1.25; }
+        .vis-item .sub { font-size: 12px; font-weight: normal; }
+
+        /* Live session: a thin solid indigo block drawn to scale (2 hours),
+           with its label sitting just to the right of the block */
+        .vis-item.session {
+            min-width: 7px;
+            background: var(--indigo);
+            border: none;
+            border-radius: 3px;
+            color: var(--indigo);
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .vis-item.session .vis-item-content {
+            margin-left: 11px;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+        .vis-item.session.vis-selected {
+            background: var(--dark-indigo);
+            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.35);
+        }
+        .vis-item.session.vis-selected .vis-item-content {
+            background: var(--indigo);
+            color: white;
+        }
+
+        /* Field Discovery Window: a wide dashed fox-orange segment (7 days) */
+        .vis-item.fdw {
+            background: #FDEBDC;
+            border: 2px dashed var(--fox-orange);
+            border-radius: 6px;
+            color: var(--dark-orange);
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .vis-item.fdw .vis-item-content { padding: 3px 8px; }
+        .vis-item.fdw.vis-selected {
+            background: #F9C9A0;
+            border: 2px solid var(--dark-orange);
+            box-shadow: 0 0 0 3px rgba(232, 121, 26, 0.35);
+            color: #6B3400;
+        }
+        .vis-tooltip {
+            background: #2c3e50 !important;
+            color: white !important;
+            padding: 6px 10px !important;
+            border-radius: 6px !important;
+            font-family: Arial, Helvetica, sans-serif !important;
+            font-size: 13px !important;
+            max-width: 280px !important;
+            white-space: normal !important;
+            line-height: 1.35 !important;
+        }
+
+        /* ---------- Detail panel ---------- */
+        #detail {
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+            margin-top: 8px;
+            padding: 0.6em 0.9em;
+            background: white;
+            border: 1px solid silver;
+            border-left: 8px solid var(--indigo);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            line-height: 1.35;
+            color: black;
+        }
+        #detail.field { border-left: 8px dashed var(--fox-orange); }
+        #detail .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
+        #detail h2 { margin: 0; font-size: 1.25em; }
+        #detail.live h2 { color: var(--indigo); }
+        #detail.field h2 { color: var(--dark-orange); }
+        #detail .pill {
+            display: inline-block;
+            padding: 0.15em 0.6em;
+            border-radius: 1em;
+            font-size: 0.72em;
+            font-weight: bold;
+            letter-spacing: 0.04em;
+            color: white;
+        }
+        #detail.live .pill { background: var(--indigo); }
+        #detail.field .pill { background: var(--dark-orange); }
+        #detail .meta { margin: 0.1em 0 0.35em 0; color: #444; font-size: 0.9em; }
+        #detail p { margin: 0.3em 0 0 0; }
+        #detail .nw { white-space: nowrap; }
+        #detail .label { font-weight: bold; }
+        #detail.live .label { color: var(--indigo); }
+        #detail.field .label { color: var(--dark-orange); }
+        #detail .clock { margin-top: 0.7em; padding-top: 0.4em; border-top: 1px solid #DDD; color: #444; font-size: 0.85em; }
+        @media (max-width: 599px) { #detail .clock { display: none; } }
+
+        /* Control region: white, below the drawing region */
+        #controls {
+            flex: none;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 10px;
+            background: white;
+            border: 1px solid silver;
+            border-top: none;
+        }
+        #controls button { flex: none; white-space: nowrap; font-size: 16px; padding: 4px 14px; }
+        #step-label { min-width: 0; font-size: 16px; color: dimgray; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    </style>
+    <script src="field-discovery-window-rhythm.js"></script>
+</head>
+<body>
+    <main>
+        <div id="sim">
+            <div id="draw">
+                <h1 id="title">The Field Discovery Window Rhythm</h1>
+                <div id="legend">
+                    <span class="key live"><span class="swatch live"></span><span><b>Live session</b>: 4 &times; 2 hrs = 8 hrs</span></span>
+                    <span class="key field"><span class="swatch field"></span><span><b>Field Discovery Window (FDW)</b>: 3 &times; 7 days</span></span>
+                </div>
+                <div id="timeline-scroll" role="region" aria-label="Timeline of the four-week course: four 2-hour live sessions in the top row alternate with three 7-day Field Discovery Windows in the bottom row">
+                    <div id="timeline"></div>
+                </div>
+                <div id="detail" class="live" aria-live="polite"></div>
+            </div>
+            <div id="controls">
+                <button id="prev-button" aria-label="Previous entry">&#9664; Previous</button>
+                <button id="next-button" aria-label="Next entry">Next &#9654;</button>
+                <span id="step-label">Step 1 of 7</span>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "title": "One-Sentence Value Proposition Builder",
+  "description": "Learners compose a one-sentence value proposition by selecting from component options for target customer, core benefit, founder advantage, and main alternative, and observe the assembled sentence update live.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "one-sentence-value-proposition-builder",
+  "library": "p5.js",
+  "bloomLevel": "Create (L6)",
+  "bloomVerb": "compose",
+  "completion_status": "scaffold",
+  "chapter_number": 12,
+  "chapter_title": "\"Messaging & the Value Proposition Statement\"",
+  "chapter_dir": "12-messaging-value-proposition",
+  "chapter_rel_dir": "chapters/12-messaging-value-proposition"
+}

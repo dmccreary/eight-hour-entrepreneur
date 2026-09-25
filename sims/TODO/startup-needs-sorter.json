@@ -1,0 +1,15 @@
+{
+  "sim_id": "startup-needs-sorter",
+  "diagram_name": "Startup Needs Sorter",
+  "chapter_number": 15,
+  "chapter_title": "Startup Needs & Cost Planning",
+  "chapter_dir": "15-startup-needs-cost-planning",
+  "chapter_rel_dir": "chapters/15-startup-needs-cost-planning",
+  "library": "p5.js",
+  "bloom_level": "Apply (L3)",
+  "bloom_verb": "classify",
+  "learning_objective": "Given a list of items a founder is considering purchasing, learners classify each as a genuine one-time need or a want that can wait, applying the needs-vs-wants assessment to a concrete example.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-25",
+  "specification": "Type: microsim\n**sim-id:** startup-needs-sorter<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Apply (L3)\nBloom Verb: classify\n\nLearning objective: Given a list of items a founder is considering purchasing, learners classify each as a genuine one-time need or a want that can wait, applying the needs-vs-wants assessment to a concrete example.\n\nCanvas layout:\n\n- Left side (70%): a stack of 6 item cards, one at a time, each with two buttons below it: \"Genuine Need\" and \"Can Wait (Want)\"\n- Right side (30%): a running tally showing \"Correct: N / 6\" and a small feedback area\n\nItem cards (Jordan's grooming-van scenario, in order):\n\n1. \"A basic grooming kit (clippers, brush, shampoo).\" (Correct answer: Genuine Need — required to deliver even one driveway session)\n2. \"A custom-branded van wrap.\" (Correct answer: Want — the lean test doesn't require a van at all yet)\n3. \"Liability insurance covering in-home pet services.\" (Correct answer: Genuine Need — required before working in a stranger's driveway)\n4. \"A professional booking website with online payments.\" (Correct answer: Want — text-message booking from Chapter 6 works for the lean test)\n5. \"A local business license, if required in this area.\" (Correct answer: Genuine Need — an activity resource need required to operate legally)\n6. \"A second, backup set of premium clippers.\" (Correct answer: Want — one working set is enough to run the current lean test)\n\nInteractive controls:\n\n- Click \"Genuine Need\" or \"Can Wait (Want)\" under the current card\n- Immediate feedback: correct answers flash green with a one-sentence explanation; incorrect answers flash amber with the correct classification and explanation\n- \"Next Card\" button advances; after card 6, show final tally and a \"Try Again\" button that reshuffles card order\n\nDefault parameters: Card order as listed above on first load; shuffled on retry.\n\nBehavior: No time pressure. Score persists only for the current session (no data saved). Progress bar across the top shows card 1 of 6 through 6 of 6.\n\nImplementation notes: Use p5.js. Store the six items as an array of objects `{text, correctAnswer, explanation}`. Must remain fully readable and clickable on narrow (mobile) viewports — stack the tally below the card stack rather than beside it below 600px width."
+}
