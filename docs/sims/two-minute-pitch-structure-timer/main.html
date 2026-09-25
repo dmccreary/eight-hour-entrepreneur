@@ -3,124 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- microsim-scaffold-stub -->
-    <title>Two-Minute Pitch Structure and Timer</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Two-Minute Pitch Structure and Timer using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="two-minute-pitch-structure-timer.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Two-Minute Pitch Structure and Timer</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> two-minute-pitch-structure-timer</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> Apply (L3)</p>
-            <p><strong>Learning Objective:</strong> Learners apply a four-part structure to organize and time a two-minute founder pitch, using Jordan's example to see what content belongs in each segment.</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** two-minute-pitch-structure-timer<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Bloom Level: Apply (L3)
-    Bloom Verb: apply
-    
-    Learning objective: Learners apply a four-part structure to organize and time a two-minute founder pitch, using Jordan's example to see what content belongs in each segment.
-    
-    Canvas layout:
-    
-    - Top: four segment blocks in a row, each labeled with its name and time budget: "Problem (30s)," "Solution (30s)," "Evidence (40s)," "Ask (20s)"
-    - Below: a large countdown timer and a "Start Pitch Timer" button
-    - A detail panel showing the currently highlighted segment's content
-    
-    Data Visibility Requirements:
-    
-      Problem segment: "Busy dog owners within 5 miles lose a half-day of income or personal time every grooming trip — the validated problem from Chapter 5."
-      Solution segment: "Grooming that comes to their driveway — the minimum viable offer from Chapter 6."
-      Evidence segment: "3 of 5 driveway sessions converted to paying customers; $40 price point validated in Chapter 14's price testing."
-      Ask segment: "Looking for 2 more referrals this month, and feedback on expanding to weekend availability."
-    
-    Behavior: Clicking "Start Pitch Timer" begins a 120-second countdown. As the timer crosses each segment's cumulative time boundary (30s, 60s, 100s, 120s), the corresponding segment block highlights in fox-orange and its content appears in the detail panel automatically, simulating the pacing of an actual two-minute pitch. Segments can also be clicked directly at any time, timer running or not, to preview their content.
-    
-    Interactive controls:
-    
-    - "Start Pitch Timer" / "Reset" buttons
-    - Each of the 4 segment blocks is clickable at any time to show its content in the detail panel
-    - "Load Jordan's Pitch" is the default and only scenario loaded (single worked example, kept focused)
-    
-    Default parameters: Timer at 0:00, not running; no segment selected.
-    
-    Implementation notes: Use p5.js with `millis()` to drive the countdown. Store segments as an array of `{label, seconds, cumulativeEnd, content}` objects. Must remain fully usable on narrow (mobile) viewports — stack the 4 segment blocks in a 2x2 grid rather than a single row below 600px width.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

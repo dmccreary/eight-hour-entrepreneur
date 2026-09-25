@@ -58,7 +58,7 @@ const STATEMENTS = [
     explanation: 'Same-day service helps the customer, but the claim rests on a founder-specific circumstance: Jordan lives nearby.' }
 ];
 
-const HINT = 'Ask who the sentence is about. A benefit is why the customer wants it. An advantage is why this founder can deliver it.';
+const HINT = 'Who is the sentence about? A Benefit is why the customer wants it. An Advantage is why this founder can deliver it.';
 
 // Quiz state
 let order = [0, 1, 2, 3, 4, 5];  // statement indexes in the order they are dealt

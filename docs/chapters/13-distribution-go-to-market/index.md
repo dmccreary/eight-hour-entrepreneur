@@ -89,7 +89,7 @@ Before exploring the map below, notice the tradeoff it's built to show: a channe
 
 #### Diagram: Distribution Channel Map
 
-<iframe src="../../sims/distribution-channel-map/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/distribution-channel-map/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Distribution Channel Map</summary>

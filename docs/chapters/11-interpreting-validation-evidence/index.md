@@ -76,7 +76,7 @@ Priya's own evidence illustrates the difference: her core problem (unpredictable
 
 #### Diagram: Persevere vs Pivot Signal Checker
 
-<iframe src="../../sims/persevere-vs-pivot-signal-checker/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/persevere-vs-pivot-signal-checker/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Persevere vs Pivot Signal Checker</summary>

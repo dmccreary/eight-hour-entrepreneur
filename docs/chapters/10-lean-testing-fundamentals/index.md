@@ -69,7 +69,7 @@ Before exploring the decision tree below, notice that these three principles are
 
 #### Diagram: Minimum Testable Iteration Decision Tree
 
-<iframe src="../../sims/minimum-testable-iteration-decision-tree/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/minimum-testable-iteration-decision-tree/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Minimum Testable Iteration Decision Tree</summary>

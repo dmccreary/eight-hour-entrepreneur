@@ -1,23 +1,101 @@
 {
   "title": "Break-Even Calculator",
-  "description": "Learners adjust price, per-sale cost, and fixed monthly cost sliders and calculate how many sales are needed to reach break-even for a lean venture.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "Sliders for Price per Sale, Cost per Sale, Fixed Monthly Costs and Sales This Month drive a live break-even calculation: sales needed = Fixed Monthly Costs / (Price per Sale - Cost per Sale), rounded up to a whole sale. A result card shows the division with the current numbers, and a bar shows sales this month against the break-even line, red below it and green at or above it, with the month's profit or loss. A price at or below the cost per sale shows a warning instead of a number. Defaults are Jordan's $40 price, $8 cost per sale and $120 fixed monthly costs.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "break-even-calculator",
-  "library": "p5.js",
-  "bloomLevel": "Apply (L3)",
-  "bloomVerb": "calculate",
-  "completion_status": "scaffold",
-  "chapter_number": 14,
-  "chapter_title": "Revenue Models & Pricing",
-  "chapter_dir": "14-revenue-models-pricing",
-  "chapter_rel_dir": "chapters/14-revenue-models-pricing"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/break-even-calculator/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Chapter 14 reading through Projecting Revenue and Finding Break-Even",
+      "Basic arithmetic: subtraction, division, and rounding"
+    ],
+    "standards": [],
+    "topic": "Break-even thinking: how price, cost per sale and fixed monthly costs set the number of sales a lean venture needs each month",
+    "learningObjectives": [
+      "Calculate the number of sales needed to break even from price, cost per sale and fixed monthly costs",
+      "Explain why a fractional break-even result rounds up to the next whole sale",
+      "Predict how the break-even number changes when price, cost per sale or fixed monthly costs change",
+      "Recognize that a price at or below the cost per sale can never break even"
+    ],
+    "bloomsTaxonomy": "Apply"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 498
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "slider",
+        "label": "Price per Sale",
+        "range": "$10-$100, step $1, default $40",
+        "purpose": "Set what one customer pays for one sale"
+      },
+      {
+        "type": "slider",
+        "label": "Cost per Sale",
+        "range": "$0-$50, step $1, default $8",
+        "purpose": "Set what it costs to deliver one sale"
+      },
+      {
+        "type": "slider",
+        "label": "Fixed Monthly Costs",
+        "range": "$0-$500, step $5, default $120",
+        "purpose": "Set the costs the venture pays each month regardless of how much it sells"
+      },
+      {
+        "type": "slider",
+        "label": "Sales This Month",
+        "range": "0-30, step 1, default 0",
+        "purpose": "Set this month's sales; the bar turns green once it reaches the break-even number"
+      },
+      {
+        "type": "button",
+        "label": "Load Jordan's Numbers",
+        "purpose": "Set Price per Sale to $40, Cost per Sale to $8, Fixed Monthly Costs to $120 and Sales This Month to 5"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Calculator practice with immediate feedback: the worked division, the rounding step and a red/green bar update on every slider change",
+    "keyQuestions": [
+      "How much does each sale leave over to pay the fixed costs?",
+      "Why does a break-even result of 3.75 mean 4 sales, not 3?",
+      "Which change lowers the break-even number more: raising the price by $8 or cutting the cost per sale by $8?",
+      "What happens to break-even when the price falls to the cost per sale?"
+    ],
+    "commonMisconceptions": [
+      "Break-even is fixed costs divided by price, forgetting to subtract the cost per sale",
+      "A fractional break-even result can be rounded down",
+      "Selling more always fixes a loss, even when each sale costs more than it brings in"
+    ],
+    "assessmentOpportunities": [
+      "Calculate a break-even number by hand before checking it on the result card",
+      "Predict the direction of change in break-even before moving a slider",
+      "Calculate the break-even number for one's own venture idea and judge whether it is realistic"
+    ]
+  },
+  "chapter": "14-revenue-models-pricing"
 }

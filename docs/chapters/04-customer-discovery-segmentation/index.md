@@ -79,7 +79,7 @@ Before exploring the full narrowing sequence interactively, notice that the funn
 
 #### Diagram: Customer Definition Funnel
 
-<iframe src="../../sims/customer-definition-funnel/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/customer-definition-funnel/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Customer Definition Funnel</summary>

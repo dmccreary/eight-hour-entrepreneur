@@ -453,7 +453,9 @@ function drawPanel() {
   rect(p.x, p.y, p.w, p.h, 10);
   strokeWeight(1);
   const fit = fitPanel();
-  renderBlocks(fit.blocks, fit.x, fit.y, fit.w);
+  // The opening prompt sits in the middle of the panel; details start at the top
+  const dy = has ? 0 : max(0, (fit.h - fit.blocks.height) / 2);
+  renderBlocks(fit.blocks, fit.x, fit.y + dy, fit.w);
 }
 
 // Lay out the panel text for the current selection inside the panel's padding

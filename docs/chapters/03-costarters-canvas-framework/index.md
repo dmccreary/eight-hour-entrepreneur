@@ -93,7 +93,7 @@ Before exploring each block's specific guiding question in the diagram below, no
 
 #### Diagram: CO.STARTERS Canvas Explorer
 
-<iframe src="../../sims/costarters-canvas-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/costarters-canvas-explorer/main.html" width="100%" height="652px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>CO.STARTERS Canvas Explorer</summary>

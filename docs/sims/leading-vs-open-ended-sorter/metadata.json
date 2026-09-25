@@ -1,23 +1,84 @@
 {
   "title": "Leading vs Open-Ended Question Sorter",
-  "description": "Given sample interview questions, learners classify each as open-ended or leading, applying the chapter's unbiased interview design principles.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A six-card sorting quiz in which learners classify discovery-interview questions about a mobile dog-grooming idea as open-ended or leading, with immediate green or amber feedback, a one-sentence explanation for each card, and an open-ended rewrite of every leading question.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "leading-vs-open-ended-sorter",
-  "library": "p5.js",
-  "bloomLevel": "Apply (L3)",
-  "bloomVerb": "classify",
-  "completion_status": "scaffold",
-  "chapter_number": 9,
-  "chapter_title": "Discovery Interviews & the Reality Check",
-  "chapter_dir": "09-discovery-interviews-reality-check",
-  "chapter_rel_dir": "chapters/09-discovery-interviews-reality-check"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/leading-vs-open-ended-sorter/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "10 minutes",
+    "prerequisites": [
+      "Chapter 9: Discovery Interviews & the Reality Check"
+    ],
+    "standards": [],
+    "topic": "Open-ended and leading interview questions",
+    "learningObjectives": [
+      "Classify discovery-interview questions as open-ended or leading by applying the chapter's unbiased interview design principles"
+    ],
+    "bloomsTaxonomy": "Apply"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 498
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Open-Ended",
+        "purpose": "Classify the current question as one that lets the customer supply the content"
+      },
+      {
+        "type": "button",
+        "label": "Leading",
+        "purpose": "Classify the current question as one that suggests its own answer"
+      },
+      {
+        "type": "button",
+        "label": "Next Card / See Results",
+        "purpose": "Advance after answering"
+      },
+      {
+        "type": "button",
+        "label": "Try Again",
+        "purpose": "Reshuffle the cards and start over"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification quiz with immediate corrective feedback and worked rewrites",
+    "keyQuestions": [
+      "Who supplies the content: the customer or the question?",
+      "Could a stranger answer \"no\" to this question without feeling awkward?"
+    ],
+    "commonMisconceptions": [
+      "Any question that mentions a problem is leading",
+      "A statement with \"right?\" at the end is a genuine question"
+    ],
+    "assessmentOpportunities": [
+      "Score at least 5 of 6 on a second, shuffled attempt",
+      "Rewrite a leading question from your own interview script as an open-ended question"
+    ]
+  },
+  "chapter": "09-discovery-interviews-reality-check"
 }

@@ -167,7 +167,7 @@ The name is precise on purpose: "field" signals that the work happens out in the
 
 #### Diagram: The Field Discovery Window Rhythm
 
-<iframe src="../../sims/field-discovery-window-rhythm/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/field-discovery-window-rhythm/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>The Field Discovery Window Rhythm</summary>

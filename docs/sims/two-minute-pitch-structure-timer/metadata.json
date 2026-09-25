@@ -1,23 +1,98 @@
 {
   "title": "Two-Minute Pitch Structure and Timer",
-  "description": "Learners apply a four-part structure to organize and time a two-minute founder pitch, using Jordan's example to see what content belongs in each segment.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "Jordan's two-minute founder pitch split into four timed sections on a proportional time bar: Problem (30s), Solution (30s), Evidence (40s) and Ask (20s). A millis()-based 120-second countdown with Start, Pause/Resume and Reset highlights each section in fox-orange as the clock crosses 0:30, 1:00 and 1:40, and a detail panel shows what belongs in the section, Jordan's version of it, and a word budget. Clicking a block or pressing Previous and Next steps through the sections without running the clock.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "two-minute-pitch-structure-timer",
-  "library": "p5.js",
-  "bloomLevel": "Apply (L3)",
-  "bloomVerb": "apply",
-  "completion_status": "scaffold",
-  "chapter_number": 17,
-  "chapter_title": "\"Pitching, Accountability & What Comes Next\"",
-  "chapter_dir": "17-pitching-accountability-next-steps",
-  "chapter_rel_dir": "chapters/17-pitching-accountability-next-steps"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/two-minute-pitch-structure-timer/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Chapter 16: Building the 30-Day Launch Plan",
+      "Chapter 17 reading through The Mini Pitch: Your Two Minutes",
+      "A written problem statement, minimum viable offer, and at least one lean test result for one's own idea"
+    ],
+    "standards": [],
+    "topic": "Two-minute pitch: organizing a founder pitch into Problem, Solution, Evidence and Ask sections with fixed time budgets",
+    "learningObjectives": [
+      "Apply a four-part structure (Problem, Solution, Evidence, Ask) to organize a two-minute founder pitch",
+      "Decide what content belongs in each section, using Jordan's mobile dog-grooming pitch as a worked example",
+      "Time a spoken pitch so each section fits its budget and the Ask begins by 1:40"
+    ],
+    "bloomsTaxonomy": "Apply"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 498
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Start Pitch Timer / Pause / Resume",
+        "purpose": "Start the 120-second countdown, pause it, and resume from the same time; after 2:00 it starts a new run from 0:00 (the label shortens to Start on narrow screens)"
+      },
+      {
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Stop the clock and return to 0:00 with no section selected"
+      },
+      {
+        "type": "button",
+        "label": "Previous",
+        "purpose": "Show the previous section in the detail panel without touching the clock (also the left arrow key)"
+      },
+      {
+        "type": "button",
+        "label": "Next",
+        "purpose": "Show the next section in the detail panel without touching the clock (also the right arrow key)"
+      },
+      {
+        "type": "canvas-click",
+        "label": "Section blocks",
+        "purpose": "Click Problem, Solution, Evidence or Ask at any time to show that section's prompt and Jordan's version; while the clock runs this is a preview and the panel returns to the live section at the next boundary"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Worked example followed by timed practice with real-time pacing feedback",
+    "keyQuestions": [
+      "Which words in Jordan's Problem line name who has the problem, and what it costs them?",
+      "Why does Evidence get the longest time budget?",
+      "Where were you in your own pitch when the Ask block turned orange at 1:40?"
+    ],
+    "commonMisconceptions": [
+      "A pitch is a sales performance rather than a short synthesis of evidence already gathered",
+      "The Solution section should list every feature instead of the minimum viable offer",
+      "Evidence means enthusiasm or predictions rather than what real customers did",
+      "The Ask can be a general request for support instead of a specific, checkable request"
+    ],
+    "assessmentOpportunities": [
+      "Name the four sections in order with their budgets and start times",
+      "Place a given pitch sentence in the correct section and justify the choice",
+      "Deliver a timed rehearsal that reaches the Ask by about 1:40 and ends before 2:00",
+      "Write an Evidence line that reports observed customer behavior with a number"
+    ]
+  },
+  "chapter": "17-pitching-accountability-next-steps"
 }

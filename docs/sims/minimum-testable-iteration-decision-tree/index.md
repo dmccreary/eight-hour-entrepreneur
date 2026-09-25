@@ -1,59 +1,140 @@
 ---
 title: "Minimum Testable Iteration Decision Tree"
-description: "Given a venture scenario, learners evaluate which lean-test principles (service before product, manual before automated, pre-selling before building) apply, and justify a resulting minimum testable iteration design."
-status: scaffold
-library: p5.js
-bloom_level: Evaluate (L5)
+description: "Learners judge whether service before product, manual before automated, and pre-selling before building apply to Jordan's or Priya's venture, then justify the minimum testable iteration the three judgments produce."
+image: /sims/minimum-testable-iteration-decision-tree/minimum-testable-iteration-decision-tree.png
+og:image: /sims/minimum-testable-iteration-decision-tree/minimum-testable-iteration-decision-tree.png
+twitter:image: /sims/minimum-testable-iteration-decision-tree/minimum-testable-iteration-decision-tree.png
+social:
+   cards: false
+status: built
 ---
 
 # Minimum Testable Iteration Decision Tree
 
+<iframe src="main.html" height="562px" width="100%" scrolling="no"></iframe>
 
+[Run the Minimum Testable Iteration Decision Tree MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
+<br/>
+[Edit in the p5.js Editor](https://editor.p5js.org/)
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+A minimum testable iteration is the smallest version of an offer that can get a real
+yes-or-no answer from a real customer. Three principles cut an idea down to that size:
+service before product, manual before automated, and pre-selling before building. This
+MicroSim asks you to judge whether each one applies to a specific venture.
 
-## Specification
+The tree has three yes/no decision diamonds, one per principle. At each diamond you
+choose between two answers, and each answer comes with its reasoning:
 
-The full specification below is extracted from
-[Chapter 10: Lean Testing Fundamentals](../../chapters/10-lean-testing-fundamentals/index.md).
+- **One answer holds.** Its reasoning fits the venture, such as "Jordan can groom one
+  dog in a customer's driveway this week." The Yes branch turns green, the design note
+  for that principle fills in beneath the diamond, and the next diamond opens.
+- **The other is a common founder objection**, such as "Mobile grooming can't start
+  until the van is bought and fitted out." The No branch turns amber and shows a
+  Reconsider note. The feedback explains why the objection doesn't hold for this
+  venture, and you decide again.
 
-```text
-Type: microsim
-**sim-id:** minimum-testable-iteration-decision-tree<br/>
-**Library:** p5.js<br/>
-**Status:** Specified
+After the third diamond, the card shows the combined design. For Jordan it is a manually
+booked, pre-paid, single driveway grooming session, with no van, no app and no
+inventory. The tree keeps the whole path visible, including every Reconsider branch you
+took, so each part of the design can be traced back to the judgment that produced it.
 
-Bloom Level: Evaluate (L5)
-Bloom Verb: justify
+The scenario selector swaps in Priya's meal-prep subscription, which runs the same three
+decisions and ends with a single pre-paid meal delivered to one household this week.
+The Yes and No answers switch positions from one diamond to the next, so read the
+reasoning on both before you choose.
 
-Learning objective: Given a venture scenario, learners evaluate which lean-test principles (service before product, manual before automated, pre-selling before building) apply, and justify a resulting minimum testable iteration design.
+On a phone-width screen the tree becomes a compact vertical trail of rows above the
+question card.
 
-Canvas layout:
+## How to Use
 
-- A vertical decision tree with 3 yes/no decision diamonds in sequence, each followed by a resulting design note
-- A scenario selector at the top: "Jordan's grooming van" or "Priya's meal-prep subscription" (default: Jordan)
+1. Read the idea in the **How to Judge** panel and the question on the card.
+2. Click the answer below the drawing area whose reasoning holds for the founder's
+   idea.
+3. If the feedback turns amber, read why the judgment doesn't hold, then choose again.
+4. When a judgment holds, read the design note it adds to the tree, then judge the next
+   diamond.
+5. After all three diamonds, compare the combined design on the card with the three
+   design notes in the tree.
+6. Use the scenario selector to switch between Jordan's grooming van and Priya's
+   meal-prep subscription. Click **Reset** to return to the first diamond.
 
-Decision sequence (for Jordan's scenario):
+The status line next to the selector shows which decision you are on and how many times
+you have had to reconsider since the last reset.
 
-  Question 1: "Can this be delivered as a hands-on service before it's a packaged product?" → Yes selected: note reads "Apply Service Before Product: offer driveway grooming sessions yourself, not a grooming-van business plan." → No path shows generic fallback note: "Reconsider — most early ventures can find a service-first version."
-  Question 2: "Can this be delivered by hand, without new software or equipment?" → Yes selected: note reads "Apply Manual Before Automated: book by text message, track appointments on paper."
-  Question 3: "Can a customer pay something before the full offer exists?" → Yes selected: note reads "Apply Pre-Selling Before Building: collect a $10 deposit to hold a driveway slot this week."
+## Iframe Embed Code
 
-Final panel: Combines all three selected notes into one sentence: "Jordan's minimum testable iteration: a manually booked, pre-paid, single driveway grooming session — no van, no app, no inventory."
+You can add this MicroSim to any web page by adding this to your HTML:
 
-Interactive controls:
-
-- Click "Yes" or "No" at each decision diamond to advance and reveal that step's design note
-- Scenario selector swaps in Priya's parallel decision path and final note: "A manually booked, pre-paid single meal delivered to one household this week — no kitchen lease, no subscription app."
-- "Reset" button returns to the first question
-
-Default parameters: Jordan's scenario selected; no decisions made yet.
-
-Implementation notes: Use p5.js. Store each scenario's decision tree as an array of `{question, yesNote, noNote}` objects, indexed by scenario. Must reflow to a single-column vertical layout on narrow (mobile) viewports, which the tree shape already suits well.
+```html
+<iframe src="https://dmccreary.github.io/eight-hour-entrepreneur/sims/minimum-testable-iteration-decision-tree/main.html"
+        height="562px"
+        width="100%"
+        scrolling="no"></iframe>
 ```
 
-## Related Resources
+## Lesson Plan
 
-- [Chapter 10: Lean Testing Fundamentals](../../chapters/10-lean-testing-fundamentals/index.md)
+### Audience
+
+Adult early-stage entrepreneurs and aspiring founders in a live virtual cohort.
+
+### Learning Objective
+
+Given a venture scenario, learners evaluate which lean-test principles (service before
+product, manual before automated, pre-selling before building) apply, and justify a
+resulting minimum testable iteration design.
+
+**Bloom Level:** Evaluate (L5). **Bloom Verb:** justify.
+
+### Duration
+
+15 minutes
+
+### Prerequisites
+
+- Chapter 6 reading on the minimum viable offer
+- Chapter 10 reading through "Three Rules for a Lean Test"
+
+### Activities
+
+1. **Solo run on Jordan (4 min):** Each participant works through Jordan's three
+   diamonds and notes how many times they had to reconsider.
+2. **Name the objection (4 min):** As a group, look at each No answer ("the van comes
+   first," "appointments will get lost without an app," "it isn't fair to ask for money
+   yet"). Discuss why each sounds responsible and why it still delays the one question
+   that matters: will a real customer pay for this now?
+3. **Priya in pairs (3 min):** Pairs switch to Priya's scenario. Before clicking, each
+   partner predicts her final design in one sentence, then compares it with the card.
+4. **Your own venture (4 min):** Each participant answers the three questions for their
+   own idea, writes one design note per principle, and combines them into a one-sentence
+   minimum testable iteration. A partner challenges any part that still needs something
+   built, bought or automated first.
+
+### Assessment
+
+- Can the participant explain why "the van has to come first" does not hold as a reason
+  to skip a service-first test?
+- Given a new venture, can the participant write a three-part minimum testable iteration
+  and justify each part with the principle behind it?
+- Can the participant explain why a deposit is stronger evidence than a free trial or a
+  stated interest?
+
+## References
+
+1. [Lean startup](https://en.wikipedia.org/wiki/Lean_startup) - Wikipedia - The
+   build-measure-learn approach that lean validation and the minimum testable iteration
+   come from.
+2. [Minimum viable product](https://en.wikipedia.org/wiki/Minimum_viable_product) -
+   Wikipedia - The smallest version of a product that can test a hypothesis, including
+   concierge and manual variants that deliver the service by hand.
+3. [Pre-order](https://en.wikipedia.org/wiki/Pre-order) - Wikipedia - Taking orders, and
+   often payment, before an item is available, the mechanism behind pre-selling before
+   building.
+4. [Customer development](https://en.wikipedia.org/wiki/Customer_development) -
+   Wikipedia - Steve Blank's method of testing business hypotheses with real customers
+   before scaling.
+5. *The Lean Startup* by Eric Ries (2011) - The book that popularized the minimum viable
+   product and the practice of testing an idea with the smallest possible experiment.

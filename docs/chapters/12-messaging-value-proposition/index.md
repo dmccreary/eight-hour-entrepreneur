@@ -72,7 +72,7 @@ Before trying the builder below, notice that Jordan's finished one-sentence valu
 
 #### Diagram: One-Sentence Value Proposition Builder
 
-<iframe src="../../sims/one-sentence-value-proposition-builder/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/one-sentence-value-proposition-builder/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>One-Sentence Value Proposition Builder</summary>

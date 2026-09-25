@@ -1,61 +1,134 @@
 ---
 title: "Competitive Landscape Map"
-description: "Learners differentiate existing alternatives to a venture as the do-nothing alternative, a current workaround, an indirect competitor or substitute, or a direct competitor, by their directness in solving the same problem."
-status: scaffold
-library: p5.js
-bloom_level: Analyze (L4)
+description: "Learners differentiate the five kinds of alternative to Jordan's mobile dog-grooming idea, from the do-nothing alternative to a direct competitor, by how directly each solves the same problem."
+image: /sims/competitive-landscape-map/competitive-landscape-map.png
+og:image: /sims/competitive-landscape-map/competitive-landscape-map.png
+twitter:image: /sims/competitive-landscape-map/competitive-landscape-map.png
+social:
+   cards: false
+status: built
 ---
 
 # Competitive Landscape Map
 
+<iframe src="main.html" height="500px" width="100%" scrolling="no"></iframe>
 
+[Run the Competitive Landscape Map MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
+<br/>
+[Edit in the p5.js Editor](https://editor.p5js.org/)
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Ask a first-time founder about competitors and they usually list businesses that sell
+something like their own offer. This map widens the view to everything Jordan's target
+customer could choose instead of a mobile dog groomer, and it sorts those alternatives by
+one question: **how directly does this solve the same problem?**
 
-## Specification
+The five alternatives sit along a spectrum. The left end is the option that costs the
+customer nothing to keep choosing. The right end is the option that looks just like
+Jordan's offer. Each step to the right adds exactly one thing, labeled under the line:
 
-The full specification below is extracted from
-[Chapter 7: Alternatives & the Competitive Landscape](../../chapters/07-alternatives-competitive-landscape/index.md).
+| # | Alternative | Jordan's example | What this step adds |
+|---|---|---|---|
+| 1 | Do-Nothing Alternative | The dog just doesn't get groomed this month | Starting point |
+| 2 | Current Workaround | Dry shampoo and at-home brushing | A fix |
+| 3 | Substitute Solution | A self-service dog wash station at the pet store | A dedicated offer |
+| 4 | Indirect Competitor | A traditional storefront groomer requiring drop-off | The same problem |
+| 5 | Direct Competitor | Another mobile dog-grooming service in the area | The same approach |
 
-```text
-Type: diagram
-**sim-id:** competitive-landscape-map<br/>
-**Library:** p5.js<br/>
-**Status:** Specified
+Clicking a node turns it fox orange and fills the detail panel with four things:
 
-Bloom Level: Analyze (L4)
-Bloom Verb: differentiate
+- **The definition** of that kind of alternative.
+- **Jordan's example** of it.
+- **Why it sits here:** the step it has taken and the one it has not.
+- **Where it falls short** for Jordan's customer.
 
-Learning objective: Learners differentiate existing alternatives to a venture as the do-nothing alternative, a current workaround, an indirect competitor or substitute, or a direct competitor, by their directness in solving the same problem.
+The "falls short" lines are the raw material for a market gap. The indirect competitor,
+for example, falls short on exactly the problem Jordan validated in Chapter 5: a
+half-day lost to drop-off and pickup.
 
-Canvas layout:
+On a phone-width screen the spectrum turns vertical, running from top (least direct) to
+bottom (most direct), with the step labels on the right.
 
-- A horizontal spectrum line labeled "How directly does this solve the same problem?" running from "Costs nothing to keep choosing" (left) to "Looks just like your offer" (right)
-- 5 nodes placed along the line, left to right: "Do-Nothing Alternative," "Current Workaround," "Substitute Solution," "Indirect Competitor," "Direct Competitor"
-- A detail panel below showing the selected node's definition and Jordan's real example
+## How to Use
 
-Data Visibility Requirements:
+1. Read the question above the spectrum and the two end labels.
+2. Click any node, or its label, to open its details in the panel below.
+3. Click **More direct →** or **← Less direct** to step to the neighboring node. The left
+   and right arrow keys do the same once the MicroSim has focus.
+4. Compare two neighbors: which single difference separates them?
+5. Click **Clear** to return to the opening prompt.
 
-  Do-Nothing Alternative selected: "Tolerating the problem unsolved. Jordan's example: the dog just doesn't get groomed this month."
-  Current Workaround selected: "An informal, imperfect fix. Jordan's example: dry shampoo and at-home brushing."
-  Substitute Solution selected: "Solves the underlying need differently. Jordan's example: a self-service dog wash station at the pet store."
-  Indirect Competitor selected: "Solves the same problem, different approach. Jordan's example: a traditional storefront groomer requiring drop-off."
-  Direct Competitor selected: "Same problem, same approach. Jordan's example: another mobile dog-grooming service in the area."
+The status line next to **Clear** counts how many of the five alternatives you have
+explored.
 
-Interactive controls:
+## Iframe Embed Code
 
-- Click any node to select it and update the detail panel (default: no node selected, prompt reads "Click a node to explore Jordan's competitive landscape")
-- Selected node highlighted in fox-orange (#E8791A); others in indigo (#3F51B5)
+You can add this MicroSim to any web page by adding this to your HTML:
 
-Visual style: Simple horizontal spectrum line with 5 evenly spaced circular nodes; labels above each node, connecting line beneath.
-
-Default parameters: No node selected on load.
-
-Implementation notes: Use p5.js. Store the 5 nodes as an array of objects `{label, definition, example}` with fixed x-positions along the spectrum. Must reflow to a vertical spectrum (top to bottom) on narrow (mobile) viewports.
+```html
+<iframe src="https://dmccreary.github.io/eight-hour-entrepreneur/sims/competitive-landscape-map/main.html"
+        height="500px"
+        width="100%"
+        scrolling="no"></iframe>
 ```
 
-## Related Resources
+## Lesson Plan
 
-- [Chapter 7: Alternatives & the Competitive Landscape](../../chapters/07-alternatives-competitive-landscape/index.md)
+### Audience
+
+Adult early-stage entrepreneurs and aspiring founders in a live virtual cohort.
+
+### Learning Objective
+
+Learners differentiate existing alternatives to a venture as the do-nothing alternative,
+a current workaround, an indirect competitor or substitute, or a direct competitor, by
+their directness in solving the same problem.
+
+**Bloom Level:** Analyze (L4). **Bloom Verb:** differentiate.
+
+### Duration
+
+10-15 minutes
+
+### Prerequisites
+
+- Chapter 5 reading on Jordan's problem definition: the half-day lost to an in-person
+  drop-off and pickup
+- Chapter 7 reading through "Direct, Indirect, and Substitute Competitors"
+
+### Activities
+
+1. **Walk the spectrum (4 min):** Each participant clicks all five nodes from left to
+   right and notes what each step adds.
+2. **Name the boundary (4 min):** In breakout pairs, pick two neighboring nodes and state
+   the one difference between them. Then discuss the hardest boundary on the map: the
+   self-service wash station and the storefront groomer are both dedicated businesses, so
+   why is only one of them an indirect competitor?
+3. **Map your own idea (5 min):** Each participant lists one alternative of each kind for
+   their own venture, starting from the question "What would you do about this if my
+   business didn't exist?" Any empty slot, especially the do-nothing slot, is a sign the
+   research is not finished yet.
+
+### Assessment
+
+- Given an alternative that is not on the map, can the participant place it on the
+  spectrum and name the step it has not taken?
+- Can the participant explain why the do-nothing alternative is often the toughest
+  competitor, even though it costs the customer nothing?
+- Can the participant name one shortfall shared by every alternative on their own map, as
+  a first candidate for a market gap?
+
+## References
+
+1. [Competitor analysis](https://en.wikipedia.org/wiki/Competitor_analysis) - Wikipedia -
+   How businesses identify and assess direct and indirect competitors.
+2. [Substitute good](https://en.wikipedia.org/wiki/Substitute_good) - Wikipedia - The
+   economics behind substitutes: different products that meet the same underlying need.
+3. [Porter's five forces analysis](https://en.wikipedia.org/wiki/Porter%27s_five_forces_analysis) -
+   Wikipedia - Places the threat of substitutes alongside rivalry among direct competitors.
+4. [Status quo bias](https://en.wikipedia.org/wiki/Status_quo_bias) - Wikipedia - Why
+   customers keep choosing to do nothing even when a better option exists.
+5. *Obviously Awesome* by April Dunford (2019) - A positioning method that starts from a
+   product's competitive alternatives, including doing nothing, rather than from rival
+   companies alone.

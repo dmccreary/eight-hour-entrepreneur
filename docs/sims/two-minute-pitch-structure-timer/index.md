@@ -1,61 +1,140 @@
 ---
 title: "Two-Minute Pitch Structure and Timer"
-description: "Learners apply a four-part structure to organize and time a two-minute founder pitch, using Jordan's example to see what content belongs in each segment."
-status: scaffold
-library: p5.js
-bloom_level: Apply (L3)
+description: "Learners study the four timed sections of Jordan's two-minute pitch (Problem, Solution, Evidence, Ask), then rehearse their own pitch against a 120-second countdown that highlights each section on time."
+image: /sims/two-minute-pitch-structure-timer/two-minute-pitch-structure-timer.png
+og:image: /sims/two-minute-pitch-structure-timer/two-minute-pitch-structure-timer.png
+twitter:image: /sims/two-minute-pitch-structure-timer/two-minute-pitch-structure-timer.png
+social:
+   cards: false
+status: built
 ---
 
 # Two-Minute Pitch Structure and Timer
 
+<iframe src="main.html" height="500px" width="100%" scrolling="no"></iframe>
 
+[Run the Two-Minute Pitch Structure and Timer MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
+<br/>
+[Edit in the p5.js Editor](https://editor.p5js.org/)
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+The two-minute pitch in Session 4 asks a founder to fit a validated concept, a canvas,
+and a 30-day launch plan into 120 seconds. That only works if each part of the pitch has
+a fixed, small time budget. This MicroSim splits the pitch into four sections and puts
+them on a time bar:
 
-## Specification
+| Section | Budget | Clock | Word budget | Jordan's version |
+|---|---|---|---|---|
+| Problem | 30 seconds | 0:00-0:30 | about 75 words | Busy dog owners within 5 miles lose a half-day of income or personal time every grooming trip. |
+| Solution | 30 seconds | 0:30-1:00 | about 75 words | Grooming that comes to their driveway. |
+| Evidence | 40 seconds | 1:00-1:40 | about 100 words | 3 of 5 driveway sessions converted to paying customers; $40 price point validated in price testing. |
+| Ask | 20 seconds | 1:40-2:00 | about 50 words | Looking for 2 more referrals this month, and feedback on expanding to weekend availability. |
 
-The full specification below is extracted from
-[Chapter 17: "Pitching, Accountability & What Comes Next"](../../chapters/17-pitching-accountability-next-steps/index.md).
+Word budgets assume a relaxed speaking pace of 150 words per minute.
 
-```text
-Type: microsim
-**sim-id:** two-minute-pitch-structure-timer<br/>
-**Library:** p5.js<br/>
-**Status:** Specified
+Each section has two parts in the detail panel. **What belongs here** is the general
+job of the section, which you apply to your own pitch. **Jordan's pitch** is the worked
+example, drawn from the validated problem (Chapter 5), the minimum viable offer
+(Chapter 6), and the price testing (Chapter 14).
 
-Bloom Level: Apply (L3)
-Bloom Verb: apply
+The countdown runs on the browser's clock, not the frame rate, so it stays accurate even
+if the page is busy. When the clock reaches 0:30, 1:00 and 1:40, the next section block
+glows briefly and turns orange, and the panel switches to it. The timer card shows the
+time left in the whole pitch and in the current section. The countdown turns dark orange
+in the last 10 seconds, and it stops at 2:00.
 
-Learning objective: Learners apply a four-part structure to organize and time a two-minute founder pitch, using Jordan's example to see what content belongs in each segment.
+On screens narrower than 600 pixels the four blocks form a 2x2 grid, a thin time bar sits
+below them, and the timer shrinks to a single strip above the panel.
 
-Canvas layout:
+## How to Use
 
-- Top: four segment blocks in a row, each labeled with its name and time budget: "Problem (30s)," "Solution (30s)," "Evidence (40s)," "Ask (20s)"
-- Below: a large countdown timer and a "Start Pitch Timer" button
-- A detail panel showing the currently highlighted segment's content
+1. Press **Next** (or the right arrow key) to step through the four sections without
+   starting the clock. Read the prompt and Jordan's version for each one.
+2. Click any section block to jump straight to it. **Previous** steps back.
+3. Press **Start Pitch Timer** and say Jordan's pitch, or your own, out loud. Watch for
+   each block to turn orange as its section begins.
+4. Press **Pause** to stop the clock and **Resume** to continue from the same time.
+5. While the clock runs or is paused, clicking another block previews it. The live
+   section keeps an amber outline, and the panel returns to it at the next boundary or
+   when you press **Resume**.
+6. Press **Reset** to return to 0:00 with no section selected.
 
-Data Visibility Requirements:
+## Iframe Embed Code
 
-  Problem segment: "Busy dog owners within 5 miles lose a half-day of income or personal time every grooming trip — the validated problem from Chapter 5."
-  Solution segment: "Grooming that comes to their driveway — the minimum viable offer from Chapter 6."
-  Evidence segment: "3 of 5 driveway sessions converted to paying customers; $40 price point validated in Chapter 14's price testing."
-  Ask segment: "Looking for 2 more referrals this month, and feedback on expanding to weekend availability."
+You can add this MicroSim to any web page by adding this to your HTML:
 
-Behavior: Clicking "Start Pitch Timer" begins a 120-second countdown. As the timer crosses each segment's cumulative time boundary (30s, 60s, 100s, 120s), the corresponding segment block highlights in fox-orange and its content appears in the detail panel automatically, simulating the pacing of an actual two-minute pitch. Segments can also be clicked directly at any time, timer running or not, to preview their content.
-
-Interactive controls:
-
-- "Start Pitch Timer" / "Reset" buttons
-- Each of the 4 segment blocks is clickable at any time to show its content in the detail panel
-- "Load Jordan's Pitch" is the default and only scenario loaded (single worked example, kept focused)
-
-Default parameters: Timer at 0:00, not running; no segment selected.
-
-Implementation notes: Use p5.js with `millis()` to drive the countdown. Store segments as an array of `{label, seconds, cumulativeEnd, content}` objects. Must remain fully usable on narrow (mobile) viewports — stack the 4 segment blocks in a 2x2 grid rather than a single row below 600px width.
+```html
+<iframe src="https://dmccreary.github.io/eight-hour-entrepreneur/sims/two-minute-pitch-structure-timer/main.html"
+        height="500px"
+        width="100%"
+        scrolling="no"></iframe>
 ```
 
-## Related Resources
+## Lesson Plan
 
-- [Chapter 17: "Pitching, Accountability & What Comes Next"](../../chapters/17-pitching-accountability-next-steps/index.md)
+### Audience
+
+Adult early-stage entrepreneurs and aspiring founders in a live virtual cohort.
+
+### Learning Objective
+
+Participants will apply a four-part structure (Problem, Solution, Evidence, Ask) to
+organize and time a two-minute founder pitch, using Jordan's example to decide what
+content belongs in each section.
+
+**Bloom Level:** Apply (L3). **Bloom Verb:** apply.
+
+### Duration
+
+20 minutes
+
+### Prerequisites
+
+- Chapter 16: Building the 30-Day Launch Plan
+- Chapter 17 reading through "The Mini Pitch: Your Two Minutes"
+- A written problem statement, minimum viable offer, and at least one lean test result
+  for the participant's own idea
+
+### Activities
+
+1. **Study the structure (4 min):** The facilitator shares the screen and steps through
+   the four sections with **Next**. For each one, participants type in the chat which
+   words in Jordan's version do the job named in "What belongs here."
+2. **Draft four lines (5 min):** Each participant writes one line per section for their
+   own venture, staying inside the word budgets. Evidence must cite something customers
+   did, with a number.
+3. **Timed rehearsal (8 min):** In breakout pairs, one partner runs the timer on their
+   screen while the other delivers the pitch out loud. The timekeeper notes where the
+   speaker was each time a block turned orange: on time, ahead, or behind. Partners then
+   switch roles.
+4. **Peer feedback (3 min):** Each timekeeper gives one concrete suggestion on the
+   speaker's Evidence or Ask, following the peer feedback norms from Chapter 17.
+
+### Assessment
+
+- Can the participant name the four sections in order with their budgets and the clock
+  times where each one starts (0:00, 0:30, 1:00, 1:40)?
+- Given a sentence such as "We need two more referrals this month," can the participant
+  place it in the correct section and explain why?
+- Did the participant's timed rehearsal reach the Ask by about 1:40 and finish before
+  2:00?
+- Does the participant's Evidence section report observed customer behavior with numbers
+  rather than opinions or predictions?
+
+## References
+
+1. [Elevator pitch](https://en.wikipedia.org/wiki/Elevator_pitch) - Wikipedia - The
+   short, time-boxed summary of an idea or venture that the two-minute pitch is a
+   structured version of.
+2. [Public speaking](https://en.wikipedia.org/wiki/Public_speaking) - Wikipedia -
+   Preparation and delivery practices for speaking to a group, including rehearsal and
+   timing.
+3. [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) - Wikipedia -
+   Typical speaking rates, the basis for converting each section's seconds into a word
+   budget.
+4. [PechaKucha](https://en.wikipedia.org/wiki/PechaKucha) - Wikipedia - A presentation
+   format with a fixed time per slide, another example of strict time budgets forcing a
+   speaker to simplify.
+5. *Made to Stick* by Chip Heath and Dan Heath (2007) - Why simple, concrete messages
+   are remembered, the same discipline a two-minute pitch applies out loud.
