@@ -13,8 +13,8 @@
             --dark-indigo: #1A237E;
             --fox-orange: #E8791A;
             --dark-orange: #B25A10;
-            --live-tint: #F1F3FC;
-            --field-tint: #FFF6EE;
+            --live-tint: rgba(63, 81, 181, 0.07);    /* see-through, so the day lines show */
+            --field-tint: rgba(232, 121, 26, 0.08);
         }
         body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
 
@@ -26,7 +26,7 @@
             height: 560px;
         }
 
-        /* Drawing region: aliceblue with a silver border, like the p5.js sims */
+        /* Drawing region: aliceblue with a silver border, matching the other sims in this book */
         #draw {
             flex: 1;
             min-height: 0;
@@ -73,16 +73,19 @@
             scrollbar-width: thin;
             scrollbar-color: #9FA8DA #EEF0F8;
         }
+        #timeline-scroll.scrolls { padding-bottom: 12px; }
         #timeline-scroll::-webkit-scrollbar { height: 10px; }
         #timeline-scroll::-webkit-scrollbar-track { background: #EEF0F8; }
         #timeline-scroll::-webkit-scrollbar-thumb { background: #9FA8DA; border-radius: 5px; }
-        #timeline { min-width: 640px; }
+        #timeline { min-width: 660px; }
 
         /* ---------- vis-timeline overrides ---------- */
         .vis-timeline { border: none; font-family: Arial, Helvetica, sans-serif; }
         /* The timeline is a fixed diagram: let the page and the scroll box handle touch panning */
         .vis-timeline, .vis-timeline * { touch-action: auto !important; }
         .vis-time-axis .vis-text { font-size: 12px; font-weight: bold; color: #555; }
+        /* vis sizes each minor label to one day; let "Week N" run past that */
+        .vis-time-axis .vis-text.vis-minor { width: auto !important; overflow: visible; }
         .vis-time-axis .vis-grid.vis-minor { border-color: #E3E6EE; }
         /* Week boundaries (the illustrative calendar starts on a Monday) */
         .vis-time-axis .vis-grid.vis-minor.vis-monday { border-color: #9E9E9E; }
@@ -95,7 +98,7 @@
         .vis-panel.vis-center, .vis-item .vis-item-overflow { overflow: visible !important; }
         .vis-item { cursor: pointer; }
         .vis-item .vis-item-content { white-space: nowrap; line-height: 1.25; }
-        .vis-item .sub { font-size: 11px; font-weight: normal; }
+        .vis-item .sub { font-size: 12px; font-weight: normal; }
 
         /* Live session: a thin solid indigo block drawn to scale (2 hours),
            with its label sitting just to the right of the block */
@@ -184,9 +187,12 @@
         #detail.field .pill { background: var(--dark-orange); }
         #detail .meta { margin: 0.1em 0 0.35em 0; color: #444; font-size: 0.9em; }
         #detail p { margin: 0.3em 0 0 0; }
+        #detail .nw { white-space: nowrap; }
         #detail .label { font-weight: bold; }
         #detail.live .label { color: var(--indigo); }
         #detail.field .label { color: var(--dark-orange); }
+        #detail .clock { margin-top: 0.7em; padding-top: 0.4em; border-top: 1px solid #DDD; color: #444; font-size: 0.85em; }
+        @media (max-width: 599px) { #detail .clock { display: none; } }
 
         /* Control region: white, below the drawing region */
         #controls {
@@ -200,8 +206,8 @@
             border: 1px solid silver;
             border-top: none;
         }
-        #controls button { font-size: 16px; padding: 4px 14px; }
-        #step-label { font-size: 16px; color: dimgray; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        #controls button { flex: none; white-space: nowrap; font-size: 16px; padding: 4px 14px; }
+        #step-label { min-width: 0; font-size: 16px; color: dimgray; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     </style>
     <script src="field-discovery-window-rhythm.js"></script>
 </head>
@@ -214,7 +220,7 @@
                     <span class="key live"><span class="swatch live"></span><span><b>Live session</b>: 4 &times; 2 hrs = 8 hrs</span></span>
                     <span class="key field"><span class="swatch field"></span><span><b>Field Discovery Window (FDW)</b>: 3 &times; 7 days</span></span>
                 </div>
-                <div id="timeline-scroll">
+                <div id="timeline-scroll" role="region" aria-label="Timeline of the four-week course: four 2-hour live sessions in the top row alternate with three 7-day Field Discovery Windows in the bottom row">
                     <div id="timeline"></div>
                 </div>
                 <div id="detail" class="live" aria-live="polite"></div>

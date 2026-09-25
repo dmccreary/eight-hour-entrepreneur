@@ -9,10 +9,11 @@
 // seven entries in order; clicking any entry jumps to it; hovering shows a one-line
 // preview. The panel below the timeline shows the selected entry's assignment,
 // Jordan's version of it, and how it connects to the entries before and after it.
+// On wide screens a "course clock" line adds up live hours and field days so far.
 // There is no animation: each step holds still until the learner moves on.
 // The course calendar is relative. vis-timeline needs real dates, so the sketch uses
 // a fixed illustrative start (a Monday) and labels the axis only by week.
-// Narrow screens: the timeline keeps a 640px minimum width inside a horizontal
+// Narrow screens: the timeline keeps a 660px minimum width inside a horizontal
 // scroll box with a visible scrollbar, and each step scrolls its entry into view.
 
 // Total height of everything above the Back link (drawing region + control region)
@@ -84,8 +85,11 @@ function setup() {
   });
 
   buildTimeline();
+  updateScrollRoom();
   goTo(0);
   window.addEventListener('resize', () => {
+    updateScrollRoom();
+    updateControls();
     fitDetail();
     scrollToCurrent(false);
   });
@@ -97,8 +101,8 @@ function buildTimeline() {
   const container = document.getElementById('timeline');
 
   const groups = new vis.DataSet([
-    { id: 'live', content: 'Inside the<br>cohort', className: 'live-row', order: 1 },
-    { id: 'field', content: 'Out in<br>the field', className: 'field-row', order: 2 }
+    { id: 'live', content: twoLines('Inside the', 'cohort'), className: 'live-row', order: 1 },
+    { id: 'field', content: twoLines('Out in', 'the field'), className: 'field-row', order: 2 }
   ]);
 
   const items = new vis.DataSet(STEPS.map(stepToItem));
@@ -107,9 +111,9 @@ function buildTimeline() {
     width: '100%',
     orientation: 'top',
     start: new Date(T0 - 0.4 * DAY),       // a little room before Session 1
-    end: new Date(T0 + 25.3 * DAY),        // room for the Session 4 label
+    end: new Date(T0 + 26.5 * DAY),        // room for the selected Session 4 label
     min: new Date(T0 - 1 * DAY),
-    max: new Date(T0 + 26 * DAY),
+    max: new Date(T0 + 27 * DAY),
     moveable: false,                       // a fixed diagram: no drag, no zoom
     zoomable: false,
     selectable: true,
@@ -121,8 +125,7 @@ function buildTimeline() {
     format: { minorLabels: weekLabel },
     margin: { item: { horizontal: 0, vertical: 8 }, axis: 6 },
     groupOrder: 'order',
-    tooltip: { followMouse: true, overflowMethod: 'cap' },
-    xss: { disabled: true }                // item content is fixed, authored HTML
+    tooltip: { followMouse: true, overflowMethod: 'cap' }
   };
 
   timeline = new vis.Timeline(container, items, groups, options);
@@ -147,7 +150,7 @@ function stepToItem(s) {
     return {
       id: s.id, group: 'live', className: 'session',
       start: new Date(start), end: new Date(start + SESSION_HOURS * HOUR),
-      content: 'Session ' + s.num + '<br><span class="sub">Week ' + s.week + ' &middot; 2 hrs</span>',
+      content: twoLines('Session ' + s.num, 'Week ' + s.week + ' \u00b7 2 hrs', 'sub'),
       title: 'Session ' + s.num + ' (Week ' + s.week + ', live, 2 hrs): ' + shortWhat(s)
     };
   }
@@ -156,7 +159,7 @@ function stepToItem(s) {
   return {
     id: s.id, group: 'field', className: 'fdw',
     start: new Date(start), end: new Date(T0 + s.num * 7 * DAY),
-    content: 'FDW ' + s.num + '<br><span class="sub">Days ' + dashed(s.days) + ' &middot; 7 days</span>',
+    content: twoLines('FDW ' + s.num, 'Days ' + dashed(s.days) + ' \u00b7 7 days', 'sub'),
     title: 'FDW ' + s.num + ' (Days ' + dashed(s.days) + ', in the field): ' + shortWhat(s)
   };
 }
@@ -186,7 +189,14 @@ function updateControls() {
   nextButton.disabled = current === STEPS.length - 1;
   const s = STEPS[current];
   const name = s.kind === 'session' ? 'Session ' + s.num : 'FDW ' + s.num;
-  stepLabel.textContent = 'Step ' + (current + 1) + ' of 7: ' + name;
+  // Narrow screens drop the name; the panel heading already shows it
+  stepLabel.textContent = 'Step ' + (current + 1) + ' of 7' + (window.innerWidth < 480 ? '' : ': ' + name);
+}
+
+// When the timeline is wider than the screen, leave room under the rows for the
+// scrollbar so it never covers the Field Discovery Window blocks
+function updateScrollRoom() {
+  scrollBox.classList.toggle('scrolls', scrollBox.scrollWidth > scrollBox.clientWidth + 1);
 }
 
 // On narrow screens, bring the selected entry (including its label) into view
@@ -211,23 +221,29 @@ function renderDetail() {
   const s = STEPS[current];
   const live = s.kind === 'session';
   detailBox.className = live ? 'live' : 'field';
+  // Running totals up to and including this step
+  const done = STEPS.slice(0, current + 1);
+  const liveHours = done.filter(d => d.kind === 'session').length * SESSION_HOURS;
+  const fieldDays = done.filter(d => d.kind === 'fdw').length * 7;
   const heading = live ? 'Session ' + s.num : 'Field Discovery Window ' + s.num;
   const pill = live ? 'LIVE &middot; INSIDE THE COHORT' : 'FIELD WORK &middot; OUT IN THE WORLD';
   const meta = live
     ? 'Week ' + s.week + ' &middot; 2 hours, live on video with the cohort'
-    : 'Days ' + dashed(s.days) + ' &middot; 7 days of testing with real people outside the cohort';
+    : 'Days ' + dashed(s.days) + ' &middot; 7 days of testing with real customers';
   detailBox.innerHTML =
     '<div class="head"><h2>' + heading + '</h2><span class="pill">' + pill + '</span></div>' +
     '<div class="meta">' + meta + '</div>' +
-    '<p><span class="label">What happens: </span>' + s.what + '</p>' +
+    '<p><span class="label">What happens: </span>' + noBreak(s.what) + '</p>' +
     '<p><span class="label">Jordan’s version: </span>' + s.jordan + '</p>' +
-    '<p><span class="label">How it connects: </span>' + s.link + '</p>';
+    '<p><span class="label">How it connects: </span>' + s.link + '</p>' +
+    '<div class="clock">Course clock after this step: <b>' + liveHours + ' of 8</b> live hours &middot; <b>' +
+    fieldDays + ' of 21</b> field days</div>';
   fitDetail();
 }
 
 // Shrink the panel text in small steps until it fits (never below 12px)
 function fitDetail() {
-  const base = window.innerWidth < 600 ? 15 : 16;
+  const base = window.innerWidth < 600 ? 15 : 18;
   let size = base;
   detailBox.style.fontSize = size + 'px';
   while (detailBox.scrollHeight > detailBox.clientHeight + 1 && size > 12) {
@@ -238,9 +254,26 @@ function fitDetail() {
 
 // ---------- Helpers ----------
 
+// Two-line label built as DOM nodes, so vis-timeline needs no raw HTML strings
+function twoLines(first, second, secondClass) {
+  const el = document.createElement('div');
+  el.appendChild(document.createTextNode(first));
+  el.appendChild(document.createElement('br'));
+  const sub = document.createElement('span');
+  if (secondClass) sub.className = secondClass;
+  sub.textContent = second;
+  el.appendChild(sub);
+  return el;
+}
+
 // The first clause of the assignment, for the one-line hover preview
 function shortWhat(s) {
   return s.what.length > 70 ? s.what.slice(0, s.what.lastIndexOf(' ', 67)) + '…' : s.what;
+}
+
+// Keep "2-minute" and "30-day" from splitting across lines at the hyphen
+function noBreak(str) {
+  return str.replace(/(\d+-(?:minute|day))/g, '<span class="nw">$1</span>');
 }
 
 // "1-7" -> "1–7" with an en dash

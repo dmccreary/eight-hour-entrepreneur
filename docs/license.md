@@ -37,4 +37,4 @@ The licensor cannot revoke these freedoms as long as you follow the license term
 
 ## Commercial Licensing
 
-Commercial rights are reserved by the copyright holder. For commercial licensing, publication inquiries, or permission to use this work in commercial contexts, please contact [Dan McCreary](https://www.linkedin.com/in/danmccreary/).
+Commercial rights are reserved by the copyright holder. For commercial licensing, publication inquiries, or permission to use this work in commercial contexts, please contact [Valerie Lockhart](https://www.linkedin.com/in/valockhart/).

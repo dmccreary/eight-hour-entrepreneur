@@ -1,60 +1,125 @@
 ---
 title: "The Field Discovery Window Rhythm"
-description: "Learners can explain what happens during each live session and each Field Discovery Window across the four-week course, and describe the relationship between the two (live instruction versus real-world testing)."
-status: scaffold
-library: vis-timeline
-bloom_level: Understand (L2)
+description: "A step-through timeline of the four-week course showing what happens in each 2-hour live session and each 7-day Field Discovery Window, and how each one feeds the next."
+image: /sims/field-discovery-window-rhythm/field-discovery-window-rhythm.png
+og:image: /sims/field-discovery-window-rhythm/field-discovery-window-rhythm.png
+twitter:image: /sims/field-discovery-window-rhythm/field-discovery-window-rhythm.png
+social:
+   cards: false
+status: built
 ---
 
 # The Field Discovery Window Rhythm
 
+<iframe src="main.html" height="562px" width="100%" scrolling="no"></iframe>
 
+[Run the Field Discovery Window Rhythm MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+The Eight-Hour Entrepreneur has two kinds of time. Four **live sessions** of two hours each
+happen inside the cohort, on video. Three **Field Discovery Windows** of seven days each
+happen outside it, where participants test their canvas blocks against real people. This
+timeline draws both to scale:
 
-## Specification
+- Each live session is a thin, solid **indigo** block in the top row, "Inside the cohort."
+- Each Field Discovery Window (FDW) is a wide, dashed **fox-orange** segment in the bottom
+  row, "Out in the field."
 
-The full specification below is extracted from
-[Chapter 2: Founder Mindset & the Cohort Learning Experience](../../chapters/02-founder-mindset-cohort/index.md).
+The difference in width is the lesson. The course has 8 hours of live instruction and
+21 days of field work, so most of the real work happens between sessions, not during them.
 
-```text
-Type: timeline
-**sim-id:** field-discovery-window-rhythm<br/>
-**Library:** vis-timeline<br/>
-**Status:** Specified
+Selecting an entry opens a detail panel with three concrete pieces:
 
-Bloom Level: Understand (L2)
-Bloom Verb: explain
+- **What happens:** the assignment for that session or window.
+- **Jordan's version:** what Jordan does with it for the mobile dog-grooming idea.
+- **How it connects:** what the entry takes in from the one before it and hands to the
+  one after it. Each session turns the last window's evidence into canvas blocks, and each
+  window tests the blocks the last session produced.
 
-Learning objective: Learners can explain what happens during each live session and each Field Discovery Window across the four-week course, and describe the relationship between the two (live instruction versus real-world testing).
+On wide screens a course clock at the bottom of the panel adds up the live hours and field
+days completed so far.
 
-Instructional Rationale: This is an Understand-level objective, so the timeline uses click-to-reveal concrete detail panels rather than an animated countdown. A learner needs to see exactly what task belongs to each session and each window, not just watch time pass.
+## How to Use
 
-Time period covered: The 4-week, 8-hour course arc (Week 1 through Week 4)
+1. Start at **Step 1: Session 1**, which is selected when the page loads.
+2. Click **Next** to move one entry forward in course order, or **Previous** to go back.
+   The left and right arrow keys work too.
+3. Click any block on the timeline to jump straight to it. Hover over a block for a
+   one-line preview.
+4. For each entry, read **How it connects** and name what it received from the previous
+   entry and what it passes on.
 
-Orientation: Horizontal timeline with 7 alternating entries: Session 1, FDW 1, Session 2, FDW 2, Session 3, FDW 3, Session 4
+On a phone, the timeline keeps a readable width and scrolls sideways. Each step scrolls
+its entry into view.
 
-Data Visibility Requirements (shown in a detail panel when an entry is clicked):
+## Iframe Embed Code
 
-  Session 1 (Week 1, live, 2 hrs): "Clarity: define your Customer and Problem canvas blocks."
-  FDW 1 (Days 1-7): "Conduct at least 3 real customer discovery interviews."
-  Session 2 (Week 2, live, 2 hrs): "Define Solution, Alternatives, and Benefit canvas blocks using interview findings."
-  FDW 2 (Days 8-14): "Design and run one lean validation test (e.g., a pre-sale offer or manual service delivery)."
-  Session 3 (Week 3, live, 2 hrs): "Define Advantage, Message, Distribution, and Revenue canvas blocks using test results."
-  FDW 3 (Days 15-21): "Run a second, sharper validation test based on Session 3 feedback."
-  Session 4 (Week 4, live, 2 hrs): "Mini Pitch + Commitments: present canvas, 30-day launch plan, and 2-minute pitch."
+You can add this MicroSim to any web page by adding this to your HTML:
 
-Visual style: Horizontal timeline with live sessions drawn as solid indigo blocks and Field Discovery Windows drawn as dashed, wider fox-orange segments (each window spans 7 days, visually longer than each 2-hour session block) so the reader can see at a glance that most of the course's real work happens between sessions, not during them.
-
-Interactive features: Click any session or window entry to open a detail panel below the timeline showing that entry's concrete assignment (from the Data Visibility Requirements above). Hovering an entry shows a one-line tooltip preview before clicking.
-
-Color coding: Indigo (#3F51B5) for live sessions, fox-orange (#E8791A) for Field Discovery Windows.
-
-Implementation notes: Use the vis-timeline library. Represent each entry as a vis-timeline item with a `start`/`end` range so window widths render proportionally to their 7-day span versus each session's 2-hour span. Must remain readable on narrow (mobile) viewports — allow horizontal scroll with a visible scrollbar rather than compressing labels to illegibility.
+```html
+<iframe src="https://dmccreary.github.io/eight-hour-entrepreneur/sims/field-discovery-window-rhythm/main.html"
+        height="562px"
+        width="100%"
+        scrolling="no"></iframe>
 ```
 
-## Related Resources
+## Lesson Plan
 
-- [Chapter 2: Founder Mindset & the Cohort Learning Experience](../../chapters/02-founder-mindset-cohort/index.md)
+### Audience
+
+Adult early-stage entrepreneurs and aspiring founders in a live virtual cohort.
+
+### Learning Objective
+
+Participants will explain what happens during each live session and each Field Discovery
+Window across the four-week course, and describe the relationship between the two: live
+sessions turn evidence into canvas blocks, and Field Discovery Windows test those blocks
+with real customers.
+
+**Bloom Level:** Understand (L2). **Bloom Verb:** explain.
+
+### Duration
+
+10 minutes
+
+### Prerequisites
+
+- Chapter 2 reading on the virtual learning lab, cohort-based learning, and the Field
+  Discovery Window
+- Chapter 1's Jordan example (the mobile dog-grooming idea)
+
+### Activities
+
+1. **Step through the course (4 min):** Each participant clicks Next through all seven
+   entries and reads the three parts of each detail panel.
+2. **Compare the widths (2 min):** As a group, compare the width of one indigo session
+   block with one orange window. Ask: where does most of the course's work actually happen,
+   and why is it placed there instead of in the live sessions?
+3. **Trace one handoff (4 min):** In pairs, pick one window. One partner explains what it
+   tested from the session before it; the other explains what the session after it builds
+   from its results. Then each partner writes the FDW 1 task for their own idea in one
+   sentence.
+
+### Assessment
+
+- Can the participant state the assignment for any session or window without looking?
+- Can the participant explain why Session 2 cannot happen before FDW 1 finishes?
+- Can the participant describe the difference between a live session and a Field
+  Discovery Window using the words "cohort" and "real customers"?
+
+## References
+
+1. [Customer development](https://en.wikipedia.org/wiki/Customer_development) - Wikipedia -
+   Steve Blank's method of leaving the building to test assumptions with customers, the idea
+   behind every Field Discovery Window.
+2. [Lean startup](https://en.wikipedia.org/wiki/Lean_startup) - Wikipedia - The
+   build-measure-learn loop that the session-then-window rhythm repeats three times.
+3. [Experiential learning](https://en.wikipedia.org/wiki/Experiential_learning) - Wikipedia -
+   Kolb's cycle of doing, reflecting, and applying, which the alternation of field work and
+   live debrief follows.
+4. [Spacing effect](https://en.wikipedia.org/wiki/Spacing_effect) - Wikipedia - Why
+   learning spread across weeks, with gaps between sessions, tends to last longer than the
+   same hours packed into one block.
+5. [The Mom Test](https://www.momtestbook.com/) - Rob Fitzpatrick - How to run the customer
+   conversations that FDW 1 asks for without collecting polite, useless compliments.

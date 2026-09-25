@@ -1,23 +1,84 @@
 {
   "title": "Customer Definition Funnel",
-  "description": "Learners can explain how a broad market narrows step by step into a target customer, ideal customer profile, and persona, and can locate a concrete example at each stage.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A five-band funnel that narrows Priya's meal-prep market from a broad market (families who eat dinner) through a market segment, a niche market, and a target customer to an ideal customer profile and persona (Dana, an ER nurse on rotating shifts). Learners step through the bands or click one to see its definition, the filter that narrowed it, Priya's example, and the example one band wider.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "customer-definition-funnel",
-  "library": "p5.js",
-  "bloomLevel": "Understand (L2)",
-  "bloomVerb": "explain",
-  "completion_status": "scaffold",
-  "chapter_number": 4,
-  "chapter_title": "Customer Discovery & Segmentation",
-  "chapter_dir": "04-customer-discovery-segmentation",
-  "chapter_rel_dir": "chapters/04-customer-discovery-segmentation"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/customer-definition-funnel/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Chapter 3: The CO.STARTERS Canvas Framework",
+      "Chapter 4 reading through From Broad Market to Target Customer"
+    ],
+    "standards": [],
+    "topic": "Narrowing a broad market to a target customer, ideal customer profile, and persona",
+    "learningObjectives": [
+      "Explain how a broad market narrows step by step into a market segment, a niche market, a target customer, and an ideal customer profile / persona",
+      "Locate Priya's concrete example at each stage of the funnel",
+      "Name the filter that separates each stage from the stage above it"
+    ],
+    "bloomsTaxonomy": "Understand"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 540
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "canvas-click",
+        "label": "Funnel bands",
+        "purpose": "Select one of the five stages to show its definition, the filter that narrowed it, and Priya's example"
+      },
+      {
+        "type": "button",
+        "label": "Widen Back",
+        "purpose": "Select the band one level wider (also the up or left arrow key)"
+      },
+      {
+        "type": "button",
+        "label": "Narrow Next",
+        "purpose": "Select the band one level narrower (also the down or right arrow key)"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Step-through of a static diagram with a concrete worked example at every stage",
+    "keyQuestions": [
+      "What filter was added to get from the band above to this one?",
+      "Is this description a group of people or one specific person?",
+      "Could Priya find and reach the people described at this stage?"
+    ],
+    "commonMisconceptions": [
+      "A broad market such as families who eat dinner is specific enough to be a target customer",
+      "Narrowing the customer shrinks the business rather than sharpening it",
+      "A persona is invented from imagination rather than grounded in research on real customers"
+    ],
+    "assessmentOpportunities": [
+      "Name the stage of each of Priya's five examples when they are read out of order",
+      "Explain the difference between a target customer and a persona using Dana"
+    ]
+  },
+  "chapter": "04-customer-discovery-segmentation"
 }
