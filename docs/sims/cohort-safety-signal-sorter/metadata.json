@@ -1,23 +1,84 @@
 {
   "title": "Cohort Safety Signal Sorter",
-  "description": "Given short statements describing things said or done during a cohort session, learners classify each one as \"Safety-Building\" or \"Safety-Eroding,\" applying the chapter's definition of psychological safety to concrete cohort moments.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A six-card sorting quiz in which learners classify moments from a live cohort session as Safety-Building or Safety-Eroding, with immediate green or amber feedback and a one-sentence explanation for each card.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "cohort-safety-signal-sorter",
-  "library": "p5.js",
-  "bloomLevel": "Apply (L3)",
-  "bloomVerb": "classify",
-  "completion_status": "scaffold",
-  "chapter_number": 2,
-  "chapter_title": "Founder Mindset & the Cohort Learning Experience",
-  "chapter_dir": "02-founder-mindset-cohort",
-  "chapter_rel_dir": "chapters/02-founder-mindset-cohort"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/cohort-safety-signal-sorter/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "5-10 minutes",
+    "prerequisites": [
+      "Chapter 2: Founder Mindset & the Cohort Learning Experience"
+    ],
+    "standards": [],
+    "topic": "Psychological safety in a peer cohort",
+    "learningObjectives": [
+      "Classify moments from a cohort session as Safety-Building or Safety-Eroding by applying the chapter's definition of psychological safety"
+    ],
+    "bloomsTaxonomy": "Apply"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 498
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Safety-Building",
+        "purpose": "Classify the current moment as one that makes honest sharing more likely"
+      },
+      {
+        "type": "button",
+        "label": "Safety-Eroding",
+        "purpose": "Classify the current moment as one that makes honest sharing less likely"
+      },
+      {
+        "type": "button",
+        "label": "Next Card / See Results",
+        "purpose": "Advance after answering"
+      },
+      {
+        "type": "button",
+        "label": "Try Again",
+        "purpose": "Reshuffle the cards and start over"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification quiz with immediate corrective feedback",
+    "keyQuestions": [
+      "How did the room respond to what was shared?",
+      "Does this moment make the next honest share more likely, or less likely?"
+    ],
+    "commonMisconceptions": [
+      "Safety only erodes when someone says something harsh out loud",
+      "A quiet participant means nothing is wrong"
+    ],
+    "assessmentOpportunities": [
+      "Score at least 5 of 6 on a second, shuffled attempt",
+      "Rewrite a Safety-Eroding moment as a Safety-Building response"
+    ]
+  },
+  "chapter": "02-founder-mindset-cohort"
 }

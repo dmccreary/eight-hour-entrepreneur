@@ -1,63 +1,110 @@
 ---
 title: "Cohort Safety Signal Sorter"
-description: 'Given short statements describing things said or done during a cohort session, learners classify each one as "Safety-Building" or "Safety-Eroding," applying the chapter''s definition of psychological safety to concrete cohort moments.'
-status: scaffold
-library: p5.js
-bloom_level: Apply (L3)
+description: "A six-card sorting quiz in which learners classify moments from a live cohort session as Safety-Building or Safety-Eroding, with immediate feedback on every card."
+image: /sims/cohort-safety-signal-sorter/cohort-safety-signal-sorter.png
+og:image: /sims/cohort-safety-signal-sorter/cohort-safety-signal-sorter.png
+twitter:image: /sims/cohort-safety-signal-sorter/cohort-safety-signal-sorter.png
+social:
+   cards: false
+status: built
 ---
 
 # Cohort Safety Signal Sorter
 
+<iframe src="main.html" height="500px" width="100%" scrolling="no"></iframe>
 
+[Run the Cohort Safety Signal Sorter MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
+<br/>
+[Edit in the p5.js Editor](https://editor.p5js.org/)
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Psychological safety is a shared belief that a group is safe for interpersonal risk-taking:
+no one will be embarrassed, rejected, or penalized for speaking up, admitting a mistake, or
+asking a question. The signal for it is rarely in what someone discloses. It is in how the
+room responds.
 
-## Specification
+Learners work through six cards, each describing something said or done during a cohort
+session, and choose **Safety-Building** or **Safety-Eroding**. The feedback is immediate:
 
-The full specification below is extracted from
-[Chapter 2: Founder Mindset & the Cohort Learning Experience](../../chapters/02-founder-mindset-cohort/index.md).
+- A correct answer flashes **green**; an incorrect answer flashes **amber**.
+- The correct category is stamped on the card.
+- A one-sentence explanation says why, so a wrong answer still teaches something.
 
-```text
-Type: microsim
-**sim-id:** cohort-safety-signal-sorter<br/>
-**Library:** p5.js<br/>
-**Status:** Specified
-**Template:** https://github.com/dmccreary/health-education/tree/main/docs/sims/unsafe-situation-signal-explorer<br/>
+Two cards are deliberately tricky. The participant who goes quiet after being mocked is
+not doing anything wrong; the silence is the visible cost of an earlier unsafe moment. The
+founder who polishes a canvas overnight hears no criticism at all, yet fear of judgment is
+already changing what the group gets to see.
 
-Bloom Level: Apply (L3)
-Bloom Verb: classify
+## How to Use
 
-Learning objective: Given short statements describing things said or done during a cohort session, learners classify each one as "Safety-Building" or "Safety-Eroding," applying the chapter's definition of psychological safety to concrete cohort moments.
+1. Read the cohort moment on the card.
+2. Click **Safety-Building** or **Safety-Eroding**.
+3. Read the feedback, then click **Next Card**.
+4. After card 6, click **See Results** for your score and a review of all six moments.
+5. Click **Try Again** to sort the same six cards in a new, shuffled order.
 
-Canvas layout:
+The progress bar across the top turns green or amber for each card as you go. The stack
+behind the current card shrinks as cards are dealt. Nothing is saved; the score lasts only
+for the current session.
 
-- Left side (70%): a stack of 6 statement cards, one at a time, each with two buttons below it: "Safety-Building" and "Safety-Eroding"
-- Right side (30%): a running tally showing "Correct: N / 6" and a small feedback area
+## Iframe Embed Code
 
-Statement cards (in order):
+You can add this MicroSim to any web page by adding this to your HTML:
 
-1. "When Priya admitted her field test only got 1 yes out of 10, the facilitator asked: 'What did the other nine actually tell you?'" (Correct answer: Safety-Building — treats a weak result as useful data, not a verdict)
-2. "A cohort member visibly rolls their eyes when someone shares an unfinished idea in a breakout room." (Correct answer: Safety-Eroding — signals judgment, discourages future disclosure)
-3. "Before the first breakout room, the facilitator says: 'Half-formed ideas are exactly what belongs in this room — that's the assignment.'" (Correct answer: Safety-Building — explicitly sets the norm before anyone is exposed)
-4. "A participant stays quiet for the rest of the session after a peer mocked their pricing idea earlier." (Correct answer: Safety-Eroding — visible consequence of an earlier unsafe moment)
-5. "A peer responds to a rough pitch with a clarifying question instead of unsolicited advice." (Correct answer: Safety-Building — invites more detail without imposing judgment)
-6. "A founder quietly rewrites their canvas overnight so it looks 'more finished,' afraid of what the group will think of the messy version." (Correct answer: Safety-Eroding — the fear of judgment is already shaping behavior, even without anyone saying anything)
-
-Interactive controls:
-
-- Click "Safety-Building" or "Safety-Eroding" under the current card
-- Immediate feedback: correct answers flash green with a one-sentence explanation; incorrect answers flash amber with the correct classification and a one-sentence explanation
-- "Next Card" button advances; after card 6, show final tally and a "Try Again" button that reshuffles card order
-
-Default parameters: Card order as listed above on first load; shuffled on retry.
-
-Behavior: No time pressure. Score persists only for the current session (no data saved). Progress bar across the top shows card 1 of 6 through 6 of 6.
-
-Implementation notes: Use p5.js. Store the six statements as an array of objects `{text, correctAnswer, explanation}`. Must remain fully readable and clickable on narrow (mobile) viewports — stack the tally below the card stack rather than beside it below 600px width. Reference the linked template repository for the card-sorter interaction pattern, but replace all health-education content with the cohort statements listed above.
+```html
+<iframe src="https://dmccreary.github.io/eight-hour-entrepreneur/sims/cohort-safety-signal-sorter/main.html"
+        height="500px"
+        width="100%"
+        scrolling="no"></iframe>
 ```
 
-## Related Resources
+## Lesson Plan
 
-- [Chapter 2: Founder Mindset & the Cohort Learning Experience](../../chapters/02-founder-mindset-cohort/index.md)
+### Audience
+
+Adult early-stage entrepreneurs and aspiring founders in a live virtual cohort.
+
+### Learning Objective
+
+Given short statements describing things said or done during a cohort session,
+participants will classify each one as Safety-Building or Safety-Eroding, applying the
+chapter's definition of psychological safety to concrete cohort moments.
+
+**Bloom Level:** Apply (L3). **Bloom Verb:** classify.
+
+### Duration
+
+5-10 minutes
+
+### Prerequisites
+
+- Chapter 2 reading on psychological safety, including Priya's Session 2 check-in
+
+### Activities
+
+1. **Solo sort (4 min):** Each participant sorts all six cards and notes their score.
+2. **Debrief the quiet signals (3 min):** As a group, discuss cards 4 and 6. Nobody in
+   either card says anything harsh. What tells you safety is eroding anyway?
+3. **Name your room's norm (3 min):** Each participant writes one sentence the group could
+   say or do in the next breakout room that would make an honest "my test flopped" easier
+   to share.
+
+### Assessment
+
+- Did the participant classify at least 5 of 6 cards correctly on a second, shuffled attempt?
+- Can the participant explain why a silent participant can be a sign of eroded safety?
+- Can the participant rewrite a Safety-Eroding moment as a Safety-Building response, such
+  as replacing unsolicited advice with a clarifying question?
+
+## References
+
+1. [Psychological safety](https://en.wikipedia.org/wiki/Psychological_safety) - Wikipedia -
+   The definition this sorter applies, including Amy Edmondson's research on team learning.
+2. [Amy Edmondson](https://en.wikipedia.org/wiki/Amy_Edmondson) - Wikipedia - The Harvard
+   researcher who defined team psychological safety and wrote *The Fearless Organization*.
+3. [Peer learning](https://en.wikipedia.org/wiki/Peer_learning) - Wikipedia - How learners
+   teach each other, and why a peer's response shapes what the next person is willing to share.
+4. [Community of practice](https://en.wikipedia.org/wiki/Community_of_practice) - Wikipedia -
+   Background on peer groups that learn together, the model behind a cohort's peer learning
+   community.
