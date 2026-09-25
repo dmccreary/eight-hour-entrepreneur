@@ -1,0 +1,16 @@
+{
+  "FOUND": { "range": [1, 26], "keywords": [], "exclude": [] },
+  "CANV": { "range": [27, 42], "keywords": [], "exclude": [] },
+  "CUST": { "range": [43, 66], "keywords": [], "exclude": [] },
+  "PROB": { "range": [67, 86], "keywords": [], "exclude": [] },
+  "SOL": { "range": [87, 106], "keywords": [], "exclude": [] },
+  "ALT": { "range": [107, 124], "keywords": [], "exclude": [] },
+  "VALU": { "range": [125, 146], "keywords": [], "exclude": [] },
+  "INTV": { "range": [147, 170], "keywords": [], "exclude": [] },
+  "VALID": { "range": [171, 196], "keywords": [], "exclude": [] },
+  "MSG": { "range": [197, 216], "keywords": [], "exclude": [] },
+  "DIST": { "range": [217, 233], "keywords": [], "exclude": [] },
+  "REV": { "range": [234, 253], "keywords": [], "exclude": [] },
+  "FIN": { "range": [254, 272], "keywords": [], "exclude": [] },
+  "LAUNCH": { "range": [273, 300], "keywords": [], "exclude": [] }
+}

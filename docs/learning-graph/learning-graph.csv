@@ -1,0 +1,301 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Entrepreneurship,,FOUND
+2,Early-Stage Venture,,FOUND
+3,Unrefined Concept,,FOUND
+4,Business Idea,,FOUND
+5,Idea Trap,4,FOUND
+6,Clarity,1|4,FOUND
+7,Validation,2|4,FOUND
+8,Action,3|4|5,FOUND
+9,Launch,4|6,FOUND
+10,Lean Startup Philosophy,4|5|7,FOUND
+11,Evidence-Based Decision Making,4|6|8,FOUND
+12,Assumption,4|7|9,FOUND
+13,Validated Learning,4|8|10,FOUND
+14,Founder Mindset,4|9|11,FOUND
+15,Psychological Safety,4|10|12,FOUND
+16,Founder Story,4|11|13,FOUND
+17,Messy Idea Normalization,4|12|14,FOUND
+18,Field Discovery Window,4|13|15,FOUND
+19,Real-World Customer Friction,4|14|16,FOUND
+20,Cohort-Based Learning,4|15|17,FOUND
+21,Virtual Learning Lab,4|16|18,FOUND
+22,Peer Learning Community,4|17|19,FOUND
+23,Founder Resilience,4|18|20,FOUND
+24,Customer Empathy,4|19|21,FOUND
+25,Business Viability,4|20|22,FOUND
+26,Growth Mindset,4|21|23,FOUND
+27,CO.STARTERS Canvas,1|4|10,CANV
+28,Business Model Canvas,27,CANV
+29,Canvas Block,27,CANV
+30,Canvas Sprint,27|28,CANV
+31,Customer Block,27|28,CANV
+32,Problem Block,27|29,CANV
+33,Solution Block,27|30,CANV
+34,Alternatives Block,27|31,CANV
+35,Benefit Block,27|32,CANV
+36,Advantage Block,27|33,CANV
+37,Message Block,27|34,CANV
+38,Distribution Block,27|35,CANV
+39,Revenue Block,27|36,CANV
+40,Startup Needs Block,27|37,CANV
+41,Costs Block,27|38,CANV
+42,Canvas Synthesis,27|39,CANV
+43,Target Customer,27|31,CUST
+44,Customer Segment,43,CUST
+45,Customer Definition,43,CUST
+46,Ideal Customer Profile,43|44,CUST
+47,Customer Persona,43|44,CUST
+48,Who You Serve,43|45,CUST
+49,Customer Identification,43|46,CUST
+50,Niche Market,43|47,CUST
+51,Broad Market,43|48,CUST
+52,Customer Avatar,43|49,CUST
+53,Early Adopter,43|50,CUST
+54,Mainstream Customer,43|51,CUST
+55,Customer Needs,43|52,CUST
+56,Customer Behavior,43|53,CUST
+57,Customer Motivation,43|54,CUST
+58,Customer Journey,43|55,CUST
+59,Market Segment,43|56,CUST
+60,B2B Customer,43|57,CUST
+61,B2C Customer,43|58,CUST
+62,Customer Fit,43|59,CUST
+63,Target Market Definition,43|60,CUST
+64,Customer Prioritization,43|61,CUST
+65,Serviceable Market,43|62,CUST
+66,Customer Assumption,43|63,CUST
+67,Problem Definition,32|43,PROB
+68,Pain Point,67,PROB
+69,Customer Pain,67,PROB
+70,Root Cause,67|68,PROB
+71,Problem Statement,67|68,PROB
+72,Problem Severity,67|69,PROB
+73,Problem Frequency,67|70,PROB
+74,Problem Prioritization,67|71,PROB
+75,Real Problem,67|72,PROB
+76,Perceived Problem,67|73,PROB
+77,Problem Validation,67|74,PROB
+78,Problem-Solution Fit,67|75,PROB
+79,Symptom Vs Root Cause,67|76,PROB
+80,Unmet Need,67|77,PROB
+81,Job To Be Done,67|78,PROB
+82,Problem Framing,67|79,PROB
+83,Problem Urgency,67|80,PROB
+84,Willingness To Solve,67|81,PROB
+85,Essential Bills Priority,67|82,PROB
+86,Problem Discovery,67|83,PROB
+87,Solution Definition,33|67,SOL
+88,Initial Offer,87,SOL
+89,Minimum Viable Offer,87,SOL
+90,Product Offering,87|88,SOL
+91,Service Offering,87|88,SOL
+92,What You Offer,87|89,SOL
+93,Solution Fit,87|90,SOL
+94,Feature Vs Benefit,87|91,SOL
+95,Offer Design,87|92,SOL
+96,Solution Iteration,87|93,SOL
+97,Solution Scope,87|94,SOL
+98,Draft Business Idea,87|95,SOL
+99,Solution Refinement,87|96,SOL
+100,Core Offering,87|97,SOL
+101,Value Delivery,87|98,SOL
+102,Solution Simplicity,87|99,SOL
+103,Solution Assumption,87|100,SOL
+104,Offer Clarity,87|101,SOL
+105,Solution Testing,87|102,SOL
+106,Solution Pivot,87|103,SOL
+107,Alternative Solution,34|87,ALT
+108,Competitor,107,ALT
+109,Competitive Landscape,107,ALT
+110,Current Workaround,107|108,ALT
+111,Substitute Solution,107|108,ALT
+112,Direct Competitor,107|109,ALT
+113,Indirect Competitor,107|110,ALT
+114,Do-Nothing Alternative,107|111,ALT
+115,Competitive Analysis,107|112,ALT
+116,Market Gap,107|113,ALT
+117,Competitive Positioning,107|114,ALT
+118,Differentiation,107|115,ALT
+119,Competitive Research,107|116,ALT
+120,Existing Solution,107|117,ALT
+121,Status Quo,107|118,ALT
+122,Competitive Landscape Mapping,107|119,ALT
+123,Alternative Assessment,107|120,ALT
+124,Competitive Intelligence,107|121,ALT
+125,Value Proposition,35|36|107,VALU
+126,Customer Benefit,125,VALU
+127,Founder Advantage,125,VALU
+128,Unique Value,125|126,VALU
+129,Competitive Advantage,125|126,VALU
+130,Unfair Advantage,125|127,VALU
+131,Why You Solve The Problem,125|128,VALU
+132,Why Customer Wants It,125|129,VALU
+133,Unique Selling Point,125|130,VALU
+134,Value Statement,125|131,VALU
+135,Benefit Articulation,125|132,VALU
+136,Advantage Articulation,125|133,VALU
+137,Founder Credibility,125|134,VALU
+138,Domain Expertise,125|135,VALU
+139,Best Person To Solve It,125|136,VALU
+140,Value Clarity,125|137,VALU
+141,Core Benefit,125|138,VALU
+142,Emotional Benefit,125|139,VALU
+143,Functional Benefit,125|140,VALU
+144,Value Differentiation,125|141,VALU
+145,Advantage Sustainability,125|142,VALU
+146,Value Proposition Refinement,125|143,VALU
+147,Discovery Interview,15|43|67,INTV
+148,Customer Interview,147,INTV
+149,Interview Question,147,INTV
+150,Open-Ended Question,147|148,INTV
+151,Leading Question,147|148,INTV
+152,Interview Bias,147|149,INTV
+153,Asking Not Selling,147|150,INTV
+154,Interview Script,147|151,INTV
+155,Interview Debrief,147|152,INTV
+156,Interview Finding,147|153,INTV
+157,Interview Surprise,147|154,INTV
+158,Interview Scheduling,147|155,INTV
+159,Interview Recruitment,147|156,INTV
+160,Reality Check Exercise,15|67|147|157,INTV
+161,Pressure Test,147|158|160,INTV
+162,Assumption Testing,147|159,INTV
+163,Customer Conversation,147|160,INTV
+164,Field Research,147|161,INTV
+165,Qualitative Research,147|162,INTV
+166,Pattern Recognition,147|163,INTV
+167,Interview Synthesis,147|164,INTV
+168,Assumption Dismantling,147|165,INTV
+169,Weak Assumption,147|166,INTV
+170,Interview Sample Size,147|167,INTV
+171,Lean Validation,13|87|147,VALID
+172,Lean Test,171,VALID
+173,Minimum Testable Iteration,171,VALID
+174,Service Before Product,171|172,VALID
+175,Manual Before Automated,171|172,VALID
+176,Pre-Selling Before Building,171|173,VALID
+177,Pre-Sale Offer,43|171|172|174,VALID
+178,Manual Service Delivery,171|175,VALID
+179,Direct Post Test,171|176,VALID
+180,Validation Test Design,171|177,VALID
+181,Test Result,171|178,VALID
+182,Test Result Debrief,171|179,VALID
+183,Kill Decision,171|180|181,VALID
+184,Pivot Decision,171|181,VALID
+185,Persevere Decision,171|181|182,VALID
+186,Concept Validation,171|183,VALID
+187,Evidence Of Demand,171|184,VALID
+188,Customer Payment Signal,171|185,VALID
+189,Build-Measure-Learn,171|186,VALID
+190,Smallest Testable Version,171|187,VALID
+191,Validated Concept,171|188,VALID
+192,Invalid Concept,171|189,VALID
+193,Low-Capital Testing,171|190,VALID
+194,Rapid Experimentation,171|191,VALID
+195,Test Hypothesis,171|192,VALID
+196,Validation Milestone,171|193,VALID
+197,Messaging Framework,37|125,MSG
+198,One-Sentence Value Proposition,125|197,MSG
+199,Messaging Workshop,197,MSG
+200,Sales Copy,197|198,MSG
+201,High-Conversion Copy,197|198,MSG
+202,Founder Narrative,197|199,MSG
+203,Elevator Pitch,197|198|200,MSG
+204,Message Clarity,197|201,MSG
+205,Outsider Comprehension Test,197|202,MSG
+206,Five-Second Test,197|203,MSG
+207,Social Media Copy,197|204,MSG
+208,Brand Voice,197|205,MSG
+209,Customer-Facing Message,197|206,MSG
+210,Message Testing,197|207,MSG
+211,Story-Based Messaging,197|208,MSG
+212,Message Simplicity,197|209,MSG
+213,Call To Action,197|210,MSG
+214,Headline Writing,197|211,MSG
+215,Persuasive Writing,197|212,MSG
+216,Messaging Iteration,197|213,MSG
+217,Distribution Channel,38|43,DIST
+218,Go-To-Market Approach,217,DIST
+219,Direct Sales Channel,217,DIST
+220,Online Distribution,217|218,DIST
+221,In-Person Distribution,217|218,DIST
+222,Channel Selection,217|219,DIST
+223,Customer Acquisition Path,217|220,DIST
+224,Word Of Mouth,217|221,DIST
+225,Referral Channel,217|222,DIST
+226,Partnership Channel,217|223,DIST
+227,Marketplace Channel,217|224,DIST
+228,Social Media Channel,217|225,DIST
+229,Channel Testing,217|226,DIST
+230,Channel Cost,217|227,DIST
+231,Channel Reach,217|228,DIST
+232,Multi-Channel Strategy,217|229,DIST
+233,Channel Fit,217|230,DIST
+234,Revenue Model,39|87,REV
+235,Pricing Model,234,REV
+236,Pricing Strategy,234,REV
+237,Subscription Pricing,234|235,REV
+238,One-Time Pricing,234|235,REV
+239,Tiered Pricing,234|236,REV
+240,Value-Based Pricing,234|237,REV
+241,Cost-Plus Pricing,234|238,REV
+242,Revenue Stream,234|239,REV
+243,Recurring Revenue,234|240,REV
+244,Transaction Revenue,234|241,REV
+245,Pricing Validation,234|235|242,REV
+246,Willingness To Pay,234|243,REV
+247,Price Point Testing,234|244,REV
+248,Revenue Projection,234|245,REV
+249,Sales Conversion,234|246,REV
+250,Revenue Assumption,234|247,REV
+251,Pricing Communication,234|248,REV
+252,Freemium Model,234|249,REV
+253,Break-Even Thinking,234|250,REV
+254,Startup Needs,40|41|234,FIN
+255,One-Time Needs,254,FIN
+256,Ongoing Costs,254,FIN
+257,Fixed Costs,254|255,FIN
+258,Variable Costs,254|255,FIN
+259,Bootstrapped Funding,254|256,FIN
+260,Startup Budget,254|257,FIN
+261,Resource Needs,254|258,FIN
+262,People Resource Needs,254|259,FIN
+263,Technology Resource Needs,254|260,FIN
+264,Activity Resource Needs,254|261,FIN
+265,Cost Structure,254|262,FIN
+266,Cost Estimation,254|263,FIN
+267,Financial Baseline,254|257|258|264,FIN
+268,Minimal Viable Budget,254|265,FIN
+269,Cash Flow Awareness,254|266,FIN
+270,Startup Capital,254|267,FIN
+271,Cost Tracking,254|268,FIN
+272,Needs Vs Wants Assessment,254|269,FIN
+273,Thirty-Day Launch Plan,42|171|197|217|234|254,LAUNCH
+274,Launch Roadmap,273,LAUNCH
+275,Weekly Milestone,273,LAUNCH
+276,What To Sell,87|273|274,LAUNCH
+277,Who To Sell To,43|273|274,LAUNCH
+278,How To Reach Them,217|273|275,LAUNCH
+279,Weekly Target,273|276,LAUNCH
+280,Launch Readiness,273|277,LAUNCH
+281,Momentum Building,273|278,LAUNCH
+282,Wins And Lessons Review,273|279,LAUNCH
+283,Setback Normalization,273|280,LAUNCH
+284,Time-Saving Pivot,273|281,LAUNCH
+285,Money-Saving Pivot,273|282,LAUNCH
+286,Mini Pitch,273|283,LAUNCH
+287,Two-Minute Pitch,273|284|286,LAUNCH
+288,Peer Feedback,273|285,LAUNCH
+289,Public Commitment,273|286|287,LAUNCH
+290,Accountability Network,273|287|289,LAUNCH
+291,Peer Accountability,22|273|288|290,LAUNCH
+292,Coaching Handoff,273|289,LAUNCH
+293,Community Hub,273|290,LAUNCH
+294,Slack Community,273|291,LAUNCH
+295,Continuing Platform Ecosystem,273|292,LAUNCH
+296,Capstone Presentation,273|287|293,LAUNCH
+297,Operational Roadmap,273|294,LAUNCH
+298,Milestone-Driven Plan,273|295,LAUNCH
+299,Launch Confidence,273|296,LAUNCH
+300,Post-Course Support,273|297,LAUNCH
