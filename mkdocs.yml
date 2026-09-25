@@ -38,23 +38,57 @@ nav:
 
   - Chapters:
       - List of Chapters: chapters/index.md
-      - 1. Entrepreneurship, Lean Thinking & the Idea Trap: chapters/01-entrepreneurship-lean-thinking/index.md
-      - 2. Founder Mindset & the Cohort Learning Experience: chapters/02-founder-mindset-cohort/index.md
-      - 3. The CO.STARTERS Canvas Framework: chapters/03-costarters-canvas-framework/index.md
-      - 4. Customer Discovery & Segmentation: chapters/04-customer-discovery-segmentation/index.md
-      - 5. Defining the Real Problem: chapters/05-defining-the-real-problem/index.md
-      - 6. Designing the Solution & Initial Offer: chapters/06-designing-solution-offer/index.md
-      - 7. Alternatives & the Competitive Landscape: chapters/07-alternatives-competitive-landscape/index.md
-      - "8. Value Proposition: Benefit & Advantage": chapters/08-value-proposition-benefit-advantage/index.md
-      - 9. Discovery Interviews & the Reality Check: chapters/09-discovery-interviews-reality-check/index.md
-      - 10. Lean Testing Fundamentals: chapters/10-lean-testing-fundamentals/index.md
-      - 11. Interpreting Validation Evidence: chapters/11-interpreting-validation-evidence/index.md
-      - 12. Messaging & the Value Proposition Statement: chapters/12-messaging-value-proposition/index.md
-      - 13. Distribution & Go-to-Market Channels: chapters/13-distribution-go-to-market/index.md
-      - 14. Revenue Models & Pricing: chapters/14-revenue-models-pricing/index.md
-      - 15. Startup Needs & Cost Planning: chapters/15-startup-needs-cost-planning/index.md
-      - 16. Building the 30-Day Launch Plan: chapters/16-thirty-day-launch-plan/index.md
-      - 17. Pitching, Accountability & What Comes Next: chapters/17-pitching-accountability-next-steps/index.md
+      - 1. Entrepreneurship, Lean Thinking & the Idea Trap:
+          - Content: chapters/01-entrepreneurship-lean-thinking/index.md
+          - Quiz: chapters/01-entrepreneurship-lean-thinking/quiz.md
+      - 2. Founder Mindset & the Cohort Learning Experience:
+          - Content: chapters/02-founder-mindset-cohort/index.md
+          - Quiz: chapters/02-founder-mindset-cohort/quiz.md
+      - 3. The CO.STARTERS Canvas Framework:
+          - Content: chapters/03-costarters-canvas-framework/index.md
+          - Quiz: chapters/03-costarters-canvas-framework/quiz.md
+      - 4. Customer Discovery & Segmentation:
+          - Content: chapters/04-customer-discovery-segmentation/index.md
+          - Quiz: chapters/04-customer-discovery-segmentation/quiz.md
+      - 5. Defining the Real Problem:
+          - Content: chapters/05-defining-the-real-problem/index.md
+          - Quiz: chapters/05-defining-the-real-problem/quiz.md
+      - 6. Designing the Solution & Initial Offer:
+          - Content: chapters/06-designing-solution-offer/index.md
+          - Quiz: chapters/06-designing-solution-offer/quiz.md
+      - 7. Alternatives & the Competitive Landscape:
+          - Content: chapters/07-alternatives-competitive-landscape/index.md
+          - Quiz: chapters/07-alternatives-competitive-landscape/quiz.md
+      - "8. Value Proposition: Benefit & Advantage":
+          - Content: chapters/08-value-proposition-benefit-advantage/index.md
+          - Quiz: chapters/08-value-proposition-benefit-advantage/quiz.md
+      - 9. Discovery Interviews & the Reality Check:
+          - Content: chapters/09-discovery-interviews-reality-check/index.md
+          - Quiz: chapters/09-discovery-interviews-reality-check/quiz.md
+      - 10. Lean Testing Fundamentals:
+          - Content: chapters/10-lean-testing-fundamentals/index.md
+          - Quiz: chapters/10-lean-testing-fundamentals/quiz.md
+      - 11. Interpreting Validation Evidence:
+          - Content: chapters/11-interpreting-validation-evidence/index.md
+          - Quiz: chapters/11-interpreting-validation-evidence/quiz.md
+      - 12. Messaging & the Value Proposition Statement:
+          - Content: chapters/12-messaging-value-proposition/index.md
+          - Quiz: chapters/12-messaging-value-proposition/quiz.md
+      - 13. Distribution & Go-to-Market Channels:
+          - Content: chapters/13-distribution-go-to-market/index.md
+          - Quiz: chapters/13-distribution-go-to-market/quiz.md
+      - 14. Revenue Models & Pricing:
+          - Content: chapters/14-revenue-models-pricing/index.md
+          - Quiz: chapters/14-revenue-models-pricing/quiz.md
+      - 15. Startup Needs & Cost Planning:
+          - Content: chapters/15-startup-needs-cost-planning/index.md
+          - Quiz: chapters/15-startup-needs-cost-planning/quiz.md
+      - 16. Building the 30-Day Launch Plan:
+          - Content: chapters/16-thirty-day-launch-plan/index.md
+          - Quiz: chapters/16-thirty-day-launch-plan/quiz.md
+      - 17. Pitching, Accountability & What Comes Next:
+          - Content: chapters/17-pitching-accountability-next-steps/index.md
+          - Quiz: chapters/17-pitching-accountability-next-steps/quiz.md
 
   - Learning Graph:
       - Introduction: learning-graph/index.md
@@ -66,6 +100,7 @@ nav:
       - Mascot Rendering Test: learning-graph/mascot-test.md
       - FAQ Quality Report: learning-graph/faq-quality-report.md
       - FAQ Coverage Gaps: learning-graph/faq-coverage-gaps.md
+      - Quiz Generation Report: learning-graph/quiz-generation-report.md
 
   - MicroSims:
       - List of MicroSims: sims/index.md
@@ -99,7 +134,7 @@ nav:
 theme:
   name: material
   # Once a logo is generated, point this at docs/img/logo.png or a mascot pose:
-  # logo: img/logo.png
+  logo: img/mascot/welcome.png
   favicon: img/favicon.ico
   palette:
     primary: 'indigo'
