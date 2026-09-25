@@ -1,0 +1,23 @@
+{
+  "title": "Customer Definition Funnel",
+  "description": "Learners can explain how a broad market narrows step by step into a target customer, ideal customer profile, and persona, and can locate a concrete example at each stage.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "customer-definition-funnel",
+  "library": "p5.js",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain",
+  "completion_status": "scaffold",
+  "chapter_number": 4,
+  "chapter_title": "Customer Discovery & Segmentation",
+  "chapter_dir": "04-customer-discovery-segmentation",
+  "chapter_rel_dir": "chapters/04-customer-discovery-segmentation"
+}

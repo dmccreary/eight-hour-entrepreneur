@@ -1,0 +1,23 @@
+{
+  "title": "Benefit vs Advantage Sorter",
+  "description": "Given short value-proposition statements, learners classify each as a customer benefit statement (why the customer wants it) or a founder advantage statement (why this founder can deliver it), applying the chapter's definitions.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "benefit-vs-advantage-sorter",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "classify",
+  "completion_status": "scaffold",
+  "chapter_number": 8,
+  "chapter_title": "\"Value Proposition: Benefit & Advantage\"",
+  "chapter_dir": "08-value-proposition-benefit-advantage",
+  "chapter_rel_dir": "chapters/08-value-proposition-benefit-advantage"
+}

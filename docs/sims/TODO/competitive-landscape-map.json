@@ -1,0 +1,15 @@
+{
+  "sim_id": "competitive-landscape-map",
+  "diagram_name": "Competitive Landscape Map",
+  "chapter_number": 7,
+  "chapter_title": "Alternatives & the Competitive Landscape",
+  "chapter_dir": "07-alternatives-competitive-landscape",
+  "chapter_rel_dir": "chapters/07-alternatives-competitive-landscape",
+  "library": "p5.js",
+  "bloom_level": "Analyze (L4)",
+  "bloom_verb": "differentiate",
+  "learning_objective": "Learners differentiate existing alternatives to a venture as the do-nothing alternative, a current workaround, an indirect competitor or substitute, or a direct competitor, by their directness in solving the same problem.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-25",
+  "specification": "Type: diagram\n**sim-id:** competitive-landscape-map<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Analyze (L4)\nBloom Verb: differentiate\n\nLearning objective: Learners differentiate existing alternatives to a venture as the do-nothing alternative, a current workaround, an indirect competitor or substitute, or a direct competitor, by their directness in solving the same problem.\n\nCanvas layout:\n\n- A horizontal spectrum line labeled \"How directly does this solve the same problem?\" running from \"Costs nothing to keep choosing\" (left) to \"Looks just like your offer\" (right)\n- 5 nodes placed along the line, left to right: \"Do-Nothing Alternative,\" \"Current Workaround,\" \"Substitute Solution,\" \"Indirect Competitor,\" \"Direct Competitor\"\n- A detail panel below showing the selected node's definition and Jordan's real example\n\nData Visibility Requirements:\n\n  Do-Nothing Alternative selected: \"Tolerating the problem unsolved. Jordan's example: the dog just doesn't get groomed this month.\"\n  Current Workaround selected: \"An informal, imperfect fix. Jordan's example: dry shampoo and at-home brushing.\"\n  Substitute Solution selected: \"Solves the underlying need differently. Jordan's example: a self-service dog wash station at the pet store.\"\n  Indirect Competitor selected: \"Solves the same problem, different approach. Jordan's example: a traditional storefront groomer requiring drop-off.\"\n  Direct Competitor selected: \"Same problem, same approach. Jordan's example: another mobile dog-grooming service in the area.\"\n\nInteractive controls:\n\n- Click any node to select it and update the detail panel (default: no node selected, prompt reads \"Click a node to explore Jordan's competitive landscape\")\n- Selected node highlighted in fox-orange (#E8791A); others in indigo (#3F51B5)\n\nVisual style: Simple horizontal spectrum line with 5 evenly spaced circular nodes; labels above each node, connecting line beneath.\n\nDefault parameters: No node selected on load.\n\nImplementation notes: Use p5.js. Store the 5 nodes as an array of objects `{label, definition, example}` with fixed x-positions along the spectrum. Must reflow to a vertical spectrum (top to bottom) on narrow (mobile) viewports."
+}

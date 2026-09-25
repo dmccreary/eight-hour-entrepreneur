@@ -1,0 +1,23 @@
+{
+  "title": "Cohort Safety Signal Sorter",
+  "description": "Given short statements describing things said or done during a cohort session, learners classify each one as \"Safety-Building\" or \"Safety-Eroding,\" applying the chapter's definition of psychological safety to concrete cohort moments.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "cohort-safety-signal-sorter",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "classify",
+  "completion_status": "scaffold",
+  "chapter_number": 2,
+  "chapter_title": "Founder Mindset & the Cohort Learning Experience",
+  "chapter_dir": "02-founder-mindset-cohort",
+  "chapter_rel_dir": "chapters/02-founder-mindset-cohort"
+}

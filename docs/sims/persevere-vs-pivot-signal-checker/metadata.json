@@ -1,0 +1,23 @@
+{
+  "title": "Persevere vs Pivot Signal Checker",
+  "description": "Given a set of validation evidence signals for a venture scenario, learners evaluate the pattern and justify whether it supports a persevere decision, a pivot decision, or a kill decision (from Chapter 10).",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "persevere-vs-pivot-signal-checker",
+  "library": "p5.js",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "justify",
+  "completion_status": "scaffold",
+  "chapter_number": 11,
+  "chapter_title": "Interpreting Validation Evidence",
+  "chapter_dir": "11-interpreting-validation-evidence",
+  "chapter_rel_dir": "chapters/11-interpreting-validation-evidence"
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "leading-vs-open-ended-sorter",
+  "diagram_name": "Leading vs Open-Ended Question Sorter",
+  "chapter_number": 9,
+  "chapter_title": "Discovery Interviews & the Reality Check",
+  "chapter_dir": "09-discovery-interviews-reality-check",
+  "chapter_rel_dir": "chapters/09-discovery-interviews-reality-check",
+  "library": "p5.js",
+  "bloom_level": "Apply (L3)",
+  "bloom_verb": "classify",
+  "learning_objective": "Given sample interview questions, learners classify each as open-ended or leading, applying the chapter's unbiased interview design principles.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-25",
+  "specification": "Type: microsim\n**sim-id:** leading-vs-open-ended-sorter<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Apply (L3)\nBloom Verb: classify\n\nLearning objective: Given sample interview questions, learners classify each as open-ended or leading, applying the chapter's unbiased interview design principles.\n\nCanvas layout:\n\n- Left side (70%): a stack of 6 statement cards, one at a time, each with two buttons below it: \"Open-Ended\" and \"Leading\"\n- Right side (30%): a running tally showing \"Correct: N / 6\" and a small feedback area\n\nStatement cards (in order):\n\n1. \"Tell me about the last time getting your dog groomed was a hassle.\" (Correct answer: Open-Ended — invites a story in the customer's own words)\n2. \"Wouldn't you love it if grooming just came to your house?\" (Correct answer: Leading — suggests the desired answer)\n3. \"Walk me through what you currently do when your dog needs a bath.\" (Correct answer: Open-Ended — asks for their actual process)\n4. \"Don't you think $40 is a fair price for a driveway grooming session?\" (Correct answer: Leading — asks for agreement with a pre-set conclusion)\n5. \"What's the most frustrating part of your current routine, if anything?\" (Correct answer: Open-Ended — genuinely open to a \"nothing\" answer)\n6. \"This would save you so much time, right?\" (Correct answer: Leading — assumes the benefit before the customer has confirmed it)\n\nInteractive controls:\n\n- Click \"Open-Ended\" or \"Leading\" under the current card\n- Immediate feedback: correct answers flash green with a one-sentence explanation; incorrect answers flash amber with the correct classification and explanation\n- \"Next Card\" button advances; after card 6, show final tally and a \"Try Again\" button that reshuffles card order\n\nDefault parameters: Card order as listed above on first load; shuffled on retry.\n\nBehavior: No time pressure. Score persists only for the current session (no data saved). Progress bar across the top shows card 1 of 6 through 6 of 6.\n\nImplementation notes: Use p5.js. Store the six statements as an array of objects `{text, correctAnswer, explanation}`. Must remain fully readable and clickable on narrow (mobile) viewports — stack the tally below the card stack rather than beside it below 600px width."
+}

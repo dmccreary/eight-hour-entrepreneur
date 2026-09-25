@@ -1,0 +1,15 @@
+{
+  "sim_id": "break-even-calculator",
+  "diagram_name": "Break-Even Calculator",
+  "chapter_number": 14,
+  "chapter_title": "Revenue Models & Pricing",
+  "chapter_dir": "14-revenue-models-pricing",
+  "chapter_rel_dir": "chapters/14-revenue-models-pricing",
+  "library": "p5.js",
+  "bloom_level": "Apply (L3)",
+  "bloom_verb": "calculate",
+  "learning_objective": "Learners adjust price, per-sale cost, and fixed monthly cost sliders and calculate how many sales are needed to reach break-even for a lean venture.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-25",
+  "specification": "Type: microsim\n**sim-id:** break-even-calculator<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Apply (L3)\nBloom Verb: calculate\n\nLearning objective: Learners adjust price, per-sale cost, and fixed monthly cost sliders and calculate how many sales are needed to reach break-even for a lean venture.\n\nCanvas layout:\n\n- Three sliders, top to bottom: \"Price per Sale\" ($10-$100), \"Cost per Sale\" ($0-$50), \"Fixed Monthly Costs\" ($0-$500)\n- Below: a live-updating result reading \"Sales Needed to Break Even This Month: N\"\n- A simple bar showing current monthly sales (a 4th slider, \"Sales This Month,\" 0-30) against the break-even line\n\nBehavior: Break-even sales = Fixed Monthly Costs / (Price per Sale − Cost per Sale). Recalculate and redraw on every slider change. If Price per Sale ≤ Cost per Sale, display a warning message: \"At this price, you can never break even — raise the price or lower the cost.\" The bar chart shows a red bar if \"Sales This Month\" is below the break-even number, green if at or above it.\n\nInteractive controls:\n\n- Drag any of the 4 sliders; all outputs update live\n- \"Load Jordan's Numbers\" button sets Price=$40, Cost per Sale=$8, Fixed Monthly Costs=$120, Sales This Month=5\n\nDefault parameters: Price=$40, Cost per Sale=$8, Fixed Monthly Costs=$120, Sales This Month=0 (so the bar starts red, prompting exploration).\n\nImplementation notes: Use p5.js. Recompute break-even on every `draw()` call from current slider values; guard the division against Price equal to Cost per Sale. Must remain fully usable on narrow (mobile) viewports — stack sliders vertically with the result and bar chart below."
+}

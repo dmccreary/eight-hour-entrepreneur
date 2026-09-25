@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- microsim-scaffold-stub -->
+    <title>Symptom vs Root Cause Drill-Down</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Symptom vs Root Cause Drill-Down</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> symptom-root-cause-drilldown</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> Apply (L3)</p>
+            <p><strong>Learning Objective:</strong> Given a customer's first-stated complaint, learners apply a repeated "why" technique, choosing at each step which underlying cause to pursue, to trace the symptom down to its root cause.</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** symptom-root-cause-drilldown<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Bloom Level: Apply (L3)
+    Bloom Verb: apply
+    
+    Learning objective: Given a customer's first-stated complaint, learners apply a repeated "why" technique, choosing at each step which underlying cause to pursue, to trace the symptom down to its root cause.
+    
+    Canvas layout:
+    
+    - Top: the current complaint text in a card
+    - Below: 2-3 candidate "why" answers presented as clickable buttons
+    - A running vertical trail on the left showing each previously selected layer, top (symptom) to bottom (current depth)
+    
+    Behavior: Start with Priya's complaint: "I don't have time to cook." Present 2 candidate answers to "Why not?": (a) "There aren't enough hours in the day" (a dead-end distractor that loops back to the same complaint if chosen — with feedback: "This restates the symptom rather than explaining it — try the other option"), (b) "My work schedule changes week to week" (correct path, advances). Continue for 2 more rounds along the correct path: "Why does that stop you cooking?" → "I can't commit to a weekly meal plan in advance" (advances) vs. a distractor "I don't like cooking" (feedback: "Priya's interviews didn't support this — stay with what she actually heard"). Final round reveals the root cause: "Rotating shifts make any pre-planned dinner routine unreliable" and labels it "Root Cause Found," contrasting it against the original symptom card still visible at the top.
+    
+    Interactive controls:
+    
+    - Click a candidate answer to advance or receive corrective feedback
+    - "Restart" button resets to the original symptom
+    - Trail on the left is clickable to jump back to any earlier layer
+    
+    Default parameters: Starts at the top-level symptom, no layers selected.
+    
+    Implementation notes: Use p5.js. Store the drill-down as a small tree structure `{text, children: [{text, correct, feedback}]}`. Must remain fully readable on narrow (mobile) viewports — stack the trail above the current card rather than beside it below 600px width.
+    -->
+</body>
+</html>

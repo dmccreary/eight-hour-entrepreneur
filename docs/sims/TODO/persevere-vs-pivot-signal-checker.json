@@ -1,0 +1,15 @@
+{
+  "sim_id": "persevere-vs-pivot-signal-checker",
+  "diagram_name": "Persevere vs Pivot Signal Checker",
+  "chapter_number": 11,
+  "chapter_title": "Interpreting Validation Evidence",
+  "chapter_dir": "11-interpreting-validation-evidence",
+  "chapter_rel_dir": "chapters/11-interpreting-validation-evidence",
+  "library": "p5.js",
+  "bloom_level": "Evaluate (L5)",
+  "bloom_verb": "justify",
+  "learning_objective": "Given a set of validation evidence signals for a venture scenario, learners evaluate the pattern and justify whether it supports a persevere decision, a pivot decision, or a kill decision (from Chapter 10).",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-25",
+  "specification": "Type: microsim\n**sim-id:** persevere-vs-pivot-signal-checker<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Evaluate (L5)\nBloom Verb: justify\n\nLearning objective: Given a set of validation evidence signals for a venture scenario, learners evaluate the pattern and justify whether it supports a persevere decision, a pivot decision, or a kill decision (from Chapter 10).\n\nCanvas layout:\n\n- Three toggle switches, each labeled with a signal: \"Problem Validated?\", \"Solution Got Payment Signals?\", \"Customer Definition Confirmed?\"\n- A result panel below that updates live as toggles change\n\nBehavior (decision logic driving the result panel):\n\n  All three toggles ON: \"Persevere — evidence supports the concept largely as designed.\"\n  Problem ON, Solution OFF, Customer ON: \"Pivot the Solution — keep the validated problem and customer, redesign the offer.\" (Priya's actual scenario)\n  Problem OFF, others any state: \"Pivot the Problem — the customer may be real, but this isn't their priority pain. Revisit Chapter 5.\"\n  All three toggles OFF: \"Kill Decision — see Chapter 10. No part of the current concept has evidence behind it yet.\"\n  Problem ON, Solution ON, Customer OFF: \"Pivot the Customer — the offer works for somebody, but maybe not this target customer. Revisit Chapter 4.\"\n\nInteractive controls:\n\n- Click each toggle to switch it on/off independently\n- Result panel text and color update immediately (green for persevere, fox-orange for pivot, gray for kill)\n- \"Load Priya's Evidence\" button sets toggles to her actual scenario as a worked example\n\nDefault parameters: All toggles off on load, prompting \"Set your evidence signals above.\"\n\nImplementation notes: Use p5.js. Store the decision logic as a lookup based on the 3 boolean toggle states. Must remain fully readable and usable on narrow (mobile) viewports — stack toggles vertically above the result panel."
+}

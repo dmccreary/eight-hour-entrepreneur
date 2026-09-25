@@ -1,0 +1,15 @@
+{
+  "sim_id": "minimum-testable-iteration-decision-tree",
+  "diagram_name": "Minimum Testable Iteration Decision Tree",
+  "chapter_number": 10,
+  "chapter_title": "Lean Testing Fundamentals",
+  "chapter_dir": "10-lean-testing-fundamentals",
+  "chapter_rel_dir": "chapters/10-lean-testing-fundamentals",
+  "library": "p5.js",
+  "bloom_level": "Evaluate (L5)",
+  "bloom_verb": "justify",
+  "learning_objective": "Given a venture scenario, learners evaluate which lean-test principles (service before product, manual before automated, pre-selling before building) apply, and justify a resulting minimum testable iteration design.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-25",
+  "specification": "Type: microsim\n**sim-id:** minimum-testable-iteration-decision-tree<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Evaluate (L5)\nBloom Verb: justify\n\nLearning objective: Given a venture scenario, learners evaluate which lean-test principles (service before product, manual before automated, pre-selling before building) apply, and justify a resulting minimum testable iteration design.\n\nCanvas layout:\n\n- A vertical decision tree with 3 yes/no decision diamonds in sequence, each followed by a resulting design note\n- A scenario selector at the top: \"Jordan's grooming van\" or \"Priya's meal-prep subscription\" (default: Jordan)\n\nDecision sequence (for Jordan's scenario):\n\n  Question 1: \"Can this be delivered as a hands-on service before it's a packaged product?\" → Yes selected: note reads \"Apply Service Before Product: offer driveway grooming sessions yourself, not a grooming-van business plan.\" → No path shows generic fallback note: \"Reconsider — most early ventures can find a service-first version.\"\n  Question 2: \"Can this be delivered by hand, without new software or equipment?\" → Yes selected: note reads \"Apply Manual Before Automated: book by text message, track appointments on paper.\"\n  Question 3: \"Can a customer pay something before the full offer exists?\" → Yes selected: note reads \"Apply Pre-Selling Before Building: collect a $10 deposit to hold a driveway slot this week.\"\n\nFinal panel: Combines all three selected notes into one sentence: \"Jordan's minimum testable iteration: a manually booked, pre-paid, single driveway grooming session — no van, no app, no inventory.\"\n\nInteractive controls:\n\n- Click \"Yes\" or \"No\" at each decision diamond to advance and reveal that step's design note\n- Scenario selector swaps in Priya's parallel decision path and final note: \"A manually booked, pre-paid single meal delivered to one household this week — no kitchen lease, no subscription app.\"\n- \"Reset\" button returns to the first question\n\nDefault parameters: Jordan's scenario selected; no decisions made yet.\n\nImplementation notes: Use p5.js. Store each scenario's decision tree as an array of `{question, yesNote, noNote}` objects, indexed by scenario. Must reflow to a single-column vertical layout on narrow (mobile) viewports, which the tree shape already suits well."
+}

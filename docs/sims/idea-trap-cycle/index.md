@@ -1,6 +1,6 @@
 ---
-title: The Idea Trap Cycle
-description: An interactive diagram that contrasts the closed "refine the plan" loop with the open "real-world test" path, using counters to show that only testing produces real customer answers.
+title: "The Idea Trap Cycle"
+description: 'An interactive diagram that contrasts the closed "refine the plan" loop with the open "real-world test" path, using counters to show that only testing produces real customer answers.'
 image: /sims/idea-trap-cycle/idea-trap-cycle.png
 og:image: /sims/idea-trap-cycle/idea-trap-cycle.png
 twitter:image: /sims/idea-trap-cycle/idea-trap-cycle.png

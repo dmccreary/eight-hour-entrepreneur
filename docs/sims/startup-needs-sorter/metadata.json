@@ -1,0 +1,23 @@
+{
+  "title": "Startup Needs Sorter",
+  "description": "Given a list of items a founder is considering purchasing, learners classify each as a genuine one-time need or a want that can wait, applying the needs-vs-wants assessment to a concrete example.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "startup-needs-sorter",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "classify",
+  "completion_status": "scaffold",
+  "chapter_number": 15,
+  "chapter_title": "Startup Needs & Cost Planning",
+  "chapter_dir": "15-startup-needs-cost-planning",
+  "chapter_rel_dir": "chapters/15-startup-needs-cost-planning"
+}

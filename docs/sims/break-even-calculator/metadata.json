@@ -1,0 +1,23 @@
+{
+  "title": "Break-Even Calculator",
+  "description": "Learners adjust price, per-sale cost, and fixed monthly cost sliders and calculate how many sales are needed to reach break-even for a lean venture.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "break-even-calculator",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "calculate",
+  "completion_status": "scaffold",
+  "chapter_number": 14,
+  "chapter_title": "Revenue Models & Pricing",
+  "chapter_dir": "14-revenue-models-pricing",
+  "chapter_rel_dir": "chapters/14-revenue-models-pricing"
+}

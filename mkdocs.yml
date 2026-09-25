@@ -67,9 +67,26 @@ nav:
 
   - MicroSims:
       - List of MicroSims: sims/index.md
+      - 30-Day Launch Roadmap Timeline: sims/thirty-day-launch-roadmap-timeline/index.md
       - Assumption Ledger Sorter: sims/assumption-ledger-sorter/index.md
+      - Benefit vs Advantage Sorter: sims/benefit-vs-advantage-sorter/index.md
+      - Break-Even Calculator: sims/break-even-calculator/index.md
+      - CO.STARTERS Canvas Explorer: sims/costarters-canvas-explorer/index.md
+      - Cohort Safety Signal Sorter: sims/cohort-safety-signal-sorter/index.md
+      - Competitive Landscape Map: sims/competitive-landscape-map/index.md
+      - Customer Definition Funnel: sims/customer-definition-funnel/index.md
+      - Distribution Channel Map: sims/distribution-channel-map/index.md
+      - Leading vs Open-Ended Question Sorter: sims/leading-vs-open-ended-sorter/index.md
+      - Minimum Testable Iteration Decision Tree: sims/minimum-testable-iteration-decision-tree/index.md
+      - Minimum Viable Offer Slider: sims/minimum-viable-offer-slider/index.md
+      - One-Sentence Value Proposition Builder: sims/one-sentence-value-proposition-builder/index.md
+      - Persevere vs Pivot Signal Checker: sims/persevere-vs-pivot-signal-checker/index.md
+      - Startup Needs Sorter: sims/startup-needs-sorter/index.md
+      - Symptom vs Root Cause Drill-Down: sims/symptom-root-cause-drilldown/index.md
+      - The Field Discovery Window Rhythm: sims/field-discovery-window-rhythm/index.md
       - The Four-Phase Founder Pipeline: sims/four-phase-founder-pipeline/index.md
       - The Idea Trap Cycle: sims/idea-trap-cycle/index.md
+      - Two-Minute Pitch Structure and Timer: sims/two-minute-pitch-structure-timer/index.md
 
   - License: license.md
   - Contact: contact.md

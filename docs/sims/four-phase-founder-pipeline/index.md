@@ -1,6 +1,6 @@
 ---
-title: The Four-Phase Founder Pipeline
-description: A step-through infographic of the Clarity, Validation, Action, and Launch phases, pairing each definition with Jordan's concrete example and a predict-before-you-advance prompt.
+title: "The Four-Phase Founder Pipeline"
+description: "A step-through infographic of the Clarity, Validation, Action, and Launch phases, pairing each definition with Jordan's concrete example and a predict-before-you-advance prompt."
 image: /sims/four-phase-founder-pipeline/four-phase-founder-pipeline.png
 og:image: /sims/four-phase-founder-pipeline/four-phase-founder-pipeline.png
 twitter:image: /sims/four-phase-founder-pipeline/four-phase-founder-pipeline.png

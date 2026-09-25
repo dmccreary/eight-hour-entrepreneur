@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- microsim-scaffold-stub -->
+    <title>Persevere vs Pivot Signal Checker</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Persevere vs Pivot Signal Checker</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> persevere-vs-pivot-signal-checker</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> Evaluate (L5)</p>
+            <p><strong>Learning Objective:</strong> Given a set of validation evidence signals for a venture scenario, learners evaluate the pattern and justify whether it supports a persevere decision, a pivot decision, or a kill decision (from Chapter 10).</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** persevere-vs-pivot-signal-checker<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Bloom Level: Evaluate (L5)
+    Bloom Verb: justify
+    
+    Learning objective: Given a set of validation evidence signals for a venture scenario, learners evaluate the pattern and justify whether it supports a persevere decision, a pivot decision, or a kill decision (from Chapter 10).
+    
+    Canvas layout:
+    
+    - Three toggle switches, each labeled with a signal: "Problem Validated?", "Solution Got Payment Signals?", "Customer Definition Confirmed?"
+    - A result panel below that updates live as toggles change
+    
+    Behavior (decision logic driving the result panel):
+    
+      All three toggles ON: "Persevere — evidence supports the concept largely as designed."
+      Problem ON, Solution OFF, Customer ON: "Pivot the Solution — keep the validated problem and customer, redesign the offer." (Priya's actual scenario)
+      Problem OFF, others any state: "Pivot the Problem — the customer may be real, but this isn't their priority pain. Revisit Chapter 5."
+      All three toggles OFF: "Kill Decision — see Chapter 10. No part of the current concept has evidence behind it yet."
+      Problem ON, Solution ON, Customer OFF: "Pivot the Customer — the offer works for somebody, but maybe not this target customer. Revisit Chapter 4."
+    
+    Interactive controls:
+    
+    - Click each toggle to switch it on/off independently
+    - Result panel text and color update immediately (green for persevere, fox-orange for pivot, gray for kill)
+    - "Load Priya's Evidence" button sets toggles to her actual scenario as a worked example
+    
+    Default parameters: All toggles off on load, prompting "Set your evidence signals above."
+    
+    Implementation notes: Use p5.js. Store the decision logic as a lookup based on the 3 boolean toggle states. Must remain fully readable and usable on narrow (mobile) viewports — stack toggles vertically above the result panel.
+    -->
+</body>
+</html>

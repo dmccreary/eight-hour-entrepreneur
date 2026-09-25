@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- microsim-scaffold-stub -->
+    <title>Distribution Channel Map</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Distribution Channel Map</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> distribution-channel-map</p>
+            <p><strong>Library:</strong> Chart.js</p>
+            <p><strong>Bloom Level:</strong> Analyze (L4)</p>
+            <p><strong>Learning Objective:</strong> Learners compare distribution channels by plotting channel cost against channel reach, analyzing the tradeoff to judge which channels best fit an early-stage venture with limited resources.</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: chart
+    **sim-id:** distribution-channel-map<br/>
+    **Library:** Chart.js<br/>
+    **Status:** Specified
+    
+    Bloom Level: Analyze (L4)
+    Bloom Verb: compare
+    
+    Learning objective: Learners compare distribution channels by plotting channel cost against channel reach, analyzing the tradeoff to judge which channels best fit an early-stage venture with limited resources.
+    
+    Chart type: Scatter plot
+    
+    Purpose: Show the cost-versus-reach tradeoff across the 7 distribution channels introduced in this chapter, so learners can visually compare options rather than just reading a list.
+    
+    X-axis: Channel Cost (relative scale, 1 = very low cost, 10 = high cost)
+    Y-axis: Channel Reach (relative scale, 1 = very narrow reach, 10 = very wide reach)
+    
+    Data points (channel: cost, reach):
+    
+    - Word of Mouth: (1, 3)
+    - Referral Channel: (2, 4)
+    - Direct Sales Channel: (3, 2)
+    - In-Person Distribution: (3, 2)
+    - Partnership Channel: (3, 5)
+    - Social Media Channel: (2, 6)
+    - Online Distribution: (5, 7)
+    - Marketplace Channel: (6, 8)
+    
+    Title: "Distribution Channels: Cost vs. Reach"
+    Legend: none needed (single series, labeled points)
+    
+    Interactivity (REQUIRED — minimum bar):
+    
+    - Hovering any point shows a tooltip with the channel name, its one-sentence definition from this chapter, and its (cost, reach) values
+    - Clicking a point highlights it and displays a short "best for" note beneath the chart (e.g., Word of Mouth: "Best for an early-stage venture with a small, tight-knit target customer group")
+    
+    Annotations: A shaded lower-left quadrant labeled "Best fit for early-stage, low-capital ventures" (low cost, moderate reach)
+    
+    Color scheme: Indigo (#3F51B5) points, fox-orange (#E8791A) highlight on click, cream background consistent with the book's palette.
+    
+    Implementation notes: Use Chart.js scatter chart type with a custom tooltip callback pulling from a data array of `{channel, cost, reach, definition, bestFor}` objects. Must remain fully readable and interactive on narrow (mobile) viewports — enable pinch/scroll or provide a "tap for details" fallback since hover doesn't exist on touch.
+    -->
+</body>
+</html>

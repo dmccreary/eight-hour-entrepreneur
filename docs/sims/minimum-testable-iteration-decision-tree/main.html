@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- microsim-scaffold-stub -->
+    <title>Minimum Testable Iteration Decision Tree</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Minimum Testable Iteration Decision Tree</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> minimum-testable-iteration-decision-tree</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> Evaluate (L5)</p>
+            <p><strong>Learning Objective:</strong> Given a venture scenario, learners evaluate which lean-test principles (service before product, manual before automated, pre-selling before building) apply, and justify a resulting minimum testable iteration design.</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** minimum-testable-iteration-decision-tree<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Bloom Level: Evaluate (L5)
+    Bloom Verb: justify
+    
+    Learning objective: Given a venture scenario, learners evaluate which lean-test principles (service before product, manual before automated, pre-selling before building) apply, and justify a resulting minimum testable iteration design.
+    
+    Canvas layout:
+    
+    - A vertical decision tree with 3 yes/no decision diamonds in sequence, each followed by a resulting design note
+    - A scenario selector at the top: "Jordan's grooming van" or "Priya's meal-prep subscription" (default: Jordan)
+    
+    Decision sequence (for Jordan's scenario):
+    
+      Question 1: "Can this be delivered as a hands-on service before it's a packaged product?" → Yes selected: note reads "Apply Service Before Product: offer driveway grooming sessions yourself, not a grooming-van business plan." → No path shows generic fallback note: "Reconsider — most early ventures can find a service-first version."
+      Question 2: "Can this be delivered by hand, without new software or equipment?" → Yes selected: note reads "Apply Manual Before Automated: book by text message, track appointments on paper."
+      Question 3: "Can a customer pay something before the full offer exists?" → Yes selected: note reads "Apply Pre-Selling Before Building: collect a $10 deposit to hold a driveway slot this week."
+    
+    Final panel: Combines all three selected notes into one sentence: "Jordan's minimum testable iteration: a manually booked, pre-paid, single driveway grooming session — no van, no app, no inventory."
+    
+    Interactive controls:
+    
+    - Click "Yes" or "No" at each decision diamond to advance and reveal that step's design note
+    - Scenario selector swaps in Priya's parallel decision path and final note: "A manually booked, pre-paid single meal delivered to one household this week — no kitchen lease, no subscription app."
+    - "Reset" button returns to the first question
+    
+    Default parameters: Jordan's scenario selected; no decisions made yet.
+    
+    Implementation notes: Use p5.js. Store each scenario's decision tree as an array of `{question, yesNote, noNote}` objects, indexed by scenario. Must reflow to a single-column vertical layout on narrow (mobile) viewports, which the tree shape already suits well.
+    -->
+</body>
+</html>

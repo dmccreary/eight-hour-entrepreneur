@@ -1,0 +1,23 @@
+{
+  "title": "The Field Discovery Window Rhythm",
+  "description": "Learners can explain what happens during each live session and each Field Discovery Window across the four-week course, and describe the relationship between the two (live instruction versus real-world testing).",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "field-discovery-window-rhythm",
+  "library": "vis-timeline",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain",
+  "completion_status": "scaffold",
+  "chapter_number": 2,
+  "chapter_title": "Founder Mindset & the Cohort Learning Experience",
+  "chapter_dir": "02-founder-mindset-cohort",
+  "chapter_rel_dir": "chapters/02-founder-mindset-cohort"
+}

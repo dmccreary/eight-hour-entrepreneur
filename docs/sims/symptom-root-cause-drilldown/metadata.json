@@ -1,0 +1,23 @@
+{
+  "title": "Symptom vs Root Cause Drill-Down",
+  "description": "Given a customer's first-stated complaint, learners apply a repeated \"why\" technique, choosing at each step which underlying cause to pursue, to trace the symptom down to its root cause.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "symptom-root-cause-drilldown",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "apply",
+  "completion_status": "scaffold",
+  "chapter_number": 5,
+  "chapter_title": "Defining the Real Problem",
+  "chapter_dir": "05-defining-the-real-problem",
+  "chapter_rel_dir": "chapters/05-defining-the-real-problem"
+}

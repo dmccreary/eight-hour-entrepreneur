@@ -1,0 +1,23 @@
+{
+  "title": "Leading vs Open-Ended Question Sorter",
+  "description": "Given sample interview questions, learners classify each as open-ended or leading, applying the chapter's unbiased interview design principles.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "leading-vs-open-ended-sorter",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "classify",
+  "completion_status": "scaffold",
+  "chapter_number": 9,
+  "chapter_title": "Discovery Interviews & the Reality Check",
+  "chapter_dir": "09-discovery-interviews-reality-check",
+  "chapter_rel_dir": "chapters/09-discovery-interviews-reality-check"
+}

@@ -1,6 +1,6 @@
 ---
-title: Assumption Ledger Sorter
-description: A six-card sorting quiz in which learners classify statements from Jordan's dog-grooming idea as either untested assumptions or validated learning, with immediate feedback on every card.
+title: "Assumption Ledger Sorter"
+description: "A six-card sorting quiz in which learners classify statements from Jordan's dog-grooming idea as either untested assumptions or validated learning, with immediate feedback on every card."
 image: /sims/assumption-ledger-sorter/assumption-ledger-sorter.png
 og:image: /sims/assumption-ledger-sorter/assumption-ledger-sorter.png
 twitter:image: /sims/assumption-ledger-sorter/assumption-ledger-sorter.png

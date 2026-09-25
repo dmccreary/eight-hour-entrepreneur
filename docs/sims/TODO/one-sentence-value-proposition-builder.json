@@ -1,0 +1,15 @@
+{
+  "sim_id": "one-sentence-value-proposition-builder",
+  "diagram_name": "One-Sentence Value Proposition Builder",
+  "chapter_number": 12,
+  "chapter_title": "\"Messaging & the Value Proposition Statement\"",
+  "chapter_dir": "12-messaging-value-proposition",
+  "chapter_rel_dir": "chapters/12-messaging-value-proposition",
+  "library": "p5.js",
+  "bloom_level": "Create (L6)",
+  "bloom_verb": "compose",
+  "learning_objective": "Learners compose a one-sentence value proposition by selecting from component options for target customer, core benefit, founder advantage, and main alternative, and observe the assembled sentence update live.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-25",
+  "specification": "Type: microsim\n**sim-id:** one-sentence-value-proposition-builder<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Create (L6)\nBloom Verb: compose\n\nLearning objective: Learners compose a one-sentence value proposition by selecting from component options for target customer, core benefit, founder advantage, and main alternative, and observe the assembled sentence update live.\n\nCanvas layout:\n\n- Four dropdown selectors, top to bottom, each labeled with its sentence role: \"Target Customer,\" \"Core Benefit,\" \"Founder Advantage,\" \"Main Alternative\"\n- A large live-updating sentence preview below the dropdowns, using the template: \"[Target Customer] gets [Core Benefit], from [Founder Advantage], unlike [Main Alternative].\"\n\nDropdown options (3 each, drawn from Jordan's and Priya's canvases plus one blank \"Write your own\" option that reveals a text input):\n\n- Target Customer: \"busy dog owners without easy groomer access\" / \"dual-income parents on rotating shifts\" / \"Write your own\"\n- Core Benefit: \"grooming without losing an afternoon\" / \"a real dinner without any advance planning\" / \"Write your own\"\n- Founder Advantage: \"someone they already trust in the neighborhood\" / \"someone who understands unpredictable schedules firsthand\" / \"Write your own\"\n- Main Alternative: \"the booked-solid groomer across town\" / \"another night of takeout\" / \"Write your own\"\n\nInteractive controls:\n\n- Selecting any dropdown option instantly updates the live sentence preview\n- Selecting \"Write your own\" in any dropdown reveals a text input for that component, which also updates the preview live as the learner types\n- \"Load Jordan's Version\" and \"Load Priya's Version\" buttons set all four dropdowns to that founder's actual value proposition at once\n\nDefault parameters: All four dropdowns unset on load; preview shows placeholder text \"[Target Customer] gets [Core Benefit], from [Founder Advantage], unlike [Main Alternative].\"\n\nImplementation notes: Use p5.js with HTML `select` and `input` DOM elements positioned over the canvas, or p5.dom. Must remain fully usable on narrow (mobile) viewports — stack dropdowns vertically with the preview sentence below, using text wrapping rather than a fixed-width single line."
+}

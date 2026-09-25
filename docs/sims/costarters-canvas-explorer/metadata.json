@@ -1,0 +1,23 @@
+{
+  "title": "CO.STARTERS Canvas Explorer",
+  "description": "Learners can explain the guiding question each of the 11 CO.STARTERS Canvas blocks answers, and locate an example answer for each, by clicking through the full canvas layout.",
+  "creator": "The Eight-Hour Entrepreneur",
+  "author": "Valerie Lockhart",
+  "date": "2026-09-25",
+  "subject": [
+    "The Eight-Hour Entrepreneur"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "costarters-canvas-explorer",
+  "library": "p5.js",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain",
+  "completion_status": "scaffold",
+  "chapter_number": 3,
+  "chapter_title": "The CO.STARTERS Canvas Framework",
+  "chapter_dir": "03-costarters-canvas-framework",
+  "chapter_rel_dir": "chapters/03-costarters-canvas-framework"
+}
