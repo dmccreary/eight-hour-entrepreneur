@@ -11,7 +11,60 @@ description: "About The Eight-Hour Entrepreneur — its purpose, audience, desig
     ![Scout the Fox waving welcome](img/mascot/welcome.png){ class="mascot-admonition-img" }
     Hi, I'm Scout! This book is your field guide for turning an untested business idea into a real, evidence-backed plan in just eight hours. We'll skip the forty-page business plan and go straight to the people who matter most — your future customers. Between sessions you'll head out on Field Discovery Windows to talk to real people and run small, cheap tests. Ready? Let's find out for real!
 
-<!-- WHY-SECTION -->
+## Why This Intelligent Textbook
+
+More people are trying to start a business than ever before, but many new
+ventures close before they ever find customers who will pay. One of the most
+common reasons is not a lack of effort. It is spending months and savings
+building something before checking whether anyone wants it.
+
+**In the United States:**
+
+- Americans filed a record **5.67 million** applications to start new
+  businesses in 2025[^1]
+- Roughly **1 in 5** new business establishments closes within its first
+  year, about **half** are gone within five years, and only about **1 in 3**
+  is still open after ten years[^2]
+- The country has **36.2 million** small businesses employing **45.9%** of
+  private-sector workers, and **29.8 million** of them have no employees
+  other than the owner[^3]
+- **18.5%** of U.S. adults are starting or running a new business, but only
+  **5.5%** own an established one, and **55%** of founders rely on personal
+  savings to get started (2025 survey)[^4]
+- The National Science Foundation has trained more than **2,500** research
+  teams in customer discovery through its I-Corps program, and nearly
+  **1,400** of those teams have gone on to launch startups[^5]
+
+**Around the world and in the research:**
+
+- Fear of failure keeps roughly **2 in 5 adults** worldwide from starting a
+  business, according to a 2025 survey of more than 160,000 people in 53
+  economies[^6]
+- In an analysis of **431** venture-backed startups that shut down since
+  2023, **43%** cited poor product-market fit, and **70%** ran out of capital
+  — usually the final blow rather than the root cause[^7]
+- In a randomized controlled trial with **116** startups, founders trained to
+  treat their business ideas as hypotheses to test performed better and were
+  more likely to pivot than founders who were not[^8]
+
+Behind each of these numbers is someone like the founders in your cohort: a
+person with a real idea, limited savings, and no time to spend a year
+building the wrong thing. This book exists to help them find out quickly,
+and cheaply, whether their idea deserves that year.
+
+This book takes a different approach from a traditional business-plan
+course. It is built on a **learning graph of 300 interconnected concepts**
+organized into 14 categories, and concepts are introduced only after the
+ideas they depend on have been covered. Instead of a multi-year plan,
+founders complete all 11 blocks of the **CO.STARTERS Canvas**, interview real
+customers during **Field Discovery Windows** between sessions, and run
+lean validation tests — service before product, manual before automated,
+pre-selling before building — the same test-your-hypotheses discipline the
+research above rewards. **Interactive MicroSims** let founders practice each
+method in the browser before trying it on real customers. The entire
+textbook is written in plain language for people with no business background,
+and it is **open source and free** — no paywalls, no access codes, no
+expensive annual editions.
 
 ## How to Use This Book
 
@@ -124,4 +177,13 @@ License (CC BY-NC-SA 4.0)](license.md). You are free to share and adapt the
 material for non-commercial purposes as long as you give appropriate credit
 and share your adaptations under the same license.
 
-<!-- REFERENCES-SECTION -->
+## References
+
+[^1]: U.S. Census Bureau. (2026). *Business Formation Statistics* (monthly business applications, national total; the 2025 annual figure is the sum of the twelve monthly releases). https://www.census.gov/econ/bfs/index.html
+[^2]: U.S. Bureau of Labor Statistics. (2025). *Business Employment Dynamics — Table 7: Survival of private sector establishments by opening year* (data through March 2025). https://www.bls.gov/bdm/us_age_naics_00_table7.txt
+[^3]: U.S. Small Business Administration, Office of Advocacy. (2026). *2026 Small Business Profile: United States*. https://advocacy.sba.gov/wp-content/uploads/2026/09/United_States.pdf
+[^4]: Babson College. (2026). *The GEM U.S. Report Asks: What Happens After a Startup Is Launched?* https://entrepreneurship.babson.edu/gem-usa-2026/
+[^5]: U.S. National Science Foundation. (n.d.). *Impact Data — NSF I-Corps*. https://www.nsf.gov/funding/initiatives/i-corps/impact-data
+[^6]: Global Entrepreneurship Monitor. (2026). *GEM 2025/2026 Global Report: From Uncertainty to Opportunity*. https://www.gemconsortium.org/reports/latest-global-report
+[^7]: CB Insights. (2026). *The top 9 reasons startups fail*. https://www.cbinsights.com/research/report/startup-failure-reasons-top/
+[^8]: Camuffo, A., Cordova, A., Gambardella, A., & Spina, C. (2020). A scientific approach to entrepreneurial decision making: Evidence from a randomized control trial. *Management Science, 66*(2). https://doi.org/10.1287/mnsc.2018.3249
