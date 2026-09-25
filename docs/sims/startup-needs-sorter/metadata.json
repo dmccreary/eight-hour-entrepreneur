@@ -1,23 +1,85 @@
 {
   "title": "Startup Needs Sorter",
-  "description": "Given a list of items a founder is considering purchasing, learners classify each as a genuine one-time need or a want that can wait, applying the needs-vs-wants assessment to a concrete example.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A six-card sorting quiz in which learners classify items a founder is considering buying for a mobile dog-grooming idea as a Genuine Need or a want that can wait, with immediate green or amber feedback and a one-sentence explanation for each card.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "startup-needs-sorter",
-  "library": "p5.js",
-  "bloomLevel": "Apply (L3)",
-  "bloomVerb": "classify",
-  "completion_status": "scaffold",
-  "chapter_number": 15,
-  "chapter_title": "Startup Needs & Cost Planning",
-  "chapter_dir": "15-startup-needs-cost-planning",
-  "chapter_rel_dir": "chapters/15-startup-needs-cost-planning"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/startup-needs-sorter/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "5-10 minutes",
+    "prerequisites": [
+      "Chapter 15: Startup Needs & Cost Planning",
+      "Chapter 6: Designing the Solution & Initial Offer"
+    ],
+    "standards": [],
+    "topic": "Needs vs. wants assessment for startup needs",
+    "learningObjectives": [
+      "Classify items a founder is considering purchasing as a Genuine Need or a want that can wait by applying the needs vs. wants assessment"
+    ],
+    "bloomsTaxonomy": "Apply"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 498
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Genuine Need",
+        "purpose": "Classify the current item as a one-time need the first lean test cannot run without"
+      },
+      {
+        "type": "button",
+        "label": "Can Wait (Want)",
+        "purpose": "Classify the current item as a want that can wait until after the lean test"
+      },
+      {
+        "type": "button",
+        "label": "Next Card / See Results",
+        "purpose": "Advance after answering"
+      },
+      {
+        "type": "button",
+        "label": "Try Again",
+        "purpose": "Reshuffle the cards and start over"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification quiz with immediate corrective feedback",
+    "keyQuestions": [
+      "Could the first lean test happen without this item?",
+      "Could this item be borrowed, rented, or shared for the first lean test instead of bought?"
+    ],
+    "commonMisconceptions": [
+      "Anything a real, established business has is a startup need",
+      "Only physical items count as needs, so a license or insurance can wait"
+    ],
+    "assessmentOpportunities": [
+      "Score at least 5 of 6 on a second, shuffled attempt",
+      "Sort five items from your own venture's resource list"
+    ]
+  },
+  "chapter": "15-startup-needs-cost-planning"
 }

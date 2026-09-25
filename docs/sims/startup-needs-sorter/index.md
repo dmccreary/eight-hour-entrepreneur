@@ -1,62 +1,113 @@
 ---
 title: "Startup Needs Sorter"
-description: "Given a list of items a founder is considering purchasing, learners classify each as a genuine one-time need or a want that can wait, applying the needs-vs-wants assessment to a concrete example."
-status: scaffold
-library: p5.js
-bloom_level: Apply (L3)
+description: "A six-card sorting quiz in which learners classify items Jordan is considering buying as a Genuine Need or a want that can wait, with immediate feedback on every card."
+image: /sims/startup-needs-sorter/startup-needs-sorter.png
+og:image: /sims/startup-needs-sorter/startup-needs-sorter.png
+twitter:image: /sims/startup-needs-sorter/startup-needs-sorter.png
+social:
+   cards: false
+status: built
 ---
 
 # Startup Needs Sorter
 
+<iframe src="main.html" height="500px" width="100%" scrolling="no"></iframe>
 
+[Run the Startup Needs Sorter MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
+<br/>
+[Edit in the p5.js Editor](https://editor.p5js.org/)
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+A needs vs. wants assessment asks one question of every item on a founder's resource list:
+could the first lean test happen without it? If the answer is yes, the item is a want for
+now, however urgent it feels. Only the genuine needs belong in a minimal viable budget.
 
-## Specification
+Learners work through six cards from Jordan's shopping list for the mobile dog-grooming
+idea and choose **Genuine Need** or **Can Wait (Want)**. The feedback is immediate:
 
-The full specification below is extracted from
-[Chapter 15: Startup Needs & Cost Planning](../../chapters/15-startup-needs-cost-planning/index.md).
+- A correct answer flashes **green**; an incorrect answer flashes **amber**.
+- The correct category is stamped on the card.
+- A one-sentence explanation says why, so a wrong answer still teaches something.
 
-```text
-Type: microsim
-**sim-id:** startup-needs-sorter<br/>
-**Library:** p5.js<br/>
-**Status:** Specified
+Some cards are deliberately tempting. A branded van wrap and a professional booking website
+both sound like what a real business has, yet neither is needed to groom a few dogs in a
+borrowed driveway. A business license is not a physical item at all, but it is still a
+genuine need: an activity resource need that has to happen before Jordan can operate
+legally.
 
-Bloom Level: Apply (L3)
-Bloom Verb: classify
+## How to Use
 
-Learning objective: Given a list of items a founder is considering purchasing, learners classify each as a genuine one-time need or a want that can wait, applying the needs-vs-wants assessment to a concrete example.
+1. Read the item on the card.
+2. Click **Genuine Need** or **Can Wait (Want)**.
+3. Read the feedback, then click **Next Card**.
+4. After card 6, click **See Results** for your score and a review of all six items.
+5. Click **Try Again** to sort the same six cards in a new, shuffled order.
 
-Canvas layout:
+The progress bar across the top turns green or amber for each card as you go. The stack
+behind the current card shrinks as cards are dealt. Nothing is saved; the score lasts only
+for the current session.
 
-- Left side (70%): a stack of 6 item cards, one at a time, each with two buttons below it: "Genuine Need" and "Can Wait (Want)"
-- Right side (30%): a running tally showing "Correct: N / 6" and a small feedback area
+## Iframe Embed Code
 
-Item cards (Jordan's grooming-van scenario, in order):
+You can add this MicroSim to any web page by adding this to your HTML:
 
-1. "A basic grooming kit (clippers, brush, shampoo)." (Correct answer: Genuine Need — required to deliver even one driveway session)
-2. "A custom-branded van wrap." (Correct answer: Want — the lean test doesn't require a van at all yet)
-3. "Liability insurance covering in-home pet services." (Correct answer: Genuine Need — required before working in a stranger's driveway)
-4. "A professional booking website with online payments." (Correct answer: Want — text-message booking from Chapter 6 works for the lean test)
-5. "A local business license, if required in this area." (Correct answer: Genuine Need — an activity resource need required to operate legally)
-6. "A second, backup set of premium clippers." (Correct answer: Want — one working set is enough to run the current lean test)
-
-Interactive controls:
-
-- Click "Genuine Need" or "Can Wait (Want)" under the current card
-- Immediate feedback: correct answers flash green with a one-sentence explanation; incorrect answers flash amber with the correct classification and explanation
-- "Next Card" button advances; after card 6, show final tally and a "Try Again" button that reshuffles card order
-
-Default parameters: Card order as listed above on first load; shuffled on retry.
-
-Behavior: No time pressure. Score persists only for the current session (no data saved). Progress bar across the top shows card 1 of 6 through 6 of 6.
-
-Implementation notes: Use p5.js. Store the six items as an array of objects `{text, correctAnswer, explanation}`. Must remain fully readable and clickable on narrow (mobile) viewports — stack the tally below the card stack rather than beside it below 600px width.
+```html
+<iframe src="https://dmccreary.github.io/eight-hour-entrepreneur/sims/startup-needs-sorter/main.html"
+        height="500px"
+        width="100%"
+        scrolling="no"></iframe>
 ```
 
-## Related Resources
+## Lesson Plan
 
-- [Chapter 15: Startup Needs & Cost Planning](../../chapters/15-startup-needs-cost-planning/index.md)
+### Audience
+
+Adult early-stage entrepreneurs and aspiring founders in a live virtual cohort.
+
+### Learning Objective
+
+Given a list of items a founder is considering purchasing, participants will classify each
+one as a Genuine Need (a one-time need the first lean test cannot run without) or a want
+that can wait, applying the needs vs. wants assessment to Jordan's grooming-van example.
+
+**Bloom Level:** Apply (L3). **Bloom Verb:** classify.
+
+### Duration
+
+5-10 minutes
+
+### Prerequisites
+
+- Chapter 15 reading on startup needs, one-time needs, and the three kinds of resource needs
+- Chapter 6 reading on Jordan's draft offer, including text-message booking
+
+### Activities
+
+1. **Solo sort (4 min):** Each participant sorts all six cards and notes their score.
+2. **Debrief the tempting wants (3 min):** As a group, discuss the van wrap and the booking
+   website. What makes each one feel like a need? What would have to be true about the
+   lean test before either one became a genuine need?
+3. **Sort your own list (3 min):** Each participant writes five items they expect to buy
+   for their own venture and labels each one Genuine Need or Can Wait, asking "could my
+   first lean test happen without this?" for every line.
+
+### Assessment
+
+- Did the participant classify at least 5 of 6 cards correctly on a second, shuffled attempt?
+- Can the participant explain why a business license counts as a genuine need even though
+  it is not a physical item?
+- Can the participant name one want on their own list and a cheaper way to run the first
+  lean test without it, such as borrowing, renting, or sharing?
+
+## References
+
+1. [Lean startup](https://en.wikipedia.org/wiki/Lean_startup) - Wikipedia - The
+   build-measure-learn approach behind testing an idea with the smallest possible spend.
+2. [Bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping) - Wikipedia - Starting a
+   venture on the founder's own resources, which makes separating needs from wants essential.
+3. [Minimum viable product](https://en.wikipedia.org/wiki/Minimum_viable_product) -
+   Wikipedia - The smallest version of an offer that still produces real learning, the
+   product-side twin of a minimal viable budget.
+4. [Fixed cost](https://en.wikipedia.org/wiki/Fixed_cost) - Wikipedia - Background on the
+   cost categories that follow once startup needs are settled.

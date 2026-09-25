@@ -1,23 +1,84 @@
 {
   "title": "Benefit vs Advantage Sorter",
-  "description": "Given short value-proposition statements, learners classify each as a customer benefit statement (why the customer wants it) or a founder advantage statement (why this founder can deliver it), applying the chapter's definitions.",
-  "creator": "The Eight-Hour Entrepreneur",
-  "author": "Valerie Lockhart",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A six-card sorting quiz in which learners classify value-proposition statements from a mobile dog-grooming idea as customer Benefits (why the customer wants it) or founder Advantages (why this founder can deliver it), with immediate green or amber feedback and a one-sentence explanation for each card.",
   "date": "2026-09-25",
-  "subject": [
-    "The Eight-Hour Entrepreneur"
-  ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "benefit-vs-advantage-sorter",
-  "library": "p5.js",
-  "bloomLevel": "Apply (L3)",
-  "bloomVerb": "classify",
-  "completion_status": "scaffold",
-  "chapter_number": 8,
-  "chapter_title": "\"Value Proposition: Benefit & Advantage\"",
-  "chapter_dir": "08-value-proposition-benefit-advantage",
-  "chapter_rel_dir": "chapters/08-value-proposition-benefit-advantage"
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/benefit-vs-advantage-sorter/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "5-10 minutes",
+    "prerequisites": [
+      "Chapter 8: Value Proposition: Benefit & Advantage"
+    ],
+    "standards": [],
+    "topic": "Customer benefit versus founder advantage in a value proposition",
+    "learningObjectives": [
+      "Classify value-proposition statements as a customer Benefit (why the customer wants it) or a founder Advantage (why this founder can deliver it) by applying the chapter's definitions"
+    ],
+    "bloomsTaxonomy": "Apply"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 498
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Benefit",
+        "purpose": "Classify the current statement as a customer benefit"
+      },
+      {
+        "type": "button",
+        "label": "Advantage",
+        "purpose": "Classify the current statement as a founder advantage"
+      },
+      {
+        "type": "button",
+        "label": "Next Card / See Results",
+        "purpose": "Advance after answering"
+      },
+      {
+        "type": "button",
+        "label": "Try Again",
+        "purpose": "Reshuffle the cards and start over"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification quiz with immediate corrective feedback",
+    "keyQuestions": [
+      "Is this sentence about an outcome in the customer's life, or about the founder's background?",
+      "Why is 'affordable, convenient grooming' a benefit even though it sounds like a pitch?"
+    ],
+    "commonMisconceptions": [
+      "Any sentence that sounds like a sales pitch must be a founder advantage",
+      "A founder circumstance that helps the customer is a benefit rather than an advantage"
+    ],
+    "assessmentOpportunities": [
+      "Score at least 5 of 6 on a second, shuffled attempt",
+      "Write one benefit and one advantage sentence for your own idea and have a partner label them"
+    ]
+  },
+  "chapter": "08-value-proposition-benefit-advantage"
 }
