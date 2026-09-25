@@ -64,6 +64,8 @@ nav:
       - Graph Quality Analysis: learning-graph/quality-metrics.md
       - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
       - Mascot Rendering Test: learning-graph/mascot-test.md
+      - FAQ Quality Report: learning-graph/faq-quality-report.md
+      - FAQ Coverage Gaps: learning-graph/faq-coverage-gaps.md
 
   - MicroSims:
       - List of MicroSims: sims/index.md
@@ -88,6 +90,7 @@ nav:
       - The Idea Trap Cycle: sims/idea-trap-cycle/index.md
       - Two-Minute Pitch Structure and Timer: sims/two-minute-pitch-structure-timer/index.md
 
+  - FAQ: faq.md
   - Glossary: glossary.md
   - License: license.md
   - Contact: contact.md
