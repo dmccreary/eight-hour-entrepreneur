@@ -149,3 +149,5 @@ Before Chapter 13 gets this message in front of real customers, hold onto how it
 !!! mascot-celebration "You Just Found the Words"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now have a message a total stranger can understand in five seconds — the exact bar this chapter set. That message is what actually reaches customers next. Let's find out for real, starting with distribution channels in Chapter 13.
+
+[See Annotated References](./references.md)

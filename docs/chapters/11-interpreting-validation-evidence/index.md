@@ -126,3 +126,5 @@ Before Chapter 12 turns a validated concept into a message, hold onto how to rea
 !!! mascot-celebration "You Just Learned to Trust the Evidence Over the Hope"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now know how to read a test result honestly — even when the honest reading isn't the one you were hoping for. That discipline is what makes every canvas block from here forward trustworthy. Let's find out for real, starting with your message in Chapter 12.
+
+[See Annotated References](./references.md)

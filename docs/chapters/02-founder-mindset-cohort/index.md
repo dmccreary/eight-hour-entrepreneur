@@ -268,3 +268,5 @@ Before Chapter 3 introduces the CO.STARTERS Canvas itself, hold onto this short 
 !!! mascot-celebration "You Just Learned How to Learn Here"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now understand the room itself — why it's safe to be unfinished in it, what happens in the gaps between sessions, and the mindset the whole structure is built to grow. That's the last piece of setup before the real building starts. Let's find out for real, starting with the CO.STARTERS Canvas in Chapter 3.
+
+[See Annotated References](./references.md)

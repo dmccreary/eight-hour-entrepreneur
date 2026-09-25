@@ -145,3 +145,5 @@ Before Chapter 17 turns this plan into a public commitment, hold onto how it com
 !!! mascot-celebration "You Just Built a Plan You Can Actually Follow"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now have a real, week-by-week plan built entirely from validated evidence — not a multi-year business plan nobody follows. Let's find out for real, starting with your pitch and public commitment in Chapter 17.
+
+[See Annotated References](./references.md)

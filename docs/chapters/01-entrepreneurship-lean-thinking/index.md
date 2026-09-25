@@ -262,3 +262,5 @@ Before moving into Chapter 2 and the CO.STARTERS Canvas itself, it's worth holdi
 !!! mascot-celebration "You Just Built Your Vocabulary"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now have the exact language this whole course runs on — Clarity, Validation, Action, Launch, and the discipline to tell an assumption from validated learning. That's the hardest chapter to sit through and the most useful one to have finished. Let's find out for real, starting with the CO.STARTERS Canvas in Chapter 2.
+
+[See Annotated References](./references.md)

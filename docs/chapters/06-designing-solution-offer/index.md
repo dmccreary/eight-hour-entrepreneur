@@ -156,3 +156,5 @@ Before Chapter 7 looks at what customers use instead of you, hold onto how an of
 !!! mascot-celebration "You Just Designed a Testable Offer"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now have an offer small enough to test honestly and clear enough that a stranger would understand it in one sentence — that's exactly the bar this chapter set out to clear. Let's find out for real, starting with what customers use instead of you in Chapter 7.
+
+[See Annotated References](./references.md)

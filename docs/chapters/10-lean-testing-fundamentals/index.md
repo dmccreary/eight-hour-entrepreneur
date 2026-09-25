@@ -141,3 +141,5 @@ Before Chapter 11 interprets validation evidence in full, hold onto how a lean t
 !!! mascot-celebration "You Just Designed a Real Lean Test"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now know how to turn an assumption into a small, honest, real-world test — and how to read the result without fooling yourself. That's lean validation in practice. Let's find out for real, starting with interpreting your evidence in Chapter 11.
+
+[See Annotated References](./references.md)

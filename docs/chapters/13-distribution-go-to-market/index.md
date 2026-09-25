@@ -160,3 +160,5 @@ Before Chapter 14 turns attention to how the venture actually charges, hold onto
 !!! mascot-celebration "You Just Mapped How Customers Will Find You"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now know exactly which paths your message will travel to reach a real customer — chosen deliberately, not by accident. Let's find out for real, starting with revenue and pricing in Chapter 14.
+
+[See Annotated References](./references.md)

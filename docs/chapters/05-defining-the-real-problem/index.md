@@ -161,3 +161,5 @@ Before Chapter 6 turns this problem into an offer, hold onto how a problem gets 
 !!! mascot-celebration "You Just Found the Real Problem"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You can now tell a real problem from a perceived one, and a symptom from its root cause — the exact discipline that keeps a venture from solving the wrong thing well. Let's find out for real, starting with the Solution block in Chapter 6.
+
+[See Annotated References](./references.md)

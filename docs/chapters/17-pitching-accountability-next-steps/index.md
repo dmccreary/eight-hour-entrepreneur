@@ -147,3 +147,5 @@ You've reached the end of The Eight-Hour Entrepreneur. Hold onto how this last s
 !!! mascot-celebration "You Just Finished The Eight-Hour Entrepreneur"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     From an unrefined idea in Chapter 1 to a validated concept, a real message, and a 30-day plan you've said out loud to people who'll check in on you — that's eight hours well spent. You know how to find out for real. Now go do it.
+
+[See Annotated References](./references.md)

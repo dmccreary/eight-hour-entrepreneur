@@ -176,3 +176,5 @@ Before Chapter 4 puts the first block under a microscope, hold onto the shape of
 !!! mascot-celebration "You Just Learned to Read the Whole Page"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now know what every block on the canvas asks and why the order matters — that's the map for the rest of this course. Let's find out for real, starting with the very first block: your Customer, in Chapter 4.
+
+[See Annotated References](./references.md)

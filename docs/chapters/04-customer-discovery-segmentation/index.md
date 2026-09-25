@@ -184,3 +184,5 @@ Before Chapter 5 moves to the Problem block, hold onto how a customer gets defin
 !!! mascot-celebration "You Just Named Your Customer"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now have the tools to describe your customer specifically enough that the rest of the canvas can actually point at someone real. That precision is what makes every later block sharper. Let's find out for real, starting with their problem in Chapter 5.
+
+[See Annotated References](./references.md)

@@ -151,3 +151,5 @@ Before Chapter 15 turns to what the venture needs to spend, hold onto how money 
 !!! mascot-celebration "You Just Designed How Money Actually Flows In"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now have a revenue model and a validated price — grounded in real willingness to pay, not a guess. Let's find out for real, starting with what the venture needs to spend in Chapter 15.
+
+[See Annotated References](./references.md)

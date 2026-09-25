@@ -159,3 +159,5 @@ Before Chapter 9 tests these claims directly against real customers, hold onto b
 !!! mascot-celebration "You Just Built Your Value Proposition"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You can now answer both halves of the pitch — why they want it, and why you're the one — in a single clear sentence. That's the claim the rest of the course will help you prove. Let's find out for real, starting with discovery interviews in Chapter 9.
+
+[See Annotated References](./references.md)

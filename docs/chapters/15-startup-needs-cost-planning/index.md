@@ -154,3 +154,5 @@ Before Chapter 16 pulls every canvas block into a single launch plan, hold onto 
 !!! mascot-celebration "You Just Built Your Financial Foundation"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now know exactly what this venture needs to begin and what it costs to keep running — a lean, honest budget instead of a guess. Let's find out for real, starting with your 30-day launch plan in Chapter 16.
+
+[See Annotated References](./references.md)

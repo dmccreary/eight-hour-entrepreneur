@@ -41,54 +41,71 @@ nav:
       - 1. Entrepreneurship, Lean Thinking & the Idea Trap:
           - Content: chapters/01-entrepreneurship-lean-thinking/index.md
           - Quiz: chapters/01-entrepreneurship-lean-thinking/quiz.md
+          - Annotated References: chapters/01-entrepreneurship-lean-thinking/references.md
       - 2. Founder Mindset & the Cohort Learning Experience:
           - Content: chapters/02-founder-mindset-cohort/index.md
           - Quiz: chapters/02-founder-mindset-cohort/quiz.md
+          - Annotated References: chapters/02-founder-mindset-cohort/references.md
       - 3. The CO.STARTERS Canvas Framework:
           - Content: chapters/03-costarters-canvas-framework/index.md
           - Quiz: chapters/03-costarters-canvas-framework/quiz.md
+          - Annotated References: chapters/03-costarters-canvas-framework/references.md
       - 4. Customer Discovery & Segmentation:
           - Content: chapters/04-customer-discovery-segmentation/index.md
           - Quiz: chapters/04-customer-discovery-segmentation/quiz.md
+          - Annotated References: chapters/04-customer-discovery-segmentation/references.md
       - 5. Defining the Real Problem:
           - Content: chapters/05-defining-the-real-problem/index.md
           - Quiz: chapters/05-defining-the-real-problem/quiz.md
+          - Annotated References: chapters/05-defining-the-real-problem/references.md
       - 6. Designing the Solution & Initial Offer:
           - Content: chapters/06-designing-solution-offer/index.md
           - Quiz: chapters/06-designing-solution-offer/quiz.md
+          - Annotated References: chapters/06-designing-solution-offer/references.md
       - 7. Alternatives & the Competitive Landscape:
           - Content: chapters/07-alternatives-competitive-landscape/index.md
           - Quiz: chapters/07-alternatives-competitive-landscape/quiz.md
+          - Annotated References: chapters/07-alternatives-competitive-landscape/references.md
       - "8. Value Proposition: Benefit & Advantage":
           - Content: chapters/08-value-proposition-benefit-advantage/index.md
           - Quiz: chapters/08-value-proposition-benefit-advantage/quiz.md
+          - Annotated References: chapters/08-value-proposition-benefit-advantage/references.md
       - 9. Discovery Interviews & the Reality Check:
           - Content: chapters/09-discovery-interviews-reality-check/index.md
           - Quiz: chapters/09-discovery-interviews-reality-check/quiz.md
+          - Annotated References: chapters/09-discovery-interviews-reality-check/references.md
       - 10. Lean Testing Fundamentals:
           - Content: chapters/10-lean-testing-fundamentals/index.md
           - Quiz: chapters/10-lean-testing-fundamentals/quiz.md
+          - Annotated References: chapters/10-lean-testing-fundamentals/references.md
       - 11. Interpreting Validation Evidence:
           - Content: chapters/11-interpreting-validation-evidence/index.md
           - Quiz: chapters/11-interpreting-validation-evidence/quiz.md
+          - Annotated References: chapters/11-interpreting-validation-evidence/references.md
       - 12. Messaging & the Value Proposition Statement:
           - Content: chapters/12-messaging-value-proposition/index.md
           - Quiz: chapters/12-messaging-value-proposition/quiz.md
+          - Annotated References: chapters/12-messaging-value-proposition/references.md
       - 13. Distribution & Go-to-Market Channels:
           - Content: chapters/13-distribution-go-to-market/index.md
           - Quiz: chapters/13-distribution-go-to-market/quiz.md
+          - Annotated References: chapters/13-distribution-go-to-market/references.md
       - 14. Revenue Models & Pricing:
           - Content: chapters/14-revenue-models-pricing/index.md
           - Quiz: chapters/14-revenue-models-pricing/quiz.md
+          - Annotated References: chapters/14-revenue-models-pricing/references.md
       - 15. Startup Needs & Cost Planning:
           - Content: chapters/15-startup-needs-cost-planning/index.md
           - Quiz: chapters/15-startup-needs-cost-planning/quiz.md
+          - Annotated References: chapters/15-startup-needs-cost-planning/references.md
       - 16. Building the 30-Day Launch Plan:
           - Content: chapters/16-thirty-day-launch-plan/index.md
           - Quiz: chapters/16-thirty-day-launch-plan/quiz.md
+          - Annotated References: chapters/16-thirty-day-launch-plan/references.md
       - 17. Pitching, Accountability & What Comes Next:
           - Content: chapters/17-pitching-accountability-next-steps/index.md
           - Quiz: chapters/17-pitching-accountability-next-steps/quiz.md
+          - Annotated References: chapters/17-pitching-accountability-next-steps/references.md
 
   - Learning Graph:
       - Introduction: learning-graph/index.md
@@ -101,6 +118,8 @@ nav:
       - FAQ Quality Report: learning-graph/faq-quality-report.md
       - FAQ Coverage Gaps: learning-graph/faq-coverage-gaps.md
       - Quiz Generation Report: learning-graph/quiz-generation-report.md
+      - Book Metrics: learning-graph/book-metrics.md
+      - Chapter Metrics: learning-graph/chapter-metrics.md
 
   - MicroSims:
       - List of MicroSims: sims/index.md

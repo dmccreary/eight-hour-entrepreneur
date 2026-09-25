@@ -165,3 +165,5 @@ Before Chapter 10 turns validated findings into a formal lean test, hold onto ho
 !!! mascot-celebration "You Just Ran Your First Reality Check"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now know how to gather evidence that's actually trustworthy — and how to let that evidence change your mind. That's the discipline the rest of this course runs on. Let's find out for real, starting with lean testing in Chapter 10.
+
+[See Annotated References](./references.md)

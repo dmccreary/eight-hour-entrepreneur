@@ -148,3 +148,5 @@ Before Chapter 8 turns this landscape into a value proposition, hold onto how th
 !!! mascot-celebration "You Just Mapped the Real Competition"
     ![Scout celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You now know exactly what your offer is up against — including the "nothing" that so many founders miss. That's the honest foundation Chapter 8 needs to build a value proposition on. Let's find out for real, starting with benefit and advantage in Chapter 8.
+
+[See Annotated References](./references.md)
