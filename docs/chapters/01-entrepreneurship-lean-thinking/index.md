@@ -81,7 +81,7 @@ The diagram below makes this loop concrete. Click each node to see how Jordan's 
 
 #### Diagram: The Idea Trap Cycle
 
-<iframe src="../../sims/idea-trap-cycle/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/idea-trap-cycle/main.html" width="100%" height="612px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>The Idea Trap Cycle</summary>
@@ -133,7 +133,7 @@ The diagram below lets you step through each phase at your own pace and see exac
 
 #### Diagram: The Four-Phase Founder Pipeline
 
-<iframe src="../../sims/four-phase-founder-pipeline/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/four-phase-founder-pipeline/main.html" width="100%" height="612px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>The Four-Phase Founder Pipeline</summary>
@@ -209,7 +209,7 @@ Turning an assumption into validated learning is a skill this course builds sess
 
 #### Diagram: Assumption Ledger Sorter
 
-<iframe src="../../sims/assumption-ledger-sorter/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/assumption-ledger-sorter/main.html" width="100%" height="482px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Assumption Ledger Sorter</summary>

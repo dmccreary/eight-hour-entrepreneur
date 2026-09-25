@@ -8,46 +8,49 @@
 
 | Metric | Value |
 |--------|-------|
-| Start Time | 2026-09-25 05:52:10 |
-| End Time | 2026-09-25 05:58:02 |
-| Elapsed Time | ~5 min 52 sec |
+| Start Time | 2026-09-25 06:15:06 |
+| End Time | 2026-09-25 06:20:20 |
+| Elapsed Time | ~5 minutes |
 
-## Reading Level
+## Elaboration Budget (CIS-Driven, cis_max = 202470)
 
-**College/University (Undergraduate) or Professional Development** — chosen from the course description's target audience ("Adult professional development — early-stage entrepreneurs and aspiring founders") since this category exists explicitly in `references/reading-levels.md` and fits better than the skill's Grade-10 default for working adults with no prior business experience.
+| Concept | CIS | E(c) | Tier | Target Words |
+|---------|-----|------|------|---------------|
+| Founder Mindset | 20 | 0.249 | B | 250-400 |
+| Psychological Safety | 718 | 0.538 | A | 500-750 |
+| Founder Story | 12 | 0.210 | B | 250-400 |
+| Messy Idea Normalization | 11 | 0.203 | B | 250-400 |
+| Field Discovery Window | 6 | 0.159 | C | 120-200 |
+| Real-World Customer Friction | 8 | 0.180 | C | 120-200 |
+| Cohort-Based Learning | 4 | 0.132 | C | 120-200 |
+| Virtual Learning Lab | 3 | 0.113 | C | 120-200 |
+| Peer Learning Community | 6 | 0.159 | C | 120-200 |
+| Founder Resilience | 2 | 0.090 | C | 120-200 |
+| Customer Empathy | 1 | 0.057 | C | 120-200 |
+| Business Viability | 1 | 0.057 | C | 120-200 |
+| Growth Mindset | 1 | 0.057 | C | 120-200 |
 
-## Validation (Mandatory, Step 1.3a/1.3b)
-
-- Edge direction: PASS — 4 foundational concepts (Entrepreneurship, Early-Stage Venture, Unrefined Concept, Business Idea), all simple introductory terms.
-- `cis_max` (computed once, book-wide): 202,470 (Business Idea).
-- Chapter dependency order across all 17 chapters, reconstructed from disk: PASS — 0 violations, 300/300 concepts assigned to exactly one chapter.
-
-## Elaboration Budget (Chapter 1)
-
-12 of 13 concepts landed in Tier A (E(c) >= 0.5) because Chapter 1 covers the book's foundational-philosophy concepts, which nearly the entire 300-concept graph transitively depends on — this is expected, not an error. Only "Evidence-Based Decision Making" (cis=33) landed in Tier B.
-
-Rather than writing 12 isolated worked examples and 12 isolated diagrams (which the Anti-Padding rules in CONTENT-GENERATION-GUIDE.md explicitly warn against), the required elements were satisfied through:
-- One running worked example (founder "Jordan," a mobile dog-grooming idea) threaded through every concept
-- 3 interactive diagram/MicroSim specifications, each covering a cluster of related Tier A concepts (Idea Trap Cycle; Four-Phase Founder Pipeline; Assumption Ledger Sorter)
-- 1 markdown comparison table (Assumption-Driven vs. Evidence-Based decision making)
+Budgeted prose range: 2330-3750 words. Actual file word count (incl. headers,
+tables, admonitions, diagram specs): 4362 words — consistent with the budget
+once specification blocks, tables, and mascot admonitions are included.
 
 ## MicroSim Reuse Check
 
-Reuse-search tool available (confirmed via the `AVAILABLE` sentinel check). Ran 3 reuse queries (4-phase process pipeline, idea-trap cycle diagram, assumption classifier) — all top matches scored well below the 0.60 reuse/template threshold (highest: 0.5261) and were wrong-subject matches (math, health education, mining). All 3 elements were written as new specifications (`recommendation: generate` for all).
+| Element | WHAT score | Decision |
+|---------|-----------|----------|
+| Cohort Safety Signal Sorter (psychological safety) | 0.68 | Template (dmccreary/health-education `unsafe-situation-signal-explorer`) |
+| Field Discovery Window Rhythm (timeline) | 0.56 | Generate (no suitable match) |
 
-## Mascot Placement
-
-6 admonitions: 1 welcome (Chapter 1 self-introduction, formatted as the required numbered list of all 6 pose-roles), 1 thinking, 1 tip, 1 warning, 1 encourage, 1 celebration. Within the informal guideline (~6-7 for 13 concepts). `validate-chapter-mascots.py` initially flagged 2 issues (welcome self-intro not in numbered-list form; tip admonition at 5 sentences) — both fixed, validator re-run clean (exit 0).
+Reuse log: 0 reused, 1 from template, 1 newly specified.
 
 ## Results
 
-- Word count: 3,660 (file total, including frontmatter/table/diagram specs)
-- Non-text elements: 1 markdown table, several markdown lists, 3 interactive diagram/MicroSim specifications (all newly specified, `Status: Specified`)
-- Concepts covered: 13/13 ✓ (verified by grep occurrence check)
-- `mkdocs build --strict`: exit 0, clean
+- Chapter: 02-founder-mindset-cohort
+- Concepts covered: 13 / 13
+- Non-text elements: 4 markdown lists, 3 markdown tables (incl. Concepts Covered), 1 MicroSim (Cohort Safety Signal Sorter, p5.js), 1 interactive timeline (Field Discovery Window Rhythm, vis-timeline)
+- Mascot admonitions: 6 (welcome, thinking, tip, warning, encourage, celebration) — validator passed clean on second pass (first pass flagged one over-length mascot-tip, fixed)
+- `mkdocs build --strict`: passed, no errors attributable to this chapter
 
 ## Files Created/Updated
 
-- `docs/chapters/01-entrepreneurship-lean-thinking/index.md` (content written, TODO removed, frontmatter added)
-- `logs/ch-01-content-generation.md` (start/end timestamps)
-- `logs/chapter-content-generator-2026-09-25.md` (this file)
+- docs/chapters/02-founder-mindset-cohort/index.md

@@ -1,0 +1,80 @@
+{
+  "title": "The Four-Phase Founder Pipeline",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A step-through infographic of the Clarity, Validation, Action, and Launch phases. Each phase shows its definition, Jordan's concrete example, and a prompt to predict the next move; a return arrow shows that Validation can send a founder back to Clarity.",
+  "date": "2026-09-25",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/four-phase-founder-pipeline/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Chapter 1: Entrepreneurship, Lean Thinking & the Idea Trap"
+    ],
+    "standards": [],
+    "topic": "Clarity, Validation, Action, Launch",
+    "learningObjectives": [
+      "Explain the purpose of each of the four phases in your own words",
+      "Explain how the phases connect into a repeating cycle rather than a one-time sequence"
+    ],
+    "bloomsTaxonomy": "Understand"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 610
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Previous",
+        "purpose": "Step back one phase"
+      },
+      {
+        "type": "button",
+        "label": "Next / Back to Clarity",
+        "purpose": "Step forward one phase; on Launch, loop back to Clarity"
+      },
+      {
+        "type": "canvas-click",
+        "label": "Phase boxes and return arrow",
+        "purpose": "Jump to a phase or show the pivot explanation"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Step-through worked example with predict-before-advancing prompts",
+    "keyQuestions": [
+      "What evidence would send Jordan from Validation back to Clarity?",
+      "Why does Launch loop back to Clarity instead of ending the process?"
+    ],
+    "commonMisconceptions": [
+      "The four phases are a checklist completed once",
+      "Action means building the full product"
+    ],
+    "assessmentOpportunities": [
+      "Explain each phase without reading the definition",
+      "Write your own one-line Clarity and Validation examples"
+    ]
+  },
+  "chapter": "01-entrepreneurship-lean-thinking"
+}

@@ -1,0 +1,84 @@
+{
+  "title": "Assumption Ledger Sorter",
+  "creator": "Dan McCreary",
+  "subject": "Entrepreneurship",
+  "description": "A six-card sorting quiz in which learners classify statements from a mobile dog-grooming idea as untested assumptions or validated learning, with immediate green or amber feedback and a one-sentence explanation for each card.",
+  "date": "2026-09-25",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/eight-hour-entrepreneur/sims/assumption-ledger-sorter/",
+  "educational": {
+    "gradeLevel": [
+      "Adult"
+    ],
+    "subjectArea": "Entrepreneurship",
+    "duration": "5-10 minutes",
+    "prerequisites": [
+      "Chapter 1: Entrepreneurship, Lean Thinking & the Idea Trap"
+    ],
+    "standards": [],
+    "topic": "Assumptions and validated learning",
+    "learningObjectives": [
+      "Classify statements as Assumption (untested) or Validated Learning (tested) by applying the chapter's definitions"
+    ],
+    "bloomsTaxonomy": "Apply"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 480
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Assumption",
+        "purpose": "Classify the current card as an untested assumption"
+      },
+      {
+        "type": "button",
+        "label": "Validated Learning",
+        "purpose": "Classify the current card as tested evidence"
+      },
+      {
+        "type": "button",
+        "label": "Next Card / See Results",
+        "purpose": "Advance after answering"
+      },
+      {
+        "type": "button",
+        "label": "Try Again",
+        "purpose": "Reshuffle the cards and start over"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification quiz with immediate corrective feedback",
+    "keyQuestions": [
+      "Did a real customer actually say or do this, or does it only sound true?",
+      "Why is a customer's 'no' still validated learning?"
+    ],
+    "commonMisconceptions": [
+      "Only positive results count as validated learning",
+      "A statement that sounds obviously true has been validated"
+    ],
+    "assessmentOpportunities": [
+      "Score at least 5 of 6 on a second, shuffled attempt",
+      "Label three statements about your own idea"
+    ]
+  },
+  "chapter": "01-entrepreneurship-lean-thinking"
+}
