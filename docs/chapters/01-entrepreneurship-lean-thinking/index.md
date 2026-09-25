@@ -44,7 +44,16 @@ Every idea for a business starts in roughly the same place: a hunch, a frustrati
 
 !!! mascot-welcome "Meet Your Guide"
     ![Scout waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
-    Hi, I'm Scout — a fox, and scrappy about it. I'll be with you for all eight hours of this course. Here's what I do: I **welcome** you into each chapter, I **think out loud** at the moments where your mental model needs to shift, I **tip** you off to shortcuts experienced founders use, I **warn** you before a common trap, I **encourage** you through the parts that feel hard, and I **celebrate** the real progress you make. If I'm not doing one of those six things, I'm not in the chapter. Let's find out for real!
+    Hi, I'm Scout — a fox, and scrappy about it. I'll be with you for all eight hours of this course, and here's exactly what I do:
+
+    1. **Welcome** you into each chapter.
+    2. **Think** out loud at the moments where your mental model needs to shift.
+    3. **Tip** you off to shortcuts experienced founders use.
+    4. **Warn** you before a common trap.
+    5. **Encourage** you through the parts that feel hard.
+    6. **Celebrate** the real progress you make.
+
+    If I'm not doing one of those six things, I'm not in the chapter. Let's find out for real!
 
 To see why this vocabulary matters, meet Jordan, the founder we'll follow throughout this chapter. Jordan has spent eighteen months driving forty minutes each way to bring their dog to a groomer who is often booked solid, and one day thought: "Someone should just drive a grooming van to people's houses." That single sentence is where every example in this chapter begins.
 
@@ -118,7 +127,7 @@ These four ideas are not a checklist to complete once. They are a cycle: acting 
 
 !!! mascot-tip "Read the Arrows Both Ways"
     ![Scout giving a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
-    Here's a shortcut: whenever you feel stuck at any phase, ask which of the other three you skipped. Stuck on Action? You probably don't have enough Clarity yet. Stuck on Launch? You probably haven't validated enough to feel confident.
+    Here's a shortcut: when you feel stuck at any phase, ask which of the other three you skipped — stuck on Action usually means you need more Clarity first, and stuck on Launch usually means you haven't validated enough yet.
 
 The diagram below lets you step through each phase at your own pace and see exactly what Jordan did at each one, rather than watching an animation you can't pause to think about.
 
