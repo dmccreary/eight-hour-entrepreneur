@@ -81,5 +81,18 @@
       "Sort five items from your own venture's resource list"
     ]
   },
-  "chapter": "15-startup-needs-cost-planning"
+  "chapter": "15-startup-needs-cost-planning",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-272",
+    "objects": {
+      "next-card-button": "eight-hour-entrepreneur-272",
+      "try-again-button": "eight-hour-entrepreneur-272",
+      "q-grooming-kit": "eight-hour-entrepreneur-272",
+      "q-van-wrap": "eight-hour-entrepreneur-272",
+      "q-liability-insurance": "eight-hour-entrepreneur-272",
+      "q-booking-website": "eight-hour-entrepreneur-272",
+      "q-business-license": "eight-hour-entrepreneur-272",
+      "q-backup-clippers": "eight-hour-entrepreneur-272"
+    }
+  }
 }

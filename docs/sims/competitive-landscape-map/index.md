@@ -6,7 +6,7 @@ og:image: /sims/competitive-landscape-map/competitive-landscape-map.png
 twitter:image: /sims/competitive-landscape-map/competitive-landscape-map.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Competitive Landscape Map

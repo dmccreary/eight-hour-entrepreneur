@@ -6,7 +6,7 @@ og:image: /sims/minimum-testable-iteration-decision-tree/minimum-testable-iterat
 twitter:image: /sims/minimum-testable-iteration-decision-tree/minimum-testable-iteration-decision-tree.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Minimum Testable Iteration Decision Tree

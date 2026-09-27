@@ -121,6 +121,23 @@ let learnGlow = 0;      // frames left in the Validated Learning glow
 
 let refineButton, testButton, resetButton;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Designed acts (the sim's own instructions): click a box to read its meaning, hover over
+// (or tap) an arrow for its tooltip, then press the Refine / Test buttons.
+// Learning-graph ConceptIDs, from chapter 1's own pairings of these words.
+const PAGE_CONCEPT = 5;                            // Idea Trap
+const PART_CONCEPT = {
+  idea: 3,       // Unrefined Concept: the box shows the chapter's definition of it
+  refine: 5,     // Idea Trap: retreating into more planning
+  test: 7,       // Validation: testing the guess against reality (Jordan's 5-neighbor calls)
+  learn: 13,     // Validated Learning
+  loop: 5,       // Idea Trap: the loop that never forces a decision
+  forward: 13    // Validated Learning: "a real yes or no", the Validated Learning box's own subtitle
+};
+let lrs = null, partEv = {}, refineEv, testEv, resetEv;
+let arrowVisit = null;      // {key, at, reported}: the arrow under the mouse, and since when
+let mouseOnCanvas = false;  // p5 keeps mouseX after the mouse leaves the canvas; this does not
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -138,6 +155,21 @@ function setup() {
   info = INFO.intro;
   computeLayout();
   positionControls();
+
+  if (window.LRSSim) {
+    lrs = LRSSim.create({ name: 'The Idea Trap Cycle', concept: LRS.conceptId(PAGE_CONCEPT),
+                          pageDwell: true, mount: '#xapi-slot', source: 'the Idea Trap Cycle MicroSim' });
+    for (const key in PART_CONCEPT) {
+      const isArrow = key === 'loop' || key === 'forward';
+      partEv[key] = lrs.item(key + (isArrow ? '-arrow' : '-box'), {
+        name: isArrow ? INFO[key].title : NODE_TEXT[key].label, concept: LRS.conceptId(PART_CONCEPT[key]) });
+    }
+    refineEv = lrs.button('refine-button', { name: 'Refine the Plan Button', concept: LRS.conceptId(5) });
+    testEv = lrs.button('test-button', { name: 'Test with Customers Button', concept: LRS.conceptId(7) });
+    resetEv = lrs.button('reset-button', { name: 'Reset Button', concept: LRS.conceptId(PAGE_CONCEPT) });
+    canvas.elt.addEventListener('mousemove', () => { mouseOnCanvas = true; });
+    canvas.elt.addEventListener('mouseleave', () => { mouseOnCanvas = false; });
+  }
 
   describe('Diagram of the idea trap. On the left, an Unrefined Business Idea box and a ' +
     'Refine the Plan box are joined in a closed loop. On the right, a straight path runs ' +
@@ -159,6 +191,7 @@ function draw() {
 
   hoverKey = findHitKey(mouseX, mouseY);
   cursor(hoverKey ? HAND : ARROW);
+  xapiTrackArrow();
 
   drawTitle();
   drawCaptions();
@@ -569,8 +602,48 @@ function findHitKey(mx, my) {
 function mousePressed() {
   const key = findHitKey(mouseX, mouseY);
   if (!key) return;
+  const changed = selectedKey !== key || info !== INFO[key];
   selectedKey = key;
   info = INFO[key];
+  xapiClickPart(key, changed);
+}
+
+// A box click is one inspection, only when it changes what the panel shows.
+// An arrow is one engagement per visit: a hover of at least LRSSim.HOVER_MS, reported when
+// the mouse leaves it, or a click/tap during the visit, which reports at once and suppresses
+// that visit's hover. Clicking the arrow again in the same visit is the same act.
+function xapiClickPart(key, changed) {
+  if (!lrs) return;
+  if (key !== 'loop' && key !== 'forward') {
+    if (changed) partEv[key].study('click');
+    return;
+  }
+  if (arrowVisit && arrowVisit.key === key) {
+    if (arrowVisit.reported) return;
+    arrowVisit.reported = true;
+    partEv[key].study('click', Date.now() - arrowVisit.at);
+    return;
+  }
+  xapiEndVisit();                                         // a tap: no hover visit came first
+  arrowVisit = { key: key, at: Date.now(), reported: true };
+  partEv[key].study('click');
+}
+
+// Called every frame, after draw() works out hoverKey
+function xapiTrackArrow() {
+  if (!lrs) return;
+  const k = mouseOnCanvas && (hoverKey === 'loop' || hoverKey === 'forward') ? hoverKey : null;
+  if ((arrowVisit ? arrowVisit.key : null) === k) return;
+  xapiEndVisit();
+  if (k) arrowVisit = { key: k, at: Date.now(), reported: false };
+}
+
+function xapiEndVisit() {
+  if (arrowVisit && !arrowVisit.reported) {
+    const dwell = Date.now() - arrowVisit.at;
+    if (dwell >= LRSSim.HOVER_MS) partEv[arrowVisit.key].study('hover', dwell);  // shorter: a crossing
+  }
+  arrowVisit = null;
 }
 
 function refinePlan() {
@@ -585,6 +658,7 @@ function refinePlan() {
     example: 'It felt productive, but no customer was involved, so Jordan is back at the same unanswered question.',
     border: TRAP_RED, titleColor: TRAP_RED
   };
+  if (lrs) refineEv.press('refine');
 }
 
 function runTest() {
@@ -600,6 +674,7 @@ function runTest() {
     example: 'Result: ' + step.result,
     border: FOX_ORANGE, titleColor: DARK_ORANGE
   };
+  if (lrs) testEv.press('test');
 }
 
 function resetSim() {
@@ -611,6 +686,7 @@ function resetSim() {
   learnGlow = 0;
   selectedKey = null;
   info = INFO.intro;
+  if (lrs) resetEv.press('reset');
 }
 
 // ---------- Helpers ----------

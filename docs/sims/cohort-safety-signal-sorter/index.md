@@ -6,7 +6,7 @@ og:image: /sims/cohort-safety-signal-sorter/cohort-safety-signal-sorter.png
 twitter:image: /sims/cohort-safety-signal-sorter/cohort-safety-signal-sorter.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Cohort Safety Signal Sorter

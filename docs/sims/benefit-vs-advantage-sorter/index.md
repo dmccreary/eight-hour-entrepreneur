@@ -6,7 +6,7 @@ og:image: /sims/benefit-vs-advantage-sorter/benefit-vs-advantage-sorter.png
 twitter:image: /sims/benefit-vs-advantage-sorter/benefit-vs-advantage-sorter.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Benefit vs Advantage Sorter

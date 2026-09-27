@@ -6,7 +6,7 @@ og:image: /sims/two-minute-pitch-structure-timer/two-minute-pitch-structure-time
 twitter:image: /sims/two-minute-pitch-structure-timer/two-minute-pitch-structure-timer.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Two-Minute Pitch Structure and Timer

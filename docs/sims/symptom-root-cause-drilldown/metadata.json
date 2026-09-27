@@ -80,5 +80,15 @@
       "Explain why a meal kit that requires advance planning would miss Priya's root cause"
     ]
   },
-  "chapter": "05-defining-the-real-problem"
+  "chapter": "05-defining-the-real-problem",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-79",
+    "objects": {
+      "restart-button": "eight-hour-entrepreneur-79",
+      "why-trail": "eight-hour-entrepreneur-79",
+      "q1": "eight-hour-entrepreneur-79",
+      "q2": "eight-hour-entrepreneur-79",
+      "q3": "eight-hour-entrepreneur-70"
+    }
+  }
 }

@@ -6,7 +6,7 @@ og:image: /sims/persevere-vs-pivot-signal-checker/persevere-vs-pivot-signal-chec
 twitter:image: /sims/persevere-vs-pivot-signal-checker/persevere-vs-pivot-signal-checker.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Persevere vs Pivot Signal Checker

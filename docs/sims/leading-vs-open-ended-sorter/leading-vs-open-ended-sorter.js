@@ -36,29 +36,35 @@ const LEADING = 'Leading';
 // label is a short name used in the end-of-session review list.
 // rewrite (Leading cards only) is an open-ended version of the same question.
 const STATEMENTS = [
-  { text: 'Tell me about the last time getting your dog groomed was a hassle.',
+  { id: 'last-time-hassle',
+    text: 'Tell me about the last time getting your dog groomed was a hassle.',
     label: 'The last time grooming was a hassle',
     correctAnswer: OPEN,
     explanation: 'It invites a real story in the customer\'s own words, and they choose every detail of it.' },
-  { text: 'Wouldn\'t you love it if grooming just came to your house?',
+  { id: 'wouldnt-you-love-it',
+    text: 'Wouldn\'t you love it if grooming just came to your house?',
     label: 'Wouldn\'t you love it if...?',
     correctAnswer: LEADING,
     explanation: '"Wouldn\'t you love" signals the answer it wants, so a polite stranger says yes whatever they really think.',
     rewrite: 'How does your dog get groomed today?' },
-  { text: 'Walk me through what you currently do when your dog needs a bath.',
+  { id: 'walk-me-through-bath',
+    text: 'Walk me through what you currently do when your dog needs a bath.',
     label: 'Walk me through bath time',
     correctAnswer: OPEN,
     explanation: 'It asks for their actual process, step by step, so you hear what they really do today.' },
-  { text: 'Don\'t you think $40 is a fair price for a driveway grooming session?',
+  { id: 'fair-price-40',
+    text: 'Don\'t you think $40 is a fair price for a driveway grooming session?',
     label: 'Don\'t you think $40 is fair?',
     correctAnswer: LEADING,
     explanation: 'It asks the customer to agree with a price Jordan already picked instead of sharing what they pay now.',
     rewrite: 'What do you pay for grooming now, and how do you feel about that?' },
-  { text: 'What\'s the most frustrating part of your current routine, if anything?',
+  { id: 'most-frustrating-part',
+    text: 'What\'s the most frustrating part of your current routine, if anything?',
     label: 'Most frustrating part, if anything',
     correctAnswer: OPEN,
     explanation: 'The words "if anything" leave room for a "nothing" answer, so no one is pushed to invent a pain.' },
-  { text: 'This would save you so much time, right?',
+  { id: 'save-so-much-time',
+    text: 'This would save you so much time, right?',
     label: 'Save you so much time, right?',
     correctAnswer: LEADING,
     explanation: 'It assumes the time savings before the customer has said time is a problem, then adds "right?" to collect a yes.',
@@ -83,6 +89,14 @@ let cardBox = {}, panelBox = {}, summaryBox = {}, progressBox = {};
 
 let openButton, leadingButton, nextButton, tryAgainButton;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. A card tests the concept its correct category names.
+const PAGE_CONCEPT = 149;                                           // Interview Question
+const CATEGORY_CONCEPT = { [OPEN]: 150, [LEADING]: 151 };           // Open-Ended Question, Leading Question
+let lrs = null, nextEv, tryAgainEv;
+let cardShownAt = Date.now();    // when the current card was dealt, for the answer's duration
+const cardQuestions = {}, cardAttempts = {};
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -106,6 +120,14 @@ function setup() {
 
   computeLayout();
   updateButtons();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Leading vs Open-Ended Question Sorter', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Leading vs Open-Ended Question Sorter MicroSim' });
+    nextEv = lrs.button('next-card-button', { name: 'Next Card Button', concept: c });
+    tryAgainEv = lrs.button('try-again-button', { name: 'Try Again Button', concept: c });
+  }
 
   describe('A card-sorting quiz with six discovery-interview questions about a mobile ' +
     'dog-grooming idea. For each card, choose Open-Ended or Leading. Feedback shows whether ' +
@@ -553,6 +575,7 @@ function choose(choice) {
   answered = true;
   flash = 40;
   updateButtons();
+  xapiAnswer(s, choice, correct);
 }
 
 function nextCard() {
@@ -564,6 +587,8 @@ function nextCard() {
     answered = false;
   }
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) nextEv.press(finished ? 'results' : 'next');
 }
 
 function tryAgain() {
@@ -575,6 +600,22 @@ function tryAgain() {
   score = 0;
   flash = 0;
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) tryAgainEv.press('restart');
+}
+
+// One `answered` per card, in both xAPI modes. Cards are reshuffled on Try Again, so each
+// question is keyed by its statement's id, never by its position.
+function xapiAnswer(s, choice, correct) {
+  if (!lrs) return;
+  const key = 'q-' + s.id;
+  if (!cardQuestions[key]) {
+    cardQuestions[key] = lrs.question(key, { name: s.text,
+      concept: LRS.conceptId(CATEGORY_CONCEPT[s.correctAnswer]) });
+  }
+  cardAttempts[key] = (cardAttempts[key] || 0) + 1;
+  cardQuestions[key].answer({ success: correct, response: LRS.slug(choice),
+    durationMs: Date.now() - cardShownAt, extensions: { 'attempt-number': cardAttempts[key] } });
 }
 
 // Enable, disable, show and relabel buttons to match the quiz state

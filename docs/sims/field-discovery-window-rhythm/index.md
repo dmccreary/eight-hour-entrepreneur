@@ -6,7 +6,7 @@ og:image: /sims/field-discovery-window-rhythm/field-discovery-window-rhythm.png
 twitter:image: /sims/field-discovery-window-rhythm/field-discovery-window-rhythm.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # The Field Discovery Window Rhythm

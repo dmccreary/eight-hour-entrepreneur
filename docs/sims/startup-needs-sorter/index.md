@@ -6,7 +6,7 @@ og:image: /sims/startup-needs-sorter/startup-needs-sorter.png
 twitter:image: /sims/startup-needs-sorter/startup-needs-sorter.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Startup Needs Sorter

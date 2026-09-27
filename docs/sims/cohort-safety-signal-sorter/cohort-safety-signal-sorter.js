@@ -32,27 +32,33 @@ const ERODING = 'Safety-Eroding';
 // The six cohort moments, in the order shown on first load.
 // label is a short name used in the end-of-session review table.
 const STATEMENTS = [
-  { text: 'When Priya admitted her field test only got 1 yes out of 10, the facilitator asked: \'What did the other nine actually tell you?\'',
+  { id: 'other-nine-question',
+    text: 'When Priya admitted her field test only got 1 yes out of 10, the facilitator asked: \'What did the other nine actually tell you?\'',
     label: 'Asking what the other nine said',
     correctAnswer: BUILDING,
     explanation: 'The facilitator treats a weak result as useful data, not a verdict, and shows the whole room that bad news is safe to share.' },
-  { text: 'A cohort member visibly rolls their eyes when someone shares an unfinished idea in a breakout room.',
+  { id: 'eye-roll',
+    text: 'A cohort member visibly rolls their eyes when someone shares an unfinished idea in a breakout room.',
     label: 'Eye roll at an unfinished idea',
     correctAnswer: ERODING,
     explanation: 'An eye roll signals judgment without a word, and everyone who saw it learns to keep their next unfinished idea to themselves.' },
-  { text: 'Before the first breakout room, the facilitator says: \'Half-formed ideas are exactly what belongs in this room — that\'s the assignment.\'',
+  { id: 'half-formed-ideas-welcome',
+    text: 'Before the first breakout room, the facilitator says: \'Half-formed ideas are exactly what belongs in this room — that\'s the assignment.\'',
     label: 'Welcoming half-formed ideas',
     correctAnswer: BUILDING,
     explanation: 'Setting the norm before anyone shares means no one has to guess whether a half-formed idea will be judged.' },
-  { text: 'A participant stays quiet for the rest of the session after a peer mocked their pricing idea earlier.',
+  { id: 'silent-after-mockery',
+    text: 'A participant stays quiet for the rest of the session after a peer mocked their pricing idea earlier.',
     label: 'Silent after being mocked',
     correctAnswer: ERODING,
     explanation: 'The earlier mockery taught this person that speaking up is risky, and their silence is the visible cost.' },
-  { text: 'A peer responds to a rough pitch with a clarifying question instead of unsolicited advice.',
+  { id: 'clarifying-question',
+    text: 'A peer responds to a rough pitch with a clarifying question instead of unsolicited advice.',
     label: 'Clarifying question, not advice',
     correctAnswer: BUILDING,
     explanation: 'A clarifying question invites more detail without passing judgment, so the founder keeps talking instead of defending.' },
-  { text: 'A founder quietly rewrites their canvas overnight so it looks \'more finished,\' afraid of what the group will think of the messy version.',
+  { id: 'polished-canvas-fear',
+    text: 'A founder quietly rewrites their canvas overnight so it looks \'more finished,\' afraid of what the group will think of the messy version.',
     label: 'Polishing the canvas out of fear',
     correctAnswer: ERODING,
     explanation: 'No one said a word, yet fear of judgment is already shaping behavior, and the group loses the messy version it needed to see.' }
@@ -74,6 +80,14 @@ let isWide = true;
 let cardBox = {}, panelBox = {}, summaryBox = {}, progressBox = {};
 
 let buildingButton, erodingButton, nextButton, tryAgainButton;
+
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. Both categories apply one definition, so every card tests it.
+const PAGE_CONCEPT = 15;                                            // Psychological Safety
+const CATEGORY_CONCEPT = { [BUILDING]: 15, [ERODING]: 15 };         // Psychological Safety
+let lrs = null, nextEv, tryAgainEv;
+let cardShownAt = Date.now();    // when the current card was dealt, for the answer's duration
+const cardQuestions = {}, cardAttempts = {};
 
 function setup() {
   updateCanvasSize();
@@ -98,6 +112,14 @@ function setup() {
 
   computeLayout();
   updateButtons();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Cohort Safety Signal Sorter', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Cohort Safety Signal Sorter MicroSim' });
+    nextEv = lrs.button('next-card-button', { name: 'Next Card Button', concept: c });
+    tryAgainEv = lrs.button('try-again-button', { name: 'Try Again Button', concept: c });
+  }
 
   describe('A card-sorting quiz with six moments from a live cohort session. ' +
     'For each card, choose Safety-Building or Safety-Eroding. Feedback shows whether the ' +
@@ -498,6 +520,7 @@ function choose(choice) {
   answered = true;
   flash = 40;
   updateButtons();
+  xapiAnswer(s, choice, correct);
 }
 
 function nextCard() {
@@ -509,6 +532,8 @@ function nextCard() {
     answered = false;
   }
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) nextEv.press(finished ? 'results' : 'next');
 }
 
 function tryAgain() {
@@ -520,6 +545,22 @@ function tryAgain() {
   score = 0;
   flash = 0;
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) tryAgainEv.press('restart');
+}
+
+// One `answered` per card, in both xAPI modes. Cards are reshuffled on Try Again, so each
+// question is keyed by its statement's id, never by its position.
+function xapiAnswer(s, choice, correct) {
+  if (!lrs) return;
+  const key = 'q-' + s.id;
+  if (!cardQuestions[key]) {
+    cardQuestions[key] = lrs.question(key, { name: s.text,
+      concept: LRS.conceptId(CATEGORY_CONCEPT[s.correctAnswer]) });
+  }
+  cardAttempts[key] = (cardAttempts[key] || 0) + 1;
+  cardQuestions[key].answer({ success: correct, response: LRS.slug(choice),
+    durationMs: Date.now() - cardShownAt, extensions: { 'attempt-number': cardAttempts[key] } });
 }
 
 // Enable, disable, show and relabel buttons to match the quiz state

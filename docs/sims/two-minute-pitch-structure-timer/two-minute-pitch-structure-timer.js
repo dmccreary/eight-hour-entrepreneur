@@ -83,6 +83,17 @@ let prevButtonX = 0;        // x of the Previous button
 
 let startButton, resetButton, prevButton, nextButton;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// The clock is a Start/Pause run: each press is an `interacted` (start/pause/resume), and each
+// run is one `experienced`, closed by Pause, Reset, reaching 2:00, or a flush the student
+// didn't ask for (the flush really pauses the clock). Studying a section is one act = one
+// inspection of the section now shown: a block click, Previous/Next, or an arrow key, with
+// engagement-mode naming the path. Next/Previous are not also button presses, so a step is
+// never counted twice; the clock moving the panel on its own is not evidence.
+// Learning-graph ConceptID: every section is a part of the one structure this sim teaches.
+const PAGE_CONCEPT = 287;                          // Two-Minute Pitch
+let lrs = null, sectionEv = [], startPauseEv, resetEv, run;
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -106,6 +117,17 @@ function setup() {
   }
 
   computeLayout();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Two-Minute Pitch Structure and Timer', concept: c, mount: '#xapi-slot',
+                          source: 'the Two-Minute Pitch Structure and Timer MicroSim' });
+    sectionEv = SEGMENTS.map(s => lrs.item(LRS.slug(s.label) + '-section',
+      { name: s.label + ' Section', concept: c }));
+    startPauseEv = lrs.button('start-pause-control', { name: 'Start/Pause/Resume Control', concept: c });
+    resetEv = lrs.button('reset-button', { name: 'Reset Button', concept: c });
+    run = lrs.runner({ onStop: xapiHaltClock });     // a flush must actually stop the clock
+  }
 
   describe('Jordan\'s two-minute pitch shown as four section blocks on a time bar: ' +
     'Problem, 30 seconds; Solution, 30 seconds; Evidence, 40 seconds; Ask, 20 seconds. ' +
@@ -176,6 +198,7 @@ function updateClock() {
     finished = true;
     panelCache = null;
     updateButtons();
+    if (lrs) run.stop('finished');
   }
   if (!hasStarted()) return;
   const live = segmentAt(elapsedMs());
@@ -839,6 +862,7 @@ function renderBlocks(blocks, x, y, w) {
 
 // Start, Pause, or Resume. Starting after 2:00 runs the pitch again from 0:00.
 function toggleTimer() {
+  const action = running ? 'pause' : (accumulatedMs > 0 && !finished ? 'resume' : 'start');  // the label pressed
   if (running) {
     accumulatedMs += millis() - runStartMs;
     running = false;
@@ -858,6 +882,11 @@ function toggleTimer() {
   }
   panelCache = null;
   updateButtons();
+  if (lrs) {
+    startPauseEv.press(action);
+    if (action === 'pause') run.stop('paused');
+    else run.start();
+  }
 }
 
 // Back to the starting state: 0:00, not running, no section selected
@@ -869,21 +898,39 @@ function resetTimer() {
   selected = -1;
   panelCache = null;
   updateButtons();
+  if (lrs) {
+    resetEv.press('reset');
+    run.stop('reset');      // closes the run only if the clock was running
+  }
 }
 
-// Show a section in the panel without touching the clock
-function selectSection(i) {
-  selected = i;
+// The runner's onStop: a flush (tab hidden, Simulate Done, a mode switch) pauses the clock
+// exactly as Pause does. After Pause, Reset or 2:00 the clock is already stopped: no-op.
+function xapiHaltClock() {
+  if (!running) return;
+  accumulatedMs += millis() - runStartMs;
+  running = false;
   panelCache = null;
   updateButtons();
 }
 
-function nextSection() {
-  if (selected < SEGMENTS.length - 1) selectSection(selected + 1);
+// Show a section in the panel without touching the clock
+function selectSection(i, via) {
+  const changed = i !== selected;
+  selected = i;
+  panelCache = null;
+  updateButtons();
+  if (lrs && changed) sectionEv[i].study(via);
 }
 
-function previousSection() {
-  if (selected > 0) selectSection(selected - 1);
+// Registered with p5's mousePressed, these receive its mouse event as `via`: anything but
+// 'keyboard' is a Previous/Next button step
+function nextSection(via) {
+  if (selected < SEGMENTS.length - 1) selectSection(selected + 1, via === 'keyboard' ? 'keyboard' : 'step');
+}
+
+function previousSection(via) {
+  if (selected > 0) selectSection(selected - 1, via === 'keyboard' ? 'keyboard' : 'step');
 }
 
 // Index of the block under (mx, my), or -1
@@ -898,16 +945,18 @@ function blockAt(mx, my) {
 
 function mousePressed() {
   const i = blockAt(mouseX, mouseY);
-  if (i >= 0) selectSection(i);
+  if (i >= 0) selectSection(i, 'click');
 }
 
-function keyPressed() {
+function keyPressed(event) {
+  // Arrow keys pressed inside the xAPI teaching panel (its Full/Compact radios) are not steps
+  if (event && event.target && event.target.closest && event.target.closest('.xapi-panel')) return;
   if (keyCode === RIGHT_ARROW) {
-    nextSection();
+    nextSection('keyboard');
     return false;  // keep the arrow key from scrolling the page
   }
   if (keyCode === LEFT_ARROW) {
-    previousSection();
+    previousSection('keyboard');
     return false;
   }
 }

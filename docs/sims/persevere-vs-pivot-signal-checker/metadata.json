@@ -95,5 +95,20 @@
       "Set the three signals for one's own latest lean test and justify the verdict"
     ]
   },
-  "chapter": "11-interpreting-validation-evidence"
+  "chapter": "11-interpreting-validation-evidence",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-184",
+    "objects": {
+      "problem-validation-checkbox": "eight-hour-entrepreneur-77",
+      "customer-payment-signal-checkbox": "eight-hour-entrepreneur-188",
+      "customer-definition-checkbox": "eight-hour-entrepreneur-45",
+      "worked-example-button": "eight-hour-entrepreneur-184",
+      "scenario-button": "eight-hour-entrepreneur-184",
+      "reset-button": "eight-hour-entrepreneur-184",
+      "q-jordan-driveway-grooming": "eight-hour-entrepreneur-185",
+      "q-ana-closet-organizing": "eight-hour-entrepreneur-184",
+      "q-theo-lunch-delivery": "eight-hour-entrepreneur-184",
+      "q-ben-houseplant-care": "eight-hour-entrepreneur-183"
+    }
+  }
 }

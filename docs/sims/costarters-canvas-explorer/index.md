@@ -6,7 +6,7 @@ og:image: /sims/costarters-canvas-explorer/costarters-canvas-explorer.png
 twitter:image: /sims/costarters-canvas-explorer/costarters-canvas-explorer.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # CO.STARTERS Canvas Explorer

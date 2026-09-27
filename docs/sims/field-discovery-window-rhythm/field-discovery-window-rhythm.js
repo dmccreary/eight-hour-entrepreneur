@@ -67,6 +67,19 @@ let timeline = null;
 let current = 0;                 // index into STEPS
 let scrollBox, detailBox, prevButton, nextButton, stepLabel;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it the timeline still runs, silently. ----
+// Learning-graph ConceptIDs. Each window is a Field Discovery Window (18). Chapter 2 defines
+// Cohort-Based Learning (20) as the group moving "session by session" through four sessions
+// that "build on each other", so each live session ("Inside the cohort") is evidence of that.
+const PAGE_CONCEPT = 18;         // Field Discovery Window
+const KIND_CONCEPT = { session: 20, fdw: 18 };
+let lrs = null, stepEv = [];
+// Hovering an entry shows a one-line preview; clicking opens it in the panel. One visit to an
+// entry is ONE engagement: a click that opens it wins, otherwise a hover of LRSSim.HOVER_MS
+// or more counts. Touch screens have no hover, so no hover is reported there.
+const xapiNoHover = window.matchMedia ? window.matchMedia('(hover: none)').matches : false;
+let visit = null;                // { id, since, clicked }
+
 document.addEventListener('DOMContentLoaded', setup);
 
 function setup() {
@@ -77,11 +90,12 @@ function setup() {
   nextButton = document.getElementById('next-button');
   stepLabel = document.getElementById('step-label');
 
-  prevButton.addEventListener('click', () => goTo(current - 1));
-  nextButton.addEventListener('click', () => goTo(current + 1));
+  prevButton.addEventListener('click', () => goTo(current - 1, 'step'));
+  nextButton.addEventListener('click', () => goTo(current + 1, 'step'));
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') goTo(current + 1);
-    if (e.key === 'ArrowLeft') goTo(current - 1);
+    if (e.target && e.target.closest && e.target.closest('.xapi-panel')) return;   // arrows belong to the xAPI panel's radios
+    if (e.key === 'ArrowRight') goTo(current + 1, 'keyboard');
+    if (e.key === 'ArrowLeft') goTo(current - 1, 'keyboard');
   });
 
   buildTimeline();
@@ -125,7 +139,8 @@ function buildTimeline() {
     format: { minorLabels: weekLabel },
     margin: { item: { horizontal: 0, vertical: 8 }, axis: 6 },
     groupOrder: 'order',
-    tooltip: { followMouse: true, overflowMethod: 'cap' }
+    tooltip: { followMouse: true, overflowMethod: 'cap' },
+    onInitialDrawComplete: xapiSetup       // xAPI wiring waits for the first draw (see xapiSetup)
   };
 
   timeline = new vis.Timeline(container, items, groups, options);
@@ -134,7 +149,7 @@ function buildTimeline() {
   timeline.on('select', (props) => {
     if (props.items.length > 0) {
       const i = STEPS.findIndex(s => s.id === props.items[0]);
-      if (i >= 0) goTo(i);
+      if (i >= 0) goTo(i, 'click');
     } else {
       timeline.setSelection([STEPS[current].id]);
     }
@@ -175,13 +190,61 @@ function weekLabel(date) {
 
 // ---------- Stepping ----------
 
-function goTo(i) {
+// how: 'click' | 'step' | 'keyboard' when the student picked it; undefined when the sim did
+function goTo(i, how) {
   if (i < 0 || i >= STEPS.length) return;
+  const changed = i !== current;
   current = i;
   timeline.setSelection([STEPS[i].id]);
   renderDetail();
   updateControls();
   scrollToCurrent(true);
+  if (lrs && how && changed) xapiOpened(i, how);
+}
+
+// ---- xAPI: entry inspections ----
+
+// Runs once vis-timeline has finished its first draw, not in setup(). With ?xapi=teaching the
+// runtime grows the iframe to fit its panel, and if the frame resizes during the timeline's
+// first ~100 ms, vis-timeline 7.7.3 never completes its initial draw and stays invisible.
+function xapiSetup() {
+  if (!window.LRSSim || lrs) return;
+  lrs = LRSSim.create({ name: 'The Field Discovery Window Rhythm', concept: LRS.conceptId(PAGE_CONCEPT),
+                        pageDwell: true, mount: '#xapi-slot',
+                        source: 'the Field Discovery Window Rhythm MicroSim' });
+  // One inspection handle per entry, keyed by its id ('session-2', 'fdw-1')
+  stepEv = STEPS.map(s => lrs.item(s.id, {
+    name: s.kind === 'session' ? 'Session ' + s.num : 'Field Discovery Window ' + s.num,
+    concept: LRS.conceptId(KIND_CONCEPT[s.kind]) }));
+  timeline.on('itemover', (p) => xapiVisit(p.item));
+  timeline.on('itemout', (p) => { if (visit && visit.id === p.item) xapiEndVisit(); });
+  // Leaving the page closes an open visit BEFORE the runtime ends the session (capture on
+  // window runs ahead of its document listener), so the hover lands in this session.
+  window.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') xapiEndVisit();
+  }, true);
+  window.addEventListener('pagehide', xapiEndVisit, true);
+}
+
+// Opening an entry in the panel is one inspection. A click also uses up the pointer's
+// visit to that entry, so the same visit cannot report a hover too.
+function xapiOpened(i, how) {
+  if (how === 'click' && visit && visit.id === STEPS[i].id) visit.clicked = true;
+  stepEv[i].study(how);
+}
+
+function xapiVisit(id) {
+  if (visit && visit.id === id) return;
+  xapiEndVisit();
+  visit = { id, since: Date.now(), clicked: false };
+}
+
+function xapiEndVisit() {
+  if (!visit) return;
+  const ms = Date.now() - visit.since;
+  const i = STEPS.findIndex(s => s.id === visit.id);
+  if (i >= 0 && !visit.clicked && !xapiNoHover && ms >= LRSSim.HOVER_MS) stepEv[i].study('hover', ms);
+  visit = null;
 }
 
 function updateControls() {

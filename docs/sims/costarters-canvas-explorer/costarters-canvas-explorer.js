@@ -113,6 +113,14 @@ let controlsRight = 0;      // x just past the last button
 
 let prevButton, nextButton, answersButton;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. The page is the CO.STARTERS Canvas; each block is evidence of
+// its own block concept, which the learning graph numbers 31-41 in canvas order.
+const PAGE_CONCEPT = 27;                           // CO.STARTERS Canvas
+const BLOCK_CONCEPT = [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41];   // Customer Block ... Costs Block
+let lrs = null, answersEv;
+const blockEv = [];
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -133,6 +141,17 @@ function setup() {
 
   computeLayout();
   updateButtons();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'CO.STARTERS Canvas Explorer', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the CO.STARTERS Canvas Explorer MicroSim' });
+    BLOCKS.forEach((blk, i) => {
+      blockEv[i] = lrs.item(LRS.slug(blk.label + ' block'), { name: blk.label + ' Block',
+                                                              concept: LRS.conceptId(BLOCK_CONCEPT[i]) });
+    });
+    answersEv = lrs.button('show-answers-toggle', { name: 'Show All Answers Toggle', concept: c });
+  }
 
   describe('A clickable map of the 11-block CO.STARTERS Canvas, filled in with Jordan\'s ' +
     'Session 1 answers for a mobile dog-grooming idea. The blocks sit in four rows: ' +
@@ -557,12 +576,18 @@ function blockAt(mx, my) {
 
 function mousePressed() {
   const i = blockAt(mouseX, mouseY);
-  if (i >= 0) selectBlock(i);
+  if (i >= 0) {
+    const changed = i !== selected;
+    selectBlock(i);
+    if (changed) xapiStudy('click');
+  }
 }
 
-function keyPressed() {
-  if (keyCode === RIGHT_ARROW) nextBlock();
-  else if (keyCode === LEFT_ARROW) previousBlock();
+function keyPressed(e) {
+  // Keys pressed in the xAPI teaching panel (its Full/Compact radios) belong to the panel
+  if (e && e.target && e.target.closest && e.target.closest('.xapi-panel')) return;
+  if (keyCode === RIGHT_ARROW) nextBlock('keyboard');
+  else if (keyCode === LEFT_ARROW) previousBlock('keyboard');
 }
 
 function selectBlock(i) {
@@ -572,18 +597,34 @@ function selectBlock(i) {
   updateButtons();
 }
 
-function nextBlock() {
-  if (selected < BLOCKS.length - 1) selectBlock(selected + 1);
+// mode (xAPI only): 'keyboard' from the arrow keys. From the buttons p5 passes the mouse
+// event instead, which means a 'step'.
+function nextBlock(mode) {
+  if (selected < BLOCKS.length - 1) {
+    selectBlock(selected + 1);
+    xapiStudy(typeof mode === 'string' ? mode : 'step');
+  }
 }
 
-function previousBlock() {
-  if (selected > 0) selectBlock(selected - 1);
+function previousBlock(mode) {
+  if (selected > 0) {
+    selectBlock(selected - 1);
+    xapiStudy(typeof mode === 'string' ? mode : 'step');
+  }
 }
 
 function toggleAnswers() {
   showAnswers = !showAnswers;
   answersButton.html(showAnswers ? 'Hide All Answers' : 'Show All Answers');
   computeLayout();
+  if (lrs) answersEv.press(showAnswers ? 'show' : 'hide');
+}
+
+// One inspection of the block just selected, whichever path selected it (click, Previous /
+// Next, or an arrow key); engagement-mode records the path. Re-clicking the selected block
+// changes nothing and reports nothing.
+function xapiStudy(mode) {
+  if (lrs && selected >= 0) blockEv[selected].study(mode);
 }
 
 // Previous is off with nothing selected or at the first block; Next is off at the last

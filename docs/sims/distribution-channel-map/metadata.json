@@ -86,5 +86,19 @@
       "Name a case where channel fit overrules the chart"
     ]
   },
-  "chapter": "13-distribution-go-to-market"
+  "chapter": "13-distribution-go-to-market",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-222",
+    "objects": {
+      "word-of-mouth": "eight-hour-entrepreneur-224",
+      "referral-channel": "eight-hour-entrepreneur-225",
+      "social-media-channel": "eight-hour-entrepreneur-228",
+      "direct-sales-channel": "eight-hour-entrepreneur-219",
+      "in-person-distribution": "eight-hour-entrepreneur-221",
+      "partnership-channel": "eight-hour-entrepreneur-226",
+      "online-distribution": "eight-hour-entrepreneur-220",
+      "marketplace-channel": "eight-hour-entrepreneur-227",
+      "compare-select": "eight-hour-entrepreneur-222"
+    }
+  }
 }

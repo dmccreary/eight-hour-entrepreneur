@@ -6,7 +6,7 @@ og:image: /sims/thirty-day-launch-roadmap-timeline/thirty-day-launch-roadmap-tim
 twitter:image: /sims/thirty-day-launch-roadmap-timeline/thirty-day-launch-roadmap-timeline.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # 30-Day Launch Roadmap Timeline

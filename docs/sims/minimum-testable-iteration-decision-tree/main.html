@@ -5,14 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
     <title>Minimum Testable Iteration Decision Tree using p5.js</title>
+    <!-- The xAPI panel's look, shared with every sim and site page. -->
+    <link rel="stylesheet" href="../../css/lrs-xapi.css">
     <style>
         body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
+        /* Only shown when the config (or ?xapi=teaching) turns the teaching panel on. */
+        .xapi-panel { margin: 12px 10px 0 10px; }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <!-- xAPI runtime (docs/js). The sim still runs without it, e.g. pasted into the p5.js editor.
+         lrs-config.js        this textbook's identity and default xAPI policy; loads first
+         lrs-xapi.js          builds every contract-v1 statement
+         lrs-lite-sim.js      compact (LRS-Lite) sessions and focus-loss detection
+         lrs-sim.js           the API the sim calls: evidence classes, statement log, teaching UI
+         xapi-json-viewer.js  opens a statement, formatted, in a new tab -->
+    <script src="../../js/lrs-config.js"></script>
+    <script src="../../js/lrs-xapi.js"></script>
+    <script src="../../js/lrs-lite-sim.js"></script>
+    <script src="../../js/lrs-sim.js"></script>
+    <script src="../../js/xapi-json-viewer.js"></script>
     <script src="minimum-testable-iteration-decision-tree.js"></script>
 </head>
 <body>
     <main></main>
+    <!-- lrs-sim.js puts the xAPI statement log here only when the config says `teaching: true`. -->
+    <div id="xapi-slot"></div>
     <br/>
     <a href=".">Back to Lesson Plan</a>
 </body>

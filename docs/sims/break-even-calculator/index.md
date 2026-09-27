@@ -6,7 +6,7 @@ og:image: /sims/break-even-calculator/break-even-calculator.png
 twitter:image: /sims/break-even-calculator/break-even-calculator.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Break-Even Calculator

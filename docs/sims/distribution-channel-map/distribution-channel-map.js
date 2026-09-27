@@ -119,6 +119,22 @@ let noHover = false;             // true on touch screens
 let detailBox, prevButton, nextButton, compareSelect;
 let lastLayout = null;           // most recent label placement (read by tests)
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it the chart still runs, silently. ----
+// Learning-graph ConceptIDs. Chapter 13 defines each of the eight channels as its own
+// concept, so a channel point is evidence of the channel it names. The page, and the
+// Compare menu's cost-versus-reach tradeoff, are evidence of Channel Selection.
+const PAGE_CONCEPT = 222;        // Channel Selection
+const CHANNEL_CONCEPT = {
+  'Word of Mouth': 224, 'Referral Channel': 225, 'Social Media Channel': 228,
+  'Direct Sales Channel': 219, 'In-Person Distribution': 221, 'Partnership Channel': 226,
+  'Online Distribution': 220, 'Marketplace Channel': 227
+};
+let lrs = null, channelEv = [], compareEv;
+// A tooltip "visit" lasts while the tooltip shows one channel. Each visit is ONE engagement:
+// a click that selects the channel wins; otherwise a hover counts once the pointer has rested
+// on the dot for LRSSim.HOVER_MS (long enough to read the definition).
+let visit = null;                // { i, onDotSince, ms, clicked }
+
 document.addEventListener('DOMContentLoaded', setup);
 
 function setup() {
@@ -129,19 +145,41 @@ function setup() {
   compareSelect = document.getElementById('compare-select');
   noHover = window.matchMedia ? window.matchMedia('(hover: none)').matches : false;
 
-  prevButton.addEventListener('click', () => selectChannel(selected - 1));
-  nextButton.addEventListener('click', () => selectChannel(selected + 1));
+  prevButton.addEventListener('click', () => selectChannel(selected - 1, 'step'));
+  nextButton.addEventListener('click', () => selectChannel(selected + 1, 'step'));
   compareSelect.addEventListener('change', () => {
     compare = parseInt(compareSelect.value, 10);
     refresh();
+    if (lrs && compare >= 0) compareEv.study('select');   // back to (none) only clears
   });
   document.addEventListener('keydown', (e) => {
     if (e.target && e.target.tagName === 'SELECT') return;   // arrows belong to the menu
-    if (e.key === 'ArrowRight') selectChannel(selected + 1);
-    if (e.key === 'ArrowLeft') selectChannel(selected - 1);
+    if (e.target && e.target.closest && e.target.closest('.xapi-panel')) return;   // and to the xAPI panel's radios
+    if (e.key === 'ArrowRight') selectChannel(selected + 1, 'keyboard');
+    if (e.key === 'ArrowLeft') selectChannel(selected - 1, 'keyboard');
   });
 
   buildChart();
+
+  if (window.LRSSim) {
+    lrs = LRSSim.create({ name: 'Distribution Channel Map', concept: LRS.conceptId(PAGE_CONCEPT),
+                          pageDwell: true, mount: '#xapi-slot',
+                          source: 'the Distribution Channel Map MicroSim' });
+    // One inspection handle per channel, keyed by its name (stable if the plot moves it)
+    channelEv = CHANNELS.map(c => lrs.item(LRS.slug(c.channel), {
+      name: c.channel, concept: LRS.conceptId(CHANNEL_CONCEPT[c.channel]) }));
+    compareEv = lrs.item('compare-select', { name: 'Compare With Menu',
+                                             concept: LRS.conceptId(PAGE_CONCEPT) });
+    // Registered before selectChannel(0), whose chart.update() activates it
+    chart.config.plugins.push(xapiHoverPlugin);
+    // Leaving the page closes an open visit BEFORE the runtime ends the session (capture on
+    // window runs ahead of its document listener), so the hover lands in this session.
+    window.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') xapiEndVisit();
+    }, true);
+    window.addEventListener('pagehide', xapiEndVisit, true);
+  }
+
   selectChannel(0);
   window.addEventListener('resize', () => {
     applyResponsiveText();
@@ -180,7 +218,7 @@ function buildChart() {
       layout: { padding: { top: 10, right: 14, bottom: 2, left: 2 } },
       interaction: { mode: 'nearest', intersect: true },
       onClick: (evt, elements) => {
-        if (elements.length > 0) selectChannel(elements[0].index);
+        if (elements.length > 0) selectChannel(elements[0].index, 'click');
       },
       onHover: (evt, elements) => {
         evt.native.target.style.cursor = elements.length > 0 ? 'pointer' : 'default';
@@ -450,13 +488,60 @@ function pad(b, n) {
 
 // ---------- Selection ----------
 
-function selectChannel(i) {
+// how: 'click' | 'step' | 'keyboard' when the student picked it; undefined when the sim did
+function selectChannel(i, how) {
   if (i < 0 || i >= CHANNELS.length) return;
+  const changed = i !== selected;
   selected = i;
   if (compare === selected) compare = -1;
   rebuildCompareMenu();
   refresh();
+  if (lrs && how && changed) xapiSelected(i, how);
 }
+
+// ---- xAPI: channel inspections ----
+
+// Selecting a channel fills the detail panel with it: one inspection. A click on a dot also
+// ends that dot's tooltip visit, so the same visit cannot report a hover too.
+function xapiSelected(i, how) {
+  if (how === 'click') {
+    xapiVisit(i);
+    visit.clicked = true;
+  }
+  channelEv[i].study(how);
+}
+
+function xapiEndVisit() {
+  if (!visit) return;
+  if (visit.onDotSince !== null) visit.ms += Date.now() - visit.onDotSince;
+  // Touch screens get no tooltip (noHover), so there is nothing to read by hovering there
+  if (!visit.clicked && !noHover && visit.ms >= LRSSim.HOVER_MS) channelEv[visit.i].study('hover', visit.ms);
+  visit = null;
+}
+
+function xapiVisit(i) {
+  if (visit && visit.i === i) return;
+  xapiEndVisit();
+  if (i !== null) visit = { i, onDotSince: null, ms: 0, clicked: false };
+}
+
+// afterEvent sees every chart event (moves, mouseout, touches) after the tooltip has
+// updated; options.onHover does not fire outside the chart area or on mouseout.
+const xapiHoverPlugin = {
+  id: 'xapiEvidence',
+  afterEvent(c, args) {
+    const e = args.event;
+    const active = c.tooltip ? c.tooltip.getActiveElements() : [];
+    xapiVisit(active.length && e.type !== 'mouseout' ? active[0].index : null);
+    if (!visit) return;
+    const onDot = e.x !== null && active[0].element.inRange(e.x, e.y);
+    if (onDot && visit.onDotSince === null) visit.onDotSince = Date.now();
+    else if (!onDot && visit.onDotSince !== null) {
+      visit.ms += Date.now() - visit.onDotSince;
+      visit.onDotSince = null;
+    }
+  }
+};
 
 function refresh() {
   prevButton.disabled = selected === 0;

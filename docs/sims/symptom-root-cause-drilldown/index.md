@@ -6,7 +6,7 @@ og:image: /sims/symptom-root-cause-drilldown/symptom-root-cause-drilldown.png
 twitter:image: /sims/symptom-root-cause-drilldown/symptom-root-cause-drilldown.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Symptom vs Root Cause Drill-Down

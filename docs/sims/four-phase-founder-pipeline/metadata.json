@@ -76,5 +76,15 @@
       "Write your own one-line Clarity and Validation examples"
     ]
   },
-  "chapter": "01-entrepreneurship-lean-thinking"
+  "chapter": "01-entrepreneurship-lean-thinking",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-10",
+    "objects": {
+      "clarity": "eight-hour-entrepreneur-6",
+      "validation": "eight-hour-entrepreneur-7",
+      "action": "eight-hour-entrepreneur-8",
+      "launch": "eight-hour-entrepreneur-9",
+      "pivot-arrow": "eight-hour-entrepreneur-11"
+    }
+  }
 }

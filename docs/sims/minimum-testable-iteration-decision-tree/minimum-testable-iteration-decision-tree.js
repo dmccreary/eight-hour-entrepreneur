@@ -53,6 +53,7 @@ const NO_NOTES = [
 // why each judgment holds or not (yesWhy / noWhy), and a short note for the tree.
 const SCENARIOS = [
   {
+    id: 'jordan',
     label: 'Jordan\'s grooming van',
     name: 'Jordan',
     header: 'JORDAN\'S GROOMING VAN',
@@ -97,6 +98,7 @@ const SCENARIOS = [
     ]
   },
   {
+    id: 'priya',
     label: 'Priya\'s meal-prep subscription',
     name: 'Priya',
     header: 'PRIYA\'S MEAL-PREP SUBSCRIPTION',
@@ -164,6 +166,19 @@ let feedbackCache = null;
 let answerButtons = [];
 let resetButton, scenarioSelect;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. Each diamond tests the principle it is named for (PRINCIPLES);
+// its question key is 'q-<scenario id>-<principle id>', since each venture has its own answers.
+const PAGE_CONCEPT = 173;      // Minimum Testable Iteration
+const PRINCIPLE_EVIDENCE = [
+  { id: 'service-before-product', concept: 174 },       // Service Before Product
+  { id: 'manual-before-automated', concept: 175 },      // Manual Before Automated
+  { id: 'pre-selling-before-building', concept: 176 }   // Pre-Selling Before Building
+];
+let lrs = null, resetEv, scenarioEv;
+let askedAt = Date.now();      // when the current diamond was put to the learner (or last judged)
+const diamondQuestions = {}, diamondAttempts = {};
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -187,7 +202,10 @@ function setup() {
     answerButtons.push(b);
   }
   resetButton = createButton('Reset');
-  resetButton.mousePressed(resetPath);
+  resetButton.mousePressed(() => {
+    resetPath();
+    if (lrs) resetEv.press('reset');   // here, not in resetPath(): a scenario change also calls it
+  });
   resetButton.style('font-size', '16px');
   resetButton.style('padding', '4px 14px');
   scenarioSelect = createSelect();
@@ -198,6 +216,14 @@ function setup() {
   scenarioSelect.style('padding', '2px 4px');
 
   computeLayout();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Minimum Testable Iteration Decision Tree', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Minimum Testable Iteration Decision Tree MicroSim' });
+    resetEv = lrs.button('reset-button', { name: 'Reset Button', concept: c });
+    scenarioEv = lrs.item('scenario-select', { name: 'Scenario Selector', concept: c });
+  }
 
   describe('A vertical decision tree with three yes-or-no diamonds for a venture scenario, ' +
     'Jordan\'s grooming van or Priya\'s meal-prep subscription. Each diamond asks whether ' +
@@ -984,6 +1010,7 @@ function choose(slot) {
   if (depth >= STEPS) return;
   const which = answerAt(depth, slot);
   if (which === 'no' && tries[depth] > 0) return;
+  const step = depth;
   if (which === 'yes') {
     lastPick = { kind: 'holds', step: depth };
     depth++;
@@ -994,6 +1021,7 @@ function choose(slot) {
   }
   flash = 40;
   updateButtons();
+  xapiAnswer(step, which);
 }
 
 function resetPath() {
@@ -1003,12 +1031,31 @@ function resetPath() {
   lastPick = null;
   flash = 0;
   updateButtons();
+  askedAt = Date.now();
 }
 
 function changeScenario() {
   const i = SCENARIOS.findIndex(s => s.label === scenarioSelect.value());
   scen = i >= 0 ? i : 0;
   resetPath();
+  if (lrs) scenarioEv.study('select');
+}
+
+// One `answered` per judgment, in both xAPI modes. Yes is the judgment that holds at every
+// diamond; a No is a wrong attempt, and its button then locks until Reset, so no attempt repeats.
+function xapiAnswer(step, which) {
+  if (!lrs) return;
+  const sc = SCENARIOS[scen];
+  const pe = PRINCIPLE_EVIDENCE[step];
+  const key = 'q-' + sc.id + '-' + pe.id;
+  if (!diamondQuestions[key]) {
+    diamondQuestions[key] = lrs.question(key, { name: sc.label + ': ' + sc.tree[step].question,
+      concept: LRS.conceptId(pe.concept) });
+  }
+  diamondAttempts[key] = (diamondAttempts[key] || 0) + 1;
+  diamondQuestions[key].answer({ success: which === 'yes', response: which,
+    durationMs: Date.now() - askedAt, extensions: { 'attempt-number': diamondAttempts[key] } });
+  askedAt = Date.now();
 }
 
 // Show the current diamond's two answers. After all three are judged, the last

@@ -33,27 +33,33 @@ const WANT = 'Can Wait (Want)';
 // The six items on Jordan's shopping list, in the order shown on first load.
 // label is a short name used in the end-of-session review table.
 const ITEMS = [
-  { text: 'A basic grooming kit (clippers, brush, shampoo).',
+  { id: 'grooming-kit',
+    text: 'A basic grooming kit (clippers, brush, shampoo).',
     label: 'Basic grooming kit',
     correctAnswer: NEED,
     explanation: 'Without clippers, a brush, and shampoo, Jordan cannot deliver even one driveway session.' },
-  { text: 'A custom-branded van wrap.',
+  { id: 'van-wrap',
+    text: 'A custom-branded van wrap.',
     label: 'Custom-branded van wrap',
     correctAnswer: WANT,
     explanation: 'The lean test does not need a van at all yet, so a branded wrap for one can wait.' },
-  { text: 'Liability insurance covering in-home pet services.',
+  { id: 'liability-insurance',
+    text: 'Liability insurance covering in-home pet services.',
     label: 'Liability insurance',
     correctAnswer: NEED,
     explanation: 'Jordan needs coverage in place before grooming a customer\'s dog in a stranger\'s driveway.' },
-  { text: 'A professional booking website with online payments.',
+  { id: 'booking-website',
+    text: 'A professional booking website with online payments.',
     label: 'Booking website with payments',
     correctAnswer: WANT,
     explanation: 'Text-message booking from Chapter 6 already handles appointments for a small lean test.' },
-  { text: 'A local business license, if required in this area.',
+  { id: 'business-license',
+    text: 'A local business license, if required in this area.',
     label: 'Local business license',
     correctAnswer: NEED,
     explanation: 'It is an activity resource need: where a license is required, Jordan cannot operate legally without it.' },
-  { text: 'A second, backup set of premium clippers.',
+  { id: 'backup-clippers',
+    text: 'A second, backup set of premium clippers.',
     label: 'Backup premium clippers',
     correctAnswer: WANT,
     explanation: 'One working set of clippers is enough to run the current lean test.' }
@@ -75,6 +81,14 @@ let isWide = true;
 let cardBox = {}, panelBox = {}, summaryBox = {}, progressBox = {};
 
 let needButton, wantButton, nextButton, tryAgainButton;
+
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. Both categories are outcomes of one assessment, so every card tests it.
+const PAGE_CONCEPT = 272;                                           // Needs Vs Wants Assessment
+const CATEGORY_CONCEPT = { [NEED]: 272, [WANT]: 272 };              // Needs Vs Wants Assessment
+let lrs = null, nextEv, tryAgainEv;
+let cardShownAt = Date.now();    // when the current card was dealt, for the answer's duration
+const cardQuestions = {}, cardAttempts = {};
 
 function setup() {
   updateCanvasSize();
@@ -99,6 +113,14 @@ function setup() {
 
   computeLayout();
   updateButtons();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Startup Needs Sorter', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Startup Needs Sorter MicroSim' });
+    nextEv = lrs.button('next-card-button', { name: 'Next Card Button', concept: c });
+    tryAgainEv = lrs.button('try-again-button', { name: 'Try Again Button', concept: c });
+  }
 
   describe('A card-sorting quiz with six items a founder is considering buying for a ' +
     'mobile dog-grooming idea. For each card, choose Genuine Need or Can Wait (Want). ' +
@@ -500,6 +522,7 @@ function choose(choice) {
   answered = true;
   flash = 40;
   updateButtons();
+  xapiAnswer(s, choice, correct);
 }
 
 function nextCard() {
@@ -511,6 +534,8 @@ function nextCard() {
     answered = false;
   }
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) nextEv.press(finished ? 'results' : 'next');
 }
 
 function tryAgain() {
@@ -522,6 +547,22 @@ function tryAgain() {
   score = 0;
   flash = 0;
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) tryAgainEv.press('restart');
+}
+
+// One `answered` per card, in both xAPI modes. Cards are reshuffled on Try Again, so each
+// question is keyed by its item's id, never by its position.
+function xapiAnswer(s, choice, correct) {
+  if (!lrs) return;
+  const key = 'q-' + s.id;
+  if (!cardQuestions[key]) {
+    cardQuestions[key] = lrs.question(key, { name: s.text,
+      concept: LRS.conceptId(CATEGORY_CONCEPT[s.correctAnswer]) });
+  }
+  cardAttempts[key] = (cardAttempts[key] || 0) + 1;
+  cardQuestions[key].answer({ success: correct, response: LRS.slug(choice),
+    durationMs: Date.now() - cardShownAt, extensions: { 'attempt-number': cardAttempts[key] } });
 }
 
 // Enable, disable, show and relabel buttons to match the quiz state

@@ -29,22 +29,28 @@ const VALIDATED = 'Validated Learning';
 
 // The six statements, in the order shown on first load
 const STATEMENTS = [
-  { text: 'Busy dog owners will pay more for convenience.',
+  { id: 'pay-for-convenience',
+    text: 'Busy dog owners will pay more for convenience.',
     correctAnswer: ASSUMPTION,
     explanation: 'No one has been asked yet. It is a belief about customers, not something anyone observed.' },
-  { text: '3 of 5 neighbors said yes to a $40 driveway session this week.',
+  { id: 'neighbors-said-yes',
+    text: '3 of 5 neighbors said yes to a $40 driveway session this week.',
     correctAnswer: VALIDATED,
     explanation: 'Real behavior was observed: five real neighbors responded to a real offer this week.' },
-  { text: 'People who love their dogs will love this business.',
+  { id: 'dog-lovers-love-it',
+    text: 'People who love their dogs will love this business.',
     correctAnswer: ASSUMPTION,
     explanation: 'It is a feeling about customers, not a claim anyone has tested.' },
-  { text: '2 of 5 neighbors said the price was too high for a first try.',
+  { id: 'price-too-high',
+    text: '2 of 5 neighbors said the price was too high for a first try.',
     correctAnswer: VALIDATED,
     explanation: 'Real feedback was collected. A "no" from a real customer is still validated learning.' },
-  { text: 'A mobile service is obviously more convenient than driving to a groomer.',
+  { id: 'mobile-more-convenient',
+    text: 'A mobile service is obviously more convenient than driving to a groomer.',
     correctAnswer: ASSUMPTION,
     explanation: 'It sounds true, but no customer has been asked whether it is more convenient for them.' },
-  { text: 'One neighbor referred a friend after the driveway session.',
+  { id: 'neighbor-referral',
+    text: 'One neighbor referred a friend after the driveway session.',
     correctAnswer: VALIDATED,
     explanation: 'A referral is an observed real-world action, not a prediction.' }
 ];
@@ -63,6 +69,14 @@ let isWide = true;
 let cardBox = {}, panelBox = {}, summaryBox = {}, progressBox = {};
 
 let assumptionButton, validatedButton, nextButton, tryAgainButton;
+
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. A card tests the concept its correct category names.
+const PAGE_CONCEPT = 12;                                          // Assumption
+const CATEGORY_CONCEPT = { [ASSUMPTION]: 12, [VALIDATED]: 13 };   // Assumption, Validated Learning
+let lrs = null, nextEv, tryAgainEv;
+let cardShownAt = Date.now();    // when the current card was dealt, for the answer's duration
+const cardQuestions = {}, cardAttempts = {};
 
 function setup() {
   updateCanvasSize();
@@ -87,6 +101,14 @@ function setup() {
 
   computeLayout();
   updateButtons();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Assumption Ledger Sorter', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Assumption Ledger Sorter MicroSim' });
+    nextEv = lrs.button('next-card-button', { name: 'Next Card Button', concept: c });
+    tryAgainEv = lrs.button('try-again-button', { name: 'Try Again Button', concept: c });
+  }
 
   describe('A card-sorting quiz with six statements about a mobile dog-grooming idea. ' +
     'For each card, choose Assumption or Validated Learning. Feedback shows whether the ' +
@@ -437,6 +459,7 @@ function choose(choice) {
   answered = true;
   flash = 40;
   updateButtons();
+  xapiAnswer(s, choice, correct);
 }
 
 function nextCard() {
@@ -448,6 +471,8 @@ function nextCard() {
     answered = false;
   }
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) nextEv.press(finished ? 'results' : 'next');
 }
 
 function tryAgain() {
@@ -459,6 +484,22 @@ function tryAgain() {
   score = 0;
   flash = 0;
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) tryAgainEv.press('restart');
+}
+
+// One `answered` per card, in both xAPI modes. Cards are reshuffled on Try Again, so each
+// question is keyed by its statement's id, never by its position.
+function xapiAnswer(s, choice, correct) {
+  if (!lrs) return;
+  const key = 'q-' + s.id;
+  if (!cardQuestions[key]) {
+    cardQuestions[key] = lrs.question(key, { name: s.text,
+      concept: LRS.conceptId(CATEGORY_CONCEPT[s.correctAnswer]) });
+  }
+  cardAttempts[key] = (cardAttempts[key] || 0) + 1;
+  cardQuestions[key].answer({ success: correct, response: LRS.slug(choice),
+    durationMs: Date.now() - cardShownAt, extensions: { 'attempt-number': cardAttempts[key] } });
 }
 
 // Enable, disable, show and relabel buttons to match the quiz state

@@ -70,6 +70,18 @@ let hoverKey = null;    // 'box0'..'box3' or 'pivot'
 
 let prevButton, nextButton;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// One act = one view brought up: a box click, Next/Previous, an arrow key, or the return
+// arrow each show ONE phase (or the pivot note), and each is ONE inspection of what is now
+// shown, with engagement-mode saying which path. Next/Previous are not also button presses,
+// so a step is never counted twice. Re-showing what is already shown is not evidence.
+// Learning-graph ConceptIDs: each phase is its own concept; the page is the cycle as a whole.
+const PAGE_CONCEPT = 10;                           // Lean Startup Philosophy (ch. 1: the cycle is its expression)
+const PHASE_CONCEPT = [6, 7, 8, 9];                // Clarity, Validation, Action, Launch
+const PIVOT_CONCEPT = 11;                          // Evidence-Based Decision Making
+let lrs = null, phaseEv = [], pivotEv;
+let xapiShown = 0;                                 // what the panel shows: 0..3 or 'pivot' (Clarity on load)
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -84,6 +96,16 @@ function setup() {
 
   computeLayout();
   updateButtons();
+
+  if (window.LRSSim) {
+    lrs = LRSSim.create({ name: 'The Four-Phase Founder Pipeline', concept: LRS.conceptId(PAGE_CONCEPT),
+                          pageDwell: true, mount: '#xapi-slot',
+                          source: 'the Four-Phase Founder Pipeline MicroSim' });
+    phaseEv = STAGES.map((s, i) => lrs.item(LRS.slug(s.label),
+      { name: s.label + ' Phase', concept: LRS.conceptId(PHASE_CONCEPT[i]) }));
+    pivotEv = lrs.item('pivot-arrow', { name: 'Return Arrow: If Evidence Says Pivot',
+                                        concept: LRS.conceptId(PIVOT_CONCEPT) });
+  }
 
   describe('Four boxes labeled Clarity, Validation, Action, and Launch, connected by forward ' +
     'arrows, with a curved return arrow from Validation back to Clarity labeled if evidence ' +
@@ -410,24 +432,38 @@ function mousePressed() {
     showPivot = false;
   }
   updateButtons();
+  xapiShow('click');
 }
 
-function keyPressed() {
-  if (keyCode === RIGHT_ARROW) goNext();
-  else if (keyCode === LEFT_ARROW) goPrevious();
+function keyPressed(event) {
+  // Arrow keys pressed inside the xAPI teaching panel (its Full/Compact radios) are not steps
+  if (event && event.target && event.target.closest && event.target.closest('.xapi-panel')) return;
+  if (keyCode === RIGHT_ARROW) goNext('keyboard');
+  else if (keyCode === LEFT_ARROW) goPrevious('keyboard');
 }
 
-function goNext() {
+function goNext(via) {
   // Launch loops back to Clarity: the phases are a cycle, not a checklist
   selected = (selected + 1) % STAGES.length;
   showPivot = false;
   updateButtons();
+  xapiShow(via === 'keyboard' ? 'keyboard' : 'step');
 }
 
-function goPrevious() {
+function goPrevious(via) {
   if (selected > 0) selected--;
   showPivot = false;
   updateButtons();
+  xapiShow(via === 'keyboard' ? 'keyboard' : 'step');
+}
+
+// One inspection of the view this act brought up, only if the act changed what is shown.
+// The button handlers receive p5's mouse event as `via`, so anything but 'keyboard' is 'step'.
+function xapiShow(mode) {
+  const now = showPivot ? 'pivot' : selected;
+  if (now === xapiShown) return;
+  xapiShown = now;
+  if (lrs) (now === 'pivot' ? pivotEv : phaseEv[now]).study(mode);
 }
 
 function updateButtons() {

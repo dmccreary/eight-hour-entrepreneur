@@ -32,7 +32,8 @@ const CORRECT_GREEN = '#2E7D32'; // advance and root-cause flash, border and tex
 const CURRENT_FILL = '#FFF3E0';  // pale orange behind the current layer in the trail
 const DEAD_END_FILL = '#FFF8E1'; // pale amber behind a tried dead end
 
-// The drill-down tree: {text, children: [{text, correct, feedback}]}.
+// The drill-down tree: {text, children: [{id, text, correct, feedback}]}. id is the answer's
+// stable name, reported by xAPI as the learner's response.
 // Only the correct child of each layer has children of its own, so the correct path
 // is a single chain: symptom -> why 1 -> why 2 -> root cause.
 // short is the compact label used in the narrow-screen trail; question is what Priya
@@ -42,26 +43,26 @@ const DRILL = {
   short: 'No time to cook',
   question: 'Why not?',
   children: [
-    { text: 'There aren\'t enough hours in the day', correct: false,
+    { id: 'not-enough-hours', text: 'There aren\'t enough hours in the day', correct: false,
       feedback: 'This restates the symptom rather than explaining it — try the other option.' },
-    { text: 'My work schedule changes week to week', correct: true,
+    { id: 'schedule-changes', text: 'My work schedule changes week to week', correct: true,
       feedback: 'That explains the complaint instead of repeating it. Now ask why a changing schedule gets in the way of cooking.',
       short: 'Schedule changes weekly',
       question: 'Why does that stop you cooking?',
       children: [
-        { text: 'I can\'t commit to a weekly meal plan in advance', correct: true,
+        { id: 'cant-plan-ahead', text: 'I can\'t commit to a weekly meal plan in advance', correct: true,
           feedback: 'That names what the changing schedule actually breaks: planning dinner ahead. Ask why one more time.',
           short: 'Can\'t plan meals ahead',
           question: 'Why can\'t you commit to a plan?',
           children: [
-            { text: 'Busy parents just need a better app for organizing weekly meal plans', correct: false,
+            { id: 'better-planning-app', text: 'Busy parents just need a better app for organizing weekly meal plans', correct: false,
               feedback: 'That jumps to a solution before the cause is clear. Any planning app still needs a plan these customers can\'t keep.' },
-            { text: 'Rotating shifts make any pre-planned dinner routine unreliable', correct: true,
+            { id: 'rotating-shifts', text: 'Rotating shifts make any pre-planned dinner routine unreliable', correct: true,
               feedback: 'Ask why again and the answer stops changing. That is the sign you have reached the root cause.',
               short: 'Rotating shifts break plans',
               children: [] }
           ] },
-        { text: 'I don\'t like cooking', correct: false,
+        { id: 'dont-like-cooking', text: 'I don\'t like cooking', correct: false,
           feedback: 'Priya\'s interviews didn\'t support this — stay with what she actually heard.' }
       ] }
   ]
@@ -98,6 +99,16 @@ let restartRowY = 0, restartRowH = 30;
 let answerButtons = [];
 let restartButton;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. Each "why" is a fixed-order question (q1-q3, the Why N the
+// learner sees). The first two test explaining a layer instead of restating it; the third's
+// right answer is the root cause itself (the sim labels that layer WHY 3 · ROOT CAUSE).
+const PAGE_CONCEPT = 79;                  // Symptom Vs Root Cause
+const WHY_CONCEPT = [79, 79, 70];         // per layer: Symptom Vs Root Cause x2, Root Cause
+let lrs = null, restartEv, trailEv;
+let layerShownAt = Date.now();            // when the current layer (or its last pick) was shown
+const whyQuestions = {}, whyAttempts = {};
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -126,6 +137,14 @@ function setup() {
   restartButton.style('padding', '4px 14px');
 
   computeLayout();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Symptom vs Root Cause Drill-Down', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Symptom vs Root Cause Drill-Down MicroSim' });
+    restartEv = lrs.button('restart-button', { name: 'Restart Button', concept: c });
+    trailEv = lrs.button('why-trail', { name: 'Why Trail', concept: c });
+  }
 
   describe('A drill-down practice on the complaint "I don\'t have time to cook." ' +
     'At each layer, choose which of two answers explains the layer above. A correct choice ' +
@@ -863,6 +882,7 @@ function choose(i) {
   if (depth >= MAX_DEPTH) return;
   const opt = CHAIN[depth].children[i];
   if (!opt || triedAt[depth].includes(i)) return;
+  xapiPick(depth, opt);
   if (opt.correct) {
     depth++;
     triedAt[depth] = [];
@@ -885,15 +905,38 @@ function jumpTo(i) {
   lastPick = { kind: 'jump', layer: i };
   flash = 0;
   updateButtons();
+  layerShownAt = Date.now();
+  if (lrs) trailEv.press('jump-to-' + LRS.slug(NARROW_LABELS[i]));   // navigation, not an answer
 }
 
 function restart() {
+  const dirty = lastPick !== null;   // for xAPI: a Restart with nothing to restart is not evidence
   depth = 0;
   triedAt = [[]];
   deadEnds = 0;
   lastPick = null;
   flash = 0;
   updateButtons();
+  layerShownAt = Date.now();
+  if (lrs && dirty) restartEv.press('restart');
+}
+
+// One `answered` per pick, in both xAPI modes: the sim checks every pick right here
+// (advance, or a dead end back to the same layer). A tried dead end is disabled, so a
+// layer can't take the same pick twice until a jump back or Restart reopens it.
+function xapiPick(layer, opt) {
+  if (!lrs) return;
+  const key = 'q' + (layer + 1);
+  if (!whyQuestions[key]) {
+    whyQuestions[key] = lrs.question(key, { name: 'Why ' + (layer + 1) + ': ' +
+      sentence(CHAIN[layer].text) + ' ' + CHAIN[layer].question,
+      concept: LRS.conceptId(WHY_CONCEPT[layer]) });
+  }
+  whyAttempts[key] = (whyAttempts[key] || 0) + 1;
+  const now = Date.now();
+  whyQuestions[key].answer({ success: opt.correct, response: opt.id, durationMs: now - layerShownAt,
+    extensions: { 'attempt-number': whyAttempts[key] } });
+  layerShownAt = now;
 }
 
 // Show the current layer's answers. After the root cause is found, the last layer's

@@ -105,10 +105,11 @@ const CHIP_STYLES = {
 };
 
 // Scenario 0 is Priya's worked example; 1-4 are practice scenarios.
+// id = the scenario's stable name (the practice order shuffles, so xAPI keys use it).
 // honest = the reading the evidence supports (Problem, Solution, Customer).
 // reasons explain each signal's honest reading; why justifies the verdict.
 const SCENARIOS = [
-  { title: 'Priya\'s meal-prep subscription', worked: true, honest: '101',
+  { id: 'priya-meal-prep', title: 'Priya\'s meal-prep subscription', worked: true, honest: '101',
     evidence: [
       'Parents on rotating shifts described skipped dinners 3 to 5 nights a week before she asked.',
       'Only 1 of 10 families said yes to a weekly subscription that needs meals planned in advance.',
@@ -120,7 +121,7 @@ const SCENARIOS = [
       'the pain showed up in the exact customer she defined.'
     ],
     why: 'The pain and the people are real. Only the offer failed, because it asked for planning that shift work can\'t support. Keep both and redesign the offer.' },
-  { title: 'Jordan\'s driveway grooming test', honest: '111',
+  { id: 'jordan-driveway-grooming', title: 'Jordan\'s driveway grooming test', honest: '111',
     evidence: [
       '4 of 5 neighbors brought up the 40-minute drive to the groomer before Jordan mentioned it.',
       '3 of 5 paid $40 for a driveway session. His bar, set in advance, was 2 of 5.',
@@ -132,7 +133,7 @@ const SCENARIOS = [
       'the buyers match his target customer.'
     ],
     why: 'Every element has evidence behind it, including money that changed hands. Jordan keeps going as designed and sets his next validation milestone.' },
-  { title: 'Ana\'s closet-organizing service', honest: '001',
+  { id: 'ana-closet-organizing', title: 'Ana\'s closet-organizing service', honest: '001',
     evidence: [
       'Parents called messy closets "annoying" but ranked them last of 6 household frustrations.',
       'Her post got 15 likes and 4 "love this!" comments. Nobody paid the $20 deposit.',
@@ -144,7 +145,7 @@ const SCENARIOS = [
       'the right people showed up.'
     ],
     why: 'Ana found the right customer, but not a pain they would pay to fix. She should ask what they rank first and reframe the problem. Revisit Chapter 5.' },
-  { title: 'Theo\'s healthy lunch delivery', honest: '110',
+  { id: 'theo-lunch-delivery', title: 'Theo\'s healthy lunch delivery', honest: '110',
     evidence: [
       '8 of 10 people he interviewed said, unprompted, that they skip lunch on busy days.',
       '7 people prepaid $30 for a week of lunches.',
@@ -156,7 +157,7 @@ const SCENARIOS = [
       'the buyers are not the customer he defined.'
     ],
     why: 'The offer works for somebody, just not the office workers Theo targeted. He should learn why the nurses bought and redefine his target customer. Revisit Chapter 4.' },
-  { title: 'Ben\'s houseplant-care subscription', honest: '000',
+  { id: 'ben-houseplant-care', title: 'Ben\'s houseplant-care subscription', honest: '000',
     evidence: [
       '1 of 12 people mentioned dying plants, and only after Ben asked, "Don\'t you hate it when plants die?"',
       'His landing page got 40 visits and 9 "cool idea!" comments, but zero preorders.',
@@ -191,6 +192,21 @@ const widthCache = new Map();  // measured word widths, keyed by size, style and
 
 let signalBoxes = [];
 let priyaButton, actionButton, resetButton;
+
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. Each signal checkbox evidences the concept it names; each
+// practice scenario tests the decision its honest reading supports.
+const PAGE_CONCEPT = 184;                                           // Pivot Decision
+const SIGNAL_XAPI = [                                               // in checkbox order
+  { key: 'problem-validation-checkbox', concept: 77 },              // Problem Validation
+  { key: 'customer-payment-signal-checkbox', concept: 188 },        // Customer Payment Signal
+  { key: 'customer-definition-checkbox', concept: 45 }              // Customer Definition
+];
+const VERDICT_CONCEPT = { persevere: 185, pivot: 184, kill: 183 };  // Persevere, Pivot, Kill Decision
+let lrs = null, signalEvs = [], workedEv, scenarioEv, resetEv;
+let shownAt = Date.now();       // when the scenario (or the last check of it) was shown, for durations
+let checkedHere = new Set();    // readings already checked since the scenario was loaded
+const scenarioQuestions = {}, scenarioAttempts = {};
 
 function setup() {
   updateCanvasSize();
@@ -230,6 +246,17 @@ function setup() {
   }
 
   computeLayout();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Persevere vs Pivot Signal Checker', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Persevere vs Pivot Signal Checker MicroSim' });
+    signalEvs = SIGNALS.map((s, i) => lrs.button(SIGNAL_XAPI[i].key,
+      { name: s.name.replace('?', '') + ' Checkbox', concept: LRS.conceptId(SIGNAL_XAPI[i].concept) }));
+    workedEv = lrs.button('worked-example-button', { name: 'Load Priya\'s Evidence Button', concept: c });
+    scenarioEv = lrs.button('scenario-button', { name: 'Scenario Button', concept: c });
+    resetEv = lrs.button('reset-button', { name: 'Reset Button', concept: c });
+  }
 
   describe('A persevere, pivot, or kill decision checker with three evidence signals: ' +
     'Problem Validated, Solution Got Payment Signals, and Customer Definition Confirmed. ' +
@@ -876,10 +903,11 @@ function drawChips(key, x, y, w, h, s) {
 
 // ---------- Interaction ----------
 
-function onSignalChange() {
+function onSignalChange(e) {
   touched = true;
   if (checked) checked = false;   // a changed reading needs a new check
   updateButtons();
+  xapiSignal(e);
 }
 
 function setSignals(key) {
@@ -896,6 +924,8 @@ function loadPriya() {
   checkedReading = SCENARIOS[0].honest;
   learnerChecked = false;
   updateButtons();
+  xapiPresent();
+  if (lrs) workedEv.press('load');
 }
 
 function loadPractice() {
@@ -906,6 +936,7 @@ function loadPractice() {
   checked = false;
   learnerChecked = false;
   updateButtons();
+  xapiPresent();
 }
 
 function restartPractice() {
@@ -929,6 +960,7 @@ function checkReading() {
     practiceResults[practicePos] = checkedReading === sc.honest;
   }
   updateButtons();
+  xapiCheck(sc);
 }
 
 function actionLabel() {
@@ -954,9 +986,12 @@ function onAction() {
       loadPractice();
     }
   }
+  // Check My Reading is an answer (xapiCheck), not a press
+  if (lrs && label !== 'Check My Reading') scenarioEv.press(LRS.slug(label));
 }
 
 function resetAll() {
+  const dirty = mode !== 'explore' || touched;   // for xAPI: a Reset with nothing to reset is not evidence
   mode = 'explore';
   current = 0;
   setSignals('000');
@@ -967,6 +1002,56 @@ function resetAll() {
   practiceResults = [null, null, null, null];
   practicePos = 0;
   updateButtons();
+  xapiPresent();
+  if (lrs && dirty) resetEv.press('reset');
+}
+
+// ---------- xAPI helpers: each is a no-op without the runtime ----------
+
+// A signal toggled by the learner (setSignals() fires no change event) is exposure, not an
+// answer: the reading is only an answer when Check My Reading checks it.
+function xapiSignal(e) {
+  if (!lrs) return;
+  const i = signalBoxes.findIndex(cb => e && cb.elt.contains(e.target));
+  if (i >= 0) signalEvs[i].press(signalBoxes[i].checked() ? 'on' : 'off');
+}
+
+// Loading a scenario (or Reset) starts a new presentation of it
+function xapiPresent() {
+  shownAt = Date.now();
+  checkedHere = new Set();
+}
+
+// Check My Reading on a practice scenario is one `answered`, in both xAPI modes, keyed by the
+// scenario's id (the practice order shuffles). Every attempt counts, wrong ones included;
+// re-checking a reading already checked since the scenario was loaded (a signal toggled off
+// and on again) is not a new attempt. Priya's worked example shows the honest reading before
+// any choice, and the sim leaves it out of its own tally: checking it is a press, not an answer.
+function xapiCheck(sc) {
+  if (!lrs) return;
+  if (sc.worked) {
+    scenarioEv.press('check-example');
+    lrs.note('worked example: its honest reading was shown before any choice, so a check of it is not an answer');
+    return;
+  }
+  if (checkedHere.has(checkedReading)) {
+    lrs.note('q-' + sc.id + ': reading already checked for this scenario, not a new attempt');
+    return;
+  }
+  checkedHere.add(checkedReading);
+  const key = 'q-' + sc.id;
+  if (!scenarioQuestions[key]) {
+    scenarioQuestions[key] = lrs.question(key, { name: sc.title,
+      concept: LRS.conceptId(VERDICT_CONCEPT[DECISIONS[sc.honest].type]) });
+  }
+  scenarioAttempts[key] = (scenarioAttempts[key] || 0) + 1;
+  // response: the signals the learner checked, by canvas element, e.g. 'problem[,]customer'
+  const on = SIGNALS.filter((s, i) => checkedReading[i] === '1').map(s => LRS.slug(s.element));
+  const now = Date.now();
+  scenarioQuestions[key].answer({ success: checkedReading === sc.honest,
+    response: on.length ? on.join('[,]') : 'none', durationMs: now - shownAt,
+    extensions: { 'attempt-number': scenarioAttempts[key] } });
+  shownAt = now;
 }
 
 // Relabel the action button, then re-place the buttons for the new label's width

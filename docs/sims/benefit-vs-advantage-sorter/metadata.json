@@ -80,5 +80,18 @@
       "Write one benefit and one advantage sentence for your own idea and have a partner label them"
     ]
   },
-  "chapter": "08-value-proposition-benefit-advantage"
+  "chapter": "08-value-proposition-benefit-advantage",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-125",
+    "objects": {
+      "next-card-button": "eight-hour-entrepreneur-125",
+      "try-again-button": "eight-hour-entrepreneur-125",
+      "q-no-more-long-drives": "eight-hour-entrepreneur-126",
+      "q-vet-tech-experience": "eight-hour-entrepreneur-127",
+      "q-attentive-owner": "eight-hour-entrepreneur-126",
+      "q-neighbor-trust": "eight-hour-entrepreneur-127",
+      "q-affordable-comes-to-you": "eight-hour-entrepreneur-126",
+      "q-lives-in-neighborhood": "eight-hour-entrepreneur-127"
+    }
+  }
 }

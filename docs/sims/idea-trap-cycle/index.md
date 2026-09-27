@@ -6,7 +6,7 @@ og:image: /sims/idea-trap-cycle/idea-trap-cycle.png
 twitter:image: /sims/idea-trap-cycle/idea-trap-cycle.png
 social:
    cards: false
-status: built
+status: instrumented
 quality_score: 100
 ---
 

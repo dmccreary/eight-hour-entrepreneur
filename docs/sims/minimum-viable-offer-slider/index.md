@@ -6,7 +6,7 @@ og:image: /sims/minimum-viable-offer-slider/minimum-viable-offer-slider.png
 twitter:image: /sims/minimum-viable-offer-slider/minimum-viable-offer-slider.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Minimum Viable Offer Slider

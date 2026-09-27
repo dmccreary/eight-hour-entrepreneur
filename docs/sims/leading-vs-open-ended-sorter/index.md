@@ -6,7 +6,7 @@ og:image: /sims/leading-vs-open-ended-sorter/leading-vs-open-ended-sorter.png
 twitter:image: /sims/leading-vs-open-ended-sorter/leading-vs-open-ended-sorter.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Leading vs Open-Ended Question Sorter

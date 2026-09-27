@@ -73,6 +73,17 @@ let controlsRight = 0;      // x just past the last button
 
 let backButton, nextButton;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. The page is Customer Definition, which chapter 4 calls the
+// umbrella activity the funnel steps through; each band is evidence of the stage it names.
+// The last band covers two concepts; its example and "narrowed by" text are the chapter's
+// Customer Persona example ("Dana", "would Dana want this?"), so it maps to Customer Persona.
+const PAGE_CONCEPT = 45;                     // Customer Definition
+const STAGE_CONCEPT = [51, 59, 50, 43, 47];  // in STAGES order: Broad Market, Market Segment,
+                                             // Niche Market, Target Customer, Customer Persona
+let lrs = null;
+const stageEv = [];
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -91,6 +102,17 @@ function setup() {
 
   computeLayout();
   updateButtons();
+
+  // Broad Market is selected on load by the sim, not the student: that is not evidence
+  if (window.LRSSim) {
+    lrs = LRSSim.create({ name: 'Customer Definition Funnel', concept: LRS.conceptId(PAGE_CONCEPT),
+                          pageDwell: true, mount: '#xapi-slot',
+                          source: 'the Customer Definition Funnel MicroSim' });
+    STAGES.forEach((st, i) => {
+      stageEv[i] = lrs.item(LRS.slug(st.label), { name: st.label,
+                                                  concept: LRS.conceptId(STAGE_CONCEPT[i]) });
+    });
+  }
 
   describe('A funnel of five stacked bands that narrows from top to bottom: Broad Market, ' +
     'Market Segment, Niche Market, Target Customer, and Ideal Customer Profile / Persona. ' +
@@ -508,16 +530,22 @@ function bandAt(mx, my) {
 
 function mousePressed() {
   const i = bandAt(mouseX, mouseY);
-  if (i >= 0) selectStage(i);
+  if (i >= 0) {
+    const changed = i !== selected;
+    selectStage(i);
+    if (changed) xapiStudy('click');
+  }
 }
 
-function keyPressed() {
+function keyPressed(e) {
+  // Keys pressed in the xAPI teaching panel (its Full/Compact radios) belong to the panel
+  if (e && e.target && e.target.closest && e.target.closest('.xapi-panel')) return;
   if (keyCode === DOWN_ARROW || keyCode === RIGHT_ARROW) {
-    narrowNext();
+    narrowNext('keyboard');
     return false;  // keep the arrow key from scrolling the page
   }
   if (keyCode === UP_ARROW || keyCode === LEFT_ARROW) {
-    widenBack();
+    widenBack('keyboard');
     return false;
   }
 }
@@ -529,12 +557,27 @@ function selectStage(i) {
   updateButtons();
 }
 
-function narrowNext() {
-  if (selected < STAGES.length - 1) selectStage(selected + 1);
+// mode (xAPI only): 'keyboard' from the arrow keys. From the buttons p5 passes the mouse
+// event instead, which means a 'step'.
+function narrowNext(mode) {
+  if (selected < STAGES.length - 1) {
+    selectStage(selected + 1);
+    xapiStudy(typeof mode === 'string' ? mode : 'step');
+  }
 }
 
-function widenBack() {
-  if (selected > 0) selectStage(selected - 1);
+function widenBack(mode) {
+  if (selected > 0) {
+    selectStage(selected - 1);
+    xapiStudy(typeof mode === 'string' ? mode : 'step');
+  }
+}
+
+// One inspection of the stage just selected, whichever path selected it (click, Narrow
+// Next / Widen Back, or an arrow key); engagement-mode records the path. Re-clicking the
+// selected band, or stepping past either end, changes nothing and reports nothing.
+function xapiStudy(mode) {
+  if (lrs) stageEv[selected].study(mode);
 }
 
 // Widen Back is off at the top of the funnel; Narrow Next is off at the bottom

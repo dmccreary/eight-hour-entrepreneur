@@ -6,7 +6,7 @@ og:image: /sims/one-sentence-value-proposition-builder/one-sentence-value-propos
 twitter:image: /sims/one-sentence-value-proposition-builder/one-sentence-value-proposition-builder.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # One-Sentence Value Proposition Builder

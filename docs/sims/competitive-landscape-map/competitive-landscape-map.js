@@ -95,6 +95,16 @@ let statusX = 0;
 
 let lessButton, moreButton, clearButton;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. Chapter 7 calls this spectrum its example of Competitive
+// Landscape Mapping; each node is evidence of the kind of alternative it names.
+const PAGE_CONCEPT = 122;                          // Competitive Landscape Mapping
+const NODE_CONCEPT = [114, 110, 111, 113, 112];    // in NODES order: Do-Nothing Alternative,
+                                                   // Current Workaround, Substitute Solution,
+                                                   // Indirect Competitor, Direct Competitor
+let lrs = null, clearEv;
+const nodeEv = [];
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -111,6 +121,17 @@ function setup() {
 
   computeLayout();
   updateButtons();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Competitive Landscape Map', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Competitive Landscape Map MicroSim' });
+    NODES.forEach((nd, i) => {
+      nodeEv[i] = lrs.item(LRS.slug(nd.label), { name: nd.label,
+                                                 concept: LRS.conceptId(NODE_CONCEPT[i]) });
+    });
+    clearEv = lrs.button('clear-button', { name: 'Clear Button', concept: c });
+  }
 
   describe('A horizontal spectrum titled "How directly does this solve the same problem?" ' +
     'runs from "Costs nothing to keep choosing" to "Looks just like your offer." Five nodes sit ' +
@@ -611,14 +632,26 @@ function selectNode(i) {
 
 // Move the selection one node less direct (-1) or more direct (+1). With nothing
 // selected, More direct starts at the do-nothing end and Less direct at the direct end.
-function stepSelection(d) {
+// mode (xAPI only): 'step' from the buttons, 'keyboard' from the arrow keys.
+function stepSelection(d, mode = 'step') {
+  const was = selected;
   if (selected < 0) selectNode(d > 0 ? 0 : NODES.length - 1);
   else selectNode(constrain(selected + d, 0, NODES.length - 1));
+  if (selected !== was) xapiStudy(mode);
 }
 
 function clearSelection() {
+  const had = selected >= 0;
   selected = -1;
   updateButtons();
+  if (lrs && had) clearEv.press('clear');
+}
+
+// One inspection of the node just selected, whichever path selected it (click, a step
+// button or an arrow key); engagement-mode records the path. Re-selecting the current
+// node, or stepping past an end, changes nothing and reports nothing.
+function xapiStudy(mode) {
+  if (lrs && selected >= 0) nodeEv[selected].study(mode);
 }
 
 function updateButtons() {
@@ -646,16 +679,22 @@ function nodeAt(mx, my) {
 
 function mousePressed() {
   const i = nodeAt(mouseX, mouseY);
-  if (i >= 0) selectNode(i);
+  if (i >= 0) {
+    const changed = i !== selected;
+    selectNode(i);
+    if (changed) xapiStudy('click');
+  }
 }
 
-function keyPressed() {
+function keyPressed(e) {
+  // Keys pressed in the xAPI teaching panel (its Full/Compact radios) belong to the panel
+  if (e && e.target && e.target.closest && e.target.closest('.xapi-panel')) return;
   if (keyCode === LEFT_ARROW || keyCode === UP_ARROW) {
-    stepSelection(-1);
+    stepSelection(-1, 'keyboard');
     return false;
   }
   if (keyCode === RIGHT_ARROW || keyCode === DOWN_ARROW) {
-    stepSelection(1);
+    stepSelection(1, 'keyboard');
     return false;
   }
   if (keyCode === ESCAPE) clearSelection();

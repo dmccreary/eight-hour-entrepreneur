@@ -80,5 +80,18 @@
       "Label three statements about your own idea"
     ]
   },
-  "chapter": "01-entrepreneurship-lean-thinking"
+  "chapter": "01-entrepreneurship-lean-thinking",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-12",
+    "objects": {
+      "next-card-button": "eight-hour-entrepreneur-12",
+      "try-again-button": "eight-hour-entrepreneur-12",
+      "q-pay-for-convenience": "eight-hour-entrepreneur-12",
+      "q-neighbors-said-yes": "eight-hour-entrepreneur-13",
+      "q-dog-lovers-love-it": "eight-hour-entrepreneur-12",
+      "q-price-too-high": "eight-hour-entrepreneur-13",
+      "q-mobile-more-convenient": "eight-hour-entrepreneur-12",
+      "q-neighbor-referral": "eight-hour-entrepreneur-13"
+    }
+  }
 }

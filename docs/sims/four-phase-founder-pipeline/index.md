@@ -6,7 +6,7 @@ og:image: /sims/four-phase-founder-pipeline/four-phase-founder-pipeline.png
 twitter:image: /sims/four-phase-founder-pipeline/four-phase-founder-pipeline.png
 social:
    cards: false
-status: built
+status: instrumented
 quality_score: 100
 ---
 

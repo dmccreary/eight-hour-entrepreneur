@@ -53,6 +53,15 @@ let isWide = true;
 let resultBox = {}, panelBox = {};
 let resultCache = null;    // laid-out result card text, rebuilt when the inputs change
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. Price per Sale and Sales This Month have no concept of their own;
+// the chapter pairs them with break-even ("break-even depends on ... price, cost per sale, and
+// fixed monthly costs"). Chapter 15 names cost per sale a variable cost.
+const PAGE_CONCEPT = 253;                 // Break-Even Thinking
+const FIXED_COSTS = 257, VARIABLE_COSTS = 258;
+let lrs = null, jordanEv;
+let sliderEv = [];         // one lrs.slider handle per slider row, top to bottom
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -77,8 +86,21 @@ function setup() {
     { slider: salesSlider, label: 'Sales This Month:', widest: '30', fmt: v => String(v) }
   ];
   for (const r of sliderRows) r.slider.style('accent-color', FOX_ORANGE);
+  // xAPI: each slider reports every move and the value let go at (nothing else listens to them)
+  sliderRows.forEach((r, i) => {
+    r.slider.input(() => { if (lrs) sliderEv[i].input(Number(r.slider.value())); });
+    r.slider.changed(() => { if (lrs) sliderEv[i].settle(Number(r.slider.value())); });
+  });
 
   computeLayout();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Break-Even Calculator', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Break-Even Calculator MicroSim' });
+    jordanEv = lrs.button('load-jordans-numbers-button', { name: 'Load Jordan\'s Numbers Button', concept: c });
+    makeSliderEvidence();
+  }
 
   describe('A break-even calculator for a lean venture. Four sliders set Price per Sale ' +
     '(10 to 100 dollars), Cost per Sale (0 to 50 dollars), Fixed Monthly Costs (0 to 500 ' +
@@ -585,6 +607,27 @@ function loadJordan() {
   costSlider.value(JORDAN.cost);
   fixedSlider.value(JORDAN.fixed);
   salesSlider.value(JORDAN.sales);
+  if (lrs) {
+    jordanEv.press('load');
+    makeSliderEvidence();    // the sliders moved without an input event
+  }
+}
+
+// One class-1 handle per slider, in the dollars (or sales) the student sees. `initial` is the
+// slider's value now, so after Load Jordan's Numbers the next move's previous-value is the
+// loaded number rather than the student's last drag.
+function makeSliderEvidence() {
+  const spec = [
+    ['price-per-sale-slider', 'Price per Sale Slider', PAGE_CONCEPT],
+    ['variable-costs-slider', 'Cost per Sale Slider', VARIABLE_COSTS],
+    ['fixed-costs-slider', 'Fixed Monthly Costs Slider', FIXED_COSTS],
+    ['sales-this-month-slider', 'Sales This Month Slider', PAGE_CONCEPT]
+  ];
+  sliderEv = spec.map(([key, name, id], i) => {
+    const el = sliderRows[i].slider.elt;
+    return lrs.slider(key, { name: name, concept: LRS.conceptId(id), min: Number(el.min),
+      max: Number(el.max), initial: Number(el.value), round: 0 });
+  });
 }
 
 // ---------- Helpers ----------

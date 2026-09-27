@@ -77,5 +77,17 @@
       "Explain what one window takes from the session before it and hands to the session after it"
     ]
   },
-  "chapter": "02-founder-mindset-cohort"
+  "chapter": "02-founder-mindset-cohort",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-18",
+    "objects": {
+      "session-1": "eight-hour-entrepreneur-20",
+      "fdw-1": "eight-hour-entrepreneur-18",
+      "session-2": "eight-hour-entrepreneur-20",
+      "fdw-2": "eight-hour-entrepreneur-18",
+      "session-3": "eight-hour-entrepreneur-20",
+      "fdw-3": "eight-hour-entrepreneur-18",
+      "session-4": "eight-hour-entrepreneur-20"
+    }
+  }
 }

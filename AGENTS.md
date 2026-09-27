@@ -85,11 +85,31 @@ complex, it needs a MicroSim — do not settle for a wall of text.
   |---|---|---|
   | `scaffold` | red | Spec exists; no implementation yet. |
   | `built` | orange | Implemented; awaiting author review. |
+  | `instrumented` | teal signal icon | Built, and emits xAPI events (loads `docs/js/lrs-sim.js` and calls `LRSSim.create`). |
   | `approved` | green | Author tested it and approved it for learners. |
 
   New sims are born `scaffold`. Bump to `built` when you write a real
   implementation. **Never auto-advance a sim to `approved`** — only the human
-  author does that, after exercising the controls.
+  author does that, after exercising the controls. The `/add-xapi-events-to-microsim`
+  skill sets `instrumented` (via its `sync-status.py`); it never overwrites `approved`.
+
+### xAPI instrumentation
+
+Every MicroSim in this book emits xAPI statements through the shared runtime in
+`docs/js/` (`lrs-config.js`, `lrs-xapi.js`, `lrs-lite-sim.js`, `lrs-sim.js`,
+`xapi-json-viewer.js`) and `docs/css/lrs-xapi.css`. **Never edit those files** —
+they are identical in every book; only `lrs-config.js` is this book's own.
+
+- Instrument a new or changed sim with the `/add-xapi-events-to-microsim` skill,
+  and verify it with that skill's `check-xapi.py` (Full, Compact, production and
+  `?xapi=teaching` modes).
+- Each sim's `metadata.json` `xapi` block maps every fragment key it emits to a
+  learning-graph concept id (`eight-hour-entrepreneur-<ConceptID>`). Keep the map
+  and the code in step.
+- All sims here are production sims: the book default is Compact with no teaching
+  panel. Add `?xapi=teaching` to any sim or chapter URL to see its statement log.
+- The sim must still run without the runtime (p5.js editor): guard every call
+  with `if (lrs)` / `if (window.LRSSim)`.
 
 ### p5.js specifics
 

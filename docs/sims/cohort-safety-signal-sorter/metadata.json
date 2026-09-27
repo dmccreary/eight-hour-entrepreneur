@@ -80,5 +80,18 @@
       "Rewrite a Safety-Eroding moment as a Safety-Building response"
     ]
   },
-  "chapter": "02-founder-mindset-cohort"
+  "chapter": "02-founder-mindset-cohort",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-15",
+    "objects": {
+      "next-card-button": "eight-hour-entrepreneur-15",
+      "try-again-button": "eight-hour-entrepreneur-15",
+      "q-other-nine-question": "eight-hour-entrepreneur-15",
+      "q-eye-roll": "eight-hour-entrepreneur-15",
+      "q-half-formed-ideas-welcome": "eight-hour-entrepreneur-15",
+      "q-silent-after-mockery": "eight-hour-entrepreneur-15",
+      "q-clarifying-question": "eight-hour-entrepreneur-15",
+      "q-polished-canvas-fear": "eight-hour-entrepreneur-15"
+    }
+  }
 }

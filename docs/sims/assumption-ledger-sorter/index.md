@@ -6,7 +6,7 @@ og:image: /sims/assumption-ledger-sorter/assumption-ledger-sorter.png
 twitter:image: /sims/assumption-ledger-sorter/assumption-ledger-sorter.png
 social:
    cards: false
-status: built
+status: instrumented
 quality_score: 100
 ---
 

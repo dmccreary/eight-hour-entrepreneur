@@ -6,7 +6,7 @@ og:image: /sims/customer-definition-funnel/customer-definition-funnel.png
 twitter:image: /sims/customer-definition-funnel/customer-definition-funnel.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Customer Definition Funnel

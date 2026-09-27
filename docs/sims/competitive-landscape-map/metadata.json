@@ -81,5 +81,16 @@
       "Map one alternative of each kind for one's own venture and name a shortfall they all share"
     ]
   },
-  "chapter": "07-alternatives-competitive-landscape"
+  "chapter": "07-alternatives-competitive-landscape",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-122",
+    "objects": {
+      "do-nothing-alternative": "eight-hour-entrepreneur-114",
+      "current-workaround": "eight-hour-entrepreneur-110",
+      "substitute-solution": "eight-hour-entrepreneur-111",
+      "indirect-competitor": "eight-hour-entrepreneur-113",
+      "direct-competitor": "eight-hour-entrepreneur-112",
+      "clear-button": "eight-hour-entrepreneur-122"
+    }
+  }
 }

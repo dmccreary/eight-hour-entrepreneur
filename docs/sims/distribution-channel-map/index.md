@@ -6,7 +6,7 @@ og:image: /sims/distribution-channel-map/distribution-channel-map.png
 twitter:image: /sims/distribution-channel-map/distribution-channel-map.png
 social:
    cards: false
-status: built
+status: instrumented
 ---
 
 # Distribution Channel Map
