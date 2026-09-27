@@ -32,27 +32,33 @@ const ADVANTAGE = 'Advantage';
 // The six statements, in the order shown on first load.
 // label is a short name used in the end-of-session review table.
 const STATEMENTS = [
-  { text: 'No more forty-minute drives to a booked-solid groomer.',
+  { id: 'no-more-long-drives',
+    text: 'No more forty-minute drives to a booked-solid groomer.',
     label: 'No more forty-minute drives',
     correctAnswer: BENEFIT,
     explanation: 'It describes what the customer gains, a functional benefit of time saved, in terms of their life rather than the founder\'s.' },
-  { text: 'Three years as a veterinary tech means I already know how to handle anxious dogs safely.',
+  { id: 'vet-tech-experience',
+    text: 'Three years as a veterinary tech means I already know how to handle anxious dogs safely.',
     label: 'Three years as a vet tech',
     correctAnswer: ADVANTAGE,
     explanation: 'This is domain expertise: it explains why this founder specifically can deliver, not what the customer walks away with.' },
-  { text: 'You\'ll feel like a more attentive pet owner without rearranging your whole week.',
+  { id: 'attentive-owner',
+    text: 'You\'ll feel like a more attentive pet owner without rearranging your whole week.',
     label: 'Feel like an attentive owner',
     correctAnswer: BENEFIT,
     explanation: 'Feeling attentive is an emotional benefit and keeping your week intact is a functional one, and both happen in the customer\'s life.' },
-  { text: 'I already have the trust of a dozen neighbors after three successful driveway sessions.',
+  { id: 'neighbor-trust',
+    text: 'I already have the trust of a dozen neighbors after three successful driveway sessions.',
     label: 'Trust of a dozen neighbors',
     correctAnswer: ADVANTAGE,
     explanation: 'This is founder credibility, the proof that makes Jordan\'s claim believable, not an outcome the customer experiences.' },
-  { text: 'Affordable, convenient grooming that comes to you.',
+  { id: 'affordable-comes-to-you',
+    text: 'Affordable, convenient grooming that comes to you.',
     label: 'Affordable, comes to you',
     correctAnswer: BENEFIT,
     explanation: 'It sounds like a pitch about the business, but affordable and convenient describe value the customer receives, so it is a benefit.' },
-  { text: 'I live in the neighborhood, so I can respond same-day when regular groomers are booked out for weeks.',
+  { id: 'lives-in-neighborhood',
+    text: 'I live in the neighborhood, so I can respond same-day when regular groomers are booked out for weeks.',
     label: 'Lives in the neighborhood',
     correctAnswer: ADVANTAGE,
     explanation: 'Same-day service helps the customer, but the claim rests on a founder-specific circumstance: Jordan lives nearby.' }
@@ -74,6 +80,14 @@ let isWide = true;
 let cardBox = {}, panelBox = {}, summaryBox = {}, progressBox = {};
 
 let benefitButton, advantageButton, nextButton, tryAgainButton;
+
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. A card tests the concept its correct category names.
+const PAGE_CONCEPT = 125;                                           // Value Proposition
+const CATEGORY_CONCEPT = { [BENEFIT]: 126, [ADVANTAGE]: 127 };      // Customer Benefit, Founder Advantage
+let lrs = null, nextEv, tryAgainEv;
+let cardShownAt = Date.now();    // when the current card was dealt, for the answer's duration
+const cardQuestions = {}, cardAttempts = {};
 
 function setup() {
   updateCanvasSize();
@@ -98,6 +112,14 @@ function setup() {
 
   computeLayout();
   updateButtons();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Benefit vs Advantage Sorter', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Benefit vs Advantage Sorter MicroSim' });
+    nextEv = lrs.button('next-card-button', { name: 'Next Card Button', concept: c });
+    tryAgainEv = lrs.button('try-again-button', { name: 'Try Again Button', concept: c });
+  }
 
   describe('A card-sorting quiz with six value-proposition statements about a mobile ' +
     'dog-grooming idea. For each card, choose Benefit (why the customer wants it) or ' +
@@ -499,6 +521,7 @@ function choose(choice) {
   answered = true;
   flash = 40;
   updateButtons();
+  xapiAnswer(s, choice, correct);
 }
 
 function nextCard() {
@@ -510,6 +533,8 @@ function nextCard() {
     answered = false;
   }
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) nextEv.press(finished ? 'results' : 'next');
 }
 
 function tryAgain() {
@@ -521,6 +546,22 @@ function tryAgain() {
   score = 0;
   flash = 0;
   updateButtons();
+  cardShownAt = Date.now();
+  if (lrs) tryAgainEv.press('restart');
+}
+
+// One `answered` per card, in both xAPI modes. Cards are reshuffled on Try Again, so each
+// question is keyed by its statement's id, never by its position.
+function xapiAnswer(s, choice, correct) {
+  if (!lrs) return;
+  const key = 'q-' + s.id;
+  if (!cardQuestions[key]) {
+    cardQuestions[key] = lrs.question(key, { name: s.text,
+      concept: LRS.conceptId(CATEGORY_CONCEPT[s.correctAnswer]) });
+  }
+  cardAttempts[key] = (cardAttempts[key] || 0) + 1;
+  cardQuestions[key].answer({ success: correct, response: LRS.slug(choice),
+    durationMs: Date.now() - cardShownAt, extensions: { 'attempt-number': cardAttempts[key] } });
 }
 
 // Enable, disable, show and relabel buttons to match the quiz state

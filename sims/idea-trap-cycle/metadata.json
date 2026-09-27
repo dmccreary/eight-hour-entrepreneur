@@ -76,5 +76,19 @@
       "Name one forward-path action to take before the next session"
     ]
   },
-  "chapter": "01-entrepreneurship-lean-thinking"
+  "chapter": "01-entrepreneurship-lean-thinking",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-5",
+    "objects": {
+      "idea-box": "eight-hour-entrepreneur-3",
+      "refine-box": "eight-hour-entrepreneur-5",
+      "test-box": "eight-hour-entrepreneur-7",
+      "learn-box": "eight-hour-entrepreneur-13",
+      "loop-arrow": "eight-hour-entrepreneur-5",
+      "forward-arrow": "eight-hour-entrepreneur-13",
+      "refine-button": "eight-hour-entrepreneur-5",
+      "test-button": "eight-hour-entrepreneur-7",
+      "reset-button": "eight-hour-entrepreneur-5"
+    }
+  }
 }

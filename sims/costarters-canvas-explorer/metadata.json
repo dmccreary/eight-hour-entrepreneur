@@ -82,5 +82,22 @@
       "Name the block that a given one of Jordan's answers belongs to"
     ]
   },
-  "chapter": "03-costarters-canvas-framework"
+  "chapter": "03-costarters-canvas-framework",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-27",
+    "objects": {
+      "customer-block": "eight-hour-entrepreneur-31",
+      "problem-block": "eight-hour-entrepreneur-32",
+      "solution-block": "eight-hour-entrepreneur-33",
+      "alternatives-block": "eight-hour-entrepreneur-34",
+      "benefit-block": "eight-hour-entrepreneur-35",
+      "advantage-block": "eight-hour-entrepreneur-36",
+      "message-block": "eight-hour-entrepreneur-37",
+      "distribution-block": "eight-hour-entrepreneur-38",
+      "revenue-block": "eight-hour-entrepreneur-39",
+      "startup-needs-block": "eight-hour-entrepreneur-40",
+      "costs-block": "eight-hour-entrepreneur-41",
+      "show-answers-toggle": "eight-hour-entrepreneur-27"
+    }
+  }
 }

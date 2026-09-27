@@ -80,5 +80,15 @@
       "Explain the difference between a target customer and a persona using Dana"
     ]
   },
-  "chapter": "04-customer-discovery-segmentation"
+  "chapter": "04-customer-discovery-segmentation",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-45",
+    "objects": {
+      "broad-market": "eight-hour-entrepreneur-51",
+      "market-segment": "eight-hour-entrepreneur-59",
+      "niche-market": "eight-hour-entrepreneur-50",
+      "target-customer": "eight-hour-entrepreneur-43",
+      "ideal-customer-profile-persona": "eight-hour-entrepreneur-47"
+    }
+  }
 }

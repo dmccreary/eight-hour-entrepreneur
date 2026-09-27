@@ -94,5 +94,16 @@
       "Write an Evidence line that reports observed customer behavior with a number"
     ]
   },
-  "chapter": "17-pitching-accountability-next-steps"
+  "chapter": "17-pitching-accountability-next-steps",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-287",
+    "objects": {
+      "problem-section": "eight-hour-entrepreneur-287",
+      "solution-section": "eight-hour-entrepreneur-287",
+      "evidence-section": "eight-hour-entrepreneur-287",
+      "ask-section": "eight-hour-entrepreneur-287",
+      "start-pause-control": "eight-hour-entrepreneur-287",
+      "reset-button": "eight-hour-entrepreneur-287"
+    }
+  }
 }

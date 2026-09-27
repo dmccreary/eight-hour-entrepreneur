@@ -89,6 +89,19 @@ let cardBox = {}, statusBox = {}, msgBox = {};
 let msgLines = 2;      // message lines reserved below the preview
 let cache = null;      // laid-out sentence and feedback, rebuilt when anything changes
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs, one per sentence part, in PARTS order. The main alternative is what
+// Chapter 7 calls an alternative solution (the booked-solid salon, takeout).
+const PAGE_CONCEPT = 198;                      // One-Sentence Value Proposition
+const PART_EVIDENCE = [
+  { id: 'target-customer', concept: 43 },      // Target Customer
+  { id: 'core-benefit', concept: 141 },        // Core Benefit
+  { id: 'founder-advantage', concept: 127 },   // Founder Advantage
+  { id: 'main-alternative', concept: 107 }     // Alternative Solution
+];
+let lrs = null, clearEv;
+let partSelectEv = [], ownTextEv = [], loadEv = {};
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -113,6 +126,8 @@ function setup() {
     inp.attribute('aria-label', 'Your own ' + p.role);
     styleField(inp, p.color);
     inp.input(invalidate);
+    // xAPI: committing the box (Enter, or leaving it) is one press. The typed words are never read.
+    inp.changed(() => ownTextCommitted(i));
     inp.hide();
     inputs.push(inp);
   }
@@ -129,6 +144,21 @@ function setup() {
   }
 
   computeLayout();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'One-Sentence Value Proposition Builder', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the One-Sentence Value Proposition Builder MicroSim' });
+    PART_EVIDENCE.forEach((pe, i) => {
+      const pc = LRS.conceptId(pe.concept);
+      partSelectEv.push(lrs.item(pe.id + '-select', { name: PARTS[i].role + ' Dropdown', concept: pc }));
+      ownTextEv.push(lrs.button(pe.id + '-own-text', { name: 'Your Own ' + PARTS[i].role + ' Text Box',
+                                                       concept: pc }));
+    });
+    loadEv.jordan = lrs.button('load-jordans-version-button', { name: 'Load Jordan\'s Version Button', concept: c });
+    loadEv.priya = lrs.button('load-priyas-version-button', { name: 'Load Priya\'s Version Button', concept: c });
+    clearEv = lrs.button('clear-button', { name: 'Clear Button', concept: c });
+  }
 
   describe('A one-sentence value proposition builder. Four dropdowns, labeled Target ' +
     'Customer, Core Benefit, Founder Advantage and Main Alternative, each offer Jordan\'s ' +
@@ -744,6 +774,14 @@ function partChanged(i) {
   positionControls();
   invalidate();
   if (selects[i].value() === 'own') inputs[i].elt.focus();
+  if (lrs) partSelectEv[i].study('select');
+}
+
+// A "Write your own" box was committed. Reports only whether it holds any words, never the
+// words themselves: a learner's own idea may be personal.
+function ownTextCommitted(i) {
+  if (!lrs || selects[i].value() !== 'own') return;   // Load or Clear hid the box as it lost focus
+  ownTextEv[i].press(cleanText(inputs[i].value()) ? 'write' : 'erase');
 }
 
 // Fill all four dropdowns with one founder's wording. Typed text is kept, so
@@ -752,6 +790,7 @@ function loadVersion(who) {
   for (const s of selects) s.elt.value = who;
   positionControls();
   invalidate();
+  if (lrs) loadEv[who].press('load');
 }
 
 // Return every dropdown to unset and empty every text box
@@ -762,6 +801,7 @@ function clearAll() {
   }
   positionControls();
   invalidate();
+  if (lrs) clearEv.press('clear');
 }
 
 // ---------- Helpers ----------

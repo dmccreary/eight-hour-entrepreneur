@@ -81,5 +81,18 @@
       "Explain why a deposit is stronger evidence than a free trial or a stated interest"
     ]
   },
-  "chapter": "10-lean-testing-fundamentals"
+  "chapter": "10-lean-testing-fundamentals",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-173",
+    "objects": {
+      "reset-button": "eight-hour-entrepreneur-173",
+      "scenario-select": "eight-hour-entrepreneur-173",
+      "q-jordan-service-before-product": "eight-hour-entrepreneur-174",
+      "q-jordan-manual-before-automated": "eight-hour-entrepreneur-175",
+      "q-jordan-pre-selling-before-building": "eight-hour-entrepreneur-176",
+      "q-priya-service-before-product": "eight-hour-entrepreneur-174",
+      "q-priya-manual-before-automated": "eight-hour-entrepreneur-175",
+      "q-priya-pre-selling-before-building": "eight-hour-entrepreneur-176"
+    }
+  }
 }

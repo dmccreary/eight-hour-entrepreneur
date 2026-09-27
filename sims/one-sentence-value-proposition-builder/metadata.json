@@ -112,5 +112,21 @@
       "Run the five-second test with a partner and revise from the result"
     ]
   },
-  "chapter": "12-messaging-value-proposition"
+  "chapter": "12-messaging-value-proposition",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-198",
+    "objects": {
+      "target-customer-select": "eight-hour-entrepreneur-43",
+      "core-benefit-select": "eight-hour-entrepreneur-141",
+      "founder-advantage-select": "eight-hour-entrepreneur-127",
+      "main-alternative-select": "eight-hour-entrepreneur-107",
+      "target-customer-own-text": "eight-hour-entrepreneur-43",
+      "core-benefit-own-text": "eight-hour-entrepreneur-141",
+      "founder-advantage-own-text": "eight-hour-entrepreneur-127",
+      "main-alternative-own-text": "eight-hour-entrepreneur-107",
+      "load-jordans-version-button": "eight-hour-entrepreneur-198",
+      "load-priyas-version-button": "eight-hour-entrepreneur-198",
+      "clear-button": "eight-hour-entrepreneur-198"
+    }
+  }
 }

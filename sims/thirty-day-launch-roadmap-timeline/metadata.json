@@ -79,5 +79,14 @@
       "Explain the difference between a weekly milestone and a weekly target using one of Jordan's weeks"
     ]
   },
-  "chapter": "16-thirty-day-launch-plan"
+  "chapter": "16-thirty-day-launch-plan",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-274",
+    "objects": {
+      "week-1": "eight-hour-entrepreneur-275",
+      "week-2": "eight-hour-entrepreneur-275",
+      "week-3": "eight-hour-entrepreneur-275",
+      "week-4": "eight-hour-entrepreneur-275"
+    }
+  }
 }

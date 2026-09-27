@@ -100,6 +100,13 @@ let panelCache = null;      // laid-out panel text, rebuilt when the scope or wi
 
 let scopeSlider, resetButton;
 
+// ---- xAPI (docs/js/lrs-sim.js). Without it (p5.js editor) the sim still runs, silently. ----
+// Learning-graph ConceptIDs. The chapter defines solution scope as the boundary around what the
+// offer will and will not include, and introduces this slider as adjusting the offer's scope.
+const PAGE_CONCEPT = 89;       // Minimum Viable Offer
+const SCOPE_CONCEPT = 97;      // Solution Scope
+let lrs = null, scopeEv, resetEv;
+
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -111,6 +118,9 @@ function setup() {
   scopeSlider.style('accent-color', FOX_ORANGE);
   resetButton = createButton('Reset to 0');
   resetButton.mousePressed(resetScope);
+  // xAPI: the slider reports every move and the value let go at (nothing else listens to it)
+  scopeSlider.input(() => { if (lrs) scopeEv.input(scopeSlider.value()); });
+  scopeSlider.changed(() => { if (lrs) scopeEv.settle(scopeSlider.value()); });
   // Larger button text so the control is readable from the back of the room
   resetButton.style('font-size', '16px');
   resetButton.style('padding', '4px 12px');
@@ -120,6 +130,14 @@ function setup() {
   fade = FEATURES.map(f => (scope >= f.threshold ? 1 : 0));
 
   computeLayout();
+
+  if (window.LRSSim) {
+    const c = LRS.conceptId(PAGE_CONCEPT);
+    lrs = LRSSim.create({ name: 'Minimum Viable Offer Slider', concept: c, pageDwell: true,
+                          mount: '#xapi-slot', source: 'the Minimum Viable Offer Slider MicroSim' });
+    resetEv = lrs.button('reset-button', { name: 'Reset to 0 Button', concept: c });
+    makeScopeEvidence();
+  }
 
   describe('A checklist of the eight features in Jordan\'s full imagined mobile ' +
     'dog-grooming offer, controlled by an Offer Scope slider from 0 (bare minimum) to ' +
@@ -676,6 +694,17 @@ function renderBlocks(blocks, x, y, w, scope) {
 // Reset strips the offer back to its essential core
 function resetScope() {
   scopeSlider.value(0);
+  if (lrs) {
+    resetEv.press('reset');
+    makeScopeEvidence();     // the slider moved without an input event
+  }
+}
+
+// The Offer Scope slider as a class-1 handle, on the 0-100 scale the student sees. `initial` is
+// its value now, so after Reset to 0 the next move's previous-value is 0.
+function makeScopeEvidence() {
+  scopeEv = lrs.slider('solution-scope-slider', { name: 'Offer Scope Slider',
+    concept: LRS.conceptId(SCOPE_CONCEPT), min: 0, max: 100, initial: scopeSlider.value(), round: 0 });
 }
 
 // ---------- Helpers ----------

@@ -80,5 +80,18 @@
       "Rewrite a leading question from your own interview script as an open-ended question"
     ]
   },
-  "chapter": "09-discovery-interviews-reality-check"
+  "chapter": "09-discovery-interviews-reality-check",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-149",
+    "objects": {
+      "next-card-button": "eight-hour-entrepreneur-149",
+      "try-again-button": "eight-hour-entrepreneur-149",
+      "q-last-time-hassle": "eight-hour-entrepreneur-150",
+      "q-wouldnt-you-love-it": "eight-hour-entrepreneur-151",
+      "q-walk-me-through-bath": "eight-hour-entrepreneur-150",
+      "q-fair-price-40": "eight-hour-entrepreneur-151",
+      "q-most-frustrating-part": "eight-hour-entrepreneur-150",
+      "q-save-so-much-time": "eight-hour-entrepreneur-151"
+    }
+  }
 }

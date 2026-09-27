@@ -97,5 +97,15 @@
       "Calculate the break-even number for one's own venture idea and judge whether it is realistic"
     ]
   },
-  "chapter": "14-revenue-models-pricing"
+  "chapter": "14-revenue-models-pricing",
+  "xapi": {
+    "concept": "eight-hour-entrepreneur-253",
+    "objects": {
+      "price-per-sale-slider": "eight-hour-entrepreneur-253",
+      "variable-costs-slider": "eight-hour-entrepreneur-258",
+      "fixed-costs-slider": "eight-hour-entrepreneur-257",
+      "sales-this-month-slider": "eight-hour-entrepreneur-253",
+      "load-jordans-numbers-button": "eight-hour-entrepreneur-253"
+    }
+  }
 }
